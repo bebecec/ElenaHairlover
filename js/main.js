@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════════════════════════════
+   ELEGANCE BY STOICA — Controladores JavaScript Dinámicos
+   ═══════════════════════════════════════════════════════════ */
+
+// Nota: el catálogo de servicios y los datos de contacto viven en el HTML
+// estático de index.html (fuente de verdad, mejor para SEO). El panel de
+// administración (admin.js) mantiene su propia semilla y escribe en
+// localStorage / Firebase; esta web solo lee esos datos si existen.
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ─── Header con scroll (Efecto Glassmorphism translúcido) ──
+  const header = document.getElementById('header');
+  if (header) {
+    const checkScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+  }
+
+  // ─── Menú móvil ────────────────────────────────────────
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (menuBtn && mobileNav) {
+    const setMenuState = (open) => {
+      menuBtn.classList.toggle('active', open);
+      mobileNav.classList.toggle('active', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    menuBtn.addEventListener('click', () => {
+      setMenuState(!menuBtn.classList.contains('active'));
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+  }
+
+  // ─── Pestañas de Servicios (Carta interactiva) ───────
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  if (tabButtons.length > 0 && tabPanels.length > 0) {
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetPanel = document.getElementById(targetTab);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // ─── CARGA DINÁMICA DE TRATAMIENTOS Y CONFIGURACIÓN ──────
+  async function initDynamicContent() {
+    let services = [];
+    let salonInfo = {};
+
+    if (window.useFirebase && window.FirebaseLibPublic) {
+      // Leer de Firebase
+      const { getDocs, collection, getFirestore, initializeApp } = window.FirebaseLibPublic;
+      try {
+        const app = initializeApp(window.firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Servicios
+        const sSnap = await getDocs(collection(db, "servicios"));
+        sSnap.forEach(doc => {
+          services.push({ id: doc.id, ...doc.data() });
+        });
+
+        // Información General
+        const iSnap = await getDocs(collection(db, "salon_info"));
+        if (!iSnap.empty) {
+          salonInfo = iSnap.docs[0].data();
+        }
+      } catch (err) {
+        console.error("Error al cargar de Firebase, usando fallback local:", err);
+      }
+    }
+
+    // El HTML estático ya contiene el catálogo completo (mejor para SEO y sin
+    // parpadeo). Solo re-renderizamos dinámicamente si hay datos REALES:
+    // de Firebase, o ediciones guardadas por el panel de administración en
+    // localStorage. Si no hay nada, conservamos el HTML tal cual.
+    if (services.length === 0) {
+      const savedServices = localStorage.getItem("elegance_services");
+      if (savedServices) {
+        services = JSON.parse(savedServices);
+      }
+    }
+
+    const savedInfo = localStorage.getItem("elegance_salon_info");
+    if (!salonInfo.phone && savedInfo) {
+      salonInfo = JSON.parse(savedInfo);
+    }
+
+    // Renderizar Servicios solo si hay datos dinámicos; si no, se conserva el
+    // HTML estático ya presente en la página.
+    if (services.length > 0) {
+      const categories = ["facial", "corporal", "peluqueria", "depilacion", "unas-mirada"];
+      categories.forEach(cat => {
+        const panel = document.getElementById(cat);
+        if (panel) {
+          const listContainer = panel.querySelector(".services-list");
+          if (listContainer) {
+            listContainer.innerHTML = ""; // Limpiar
+
+            const catServices = services.filter(s => s.category === cat);
+            if (catServices.length === 0) {
+              listContainer.innerHTML = `<p style="grid-column: span 2; text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">Próximamente nuevos servicios.</p>`;
+              return;
+            }
+
+            catServices.forEach(s => {
+              const item = document.createElement("div");
+              item.className = "service-item";
+              item.innerHTML = `
+                <div>
+                  <span class="service-item__name">${escapeHtml(s.name)}</span>
+                  <span class="service-item__duration">${escapeHtml(s.duration)}</span>
+                </div>
+                <div class="service-item__dots"></div>
+                <span class="service-item__price">${escapeHtml(s.price)}</span>
+                <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="service-item__btn" data-service="${escapeHtml(s.name)}">Reservar</a>
+              `;
+              listContainer.appendChild(item);
+            });
+          }
+        }
+      });
+    }
+
+    // Inyectar datos del salón solo si el panel los ha personalizado
+    if (salonInfo && salonInfo.phone) {
+      updateSalonContactInfo(salonInfo);
+    }
+
+    // Cargar galería dinámicamente (solo si hay imágenes guardadas)
+    await loadDynamicGallery();
+
+    // Re-enlazar animaciones de entrada por si se inyectó contenido nuevo
+    initScrollAnimations();
+  }
+
+  async function loadDynamicGallery() {
+    // Solo sustituimos la galería estática si el panel de administración ha
+    // guardado imágenes propias. Si no, conservamos el HTML (mejor SEO, sin
+    // parpadeo y sin riesgo de referenciar imágenes inexistentes).
+    const saved = localStorage.getItem("elegance_gallery");
+    if (!saved) return;
+
+    const gallery = JSON.parse(saved);
+    const grid = document.querySelector(".galeria__grid");
+    if (grid && gallery.length > 0) {
+      grid.innerHTML = "";
+      gallery.forEach((img, index) => {
+        const item = document.createElement("div");
+        const isFeatured = index === 0;
+        item.className = `galeria__item ${isFeatured ? 'featured' : ''} fade-in-up`;
+        if (index > 0) {
+          item.style.animationDelay = `${index * 0.15}s`;
+        }
+
+        const desc = img.desc || "";
+
+        item.innerHTML = `
+          <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.name)}" class="galeria__img" width="1200" height="900" loading="lazy" />
+          <div class="galeria__overlay">
+            <h3 class="galeria__overlay-title">${escapeHtml(img.name)}</h3>
+            <p class="galeria__overlay-desc">${escapeHtml(desc)}</p>
+          </div>
+        `;
+        grid.appendChild(item);
+      });
+    }
+  }
+
+  async function loadDynamicVideos() {
+    let videosMetadata = {};
+    const defaultVideosMetadata = {
+      'hero': { label: 'Hero Principal', desc: 'Vídeo de fondo de la portada' },
+      'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
+      'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
+      'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
+      'clip-unas': { label: 'Uñas & Mirada', desc: 'Clip de manicura y micropigmentación' }
+    };
+
+    if (window.useFirebase && window.FirebaseLibPublic) {
+      const { getDocs, collection, getFirestore, initializeApp } = window.FirebaseLibPublic;
+      try {
+        const app = initializeApp(window.firebaseConfig);
+        const db = getFirestore(app);
+        const snap = await getDocs(collection(db, "videos_metadata"));
+        snap.forEach(doc => {
+          videosMetadata[doc.id] = doc.data();
+        });
+      } catch (err) {
+        console.error("Error al cargar metadatos de video de Firebase:", err);
+      }
+    }
+
+    const saved = localStorage.getItem("elegance_videos_metadata");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      videosMetadata = { ...defaultVideosMetadata, ...parsed, ...videosMetadata };
+    } else {
+      videosMetadata = { ...defaultVideosMetadata, ...videosMetadata };
+    }
+
+    const videoSlots = ['clip-facial', 'clip-peluqueria', 'clip-corporal', 'clip-unas'];
+    videoSlots.forEach(slotId => {
+      const sourceEl = document.querySelector(`.en-accion__video-wrap source[src="video/${slotId}.mp4"]`);
+      if (sourceEl) {
+        const videoWrap = sourceEl.closest('.en-accion__video-wrap');
+        if (videoWrap) {
+          const labelEl = videoWrap.querySelector('.en-accion__label');
+          if (labelEl && videosMetadata[slotId]) {
+            labelEl.textContent = videosMetadata[slotId].label;
+          }
+        }
+      }
+    });
+  }
+
+  function updateSalonContactInfo(info) {
+    // Teléfono
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    phoneLinks.forEach(link => {
+      const displayFormatted = info.phone || "872 03 24 92";
+      link.textContent = displayFormatted;
+      link.href = `tel:+34${displayFormatted.replace(/\s+/g, '')}`;
+    });
+
+    // Email
+    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    emailLinks.forEach(link => {
+      const email = info.email || "salonfashiongirona@yahoo.com";
+      link.textContent = email;
+      link.href = `mailto:${email}`;
+    });
+
+    // Dirección
+    const addressElements = document.querySelectorAll('.contacto__item p, .footer__contact p');
+    addressElements.forEach(el => {
+      if (el.textContent.includes("Jaume I") || el.textContent.includes("Girona, España")) {
+        const address = info.address || "Gran Via de Jaume I, 6, local 1\n17001 Girona, España";
+        el.innerHTML = address.replace(/\n/g, '<br>');
+      }
+    });
+
+    // Redes Sociales
+    const instagramLinks = document.querySelectorAll('a[href*="instagram.com"]');
+    instagramLinks.forEach(link => {
+      link.href = info.instagram || "https://www.instagram.com/elegancebystoica/?hl=es";
+    });
+
+    const facebookLinks = document.querySelectorAll('a[href*="facebook.com"]');
+    facebookLinks.forEach(link => {
+      link.href = info.facebook || "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/";
+    });
+
+    // Horarios
+    const horarioCard = document.querySelector('.contacto__horario-card');
+    if (horarioCard) {
+      const rows = horarioCard.querySelectorAll('.contacto__horario-row');
+      if (rows.length >= 2) {
+        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h – 19:00h";
+        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h – 15:00h";
+      }
+    }
+  }
+
+  function escapeHtml(text) {
+    if (!text) return "";
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  // ─── Animaciones de scroll (Intersection Observer) ──────
+  function initScrollAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-in-up');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeElements.forEach(el => observer.observe(el));
+    } else {
+      fadeElements.forEach(el => el.classList.add('visible'));
+    }
+  }
+
+  // Inicializar carga dinámica
+  // Esperamos 100ms para asegurar que Firebase CDN y config.js terminen de registrarse
+  setTimeout(() => {
+    initDynamicContent();
+  }, 100);
+
+});

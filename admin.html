@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración | Elegance by Stoica</title>
+
+  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body>
+
+  <!-- Panel de Control Principal -->
+  <div class="admin-dashboard" id="admin-dashboard">
+
+    <!-- Barra Superior -->
+    <header class="admin-header">
+      <div class="admin-header__inner">
+        <div class="admin-header__brand">
+          <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica" class="admin-header__logo" />
+          <span class="badge" id="db-mode-badge">Cargando modo...</span>
+        </div>
+        <div class="admin-header__actions">
+          <span class="user-email" id="admin-user-email">Administrador Local</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-container">
+
+        <!-- Pestañas de Secciones -->
+        <div class="admin-nav-tabs">
+          <button class="admin-tab-btn active" data-section="servicios">Gestión de Tratamientos</button>
+          <button class="admin-tab-btn" data-section="galeria">Galería de Imágenes</button>
+          <button class="admin-tab-btn" data-section="videos">Gestión de Vídeos</button>
+          <button class="admin-tab-btn" data-section="informacion">Información del Salón</button>
+        </div>
+
+        <!-- SECCIÓN 1: GESTIÓN DE SERVICIOS -->
+        <section class="admin-section active" id="sec-servicios">
+          <div class="admin-section__header">
+            <div>
+              <h3>Catálogo de Tratamientos</h3>
+              <p>Gestiona los servicios, duraciones y precios de la web pública.</p>
+            </div>
+            <button class="btn btn--gold-outline" id="new-service-btn">+ Nuevo Servicio</button>
+          </div>
+
+          <!-- Pestañas de Categorías de Servicios -->
+          <div class="category-tabs">
+            <button class="category-tab-btn active" data-cat="facial">Estética Facial</button>
+            <button class="category-tab-btn" data-cat="corporal">Estética Corporal</button>
+            <button class="category-tab-btn" data-cat="peluqueria">Peluquería</button>
+            <button class="category-tab-btn" data-cat="depilacion">Depilación</button>
+            <button class="category-tab-btn" data-cat="unas-mirada">Uñas &amp; Mirada</button>
+          </div>
+
+          <!-- Listado de Servicios -->
+          <div class="services-table-wrapper">
+            <table class="services-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Detalle / Duración</th>
+                  <th>Precio (€)</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="services-tbody">
+                <!-- Se poblará dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: GALERÍA DE IMÁGENES -->
+        <section class="admin-section" id="sec-galeria">
+          <div class="admin-section__header">
+            <div>
+              <h3>Galería de Imágenes</h3>
+              <p>Sube, organiza y elimina las imágenes que aparecen en la web pública.</p>
+            </div>
+            <label class="btn btn--gold-outline" for="gallery-upload-input" id="upload-gallery-btn"
+              style="cursor:pointer;">
+              + Subir Imágenes
+            </label>
+            <input type="file" id="gallery-upload-input" accept="image/*" multiple style="display:none;" />
+          </div>
+
+          <!-- Drop Zone -->
+          <div class="gallery-dropzone" id="gallery-dropzone">
+            <div class="gallery-dropzone__icon">🖼️</div>
+            <p class="gallery-dropzone__text">Arrastra imágenes aquí o haz clic en <strong>"Subir Imágenes"</strong></p>
+            <p class="gallery-dropzone__sub">Formatos: JPG, PNG, WEBP · Las imágenes se guardan localmente</p>
+          </div>
+
+          <!-- Grid de imágenes -->
+          <div class="gallery-grid" id="gallery-grid">
+            <!-- Se poblará dinámicamente -->
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: GESTIÓN DE VÍDEOS -->
+        <section class="admin-section" id="sec-videos">
+          <div class="admin-section__header">
+            <div>
+              <h3>Gestión de Vídeos</h3>
+              <p>Previsualiza los clips antes de publicarlos. Copia los archivos a <code
+                  style="color:var(--color-gold-warm); font-size:0.8rem;">video/</code> con el nombre exacto de cada
+                tarjeta.</p>
+            </div>
+          </div>
+
+          <!-- Banner informativo -->
+          <div class="video-info-banner">
+            <span class="video-info-banner__icon">ℹ</span>
+            <div>Los vídeos se previsualizan aquí desde tu dispositivo usando memoria temporal. Para activarlos en la
+              web pública, cópialos manualmente a la carpeta <code>video/</code> del proyecto con el nombre exacto
+              indicado en cada tarjeta.</div>
+          </div>
+
+          <!-- Hero Slot -->
+          <div class="video-slots-label">Vídeo del Hero — Portada principal (horizontal 16:9)</div>
+          <div class="video-slot-hero-wrap">
+            <div class="video-slot-card video-slot-card--hero">
+              <div class="video-slot__preview-wrap" style="aspect-ratio: 16/9;">
+                <div class="video-slot__placeholder" id="placeholder-hero">
+                  <div class="video-slot__play-icon">▶</div>
+                  <code class="video-slot__filename">video/hero.mp4</code>
+                  <span class="video-slot__hint">Horizontal · 16:9 · Sin sonido</span>
+                </div>
+                <video class="video-slot__video" id="video-hero" muted loop playsinline style="display:none;">
+                  <source id="source-hero" src="" type="video/mp4">
+                </video>
+                <div class="video-slot__live-badge" id="badge-hero" style="display:none;">● PREVIEW</div>
+              </div>
+              <div class="video-slot__panel">
+                <div class="video-slot__info">
+                  <h4 class="video-slot__label">Hero Principal</h4>
+                  <p class="video-slot__desc">Vídeo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza
+                    la foto de entrada.</p>
+                  <div class="video-slot__meta" id="meta-hero" style="display:none;">
+                    <span id="metatext-hero" class="video-slot__metatext"></span>
+                  </div>
+                </div>
+                <div class="video-slot__actions">
+                  <label class="btn btn--gold-outline" for="file-hero" style="cursor:pointer;">Seleccionar MP4</label>
+                  <input type="file" id="file-hero" accept="video/mp4,video/*" data-slot="hero" style="display:none;">
+                  <button type="button" class="btn btn--gold-outline video-edit-info-btn" data-slot="hero">Editar Info</button>
+                  <button class="btn btn--video-clear" id="clear-hero" data-slot="hero" style="display:none;">✕ Quitar preview</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clips Grid -->
+          <div class="video-slots-label" style="margin-top:44px;">Clips — Sección "En Acción" (vertical 9:16)</div>
+          <div class="video-slots-grid">
+
+            <!-- Facial -->
+            <div class="video-slot-card">
+              <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
+                <div class="video-slot__placeholder" id="placeholder-clip-facial">
+                  <div class="video-slot__play-icon">▶</div>
+                  <code class="video-slot__filename">clip-facial.mp4</code>
+                  <span class="video-slot__hint">Vertical · 9:16</span>
+                </div>
+                <video class="video-slot__video" id="video-clip-facial" muted loop playsinline style="display:none;">
+                  <source id="source-clip-facial" src="" type="video/mp4">
+                </video>
+                <div class="video-slot__live-badge" id="badge-clip-facial" style="display:none;">● PREVIEW</div>
+              </div>
+              <div class="video-slot__info">
+                <h4 class="video-slot__label">Estética Facial</h4>
+                <p class="video-slot__desc">Clip de tratamientos faciales</p>
+                <div class="video-slot__meta" id="meta-clip-facial" style="display:none;"><span
+                    id="metatext-clip-facial" class="video-slot__metatext"></span></div>
+              </div>
+              <div class="video-slot__actions">
+                <label class="btn btn--gold-outline" for="file-clip-facial" style="cursor:pointer;">Seleccionar
+                  MP4</label>
+                <input type="file" id="file-clip-facial" accept="video/mp4,video/*" data-slot="clip-facial"
+                  style="display:none;">
+                <button type="button" class="btn btn--gold-outline video-edit-info-btn" data-slot="clip-facial">Editar Info</button>
+                <button class="btn btn--video-clear" id="clear-clip-facial" data-slot="clip-facial"
+                  style="display:none;">✕ Quitar</button>
+              </div>
+            </div>
+
+            <!-- Peluquería -->
+            <div class="video-slot-card">
+              <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
+                <div class="video-slot__placeholder" id="placeholder-clip-peluqueria">
+                  <div class="video-slot__play-icon">▶</div>
+                  <code class="video-slot__filename">clip-peluqueria.mp4</code>
+                  <span class="video-slot__hint">Vertical · 9:16</span>
+                </div>
+                <video class="video-slot__video" id="video-clip-peluqueria" muted loop playsinline
+                  style="display:none;">
+                  <source id="source-clip-peluqueria" src="" type="video/mp4">
+                </video>
+                <div class="video-slot__live-badge" id="badge-clip-peluqueria" style="display:none;">● PREVIEW</div>
+              </div>
+              <div class="video-slot__info">
+                <h4 class="video-slot__label">Peluquería</h4>
+                <p class="video-slot__desc">Clip de servicios de peluquería</p>
+                <div class="video-slot__meta" id="meta-clip-peluqueria" style="display:none;"><span
+                    id="metatext-clip-peluqueria" class="video-slot__metatext"></span></div>
+              </div>
+              <div class="video-slot__actions">
+                <label class="btn btn--gold-outline" for="file-clip-peluqueria" style="cursor:pointer;">Seleccionar
+                  MP4</label>
+                <input type="file" id="file-clip-peluqueria" accept="video/mp4,video/*" data-slot="clip-peluqueria"
+                  style="display:none;">
+                <button type="button" class="btn btn--gold-outline video-edit-info-btn" data-slot="clip-peluqueria">Editar Info</button>
+                <button class="btn btn--video-clear" id="clear-clip-peluqueria" data-slot="clip-peluqueria"
+                  style="display:none;">✕ Quitar</button>
+              </div>
+            </div>
+
+            <!-- Corporal -->
+            <div class="video-slot-card">
+              <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
+                <div class="video-slot__placeholder" id="placeholder-clip-corporal">
+                  <div class="video-slot__play-icon">▶</div>
+                  <code class="video-slot__filename">clip-corporal.mp4</code>
+                  <span class="video-slot__hint">Vertical · 9:16</span>
+                </div>
+                <video class="video-slot__video" id="video-clip-corporal" muted loop playsinline style="display:none;">
+                  <source id="source-clip-corporal" src="" type="video/mp4">
+                </video>
+                <div class="video-slot__live-badge" id="badge-clip-corporal" style="display:none;">● PREVIEW</div>
+              </div>
+              <div class="video-slot__info">
+                <h4 class="video-slot__label">Estética Corporal</h4>
+                <p class="video-slot__desc">Clip de tratamientos corporales</p>
+                <div class="video-slot__meta" id="meta-clip-corporal" style="display:none;"><span
+                    id="metatext-clip-corporal" class="video-slot__metatext"></span></div>
+              </div>
+              <div class="video-slot__actions">
+                <label class="btn btn--gold-outline" for="file-clip-corporal" style="cursor:pointer;">Seleccionar
+                  MP4</label>
+                <input type="file" id="file-clip-corporal" accept="video/mp4,video/*" data-slot="clip-corporal"
+                  style="display:none;">
+                <button type="button" class="btn btn--gold-outline video-edit-info-btn" data-slot="clip-corporal">Editar Info</button>
+                <button class="btn btn--video-clear" id="clear-clip-corporal" data-slot="clip-corporal"
+                  style="display:none;">✕ Quitar</button>
+              </div>
+            </div>
+
+            <!-- Uñas & Mirada -->
+            <div class="video-slot-card">
+              <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
+                <div class="video-slot__placeholder" id="placeholder-clip-unas">
+                  <div class="video-slot__play-icon">▶</div>
+                  <code class="video-slot__filename">clip-unas.mp4</code>
+                  <span class="video-slot__hint">Vertical · 9:16</span>
+                </div>
+                <video class="video-slot__video" id="video-clip-unas" muted loop playsinline style="display:none;">
+                  <source id="source-clip-unas" src="" type="video/mp4">
+                </video>
+                <div class="video-slot__live-badge" id="badge-clip-unas" style="display:none;">● PREVIEW</div>
+              </div>
+              <div class="video-slot__info">
+                <h4 class="video-slot__label">Uñas &amp; Mirada</h4>
+                <p class="video-slot__desc">Clip de manicura y micropigmentación</p>
+                <div class="video-slot__meta" id="meta-clip-unas" style="display:none;"><span id="metatext-clip-unas"
+                    class="video-slot__metatext"></span></div>
+              </div>
+              <div class="video-slot__actions">
+                <label class="btn btn--gold-outline" for="file-clip-unas" style="cursor:pointer;">Seleccionar
+                  MP4</label>
+                <input type="file" id="file-clip-unas" accept="video/mp4,video/*" data-slot="clip-unas"
+                  style="display:none;">
+                <button type="button" class="btn btn--gold-outline video-edit-info-btn" data-slot="clip-unas">Editar Info</button>
+                <button class="btn btn--video-clear" id="clear-clip-unas" data-slot="clip-unas" style="display:none;">✕
+                  Quitar</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: INFORMACIÓN GENERAL -->
+        <section class="admin-section" id="sec-informacion">
+          <div class="admin-section__header">
+            <div>
+              <h3>Información del Salón</h3>
+              <p>Edita los datos de contacto y el horario que aparecen en el pie y en la sección de visitas.</p>
+            </div>
+          </div>
+
+          <form id="salon-info-form" class="salon-info-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="info-phone">Teléfono del Centro</label>
+                <input type="text" id="info-phone" required value="872 03 24 92" />
+              </div>
+              <div class="form-group">
+                <label for="info-email">Email de Contacto</label>
+                <input type="email" id="info-email" required value="salonfashiongirona@yahoo.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="info-address">Dirección Física</label>
+              <input type="text" id="info-address" required
+                value="Gran Via de Jaume I, 6, local 1, 17001 Girona, España" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="info-instagram">Enlace de Instagram</label>
+                <input type="url" id="info-instagram" required
+                  value="https://www.instagram.com/elegancebystoica/?hl=es" />
+              </div>
+              <div class="form-group">
+                <label for="info-facebook">Enlace de Facebook</label>
+                <input type="url" id="info-facebook" required
+                  value="https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="info-hours-week">Horario de Martes a Viernes</label>
+                <input type="text" id="info-hours-week" required value="09:00h – 19:00h" />
+              </div>
+              <div class="form-group">
+                <label for="info-hours-sat">Horario Sábados</label>
+                <input type="text" id="info-hours-sat" required value="08:00h – 15:00h" />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Guardar Datos del Centro</button>
+          </form>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL PARA CREAR / EDITAR SERVICIO -->
+  <div class="modal-overlay" id="service-modal" style="display: none;">
+    <div class="modal-box">
+      <h3 id="modal-service-title">Nuevo Servicio</h3>
+      <form id="service-form">
+        <input type="hidden" id="service-id" />
+
+        <div class="form-group">
+          <label for="service-name">Nombre del Tratamiento</label>
+          <input type="text" id="service-name" required placeholder="Ej. Higiene Hidro Detox T3" />
+        </div>
+
+        <div class="form-group">
+          <label for="service-duration">Detalle / Duración</label>
+          <input type="text" id="service-duration" required
+            placeholder="Ej. 1h 30min — Desintoxicación profunda de la piel" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service-price">Precio (€ o 'Gratuito')</label>
+            <input type="text" id="service-price" required placeholder="Ej. 55,00 €" />
+          </div>
+          <div class="form-group">
+            <label for="service-category">Categoría</label>
+            <select id="service-category" required>
+              <option value="facial">Estética Facial</option>
+              <option value="corporal">Estética Corporal</option>
+              <option value="peluqueria">Peluquería</option>
+              <option value="depilacion">Depilación</option>
+              <option value="unas-mirada">Uñas &amp; Mirada</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-box__actions">
+          <button type="button" class="btn btn--secondary" id="modal-cancel-btn">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="modal-save-btn">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL PARA VER Y EDITAR IMAGEN A TAMAÑO COMPLETO -->
+  <div class="modal-overlay" id="image-preview-modal" style="display: none;">
+    <div class="modal-box modal-box--image">
+      <button class="modal-close-btn" id="image-modal-close">✕</button>
+      
+      <div class="image-preview-wrap">
+        <img id="image-preview-img" src="" alt="Vista previa" />
+        <label for="image-edit-file-input" class="btn btn--gold-outline image-replace-btn">
+          📷 Reemplazar Foto
+        </label>
+        <input type="file" id="image-edit-file-input" accept="image/*" style="display: none;" />
+      </div>
+      
+      <div class="form-group">
+        <label for="image-preview-name-input">Nombre de la Imagen</label>
+        <input type="text" id="image-preview-name-input" required placeholder="Nombre descriptivo" />
+      </div>
+      
+      <div class="form-group">
+        <label for="image-preview-desc-input">Descripción (Web Pública)</label>
+        <textarea id="image-preview-desc-input" rows="2" placeholder="Breve descripción que se mostrará en el hover..."></textarea>
+      </div>
+      
+      <div class="modal-box__actions">
+        <button type="button" class="btn btn--delete" id="image-modal-delete">Eliminar Imagen</button>
+        <div style="flex-grow: 1;"></div>
+        <button type="button" class="btn btn--secondary" id="image-modal-cancel">Cerrar</button>
+        <button type="button" class="btn btn--primary" id="image-modal-save">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PARA EDITAR VÍDEO -->
+  <div class="modal-overlay" id="video-edit-modal" style="display: none;">
+    <div class="modal-box">
+      <h3 id="modal-video-title">Editar Información del Vídeo</h3>
+      <form id="video-edit-form">
+        <input type="hidden" id="video-edit-slot-id" />
+
+        <div class="form-group">
+          <label for="video-edit-label">Título del Vídeo</label>
+          <input type="text" id="video-edit-label" required placeholder="Ej. Estética Facial" />
+        </div>
+
+        <div class="form-group">
+          <label for="video-edit-desc">Descripción / Detalle</label>
+          <input type="text" id="video-edit-desc" required placeholder="Ej. Clip de tratamientos faciales" />
+        </div>
+
+        <div class="modal-box__actions">
+          <button type="button" class="btn btn--secondary" id="video-edit-cancel-btn">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="video-edit-save-btn">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Firebase Scripts (v10) de CDN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, doc, getDocs, setDoc, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    window.FirebaseLib = {
+      initializeApp, getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged,
+      getFirestore, collection, doc, getDocs, setDoc, addDoc, updateDoc, deleteDoc
+    };
+  </script>
+
+  <!-- Lógica e Inicialización del Panel -->
+  <script src="js/config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>

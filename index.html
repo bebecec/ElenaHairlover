@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance by Stoica | Peluquería y Estética Avanzada en Girona</title>
+  <meta name="description"
+    content="Salón de belleza premium en Girona. Especialistas en coloración, corte, balayage, tratamientos capilares y equipos de estética avanzada facial y corporal." />
+  <meta name="keywords"
+    content="salón de belleza girona, peluquería girona, estética avanzada, balayage girona, depilación láser, radiofrecuencia corporal" />
+
+  <!-- ⚠️ SUSTITUIR por el dominio real de producción en todas las URLs de abajo -->
+  <link rel="canonical" href="https://www.elegancebystoica.com/" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/Logo_Elegance_Vectorial.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="img/Logo_Elegance_Vectorial.svg" />
+
+  <!-- Open Graph (Facebook / WhatsApp / LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Elegance by Stoica" />
+  <meta property="og:title" content="Elegance by Stoica | Peluquería y Estética Avanzada en Girona" />
+  <meta property="og:description"
+    content="Salón de belleza premium en Girona. Coloración, balayage, tratamientos capilares y estética avanzada facial y corporal." />
+  <meta property="og:url" content="https://www.elegancebystoica.com/" />
+  <meta property="og:image" content="https://www.elegancebystoica.com/img/entrada.png" />
+  <meta property="og:image:alt" content="Entrada del salón Elegance by Stoica en Girona" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elegance by Stoica | Peluquería y Estética Avanzada en Girona" />
+  <meta name="twitter:description"
+    content="Salón de belleza premium en Girona. Coloración, balayage, tratamientos capilares y estética avanzada facial y corporal." />
+  <meta name="twitter:image" content="https://www.elegancebystoica.com/img/entrada.png" />
+
+  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- JSON-LD Datos Estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["BeautySalon", "HairSalon"],
+    "name": "Elegance by Stoica",
+    "url": "https://www.elegancebystoica.com/",
+    "image": "https://www.elegancebystoica.com/img/entrada.png",
+    "logo": "https://www.elegancebystoica.com/img/Logo_Elegance_Vectorial.svg",
+    "email": "salonfashiongirona@yahoo.com",
+    "telephone": "+34 872 03 24 92",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gran Via de Jaume I, 6, local 1",
+      "addressLocality": "Girona",
+      "postalCode": "17001",
+      "addressRegion": "Cataluña",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "priceRange": "€€€",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.9857698,
+      "longitude": 2.8220642
+    },
+    "hasMap": "https://www.google.com/maps/place/Elegance+by+Stoica/@41.9857738,2.8194893,17z",
+    "sameAs": [
+      "https://www.instagram.com/elegancebystoica/?hl=es",
+      "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HEADER — Navegación Fija con Filtro Frosted -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__logo">
+        <a href="#inicio" aria-label="Elegance by Stoica — Inicio">
+          <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica — Peluquería i Estética" class="header__logo-img" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="header__nav" id="nav-desktop">
+        <a href="#inicio" class="header__link">Inicio</a>
+        <a href="#servicios" class="header__link">Servicios</a>
+        <a href="#experiencia" class="header__link">Experiencia</a>
+        <a href="#galeria" class="header__link">Galería</a>
+        <a href="#contacto" class="header__link">Contacto</a>
+        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="header__cta">Reservar
+          Cita</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="header__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-controls="mobile-nav"
+        aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="header__mobile-nav" id="mobile-nav">
+      <a href="#inicio" class="header__mobile-link">Inicio</a>
+      <a href="#servicios" class="header__mobile-link">Servicios</a>
+      <a href="#experiencia" class="header__mobile-link">Experiencia</a>
+      <a href="#galeria" class="header__mobile-link">Galería</a>
+      <a href="#contacto" class="header__mobile-link">Contacto</a>
+      <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+        class="header__mobile-cta">Reservar Cita</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO — Estilo Lujo con Foto Real y Brillo -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg">
+      <picture>
+        <source srcset="img/entrada.webp" type="image/webp" />
+        <img class="hero__bg-video" src="img/entrada.png" alt="" aria-hidden="true" fetchpriority="high" />
+      </picture>
+      <div class="hero__bg-overlay"></div>
+    </div>
+    <div class="hero__content fade-in-up">
+
+      <h1 class="hero__title">
+        <span class="hero__title-script">Elegance</span>
+        <span class="hero__title-sub">Peluquería &amp; Estética Avanzada · Girona</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Peluquería de vanguardia y estética avanzada en Girona. Un oasis de bienestar y tratamientos exclusivos
+        personalizados para ti.
+      </p>
+      <div class="hero__actions">
+        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+          class="btn btn--primary">Reservar Cita Online</a>
+        <a href="#servicios" class="btn btn--secondary">Explorar Servicios</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      Descubrir más
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SERVICIOS — Carta de Servicios Interactiva  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <span class="section-label">Nuestra Carta de Precios</span>
+      <h2 class="section-title">Servicios & Tratamientos</h2>
+      <div class="section-divider"></div>
+
+      <!-- Botones de las pestañas -->
+      <div class="servicios__tabs-nav fade-in-up">
+        <button class="tab-btn active" data-tab="facial">Estética Facial</button>
+        <button class="tab-btn" data-tab="corporal">Estética Corporal</button>
+        <button class="tab-btn" data-tab="peluqueria">Peluquería</button>
+        <button class="tab-btn" data-tab="depilacion">Depilación</button>
+        <button class="tab-btn" data-tab="unas-mirada">Uñas & Mirada</button>
+      </div>
+
+      <!-- Contenedores de las pestañas -->
+      <div class="servicios__tabs-content fade-in-up">
+
+        <!-- Pestaña 1: Facial -->
+        <div class="tab-panel active" id="facial">
+          <div class="services-list">
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Tratamiento de la mirada T3</span>
+                <span class="service-item__duration">1 hora — Cuidado especial del contorno ocular</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">55,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Tratamiento de la mirada T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Fotorejuvenecimiento IPL con FHOS</span>
+                <span class="service-item__duration">40 min — Luminosidad y firmeza celular</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">85,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Fotorejuvenecimiento IPL con FHOS">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Carbón Activo FHOS Bioluminiscente</span>
+                <span class="service-item__duration">25 min — Tratamiento rejuvenecedor con IPL Protheus</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">60,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Carbón Activo FHOS Bioluminiscente">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Dermo Peel Expert T3</span>
+                <span class="service-item__duration">50 min — Exfoliación profunda y renovación celular</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">55,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Dermo Peel Expert T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Higiene Hidro Detox T3</span>
+                <span class="service-item__duration">1h 30min — Desintoxicación profunda de la piel</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">55,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Higiene Hidro Detox T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Vitamina C con Células Madre T3</span>
+                <span class="service-item__duration">1h 20min — Tratamiento antioxidante e iluminador</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">65,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Vitamina C con Células Madre T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Tratamiento Anti-edad Vinci</span>
+                <span class="service-item__duration">1 hora — Reafirmación y reducción de arrugas</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">75,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Tratamiento Anti-edad Vinci">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Doble Mentón T3</span>
+                <span class="service-item__duration">1 hora — Remodelación y reducción localizada de papada</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">50,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Doble Mentón T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Juventud Definitiva Celular 3 T3</span>
+                <span class="service-item__duration">1h 20min — Regeneración celular intensiva</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">65,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Juventud Definitiva Celular 3 T3">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Diagnóstico Facial</span>
+                <span class="service-item__duration">15 min — Evaluación detallada sin compromiso</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Gratuito</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Diagnóstico Facial">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 2: Corporal -->
+        <div class="tab-panel" id="corporal">
+          <div class="services-list">
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Tratamiento Reafirmante Protheus con FHOS</span>
+                <span class="service-item__duration">40 min — Remodelación y tonificación con aparatología</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">85,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Tratamiento Reafirmante Protheus con FHOS">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Radiofrecuencia Vinci Corporal</span>
+                <span class="service-item__duration">1 hora — Reafirmación y remodelación tisular</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">80,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Radiofrecuencia Vinci Corporal">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Liporadiología Vinci</span>
+                <span class="service-item__duration">1 hora — Reductor, celulitis y modelado corporal</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">80,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Liporadiología Vinci">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Ondas de Choque Athor</span>
+                <span class="service-item__duration">40 min — Combate la celulitis y flacidez</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">50,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Ondas de Choque Athor">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Titans Corporal</span>
+                <span class="service-item__duration">30 min — Estimulación muscular por electromagnetismo</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">50,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Titans Corporal">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Tratamiento Espalda de Seda</span>
+                <span class="service-item__duration">1 hora — Exfoliación, hidratación y masaje</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">60,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Tratamiento Espalda de Seda">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Crioslim Piernas Cansadas</span>
+                <span class="service-item__duration">30 min — Alivio, ligereza y reactivación circulatoria</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">30,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Crioslim Piernas Cansadas">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Peeling e Hidratación Corporal</span>
+                <span class="service-item__duration">40 min — Piel suave, renovada y profundamente nutrida</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">54,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Peeling e Hidratación Corporal">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Criolipólisis Vinci</span>
+                <span class="service-item__duration">1 hora — Eliminación de grasa localizada por frío</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">65,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Criolipólisis Vinci">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Presoterapia</span>
+                <span class="service-item__duration">30 min — Drenaje linfático y eliminación de toxinas</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">16,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Presoterapia">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Diagnóstico Corporal</span>
+                <span class="service-item__duration">15 min — Plan corporal a medida</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Gratuito</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Diagnóstico Corporal">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 3: Peluquería -->
+        <div class="tab-panel" id="peluqueria">
+          <div class="services-list">
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Corte de Cabello Femenino</span>
+                <span class="service-item__duration">45 min — Lavado, corte de tendencia y peinado base</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 25,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Corte de Cabello Femenino">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Coloración Premium (Sin Amoníaco)</span>
+                <span class="service-item__duration">1 hora — Cobertura perfecta y brillo multidimensional</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 35,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Coloración Premium">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Mechas Balayage & Babylights</span>
+                <span class="service-item__duration">2h 30min — Degradados y puntos de luz naturales</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 75,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Mechas Balayage & Babylights">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Alisado Orgánico de Queratina</span>
+                <span class="service-item__duration">2 horas — Liso perfecto, control de frizz y brillo espejo</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 60,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Alisado Orgánico de Queratina">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Tratamientos Capilares de Reconstrucción</span>
+                <span class="service-item__duration">45 min — Nutrición intensiva para cabellos dañados</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 30,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Tratamiento Capilar de Reconstrucción">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Peinado & Recogido de Eventos</span>
+                <span class="service-item__duration">1 hora — Ondas, recogidos y semirecogidos especiales</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 30,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Peinado & Recogido">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 4: Depilación -->
+        <div class="tab-panel" id="depilacion">
+          <div class="services-list">
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Depilación Láser — Cuerpo Entero (Mujer)</span>
+                <span class="service-item__duration">1h 15min — Láser de diodo de LED Frío / IPL</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 99,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Láser Cuerpo Entero Mujer">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Láser Pecho + Hombros + Abdomen (Hombre)</span>
+                <span class="service-item__duration">25 min — Sesión de alta potencia y máxima velocidad</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">49,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Láser Pecho+Hombros+Abdomen Hombre">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Depilación Láser Zonas Medianas</span>
+                <span class="service-item__duration">20 min — Axilas, ingles brasileñas, hombros o medias piernas</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 29,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Láser Zonas Medianas">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Depilación Cera Completa</span>
+                <span class="service-item__duration">45 min — Piernas, ingles y axilas (Cera tibia o caliente)</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 35,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Depilación Cera Completa">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Depilación Cera Zonas Individuales</span>
+                <span class="service-item__duration">15 min — Cejas, labio superior, axilas o ingles básicas</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 8,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Depilación Cera Individual">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña 5: Uñas y Mirada -->
+        <div class="tab-panel" id="unas-mirada">
+          <div class="services-list">
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Manicura Semi-Permanente Spa</span>
+                <span class="service-item__duration">45 min — Limpieza de cutícula, exfoliación, esmaltado
+                  semi-permanente</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">25,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Manicura Semi-Permanente">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Pedicura Profesional Reconstructora</span>
+                <span class="service-item__duration">1 hora — Spa de pies, eliminación de durezas y esmaltado</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">35,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Pedicura Reconstructora">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Micropigmentación de Cejas (Efecto Polvo / Microblading)</span>
+                <span class="service-item__duration">2 horas — Diseño de cejas de larga duración</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">Desde 180,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Micropigmentación Cejas">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Lifting de Pestañas con Tinte</span>
+                <span class="service-item__duration">45 min — Curvatura y profundidad natural para tu mirada</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">35,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Lifting de Pestañas">Reservar</a>
+            </div>
+
+            <div class="service-item">
+              <div>
+                <span class="service-item__name">Diseño & Depilación de Cejas con Tinte Hena</span>
+                <span class="service-item__duration">30 min — Visajismo y sombreado natural</span>
+              </div>
+              <div class="service-item__dots"></div>
+              <span class="service-item__price">20,00 €</span>
+              <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+                class="service-item__btn" data-service="Diseño Cejas Hena">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TU EXPERIENCIA — Timeline Lujosa           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="viaje" id="experiencia">
+    <div class="container">
+      <span class="section-label">El Proceso</span>
+      <h2 class="section-title light">Tu Experiencia Elegance</h2>
+      <div class="section-divider"></div>
+
+      <div class="viaje__grid">
+        <div class="viaje__step fade-in-up">
+          <div class="viaje__number">01</div>
+          <h3 class="viaje__step-title">Consulta Inicial</h3>
+          <p class="viaje__step-text">Evaluamos detalladamente las necesidades de tu piel, cuerpo o cabello en una cita
+            de diagnóstico gratuita.</p>
+        </div>
+        <div class="viaje__step fade-in-up" style="animation-delay: 0.1s">
+          <div class="viaje__number">02</div>
+          <h3 class="viaje__step-title">Plan Personalizado</h3>
+          <p class="viaje__step-text">Diseñamos un protocolo a medida combinando estilismo y la tecnología estética
+            idónea para ti.</p>
+        </div>
+        <div class="viaje__step fade-in-up" style="animation-delay: 0.2s">
+          <div class="viaje__number">03</div>
+          <h3 class="viaje__step-title">Tratamiento Premium</h3>
+          <p class="viaje__step-text">Disfruta de tu sesión de belleza en un ambiente relajante con productos de alta
+            gama y aparatología de punta.</p>
+        </div>
+        <div class="viaje__step fade-in-up" style="animation-delay: 0.3s">
+          <div class="viaje__number">04</div>
+          <h3 class="viaje__step-title">Cuidado Continuo</h3>
+          <p class="viaje__step-text">Te entregamos pautas y recomendaciones para prolongar los resultados y mantener tu
+            bienestar en casa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GALERÍA — Fotos Reales                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <span class="section-label">Resultados</span>
+      <h2 class="section-title">El Salón & Resultados</h2>
+      <div class="section-divider"></div>
+
+      <div class="galeria__grid">
+        <!-- Item 1: Entrada Principal Featured -->
+        <div class="galeria__item featured fade-in-up">
+          <picture>
+            <source srcset="img/entrada.webp" type="image/webp" />
+            <img src="img/entrada.png" alt="Entrada del salón Elegance by Stoica en Girona"
+              class="galeria__img" width="1200" height="900" loading="lazy" />
+          </picture>
+          <div class="galeria__overlay">
+            <h3 class="galeria__overlay-title">Nuestro Salón</h3>
+            <p class="galeria__overlay-desc">Ubicado en Girona — Un espacio de alta estética y confort</p>
+          </div>
+        </div>
+
+        <!-- Item 2: Peluquería en Acción -->
+        <div class="galeria__item fade-in-up" style="animation-delay: 0.15s">
+          <picture>
+            <source srcset="img/galeria1.webp" type="image/webp" />
+            <img src="img/galeria1.png" alt="Servicios de peluquería en acción en Elegance by Stoica"
+              class="galeria__img" width="1200" height="900" loading="lazy" />
+          </picture>
+          <div class="galeria__overlay">
+            <h3 class="galeria__overlay-title">Estilismo en Acción</h3>
+            <p class="galeria__overlay-desc">Cortes, color y peinados personalizados por nuestras estilistas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- EN ACCIÓN — Grid de Videos Cortos           -->
+  <!-- OCULTA hasta disponer de los clips .mp4 en /video.
+       Para reactivar: quitar este comentario de apertura y el de cierre,
+       y colocar hero.mp4 · clip-facial.mp4 · clip-peluqueria.mp4 ·
+       clip-corporal.mp4 · clip-unas.mp4 en la carpeta video/. -->
+  <!--
+  <section class="en-accion" id="en-accion">
+    <div class="container">
+      <span class="section-label">Momentos Reales</span>
+      <h2 class="section-title light">En Acción</h2>
+      <div class="section-divider"></div>
+
+      <div class="en-accion__grid">
+
+        <div class="en-accion__item fade-in-up">
+          <div class="en-accion__video-wrap">
+            <video autoplay muted loop playsinline poster="img/galeria1.png">
+              <source src="video/clip-facial.mp4" type="video/mp4">
+            </video>
+            <div class="en-accion__overlay">
+              <span class="en-accion__label">Estética Facial</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="en-accion__item fade-in-up" style="animation-delay:0.1s">
+          <div class="en-accion__video-wrap">
+            <video autoplay muted loop playsinline poster="img/galeria2.png">
+              <source src="video/clip-peluqueria.mp4" type="video/mp4">
+            </video>
+            <div class="en-accion__overlay">
+              <span class="en-accion__label">Peluquería</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="en-accion__item fade-in-up" style="animation-delay:0.2s">
+          <div class="en-accion__video-wrap">
+            <video autoplay muted loop playsinline poster="img/galeria1.png">
+              <source src="video/clip-corporal.mp4" type="video/mp4">
+            </video>
+            <div class="en-accion__overlay">
+              <span class="en-accion__label">Estética Corporal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="en-accion__item fade-in-up" style="animation-delay:0.3s">
+          <div class="en-accion__video-wrap">
+            <video autoplay muted loop playsinline poster="img/galeria2.png">
+              <source src="video/clip-unas.mp4" type="video/mp4">
+            </video>
+            <div class="en-accion__overlay">
+              <span class="en-accion__label">Uñas &amp; Mirada</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  -->
+  <!-- FIN sección "En Acción" (oculta) -->
+
+  <!-- Frase de Marca -->
+  <div class="marca-quote fade-in-up">
+    <blockquote class="marca-quote__text">
+      "La elegancia no es darse a notar, sino ser recordada."
+    </blockquote>
+    <span class="marca-quote__author">— Giorgio Armani</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HORARIOS Y CONTACTO REAL                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <span class="section-label">Contacto & Dirección</span>
+      <h2 class="section-title">Visítanos</h2>
+      <div class="section-divider"></div>
+
+      <div class="contacto__grid">
+        <!-- Info Izquierda -->
+        <div class="contacto__info fade-in-up">
+          <div class="contacto__item">
+            <h4>Ubicación</h4>
+            <p>Gran Via de Jaume I, 6, local 1<br>17001 Girona, España</p>
+          </div>
+
+          <div class="contacto__item">
+            <h4>Medios de Contacto</h4>
+            <p>Email: <a href="mailto:salonfashiongirona@yahoo.com">salonfashiongirona@yahoo.com</a></p>
+            <p>Teléfono: <a href="tel:+34872032492">872 03 24 92</a></p>
+          </div>
+
+          <div class="contacto__item">
+            <h4>Nuestras Redes</h4>
+            <p>Síguenos en nuestras cuentas oficiales:</p>
+            <div class="contacto__socials">
+              <a href="https://www.instagram.com/elegancebystoica/?hl=es" target="_blank"
+                class="contacto__social-badge">Instagram</a>
+              <a href="https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/" target="_blank"
+                class="contacto__social-badge">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horarios Centro -->
+        <div class="contacto__horario-card fade-in-up" style="animation-delay: 0.15s">
+          <h4>Horario del Salón</h4>
+
+          <div class="contacto__horario-row">
+            <span>Martes a Viernes</span>
+            <span>09:00h – 19:00h</span>
+          </div>
+
+          <div class="contacto__horario-row">
+            <span>Sábados</span>
+            <span>08:00h – 15:00h</span>
+          </div>
+
+          <div class="contacto__horario-row closed">
+            <span>Lunes y Domingo</span>
+            <span>Cerrado</span>
+          </div>
+        </div>
+
+        <!-- Mapa Derecha (Columna 3) -->
+        <div class="contacto__map-container fade-in-up" style="animation-delay: 0.3s">
+          <iframe class="contacto__map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.012586616053!2d2.8220642!3d41.9857698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bae73a2297498d%3A0xcd09506aa5b16cba!2sElegance%20by%20Stoica!5e0!3m2!1ses!2ses!4v1718300000000!5m2!1ses!2ses"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a href="https://www.google.com/maps/place/Elegance+by+Stoica/@41.9857738,2.8194893,17z/data=!3m1!4b1!4m6!3m5!1s0x12bae73a2297498d:0xcd09506aa5b16cba!8m2!3d41.9857698!4d2.8220642!16s%2Fg%2F12m9fxp5t?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" rel="noopener" class="btn btn--gold-outline btn--full contacto__map-btn">Cómo llegar en
+            Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- RESERVA — Portal Online                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="reserva" id="reserva">
+    <div class="container">
+      <span class="section-label">Reserva Online al Instante</span>
+      <h2 class="section-title light">Reserva tu Cita</h2>
+      <div class="section-divider"></div>
+
+      <div class="reserva__form-box reserva__form-box--cta fade-in-up">
+        <h3 class="reserva__cta-title">Plataforma de Reserva Directa</h3>
+        <p class="reserva__cta-text">
+          Elige tus tratamientos favoritos de peluquería, estética avanzada, manicura o masajes, selecciona tu estilista
+          o esteticista preferida y reserva el día y hora que mejor te convenga. Todo de forma inmediata y sin esperas a
+          través de nuestro portal oficial.
+        </p>
+        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" rel="noopener"
+          class="btn btn--primary btn--full reserva__cta-btn">
+          Reservar Cita Online
+        </a>
+        <p class="reserva__trust">✓ Sin esperas &nbsp;·&nbsp; ✓ Confirmación inmediata &nbsp;·&nbsp; ✓ 100&nbsp;% online</p>
+        <p class="reserva__note">Plataforma externa segura gestionada por Estetical.es</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica" class="footer__logo-img" />
+        <p class="footer__desc">Peluquería y Estética Avanzada en Girona. Tu belleza, estilo y bienestar son nuestra
+          dedicación exclusiva.</p>
+      </div>
+      <div class="footer__nav">
+        <h4>Navegación</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Ubicación & Soporte</h4>
+        <p>Gran Via de Jaume I, 6, local 1, Girona</p>
+        <p>Teléfono: <a href="tel:+34872032492">872 03 24 92</a></p>
+        <p>Email: salonfashiongirona@yahoo.com</p>
+        <p>Horario: Mar-Vie: 9h-19h / Sáb: 8h-15h</p>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <p>&copy; 2026 Elegance by Stoica. Todos los derechos reservados. Girona, Cataluña.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- BOTONES FLOTANTES — Contacto rápido          -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="floating-actions">
+    <a href="https://wa.me/34648158717" target="_blank" rel="noopener" class="floating-actions__btn"
+      aria-label="Escríbenos por WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+    <a href="tel:+34872032492" class="floating-actions__btn" aria-label="Llamar al salón">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CUSTOM MODAL — Notificación Elegante         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="modal" id="modal-success">
+    <div class="modal__content">
+      <div class="modal__icon">✓</div>
+      <h3 class="modal__title" id="modal-title">¡Reserva Solicitada!</h3>
+      <p class="modal__text" id="modal-text">Tu solicitud ha sido recibida con éxito. Nos pondremos en contacto contigo
+        en menos de 2 horas.</p>
+      <button class="btn btn--gold-outline" id="modal-close">Cerrar Ventana</button>
+    </div>
+  </div>
+
+  <!-- Configuración primero, para conocer si Firebase está activo -->
+  <script src="js/config.js"></script>
+
+  <!-- Firebase (v10) solo se descarga si hay credenciales reales configuradas -->
+  <script type="module">
+    if (window.useFirebase) {
+      const [{ initializeApp }, { getFirestore, collection, getDocs }] = await Promise.all([
+        import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"),
+        import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js")
+      ]);
+      window.FirebaseLibPublic = { initializeApp, getFirestore, collection, getDocs };
+    }
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

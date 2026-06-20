@@ -64,6 +64,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── Carrusel del Hero (autoplay + flechas + puntos + swipe) ──
+  function initHeroCarousel() {
+    const carousel = document.querySelector('.hero__carousel');
+    if (!carousel) return;
+
+    // Si el panel de administración guardó fotos del hero, reconstruimos los
+    // slides desde localStorage. Si no, se conservan los slides estáticos.
+    try {
+      const savedHero = localStorage.getItem('elegance_hero');
+      if (savedHero) {
+        const heroImages = JSON.parse(savedHero);
+        const slidesWrap = carousel.querySelector('.hero__slides');
+        if (slidesWrap && Array.isArray(heroImages) && heroImages.length > 0) {
+          slidesWrap.innerHTML = heroImages.map((img, i) => `
+            <div class="hero__slide${i === 0 ? ' is-active' : ''}">
+              <img class="hero__slide-img" src="${escapeHtml(img.src)}" alt="" aria-hidden="true" />
+            </div>
+          `).join('');
+        }
+      }
+    } catch (err) {
+      console.error('No se pudieron cargar las fotos del hero:', err);
+    }
+
+    const slides = Array.from(carousel.querySelectorAll('.hero__slide'));
+    const dotsWrap = carousel.querySelector('.hero__dots');
+    const prevBtn = carousel.querySelector('.hero__arrow--prev');
+    const nextBtn = carousel.querySelector('.hero__arrow--next');
+    if (slides.length === 0) return;
+
+    // Con una sola foto no hace falta navegación ni autoplay
+    if (slides.length < 2) {
+      [dotsWrap, prevBtn, nextBtn].forEach(el => el && (el.style.display = 'none'));
+      return;
+    }
+
+    let current = slides.findIndex(s => s.classList.contains('is-active'));
+    if (current < 0) current = 0;
+
+    // Generar un punto por slide
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero__dot' + (i === current ? ' is-active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Ir a la foto ${i + 1}`);
+      dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+      dotsWrap && dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    }
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
+    prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+    nextBtn && nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+
+    // Autoplay (respeta prefers-reduced-motion)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const interval = parseInt(carousel.getAttribute('data-autoplay'), 10) || 5000;
+    let timer = null;
+    function startAutoplay() {
+      if (reduceMotion) return;
+      timer = setInterval(next, interval);
+    }
+    function stopAutoplay() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', startAutoplay);
+
+    // Swipe táctil
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetAutoplay(); }
+    }, { passive: true });
+
+    startAutoplay();
+  }
+  initHeroCarousel();
+
   // ─── CARGA DINÁMICA DE TRATAMIENTOS Y CONFIGURACIÓN ──────
   async function initDynamicContent() {
     let services = [];
@@ -241,8 +335,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
       const displayFormatted = info.phone || "872 03 24 92";
-      link.textContent = displayFormatted;
       link.href = `tel:+34${displayFormatted.replace(/\s+/g, '')}`;
+      // El botón flotante conserva su icono SVG; solo se actualiza su enlace.
+      if (!link.classList.contains('floating-actions__btn')) {
+        link.textContent = displayFormatted;
+      }
+    });
+
+    // WhatsApp (botón flotante) — número propio, normalizado a wa.me/34…
+    let wa = (info.whatsapp || "648158717").replace(/\D/g, '');
+    if (!wa.startsWith('34')) wa = '34' + wa;
+    document.querySelectorAll('[data-whatsapp]').forEach(link => {
+      link.href = 'https://wa.me/' + wa;
     });
 
     // Email

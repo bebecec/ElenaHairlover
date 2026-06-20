@@ -54,6 +54,7 @@ const initialServicesSeed = [
 
 const initialSalonInfoSeed = {
   phone: "872 03 24 92",
+  whatsapp: "648 15 87 17",
   email: "salonfashiongirona@yahoo.com",
   address: "Gran Via de Jaume I, 6, local 1, 17001 Girona, España",
   instagram: "https://www.instagram.com/elegancebystoica/?hl=es",
@@ -66,6 +67,7 @@ const initialSalonInfoSeed = {
 let services = [];
 let salonInfo = {};
 let galleryImages = [];
+let heroImages = [];
 let currentCategory = "facial";
 let activeSection = "servicios";
 let firebaseApp, auth, db;
@@ -77,6 +79,7 @@ const dbModeBadge = document.getElementById("db-mode-badge");
 const adminUserEmail = document.getElementById("admin-user-email");
 
 const secServicios = document.getElementById("sec-servicios");
+const secHero = document.getElementById("sec-hero");
 const secGaleria = document.getElementById("sec-galeria");
 const secVideos = document.getElementById("sec-videos");
 const secInformacion = document.getElementById("sec-informacion");
@@ -97,6 +100,10 @@ const modalCancelBtn = document.getElementById("modal-cancel-btn");
 const galleryGrid = document.getElementById("gallery-grid");
 const galleryDropzone = document.getElementById("gallery-dropzone");
 const galleryUploadInput = document.getElementById("gallery-upload-input");
+
+const heroGrid = document.getElementById("hero-grid");
+const heroDropzone = document.getElementById("hero-dropzone");
+const heroUploadInput = document.getElementById("hero-upload-input");
 
 const imagePreviewModal = document.getElementById("image-preview-modal");
 const imagePreviewImg = document.getElementById("image-preview-img");
@@ -213,6 +220,7 @@ async function loadData() {
 
     // Galería
     loadGallery();
+    loadHero();
     populateSalonInfoForm();
     renderServicesTable();
   }
@@ -259,6 +267,7 @@ function renderServicesTable() {
 
 function populateSalonInfoForm() {
   document.getElementById("info-phone").value = salonInfo.phone || "";
+  document.getElementById("info-whatsapp").value = salonInfo.whatsapp || "648 15 87 17";
   document.getElementById("info-email").value = salonInfo.email || "";
   document.getElementById("info-address").value = salonInfo.address || "";
   document.getElementById("info-instagram").value = salonInfo.instagram || "";
@@ -364,6 +373,7 @@ salonInfoForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const phone = document.getElementById("info-phone").value.trim();
+  const whatsapp = document.getElementById("info-whatsapp").value.trim();
   const email = document.getElementById("info-email").value.trim();
   const address = document.getElementById("info-address").value.trim();
   const instagram = document.getElementById("info-instagram").value.trim();
@@ -371,7 +381,7 @@ salonInfoForm.addEventListener("submit", async (e) => {
   const hoursWeek = document.getElementById("info-hours-week").value.trim();
   const hoursSat = document.getElementById("info-hours-sat").value.trim();
 
-  const data = { phone, email, address, instagram, facebook, hoursWeek, hoursSat };
+  const data = { phone, whatsapp, email, address, instagram, facebook, hoursWeek, hoursSat };
 
   if (window.useFirebase) {
     const { setDoc, doc } = window.FirebaseLib;
@@ -624,6 +634,189 @@ if (imageModalSave) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// GESTIÓN DEL CARRUSEL DEL HERO
+// ═══════════════════════════════════════════════════════════
+
+function loadHero() {
+  const saved = localStorage.getItem("elegance_hero");
+  if (saved) {
+    heroImages = JSON.parse(saved);
+  } else {
+    // Semilla con las 2 fotos que ya están en el carrusel estático
+    heroImages = [
+      { id: "h_galeria1", name: "Interior del salón", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
+      { id: "h_entrada", name: "Entrada del salón", src: "img/entrada.png", addedAt: Date.now() - 1000 }
+    ];
+    saveHero();
+  }
+  renderHero();
+}
+
+function saveHero() {
+  try {
+    localStorage.setItem("elegance_hero", JSON.stringify(heroImages));
+    return true;
+  } catch (err) {
+    showToast("No hay espacio para guardar tantas fotos. Sube menos o más ligeras.", "error");
+    return false;
+  }
+}
+
+function renderHero() {
+  if (!heroGrid) return;
+  heroGrid.innerHTML = "";
+
+  if (heroImages.length === 0) {
+    heroDropzone.style.display = "flex";
+    return;
+  }
+  heroDropzone.style.display = "none";
+
+  heroImages.forEach((img, index) => {
+    const card = document.createElement("div");
+    card.className = "gallery-card";
+    card.dataset.id = img.id;
+    const orderBadge = index === 0 ? '<span class="gallery-card__order">1ª · Portada</span>' : `<span class="gallery-card__order">${index + 1}ª</span>`;
+    card.innerHTML = `
+      <div class="gallery-card__img-wrap">
+        <img src="${img.src}" alt="${escapeHtml(img.name)}" loading="lazy" />
+        <div class="gallery-card__overlay">
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>◀</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover después" ${index === heroImages.length - 1 ? "disabled" : ""}>▶</button>
+          <button class="gallery-btn gallery-btn--delete" data-id="${img.id}" title="Eliminar foto">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-card__info">
+        ${orderBadge}
+        <span class="gallery-card__name" title="${escapeHtml(img.name)}">${escapeHtml(img.name)}</span>
+      </div>
+    `;
+
+    card.querySelectorAll(".gallery-btn--move").forEach(btn => {
+      btn.addEventListener("click", () => moveHero(btn.getAttribute("data-id"), parseInt(btn.getAttribute("data-dir"), 10)));
+    });
+    card.querySelector(".gallery-btn--delete").addEventListener("click", () => deleteHeroImage(img.id));
+
+    heroGrid.appendChild(card);
+  });
+
+  // Tarjeta "+" para añadir
+  const addCard = document.createElement("label");
+  addCard.className = "gallery-card gallery-card--add";
+  addCard.htmlFor = "hero-upload-input";
+  addCard.innerHTML = `
+    <div class="gallery-card__add-icon">+</div>
+    <span>Añadir foto</span>
+  `;
+  heroGrid.appendChild(addCard);
+}
+
+function moveHero(id, dir) {
+  const i = heroImages.findIndex(x => x.id === id);
+  const j = i + dir;
+  if (i < 0 || j < 0 || j >= heroImages.length) return;
+  [heroImages[i], heroImages[j]] = [heroImages[j], heroImages[i]];
+  saveHero();
+  renderHero();
+}
+
+function deleteHeroImage(id) {
+  const img = heroImages.find(i => i.id === id);
+  if (!img) return;
+  if (confirm(`¿Quitar la foto "${img.name}" del carrusel del hero?`)) {
+    heroImages = heroImages.filter(i => i.id !== id);
+    saveHero();
+    renderHero();
+    showToast("Foto quitada del carrusel", "success");
+  }
+}
+
+// Redimensiona una imagen a un ancho máximo y la devuelve como dataURL (JPEG)
+function resizeImageFile(file, maxWidth, quality) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const image = new Image();
+      image.onload = () => {
+        const scale = Math.min(1, maxWidth / image.width);
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.round(image.width * scale);
+        canvas.height = Math.round(image.height * scale);
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      image.onerror = reject;
+      image.src = ev.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handleHeroUpload(files) {
+  if (!files || files.length === 0) return;
+  let added = 0;
+  for (const file of Array.from(files)) {
+    if (!file.type.startsWith("image/")) {
+      showToast(`"${file.name}" no es una imagen válida`, "error");
+      continue;
+    }
+    try {
+      const src = await resizeImageFile(file, 1600, 0.82);
+      heroImages.push({
+        id: "hero_" + Date.now() + "_" + Math.random().toString(36).substr(2, 6),
+        name: file.name.replace(/\.[^/.]+$/, ""),
+        src,
+        addedAt: Date.now()
+      });
+      added++;
+    } catch (err) {
+      showToast(`No se pudo procesar "${file.name}"`, "error");
+    }
+  }
+  if (added > 0) {
+    if (saveHero()) {
+      renderHero();
+      showToast(`${added} foto${added > 1 ? "s" : ""} añadida${added > 1 ? "s" : ""} al carrusel`, "success");
+    } else {
+      // Revertir las añadidas si no se pudo guardar (cuota)
+      heroImages.splice(heroImages.length - added, added);
+      renderHero();
+    }
+  }
+}
+
+if (heroUploadInput) {
+  heroUploadInput.addEventListener("change", (e) => {
+    handleHeroUpload(e.target.files);
+    e.target.value = "";
+  });
+}
+
+if (heroDropzone) {
+  heroDropzone.addEventListener("dragover", (e) => { e.preventDefault(); heroDropzone.classList.add("dragover"); });
+  heroDropzone.addEventListener("dragleave", () => heroDropzone.classList.remove("dragover"));
+  heroDropzone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    heroDropzone.classList.remove("dragover");
+    handleHeroUpload(e.dataTransfer.files);
+  });
+}
+
+if (heroGrid) {
+  heroGrid.addEventListener("dragover", (e) => { e.preventDefault(); heroGrid.classList.add("dragover-active"); });
+  heroGrid.addEventListener("dragleave", () => heroGrid.classList.remove("dragover-active"));
+  heroGrid.addEventListener("drop", (e) => {
+    e.preventDefault();
+    heroGrid.classList.remove("dragover-active");
+    handleHeroUpload(e.dataTransfer.files);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
 // NAVEGACIÓN DE PESTAÑAS
 // ═══════════════════════════════════════════════════════════
 document.querySelectorAll(".admin-tab-btn").forEach(btn => {
@@ -635,6 +828,7 @@ document.querySelectorAll(".admin-tab-btn").forEach(btn => {
     const section = e.target.getAttribute("data-section");
 
     if (section === "servicios") secServicios.classList.add("active");
+    else if (section === "hero") secHero.classList.add("active");
     else if (section === "galeria") secGaleria.classList.add("active");
     else if (section === "videos") secVideos.classList.add("active");
     else secInformacion.classList.add("active");

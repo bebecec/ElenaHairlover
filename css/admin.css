@@ -977,6 +977,34 @@ a {
   transform: scale(1.1);
 }
 
+.gallery-btn--move {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.gallery-btn--move:hover:not(:disabled) {
+  background: var(--color-gold-warm);
+  border-color: var(--color-gold-warm);
+  color: var(--color-dark-main);
+  transform: scale(1.1);
+}
+
+.gallery-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Badge de orden (carrusel del hero) */
+.gallery-card__order {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-warm);
+  margin-bottom: 4px;
+}
+
 .gallery-card__info {
   padding: 10px 14px;
   border-top: 1px solid var(--color-border-dark);

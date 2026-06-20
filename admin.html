@@ -40,6 +40,7 @@
         <!-- Pestañas de Secciones -->
         <div class="admin-nav-tabs">
           <button class="admin-tab-btn active" data-section="servicios">Gestión de Tratamientos</button>
+          <button class="admin-tab-btn" data-section="hero">Carrusel del Hero</button>
           <button class="admin-tab-btn" data-section="galeria">Galería de Imágenes</button>
           <button class="admin-tab-btn" data-section="videos">Gestión de Vídeos</button>
           <button class="admin-tab-btn" data-section="informacion">Información del Salón</button>
@@ -79,6 +80,33 @@
                 <!-- Se poblará dinámicamente -->
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <!-- SECCIÓN: CARRUSEL DEL HERO -->
+        <section class="admin-section" id="sec-hero">
+          <div class="admin-section__header">
+            <div>
+              <h3>Carrusel del Hero</h3>
+              <p>Fotos de la portada principal. La primera es la que se ve al cargar; ordénalas con las flechas
+                ◀ ▶. Las imágenes se redimensionan automáticamente al subirlas.</p>
+            </div>
+            <label class="btn btn--gold-outline" for="hero-upload-input" id="upload-hero-btn" style="cursor:pointer;">
+              + Subir Fotos del Hero
+            </label>
+            <input type="file" id="hero-upload-input" accept="image/*" multiple style="display:none;" />
+          </div>
+
+          <!-- Drop Zone -->
+          <div class="gallery-dropzone" id="hero-dropzone">
+            <div class="gallery-dropzone__icon">🖼️</div>
+            <p class="gallery-dropzone__text">Arrastra fotos aquí o haz clic en <strong>"Subir Fotos del Hero"</strong></p>
+            <p class="gallery-dropzone__sub">Recomendado: horizontal (16:9) · Se guardan localmente</p>
+          </div>
+
+          <!-- Grid de imágenes del hero -->
+          <div class="gallery-grid" id="hero-grid">
+            <!-- Se poblará dinámicamente -->
           </div>
         </section>
 
@@ -309,6 +337,13 @@
                 <label for="info-email">Email de Contacto</label>
                 <input type="email" id="info-email" required value="salonfashiongirona@yahoo.com" />
               </div>
+            </div>
+
+            <div class="form-group">
+              <label for="info-whatsapp">WhatsApp (móvil)</label>
+              <input type="text" id="info-whatsapp" value="648 15 87 17" />
+              <small style="color: var(--color-text-muted); font-size: 0.72rem;">Número con WhatsApp; se usa en el
+                botón flotante de la web.</small>
             </div>
 
             <div class="form-group">

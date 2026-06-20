@@ -38,7 +38,7 @@
       "services.tab_corporal": "Estética Corporal",
       "services.tab_peluqueria": "Peluquería",
       "services.tab_depilacion": "Depilación",
-      "services.tab_unas": "Uñas & Mirada",
+      "services.tab_unas": "Cejas & Pestañas",
       "services.btn_reserve": "Reservar",
       "services.badge_free": "Gratis",
 
@@ -112,7 +112,7 @@
       "services.tab_corporal": "Estètica Corporal",
       "services.tab_peluqueria": "Perruqueria",
       "services.tab_depilacion": "Depilació",
-      "services.tab_unas": "Ungles i Mirada",
+      "services.tab_unas": "Celles i Pestanyes",
       "services.btn_reserve": "Reservar",
       "services.badge_free": "Gratis",
 
@@ -186,7 +186,7 @@
       "services.tab_corporal": "Estetică Corporală",
       "services.tab_peluqueria": "Coafură",
       "services.tab_depilacion": "Epilare",
-      "services.tab_unas": "Unghii & Privire",
+      "services.tab_unas": "Sprâncene & Gene",
       "services.btn_reserve": "Rezervă",
       "services.badge_free": "Gratuit",
 
@@ -260,7 +260,7 @@
       "services.tab_corporal": "Эстетика Тела",
       "services.tab_peluqueria": "Парикмахерская",
       "services.tab_depilacion": "Депиляция",
-      "services.tab_unas": "Ногти и Взгляд",
+      "services.tab_unas": "Брови и Ресницы",
       "services.btn_reserve": "Записаться",
       "services.badge_free": "Бесплатно",
 
@@ -351,8 +351,6 @@
       "20 min — Axilas, ingles brasileñas, hombros o medias piernas": "20 min — Aixelles, engonals brasilers, espatlles o mitges cames",
       "45 min — Piernas, ingles y axilas (Cera tibia o caliente)": "45 min — Cames, engonals i aixelles (Cera tèbia o calenta)",
       "15 min — Cejas, labio superior, axilas o ingles básicas": "15 min — Celles, llavi superior, aixelles o engonals bàsics",
-      "45 min — Limpieza de cutícula, exfoliación, esmaltado semi-permanente": "45 min — Neteja de cutícula, exfoliació, esmaltat semipermanent",
-      "1 hora — Spa de pies, eliminación de durezas y esmaltado": "1 hora — Spa de peus, eliminació de dureses i esmaltat",
       "2 horas — Diseño de cejas de larga duración": "2 hores — Disseny de celles de llarga durada",
       "45 min — Curvatura y profundidad natural para tu mirada": "45 min — Curvatura i profunditat natural per a la teva mirada",
       "30 min — Visajismo y sombreado natural": "30 min — Visagisme i ombrejat natural"
@@ -390,8 +388,6 @@
       "20 min — Axilas, ingles brasileñas, hombros o medias piernas": "20 min — Axile, inghinal brazilian, umeri sau jumătate de picioare",
       "45 min — Piernas, ingles y axilas (Cera tibia o caliente)": "45 min — Picioare, inghinal și axile (ceară caldă sau fierbinte)",
       "15 min — Cejas, labio superior, axilas o ingles básicas": "15 min — Sprâncene, buza superioară, axile sau inghinal de bază",
-      "45 min — Limpieza de cutícula, exfoliación, esmaltado semi-permanente": "45 min — Curățarea cuticulei, exfoliere, ojă semipermanentă",
-      "1 hora — Spa de pies, eliminación de durezas y esmaltado": "1 oră — Spa pentru picioare, îndepărtarea bătăturilor și ojă",
       "2 horas — Diseño de cejas de larga duración": "2 ore — Design al sprâncenelor de lungă durată",
       "45 min — Curvatura y profundidad natural para tu mirada": "45 min — Curbură și profunzime naturală pentru privirea ta",
       "30 min — Visajismo y sombreado natural": "30 min — Visagism și conturare naturală"
@@ -429,8 +425,6 @@
       "20 min — Axilas, ingles brasileñas, hombros o medias piernas": "20 мин — Подмышки, бразильское бикини, плечи или половина ног",
       "45 min — Piernas, ingles y axilas (Cera tibia o caliente)": "45 мин — Ноги, зона бикини и подмышки (тёплый или горячий воск)",
       "15 min — Cejas, labio superior, axilas o ingles básicas": "15 мин — Брови, верхняя губа, подмышки или базовое бикини",
-      "45 min — Limpieza de cutícula, exfoliación, esmaltado semi-permanente": "45 мин — Чистка кутикулы, эксфолиация, полупостоянное покрытие",
-      "1 hora — Spa de pies, eliminación de durezas y esmaltado": "1 ч — СПА для стоп, удаление огрубевшей кожи и покрытие",
       "2 horas — Diseño de cejas de larga duración": "2 ч — Долговременное оформление бровей",
       "45 min — Curvatura y profundidad natural para tu mirada": "45 мин — Изгиб и естественная глубина вашего взгляда",
       "30 min — Visajismo y sombreado natural": "30 мин — Визаж и естественное затенение"

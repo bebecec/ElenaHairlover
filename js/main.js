@@ -158,6 +158,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initHeroCarousel();
 
+  // ─── Lightbox de galería (ELEGANCE UX v1) ───────────────
+  // Visor a pantalla completa. Usa delegación en .galeria__grid para que
+  // funcione también con las imágenes inyectadas dinámicamente.
+  function initGalleryLightbox() {
+    const grid = document.querySelector('.galeria__grid');
+    if (!grid) return;
+
+    let box = document.getElementById('lightbox');
+    if (!box) {
+      box = document.createElement('div');
+      box.id = 'lightbox';
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Imagen ampliada');
+      box.innerHTML =
+        '<button type="button" class="lightbox__close" aria-label="Cerrar">&times;</button>' +
+        '<img class="lightbox__img" src="" alt="" />';
+      document.body.appendChild(box);
+    }
+    const boxImg = box.querySelector('.lightbox__img');
+    const closeBtn = box.querySelector('.lightbox__close');
+
+    function open(src, alt) {
+      boxImg.src = src;
+      boxImg.alt = alt || '';
+      box.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      box.classList.remove('is-open');
+      document.body.style.overflow = '';
+      boxImg.src = '';
+    }
+
+    grid.addEventListener('click', (e) => {
+      const item = e.target.closest('.galeria__item');
+      if (!item) return;
+      const img = item.querySelector('img');
+      if (img) open(img.currentSrc || img.src, img.alt);
+    });
+
+    closeBtn.addEventListener('click', close);
+    box.addEventListener('click', (e) => { if (e.target === box) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && box.classList.contains('is-open')) close();
+    });
+  }
+  initGalleryLightbox();
+
   // ─── CARGA DINÁMICA DE TRATAMIENTOS Y CONFIGURACIÓN ──────
   async function initDynamicContent() {
     let services = [];

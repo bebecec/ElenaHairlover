@@ -273,14 +273,14 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   padding: 10px 24px;
-  background: var(--color-gold-warm);
+  background: var(--color-gold);
   color: var(--color-dark-main);
-  border: 1px solid var(--color-gold-warm);
+  border: 1px solid var(--color-gold);
 }
 
 .header__cta:hover {
   background: transparent;
-  color: var(--color-gold-warm);
+  color: var(--color-gold);
 }
 
 /* ELEGANCE UX v1 — selector de idioma */
@@ -1613,4 +1613,11 @@ img {
     align-self: stretch;
     text-align: center;
   }
+}
+
+/* ─── ACCESIBILIDAD (A11Y) ──────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-gold-bright);
+  outline-offset: 3px;
+  transition: outline-offset 0.15s ease-out;
 }

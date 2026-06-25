@@ -43,6 +43,9 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap"
     rel="stylesheet" />
 
+  <!-- Preload recursos LCP -->
+  <link rel="preload" as="image" href="img/galeria1.webp" type="image/webp" />
+
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
 
@@ -933,9 +936,9 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- CUSTOM MODAL — Notificación Elegante         -->
   <!-- ═══════════════════════════════════════════ -->
-  <div class="modal" id="modal-success">
+  <div class="modal" id="modal-success" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal__content">
-      <div class="modal__icon">✓</div>
+      <div class="modal__icon" aria-hidden="true">✓</div>
       <h3 class="modal__title" id="modal-title">¡Reserva Solicitada!</h3>
       <p class="modal__text" id="modal-text">Tu solicitud ha sido recibida con éxito. Nos pondremos en contacto contigo
         en menos de 2 horas.</p>
@@ -958,8 +961,8 @@
   </script>
 
   <!-- ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) -->
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

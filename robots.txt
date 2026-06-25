@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-# ⚠️ Sustituir por el dominio real de producción
 Sitemap: https://www.elegancebystoica.com/sitemap.xml

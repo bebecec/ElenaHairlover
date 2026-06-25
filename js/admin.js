@@ -412,8 +412,7 @@ function loadGallery() {
     // Pre-cargar imágenes existentes del proyecto con descripciones por defecto
     galleryImages = [
       { id: "g_entrada", name: "Entrada del Salón", desc: "Ubicado en Girona — Un espacio de alta estética y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
-      { id: "g_galeria1", name: "Interior — Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
-      { id: "g_galeria2", name: "Interior — Zona de Tratamientos", desc: "Tecnología de vanguardia para tu rejuvenecimiento y bienestar", src: "img/galeria2.png", addedAt: Date.now() - 1000 }
+      { id: "g_galeria1", name: "Interior — Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
     ];
     localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
   }

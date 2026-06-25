@@ -1,0 +1,15 @@
+{
+  "name": "elegance-by-stoica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio estático de Elegance by Stoica (HTML + vanilla JS + Firebase por CDN). El tooling solo cubre preview local y despliegue a Firebase Hosting.",
+  "scripts": {
+    "dev": "serve -l 5050 .",
+    "deploy": "firebase deploy --only hosting",
+    "emulators": "firebase emulators:start"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.15.0",
+    "serve": "^14.2.3"
+  }
+}

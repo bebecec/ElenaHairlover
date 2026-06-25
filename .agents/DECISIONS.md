@@ -11,7 +11,7 @@ SUPOSICIONES: Next.js 14 + Tailwind es compatible con Firebase Hosting (export e
 RIESGOS:     Si se necesita SSR, migrar a Firebase App Hosting (no solo Hosting)
 DECISIÓN:    Next.js 14 (App Router) + Firebase Hosting (export estático inicial)
 SIGUIENTE:   Confirmar con AG-03 que export estático cubre todos los casos de uso
-ESTADO:      ACTIVA
+ESTADO:      SUPERSEDED por DEC-006 (2026-06-25) — se abandonó Next.js a favor de HTML estático
 ```
 
 ---
@@ -64,4 +64,27 @@ RIESGOS:     Ninguno significativo
 DECISIÓN:    Registrar dominio antes de Gate-5 (despliegue). Sugerido: elegancebystoica.com
 SIGUIENTE:   Walter confirma disponibilidad y registra dominio
 ESTADO:      PENDIENTE ACCIÓN DE WALTER
+```
+
+---
+
+## DEC-006 | 2026-06-25
+```text
+DECISIÓN:    Arquitectura web — sustituye a DEC-001
+HECHOS:      El repo real es un sitio HTML estático (index.html, admin.html, css/, js/, img/,
+             video/) con vanilla JS e i18n propio. Firebase se carga por CDN (ESM
+             gstatic.com/firebasejs/10.12.2) con fallback a localStorage en js/config.js.
+             El Next.js quedó archivado en _archive/nextjs/ y sus node_modules/.next eran
+             restos muertos no usados. Los commits recientes (logo, carrusel, i18n RO/RU)
+             son todos del sitio estático.
+SUPOSICIONES: El alcance del salón (presencia + reservas) se cubre sin SSR ni framework JS.
+RIESGOS:     Funciones avanzadas (diagnóstico IA, VTO) seguirán dependiendo de APIs externas,
+             igual que en Next.js; no hay regresión por el cambio.
+DECISIÓN:    Arquitectura oficial = sitio ESTÁTICO (HTML + vanilla JS + Firebase por CDN),
+             desplegado en Firebase Hosting. Next.js ABANDONADO (conservado solo como archivo).
+             Tooling local mínimo: package.json con firebase-tools (deploy/emuladores) + serve
+             (preview local); firebase.json (Hosting) + .firebaserc.
+SIGUIENTE:   Walter ejecuta `firebase login`, fija el projectId real en .firebaserc y js/config.js,
+             y define reglas Firestore para reservas antes del Gate-5.
+ESTADO:      ACTIVA
 ```

@@ -60,3 +60,24 @@ PRIORIDAD:   ALTA
 ESTADO:      ABIERTA
 MILESTONE:   Fase 4 — requiere Twilio o WhatsApp Business API
 ```
+
+---
+
+## TD-006
+```text
+ID:          TD-006
+DESCRIPCIÓN: Reglas de seguridad de Firestore (firestore.rules) e índices no definidos; las
+             reservas usan fallback localStorage hasta configurar el proyecto Firebase real.
+IMPACTO:     Sin persistencia compartida ni control de acceso hasta el setup de Firebase.
+PRIORIDAD:   ALTA
+ESTADO:      ABIERTA
+MILESTONE:   Antes del Gate-5 (despliegue) — requiere projectId real + firebase deploy.
+```
+
+---
+
+## NOTA — Next.js archivado (no es deuda activa)
+```text
+El stack Next.js (DEC-001) fue ABANDONADO a favor del sitio estático (DEC-006). Se conserva en
+_archive/nextjs/ solo como referencia. No requiere mantenimiento ni instalación de dependencias.
+```

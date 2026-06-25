@@ -333,53 +333,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function loadDynamicVideos() {
-    let videosMetadata = {};
-    const defaultVideosMetadata = {
-      'hero': { label: 'Hero Principal', desc: 'Vídeo de fondo de la portada' },
-      'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
-      'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
-      'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
-      'clip-unas': { label: 'Uñas & Mirada', desc: 'Clip de manicura y micropigmentación' }
-    };
-
-    if (window.useFirebase && window.FirebaseLibPublic) {
-      const { getDocs, collection, getFirestore, initializeApp } = window.FirebaseLibPublic;
-      try {
-        const app = initializeApp(window.firebaseConfig);
-        const db = getFirestore(app);
-        const snap = await getDocs(collection(db, "videos_metadata"));
-        snap.forEach(doc => {
-          videosMetadata[doc.id] = doc.data();
-        });
-      } catch (err) {
-        console.error("Error al cargar metadatos de video de Firebase:", err);
-      }
-    }
-
-    const saved = localStorage.getItem("elegance_videos_metadata");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      videosMetadata = { ...defaultVideosMetadata, ...parsed, ...videosMetadata };
-    } else {
-      videosMetadata = { ...defaultVideosMetadata, ...videosMetadata };
-    }
-
-    const videoSlots = ['clip-facial', 'clip-peluqueria', 'clip-corporal', 'clip-unas'];
-    videoSlots.forEach(slotId => {
-      const sourceEl = document.querySelector(`.en-accion__video-wrap source[src="video/${slotId}.mp4"]`);
-      if (sourceEl) {
-        const videoWrap = sourceEl.closest('.en-accion__video-wrap');
-        if (videoWrap) {
-          const labelEl = videoWrap.querySelector('.en-accion__label');
-          if (labelEl && videosMetadata[slotId]) {
-            labelEl.textContent = videosMetadata[slotId].label;
-          }
-        }
-      }
-    });
-  }
-
   function updateSalonContactInfo(info) {
     // Teléfono
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');

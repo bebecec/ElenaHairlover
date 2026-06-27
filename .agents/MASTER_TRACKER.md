@@ -26,7 +26,7 @@ Elegance by Stoica es un sitio web estático premium para una peluquería y cent
 - [x] [2026-06-27 13:30] Verificar que todos los comentarios de código del proyecto estén en español
 - [x] [2026-06-27 13:30] Asegurar formato de fecha con hora y minutos en archivos de control `.md`
 - [x] [2026-06-27 13:38] Regenerar archivo `robots.txt` y crear nuevo `README.md`
-- [/] [2026-06-27 13:38] Limpiar el árbol de trabajo de Git y hacer commit de la inicialización de MODO LITE
+- [x] [2026-06-27 13:39] Limpiar el árbol de trabajo de Git y hacer commit de la inicialización de MODO LITE
 
 
 ### ⬜ Hito 2: Mantenimiento y Evolución (Futuro)

@@ -8,6 +8,35 @@
 // localStorage / Firebase; esta web solo lee esos datos si existen.
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* ─── THEME TOGGLE (MAIN SITE) ────────────────────────── */
+  const savedTheme = localStorage.getItem("elegance_main_theme") || "dark";
+  if (savedTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+
+  const toggleButtons = [document.getElementById("main-theme-toggle"), document.getElementById("mobile-theme-toggle")];
+  
+  toggleButtons.forEach(btn => {
+    if (!btn) return;
+    btn.textContent = savedTheme === "light" ? "🌙" : "☀️";
+    
+    btn.addEventListener("click", () => {
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      const newTheme = isLight ? "dark" : "light";
+      
+      if (newTheme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("elegance_main_theme", "light");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("elegance_main_theme", "dark");
+      }
+      
+      toggleButtons.forEach(b => {
+        if(b) b.textContent = newTheme === "light" ? "🌙" : "☀️";
+      });
+    });
+  });
 
   // ─── Header con scroll (Efecto Glassmorphism translúcido) ──
   const header = document.getElementById('header');

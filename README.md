@@ -1,90 +1,39 @@
-# ELEGANCE BY STOICA — Proyecto Digital Completo
-> Stack: Antigravity IDE (local) + Firebase Studio · Protocolo: PROJECT_AI_PROTOCOL v1.0
+# Elegance by Stoica — Sitio Web Premium
 
----
+Sitio web estático premium para el salón de peluquería y estética avanzada **Elegance by Stoica** en Girona.
 
-## INICIO RÁPIDO — Cómo empezar cada sesión
+**Fecha de Configuración**: 2026-06-27 13:36
+**Esquema de Control**: MODO LITE de Walter (`.agents/`)
 
-```text
-1. Abrir: .agents/CURRENT_STATE.md
-2. Ver: FASE ACTIVA + GATE ACTIVO + PRÓXIMO PASO
-3. Consultar el agente correspondiente a la fase
-4. Ejecutar solo lo que está en alcance
-5. Cerrar con evidencia → informar al DIRECTOR
-```
+## 🛠️ Stack Tecnológico
+- **Core**: HTML5 semántico, CSS3 Vanilla (efectos de lujo, glassmorphism, tipografía premium y animaciones de scroll).
+- **Lógica**: Vanilla JavaScript moderno (sin dependencias de terceros para máxima velocidad y SEO).
+- **i18n**: Soporte multilingüe integrado (Español, Catalán, Rumano y Ruso).
+- **Backend/Panel**: Panel de administración dinámico híbrido (`admin.html`) que consume Firebase Firestore por CDN, cayendo automáticamente en `localStorage` si no hay credenciales configuradas.
 
----
+## 📂 Estructura de Control (MODO LITE)
+Las reglas y el estado operativo se gestionan dentro de la carpeta [.agents/](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/):
+- [WALTER_PROTOCOL_v1.2.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/WALTER_PROTOCOL_v1.2.md) — Protocolo maestro operativo de arranque.
+- [ESTADO_ACTUAL__CURRENT_STATE.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/ESTADO_ACTUAL__CURRENT_STATE.md) — Estado actual de la sesión de desarrollo.
+- [MASTER_TRACKER.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/MASTER_TRACKER.md) — Manifiesto y Backlog unificado.
 
-## MAPA DE ARCHIVOS
+## 🚀 Comandos del Proyecto
+Para trabajar en este proyecto, necesitas instalar las dependencias con `npm install` y ejecutar:
 
-```text
-SALON/
-│
-├── README.md                    ← ESTE ARCHIVO — Punto de entrada
-│
-└── .agents/
-    ├── DIRECTOR.md              ← Orquestador principal + roadmap maestro
-    ├── CURRENT_STATE.md         ← Estado actual + próximo paso
-    ├── DECISIONS.md             ← Historial de decisiones
-    ├── BACKLOG.md               ← Ideas futuras (no ejecutar ahora)
-    ├── TECH_DEBT.md             ← Deuda técnica registrada
-    │
-    ├── AGENT_STRATEGY.md        ← AG-01: Marca, identidad, competencia
-    ├── AGENT_DESIGN.md          ← AG-02: UX/UI, Resonant Stark, paleta
-    ├── AGENT_FRONTEND.md        ← AG-03: Next.js + Firebase, código
-    ├── AGENT_SEO.md             ← AG-04: SEO local, AEO, GBP, JSON-LD
-    ├── AGENT_AUTOMATION.md      ← AG-05: Reservas, CRM, automatización
-    └── AGENT_QA.md              ← AG-06: Evidencia, auditoría, gates
-```
+- **Iniciar Preview Local**:
+  ```bash
+  npm run dev
+  ```
+  Levanta un servidor local en `http://localhost:5050` usando el paquete `serve`.
 
----
+- **Desplegar en Firebase**:
+  ```bash
+  npm run deploy
+  ```
+  Sube la web estática a Firebase Hosting.
 
-## ESTADO ACTUAL
-
-```text
-FASE:      0 — FUNDAMENTOS
-GATE:      GATE-0 (ABIERTO)
-AGENTE:    AG-01 (Estrategia & Marca)
-ACCIÓN:    Walter define tagline + aprueba moodboard visual
-```
-
----
-
-## ROADMAP DE FASES
-
-```text
-FASE 0 — FUNDAMENTOS          → Identidad, marca, redes, paleta
-FASE 1 — ARQUITECTURA WEB     → Wireframes, Next.js, Firebase setup
-FASE 2 — DESARROLLO MVP       → Home, servicios, formulario, mobile
-FASE 3 — AUTORIDAD            → Galería, credenciales, SEO, GBP
-FASE 4 — AUTOMATIZACIÓN       → Reservas, CRM, notificaciones
-FASE 5 — DESPLIEGUE           → Firebase deploy, producción, métricas
-```
-
----
-
-## REGLAS QUE NUNCA CAMBIAN
-
-```text
-Sin evidencia   → no se acepta
-Sin auditoría   → no se aprueba
-Sin Walter      → no hay gate cerrado
-Sin backlog     → las ideas nuevas se pierden o interrumpen
-Idioma único    → toda comunicación y documentación se realiza obligatoriamente en español
-```
-
----
-
-## FUENTES DE VERDAD
-
-```text
-Estrategia:    Reporte Estratégico 2026 — Elegance by Stoica
-Protocolo:     PROJECT_AI_PROTOCOL v1.0
-Estado:        .agents/CURRENT_STATE.md
-Decisiones:    .agents/DECISIONS.md
-```
-
----
-
-*"La disciplina debe ser más estable que el proyecto."*
-*— PROJECT_AI_PROTOCOL v1.0*
+- **Iniciar Emuladores**:
+  ```bash
+  npm run emulators
+  ```
+  Arranca los emuladores de Firebase localmente para desarrollo offline.

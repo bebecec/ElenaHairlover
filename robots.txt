@@ -1,5 +1,5 @@
+# robots.txt para Elegance by Stoica
 User-agent: *
 Allow: /
-Disallow: /admin.html
 
 Sitemap: https://www.elegancebystoica.com/sitemap.xml

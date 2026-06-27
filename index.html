@@ -43,6 +43,541 @@
   <!-- Preload recursos LCP -->
   <link rel="preload" as="image" href="img/galeria1.webp" type="image/webp" />
 
+  <!-- Tailwind CSS v3 Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-main': 'var(--color-dark-main)',
+            'dark-bg': 'var(--color-dark-bg)',
+            'dark-card': 'var(--color-dark-card)',
+            'gold-warm': 'var(--color-gold-warm)',
+            'gold-bright': 'var(--color-gold-bright)',
+            'light-bg': 'var(--color-light-bg)',
+            'light-warm': 'var(--color-light-warm)',
+            'light-card': 'var(--color-light-card)',
+            'gold-light': 'var(--color-gold-light)',
+            'gold-dark': 'var(--color-gold-dark)',
+            'border-dark': 'var(--color-border-dark)',
+            'border-light': 'var(--color-border-light)',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    /* Header Scrolled States */
+    .header.scrolled {
+      @apply bg-dark-main/92 backdrop-blur-lg border-b border-border-dark shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    }
+    .header.scrolled .header__inner {
+      @apply h-[76px];
+    }
+    .header.scrolled .header__logo-img {
+      @apply h-[98px];
+    }
+
+    /* Header Nav Links */
+    .header__link {
+      @apply relative py-1.5 font-body text-[0.7rem] font-medium uppercase tracking-[0.15em] text-white/90 transition-colors duration-300;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    }
+    .header__link::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-0 h-[1px] bg-gold-warm transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+    }
+    .header__link:hover {
+      @apply text-white;
+    }
+    .header__link:hover::after {
+      @apply w-full;
+    }
+
+    /* Light Theme Overrides for Header */
+    [data-theme="light"] .header.scrolled {
+      @apply bg-white/92 border-b border-border-light shadow-[0_4px_30px_rgba(0,0,0,0.05)];
+    }
+    [data-theme="light"] .header__link {
+      @apply text-dark-main/90;
+      text-shadow: none;
+    }
+    [data-theme="light"] .header__link:hover {
+      @apply text-dark-main;
+    }
+
+    /* Mobile Menu Spans */
+    .header__menu-btn span {
+      @apply block w-6 h-[1.5px] bg-white transition-all duration-200;
+    }
+    .header__menu-btn.active span:nth-child(1) {
+      @apply rotate-45 translate-x-[5px] translate-y-[5px];
+    }
+    .header__menu-btn.active span:nth-child(2) {
+      @apply opacity-0;
+    }
+    .header__menu-btn.active span:nth-child(3) {
+      @apply -rotate-45 translate-x-[5px] -translate-y-[6px];
+    }
+
+    [data-theme="light"] .header__menu-btn span {
+      @apply bg-dark-main;
+    }
+
+    /* Language Switcher Separators and Active styles */
+    .lang-switch__btn+.lang-switch__btn {
+      @apply border-l border-white/18;
+    }
+    .lang-switch__btn.is-active {
+      @apply text-gold-warm font-bold;
+    }
+    [data-theme="light"] .lang-switch__btn+.lang-switch__btn {
+      @apply border-l border-dark-main/15;
+    }
+    [data-theme="light"] .lang-switch__btn.is-active {
+      @apply text-gold-dark font-bold;
+    }
+
+    /* Hero Slides Opacity Transition */
+    .hero__slide {
+      @apply absolute inset-0 opacity-0 z-[1] transition-opacity duration-1000 ease-in-out;
+    }
+    .hero__slide.is-active {
+      @apply opacity-100 z-[2];
+    }
+
+    /* Hero Background Overlay (Radial Gradient) */
+    .hero__bg-overlay {
+      @apply absolute inset-0 z-[3];
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 40%, rgba(0, 0, 0, 0.30) 100%);
+    }
+    [data-theme="light"] .hero__bg-overlay {
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 40%, rgba(255, 255, 255, 0.30) 100%);
+    }
+
+    /* Hero Text Shadows */
+    .hero__title-sub {
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 1);
+    }
+    .hero__subtitle {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
+    }
+
+    [data-theme="light"] .hero__title-sub {
+      color: #8c6b16;
+      border-color: rgba(140, 107, 22, 0.3);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
+    }
+    [data-theme="light"] .hero__subtitle {
+      color: #111111;
+      font-weight: 500;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Hero Dot Active pill shape */
+    .hero__dot {
+      @apply w-2 h-2 p-0 rounded-full cursor-pointer bg-white/35 border border-white/50 transition-all duration-300;
+    }
+    .hero__dot.is-active {
+      @apply w-6 h-2 rounded-[4px] bg-gold-warm border-none;
+    }
+    [data-theme="light"] .hero__dot {
+      @apply bg-black/30 border-black/40;
+    }
+    [data-theme="light"] .hero__dot.is-active {
+      @apply bg-[#8c6b16] border-none;
+    }
+
+    /* Common layout components */
+    .container {
+      @apply max-w-[1200px] mx-auto px-6;
+    }
+    .section-label {
+      @apply block font-body text-[0.75rem] font-medium uppercase tracking-[0.25em] text-gold-warm text-center mb-3;
+    }
+    .section-title {
+      @apply font-display font-light text-[clamp(2rem,4vw,3rem)] text-center text-white tracking-[0.02em];
+    }
+    [data-theme="light"] .section-title {
+      @apply text-dark-main;
+    }
+    .section-title.light {
+      @apply text-white;
+    }
+    .section-divider {
+      @apply w-20 h-[1px] bg-gradient-to-r from-transparent via-gold-warm to-transparent mx-auto mt-5;
+    }
+
+    /* Services Section Layout */
+    .servicios {
+      @apply py-20 md:py-16 bg-dark-bg;
+    }
+    [data-theme="light"] .servicios {
+      @apply bg-light-bg;
+    }
+    .servicios__tabs-nav {
+      @apply flex justify-center flex-wrap gap-3 mt-12 mb-12;
+    }
+
+    /* Tab Button Styles */
+    .tab-btn {
+      @apply bg-transparent text-white/50 border border-white/10 rounded-md font-body text-[0.75rem] font-medium uppercase tracking-[0.15em] px-6 py-3 cursor-pointer transition-all duration-200;
+    }
+    .tab-btn:hover {
+      @apply bg-gold-warm/10 text-white border-white/20;
+    }
+    .tab-btn.active {
+      @apply bg-gold-warm text-dark-main font-semibold border-none;
+    }
+
+    /* Light Theme Tab Button Overrides */
+    [data-theme="light"] .tab-btn {
+      @apply text-dark-main/60 border-dark-main/10;
+    }
+    [data-theme="light"] .tab-btn:hover {
+      @apply bg-gold-warm/10 text-dark-main border-dark-main/20;
+    }
+    [data-theme="light"] .tab-btn.active {
+      @apply bg-[#8c6b16] text-white;
+    }
+
+    /* Services Content Panel */
+    .servicios__tabs-content {
+      @apply bg-dark-card border border-border-dark p-12 md:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)];
+    }
+    [data-theme="light"] .servicios__tabs-content {
+      @apply bg-white border border-border-light shadow-[0_10px_30px_rgba(0,0,0,0.02)];
+    }
+
+    /* Tab Panel States */
+    .tab-panel {
+      @apply hidden;
+    }
+    .tab-panel.active {
+      @apply block;
+      animation: tabFadeIn 0.5s ease forwards;
+    }
+
+    /* Grid Layout */
+    .services-list {
+      @apply grid grid-cols-2 md:grid-cols-1 gap-x-[60px] gap-y-8;
+    }
+
+    /* Service Item Row */
+    .service-item {
+      @apply flex items-baseline justify-between relative border-b border-white/5 pb-[18px] last:border-none last:pb-0;
+    }
+    [data-theme="light"] .service-item {
+      @apply border-b border-dark-main/5;
+    }
+
+    /* Inner text elements */
+    .service-item__name {
+      @apply font-body text-[0.9rem] font-medium text-white block;
+    }
+    [data-theme="light"] .service-item__name {
+      @apply text-dark-main;
+    }
+
+    .service-item__duration {
+      @apply font-body text-[0.75rem] text-white/50 mt-1 block;
+    }
+    [data-theme="light"] .service-item__duration {
+      @apply text-dark-main/50;
+    }
+
+    .service-item__dots {
+      @apply flex-grow border-b border-dotted border-gold-warm/40 mx-3 self-end relative -top-1.5;
+    }
+
+    .service-item__price {
+      @apply font-display text-[1.15rem] font-semibold text-gold-warm whitespace-nowrap;
+    }
+    [data-theme="light"] .service-item__price {
+      @apply text-[#8B7355];
+    }
+
+    /* Book Button inside service row */
+    .service-item__btn {
+      @apply ml-4 min-h-[44px] inline-flex items-center justify-center font-body text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-white border border-gold-warm px-3.5 py-1.5 whitespace-nowrap transition-all duration-200;
+    }
+    .service-item__btn:hover {
+      @apply bg-gold-warm text-dark-main;
+    }
+    [data-theme="light"] .service-item__btn {
+      @apply text-dark-main border-gold-warm;
+    }
+    [data-theme="light"] .service-item__btn:hover {
+      @apply bg-gold-warm text-dark-main;
+    }
+
+    /* Free Badge */
+    .badge-free {
+      @apply inline-block bg-[#EAF3DE] text-[#3B6D11] text-[11px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded ml-2 align-middle;
+    }
+
+    /* Timeline (Viaje) Styles */
+    .viaje__grid {
+      @apply grid gap-10 mt-[60px];
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .viaje__step {
+      @apply relative border-t border-dashed border-gold-warm/30 pt-7 md:border-none md:pt-0;
+    }
+    .viaje__number {
+      @apply font-display text-[4rem] font-extralight text-gold-warm/25 leading-none mb-4 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+    }
+    .viaje__step:hover .viaje__number {
+      @apply text-gold-warm/45;
+    }
+    .viaje__step-title {
+      @apply text-[1.4rem] mb-3 text-white;
+    }
+    [data-theme="light"] .viaje__step-title {
+      @apply text-dark-main;
+    }
+    .viaje__step-text {
+      @apply text-[0.85rem] text-white/60 leading-[1.7];
+    }
+    [data-theme="light"] .viaje__step-text {
+      @apply text-dark-main/60;
+    }
+
+    /* Gallery (Galeria) Styles */
+    .galeria {
+      @apply py-20 bg-light-bg;
+    }
+    [data-theme="light"] .galeria {
+      @apply bg-light-bg;
+    }
+    .galeria__grid {
+      @apply grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-4 mt-[60px];
+    }
+    .galeria__item {
+      @apply relative overflow-hidden border border-border-light aspect-[4/3] h-auto cursor-zoom-in;
+    }
+    .galeria__item.featured {
+      @apply col-auto;
+    }
+    /* Magnifying glass hover indicator */
+    .galeria__item::after {
+      content: "⌕";
+      @apply absolute top-3 right-3.5 z-[4] text-[1.5rem] leading-none text-white opacity-0 transition-opacity duration-200;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+    .galeria__item:hover::after {
+      @apply opacity-90;
+    }
+    .galeria__img {
+      @apply w-full h-full object-cover transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+    }
+    .galeria__item:hover .galeria__img {
+      @apply scale-105;
+    }
+    .galeria__overlay {
+      @apply absolute inset-0 bg-dark-main/75 flex flex-col justify-center items-center p-[30px] opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+    }
+    .galeria__item:hover .galeria__overlay {
+      @apply opacity-100;
+    }
+    .galeria__overlay-title {
+      @apply text-white text-[1.8rem] mb-2;
+    }
+    .galeria__overlay-desc {
+      @apply text-gold-warm text-[0.8rem] uppercase tracking-[0.15em] text-center;
+    }
+    .galeria__placeholder {
+      @apply w-full h-full flex flex-col justify-center items-center bg-light-card p-10 text-center;
+    }
+    .galeria__placeholder h4 {
+      @apply text-[1.4rem] mb-3 text-dark-main;
+    }
+    .galeria__placeholder p {
+      @apply text-[0.8rem] text-dark-main/50;
+    }
+
+    /* Brand Quote Styles */
+    .marca-quote {
+      @apply py-[100px] px-6 bg-light-warm text-center;
+    }
+    [data-theme="light"] .marca-quote {
+      @apply bg-light-warm;
+    }
+    .marca-quote__text {
+      @apply font-display text-[clamp(1.8rem,3vw,2.5rem)] italic font-light max-w-[800px] mx-auto text-dark-main;
+    }
+    .marca-quote__author {
+      @apply font-body text-[0.75rem] font-medium uppercase tracking-[0.25em] text-gold-warm mt-6 block;
+    }
+
+    /* Contact (Contacto) Styles */
+    .contacto {
+      @apply py-20 md:py-16 bg-light-bg border-t border-border-light;
+    }
+    .contacto__grid {
+      @apply grid gap-10 mt-[60px];
+      grid-template-columns: 1fr 1fr 1.2fr;
+    }
+    @media (max-width: 992px) {
+      .contacto__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contacto__map-container {
+      @apply flex flex-col gap-4;
+    }
+    .contacto__map {
+      @apply w-full h-[250px] border border-border-light grayscale contrast-[1.1] transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
+    }
+    .contacto__map:hover {
+      @apply filter-none border-gold-warm;
+    }
+    .contacto__info {
+      @apply flex flex-col gap-9;
+    }
+    .contacto__item h4 {
+      @apply text-[1.3rem] mb-2 text-dark-main font-display font-light;
+    }
+    .contacto__item p {
+      @apply text-[0.9rem] text-dark-main/60;
+    }
+    .contacto__item a {
+      @apply text-gold-warm font-medium hover:underline;
+    }
+    .contacto__horario-card {
+      @apply bg-light-warm border border-border-light p-12 md:p-6;
+    }
+    .contacto__horario-card h4 {
+      @apply text-[1.6rem] mb-6 text-dark-main border-b border-gold-warm/30 pb-3 font-display font-light;
+    }
+    .contacto__horario-row {
+      @apply flex justify-between mb-4 text-[0.9rem];
+    }
+    .contacto__horario-row span:first-child {
+      @apply text-dark-main/60 font-normal;
+    }
+    .contacto__horario-row span:nth-child(2) {
+      @apply text-dark-main font-medium;
+    }
+
+    /* Reserve (Reserva) Styles */
+    .reserva {
+      @apply py-20 md:py-16 bg-dark-main text-white;
+    }
+    .reserva__form-box--cta {
+      @apply text-center max-w-[650px] mx-auto mt-[60px] border border-gold-warm/35 rounded-xl bg-white/2 p-12 md:p-6;
+    }
+    .reserva__cta-title {
+      @apply font-display text-[1.8rem] text-gold-warm mb-4 font-light;
+    }
+    .reserva__cta-text {
+      @apply text-[0.9rem] text-white/85 mb-9 leading-[1.8] font-body;
+    }
+    [data-theme="light"] .reserva__cta-text {
+      @apply text-dark-main/85;
+    }
+    [data-theme="light"] .reserva__form-box--cta {
+      @apply border-gold-warm/50 bg-black/5;
+    }
+    .reserva__cta-btn {
+      @apply text-[0.85rem] py-[18px] px-9 w-full;
+    }
+    .reserva__trust {
+      @apply mt-5 text-[0.75rem] tracking-[0.08em] text-gold-warm font-body;
+    }
+    .reserva__note {
+      @apply text-[0.75rem] text-white/40 text-center mt-4 font-body;
+    }
+
+    /* Footer Styles */
+    .footer {
+      @apply bg-dark-main text-white py-20 pb-7.5 border-t border-border-dark;
+    }
+    .footer__inner {
+      @apply grid gap-[60px] mb-[60px];
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+    @media (max-width: 992px) {
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    .footer__brand {
+      @apply flex flex-col gap-5;
+    }
+    .footer__logo-img {
+      @apply h-[90px] w-auto self-start;
+    }
+    [data-theme="light"] .footer__logo-img {
+      @apply filter invert;
+    }
+    .footer__desc {
+      @apply text-[0.8rem] text-white/50 max-w-[400px] leading-[1.7] font-body;
+    }
+    .footer__nav, .footer__contact {
+      @apply flex flex-col gap-4;
+    }
+    .footer__nav h4, .footer__contact h4 {
+      @apply text-[1rem] uppercase tracking-[0.15em] text-gold-warm mb-2 font-body font-medium;
+    }
+    .footer__nav a {
+      @apply text-[0.8rem] text-white/60 hover:text-gold-warm transition-all duration-200;
+    }
+    .footer__nav a:hover {
+      @apply translate-x-1;
+    }
+    .footer__contact p {
+      @apply text-[0.8rem] text-white/60 font-body;
+    }
+    .footer__copy {
+      @apply text-center border-t border-white/5 pt-7.5 text-[0.75rem] text-white/40 font-body;
+    }
+
+    /* Floating Actions */
+    .floating-actions {
+      @apply fixed right-5 bottom-5 z-[90] flex flex-col gap-3.5;
+    }
+    .floating-actions__btn {
+      @apply w-14 h-14 rounded-full flex items-center justify-center bg-dark-main border border-gold-warm text-gold-warm shadow-[0_6px_20px_rgba(0,0,0,0.25)] transition-all duration-200 hover:bg-gold-warm hover:text-dark-main hover:-translate-y-[3px];
+    }
+    [data-theme="light"] .floating-actions__btn {
+      @apply bg-white hover:text-white hover:bg-gold-warm;
+    }
+    .floating-actions__btn svg {
+      @apply w-6.5 h-6.5 fill-current;
+    }
+
+    /* Modal Styles */
+    .modal {
+      @apply fixed inset-0 z-[1000] bg-dark-main/85 backdrop-blur-[12px] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
+    }
+    .modal.active {
+      @apply opacity-100 pointer-events-auto;
+    }
+    .modal__content {
+      @apply bg-dark-bg border border-gold-warm w-[90%] max-w-[450px] p-12 md:p-6 text-center scale-90 transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
+    }
+    .modal.active .modal__content {
+      @apply scale-100;
+    }
+    .modal__icon {
+      @apply w-16 h-16 rounded-full border border-gold-warm flex items-center justify-center mx-auto mb-6 text-gold-warm text-[2rem] font-display;
+    }
+    .modal__title {
+      @apply text-[1.8rem] text-white mb-3 font-display font-light;
+    }
+    .modal__text {
+      @apply text-[0.85rem] text-white/70 mb-[30px] leading-[1.6] font-body;
+    }
+  </style>
+
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
 
@@ -99,16 +634,16 @@
   <!-- ═══════════════════════════════════════════ -->
   <!-- HEADER — Navegación Fija con Filtro Frosted -->
   <!-- ═══════════════════════════════════════════ -->
-  <header class="header" id="header">
-    <div class="header__inner">
-      <div class="header__logo">
+  <header class="fixed top-0 left-0 w-full z-[100] bg-transparent border-b border-transparent transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header" id="header">
+    <div class="max-w-[1300px] mx-auto px-8 md:px-5 h-[90px] flex items-center justify-between transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__inner">
+      <div class="flex items-center">
         <a href="#inicio" aria-label="Elegance by Stoica — Inicio">
-          <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica — Peluquería i Estética" class="header__logo-img" />
+          <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica — Peluquería i Estética" class="h-[111px] w-auto block transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] header__logo-img" />
         </a>
       </div>
 
       <!-- Desktop Nav -->
-      <nav class="header__nav" id="nav-desktop">
+      <nav class="hidden md:flex items-center gap-9" id="nav-desktop">
         <a href="#inicio" class="header__link" data-i18n="nav.home">Inicio</a>
         <a href="#servicios" class="header__link" data-i18n="nav.services">Servicios</a>
         <a href="#experiencia" class="header__link" data-i18n="nav.experience">Experiencia</a>
@@ -116,94 +651,94 @@
         <a href="#contacto" class="header__link" data-i18n="nav.contact">Contacto</a>
         
         <!-- ELEGANCE UX v1 — selector de tema -->
-        <button class="btn btn--gold-outline" id="main-theme-toggle" style="padding: 6px 12px; font-size: 0.7rem; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; min-height: 32px;" title="Alternar Modo Claro/Oscuro">☀️</button>
+        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="main-theme-toggle" title="Alternar Modo Claro/Oscuro">☀️</button>
         
         <!-- ELEGANCE UX v1 — selector de idioma -->
-        <div class="lang-switch" role="group" aria-label="Selector de idioma">
-          <button type="button" class="lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
-          <button type="button" class="lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
-          <button type="button" class="lang-switch__btn" data-lang="ro" aria-pressed="false">RO</button>
-          <button type="button" class="lang-switch__btn" data-lang="ru" aria-pressed="false">RU</button>
+        <div class="flex items-center gap-1" role="group" aria-label="Selector de idioma">
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="ro" aria-pressed="false">RO</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="ru" aria-pressed="false">RU</button>
         </div>
-        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="header__cta"
+        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200"
           data-i18n="nav.book">Reservar Cita</a>
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button class="header__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-controls="mobile-nav"
+      <button class="flex md:hidden flex-col gap-1.5 bg-transparent border-none cursor-pointer p-2 z-[110]" id="menu-btn" aria-label="Abrir menú" aria-controls="mobile-nav"
         aria-expanded="false" data-i18n-attr="aria-label:nav.menu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <!-- Mobile Nav Overlay -->
-    <nav class="header__mobile-nav" id="mobile-nav">
+    <nav class="fixed top-0 -right-full w-full h-screen bg-dark-main z-[105] flex flex-col justify-center items-center gap-7 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__mobile-nav" id="mobile-nav">
       <!-- ELEGANCE UX v1 — selector de tema y de idioma (fila superior en móvil) -->
-      <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 24px;">
-        <button class="btn btn--gold-outline" id="mobile-theme-toggle" style="padding: 6px 12px; font-size: 0.7rem; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; min-height: 32px;" title="Alternar Modo">☀️</button>
-        <div class="lang-switch lang-switch--mobile" role="group" aria-label="Selector de idioma" style="margin-bottom: 0;">
-          <button type="button" class="lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
-          <button type="button" class="lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
-          <button type="button" class="lang-switch__btn" data-lang="ro" aria-pressed="false">RO</button>
-          <button type="button" class="lang-switch__btn" data-lang="ru" aria-pressed="false">RU</button>
+      <div class="flex gap-2 justify-center mb-6">
+        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="mobile-theme-toggle" title="Alternar Modo">☀️</button>
+        <div class="flex justify-center gap-1.5" role="group" aria-label="Selector de idioma" style="margin-bottom: 0;">
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="ro" aria-pressed="false">RO</button>
+          <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="ru" aria-pressed="false">RU</button>
         </div>
       </div>
-      <a href="#inicio" class="header__mobile-link" data-i18n="nav.home">Inicio</a>
-      <a href="#servicios" class="header__mobile-link" data-i18n="nav.services">Servicios</a>
-      <a href="#experiencia" class="header__mobile-link" data-i18n="nav.experience">Experiencia</a>
-      <a href="#galeria" class="header__mobile-link" data-i18n="nav.gallery">Galería</a>
-      <a href="#contacto" class="header__mobile-link" data-i18n="nav.contact">Contacto</a>
+      <a href="#inicio" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.home">Inicio</a>
+      <a href="#servicios" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.services">Servicios</a>
+      <a href="#experiencia" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.experience">Experiencia</a>
+      <a href="#galeria" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.gallery">Galería</a>
+      <a href="#contacto" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.contact">Contacto</a>
       <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
-        class="header__mobile-cta" data-i18n="nav.book">Reservar Cita</a>
+        class="font-body text-[1rem] font-medium uppercase tracking-[0.15em] px-10 py-3.5 bg-gold-warm text-dark-main mt-4 hover:bg-transparent hover:text-gold-warm border border-gold-warm transition-colors duration-200" data-i18n="nav.book">Reservar Cita</a>
     </nav>
   </header>
 
   <!-- ═══════════════════════════════════════════ -->
   <!-- HERO — Estilo Lujo con Foto Real y Brillo -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="hero" id="inicio">
-    <div class="hero__carousel" data-autoplay="15000">
-      <div class="hero__slides">
+  <section class="relative min-h-screen overflow-hidden flex items-center justify-center text-center text-white hero" id="inicio">
+    <div class="absolute inset-0 overflow-hidden hero__carousel" data-autoplay="15000">
+      <div class="absolute inset-0 hero__slides">
         <!-- Para añadir más fotos (hasta 5-6): duplicar un bloque .hero__slide
              con su imagen en img/ (y, si puede ser, su versión .webp). Las flechas
              y los puntos se ajustan solos. -->
         <div class="hero__slide is-active">
           <picture>
             <source srcset="img/galeria1.webp" type="image/webp" />
-            <img class="hero__slide-img" src="img/galeria1.png" alt="" aria-hidden="true" fetchpriority="high" />
+            <img class="block w-full h-full object-cover hero__slide-img" src="img/galeria1.png" alt="" aria-hidden="true" fetchpriority="high" />
           </picture>
         </div>
         <div class="hero__slide">
           <picture>
             <source srcset="img/entrada.webp" type="image/webp" />
-            <img class="hero__slide-img" src="img/entrada.png" alt="" aria-hidden="true" loading="lazy" />
+            <img class="block w-full h-full object-cover hero__slide-img" src="img/entrada.png" alt="" aria-hidden="true" loading="lazy" />
           </picture>
         </div>
       </div>
 
       <div class="hero__bg-overlay"></div>
 
-      <div class="hero__content fade-in-up">
-        <h1 class="hero__title">
-          <span class="hero__title-sub" data-i18n="hero.title">Peluquería &amp; Estética Avanzada · Girona</span>
+      <div class="absolute inset-0 z-[4] flex flex-col items-center justify-center px-12 md:px-5.5 hero__content fade-in-up">
+        <h1 class="flex flex-col items-center mb-[30px] hero__title">
+          <span class="font-body text-[clamp(0.9rem,2.5vw,1.35rem)] font-bold text-gold-light uppercase tracking-[0.18em] block mt-2 border-t border-b border-gold-warm py-2 px-9 leading-[1.2] hero__title-sub" data-i18n="hero.title">Peluquería &amp; Estética Avanzada · Girona</span>
         </h1>
 
-        <p class="hero__subtitle" data-i18n="hero.subtitle">
+        <p class="font-body text-[clamp(0.95rem,2vw,1.15rem)] max-w-[580px] mx-auto mb-12 font-normal text-white/95 tracking-[0.04em] leading-[1.7] hero__subtitle" data-i18n="hero.subtitle">
           Peluquería de vanguardia y estética avanzada en Girona. Un oasis de bienestar y tratamientos exclusivos
           personalizados para ti.
         </p>
-        <div class="hero__actions">
+        <div class="flex justify-center gap-5 hero__actions">
           <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
-            class="btn btn--primary" data-i18n="hero.cta_primary">Reservar Cita Online</a>
-          <a href="#servicios" class="btn btn--secondary" data-i18n="hero.cta_secondary">Explorar Servicios</a>
+            class="bg-gold-warm text-[#1A1A1A] border-none px-8 py-3.5 text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5 btn btn--primary" data-i18n="hero.cta_primary">Reservar Cita Online</a>
+          <a href="#servicios" class="bg-gold-warm/15 text-gold-light border border-gold-warm/15 px-8 py-3.5 text-[13px] font-medium tracking-[0.12em] uppercase backdrop-blur-[4px] transition-all duration-300 hover:bg-gold-warm/28 hover:-translate-y-0.5 btn btn--secondary" data-i18n="hero.cta_secondary">Explorar Servicios</a>
         </div>
       </div>
 
-      <button class="hero__arrow hero__arrow--prev" aria-label="Foto anterior" type="button"
+      <button class="absolute top-1/2 -translate-y-1/2 z-[5] w-12 h-12 rounded-full flex items-center justify-center font-body text-[1.6rem] leading-none cursor-pointer bg-[#111111]/45 border border-gold-warm text-gold-warm transition-all duration-200 hover:bg-gold-warm hover:text-dark-main left-[116px] md:left-2 hero__arrow hero__arrow--prev" aria-label="Foto anterior" type="button"
         data-i18n-attr="aria-label:hero.prev">&#8249;</button>
-      <button class="hero__arrow hero__arrow--next" aria-label="Foto siguiente" type="button"
+      <button class="absolute top-1/2 -translate-y-1/2 z-[5] w-12 h-12 rounded-full flex items-center justify-center font-body text-[1.6rem] leading-none cursor-pointer bg-[#111111]/45 border border-gold-warm text-gold-warm transition-all duration-200 hover:bg-gold-warm hover:text-dark-main right-[116px] md:right-2 hero__arrow hero__arrow--next" aria-label="Foto siguiente" type="button"
         data-i18n-attr="aria-label:hero.next">&#8250;</button>
-      <div class="hero__dots" role="tablist" aria-label="Selector de fotos del salón"></div>
+      <div class="absolute bottom-[18px] left-1/2 -translate-x-1/2 z-[5] flex gap-2.5 hero__dots" role="tablist" aria-label="Selector de fotos del salón"></div>
     </div>
   </section>
 

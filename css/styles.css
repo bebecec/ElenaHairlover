@@ -199,7 +199,7 @@ img {
   text-align: center;
 }
 
-/* ─── HEADER (NAVEGACIÓN DE LUJO) ───────────────────────── */
+/* ─── HEADER (NAVEGACIÓN DE LUJO) [MIGRADO A TAILWIND] ────
 .header {
   position: fixed;
   top: 0;
@@ -207,7 +207,6 @@ img {
   width: 100%;
   z-index: 100;
   background: rgba(17, 17, 17, 0.0);
-  /* Inicialmente transparente */
   border-bottom: 1px solid transparent;
   transition: var(--transition-luxury);
 
@@ -306,7 +305,6 @@ img {
   color: var(--color-gold);
 }
 
-/* ELEGANCE UX v1 — selector de idioma */
 .lang-switch {
   display: flex;
   align-items: center;
@@ -350,7 +348,6 @@ img {
   padding: 6px 10px;
 }
 
-/* Menú móvil */
 .header__menu-btn {
   display: none;
   flex-direction: column;
@@ -426,8 +423,10 @@ img {
   color: var(--color-dark-main);
   margin-top: 16px;
 }
+*/
 
 /* ─── HERO (CARRUSEL FULL-BLEED) ───────────────────────── */
+/* ─── HERO (CARRUSEL FULL-BLEED) [MIGRADO A TAILWIND] ─────
 .hero {
   position: relative;
   min-height: 100vh;
@@ -475,15 +474,12 @@ img {
   position: absolute;
   inset: 0;
   z-index: 3;
-  /* ELEGANCE UX v1 — overlay radial centrado en el bloque de texto
-     (cubre mejor los slides con zonas claras: paredes, espejos) */
   background: radial-gradient(ellipse at center,
       rgba(0, 0, 0, 0.30) 0%,
       rgba(0, 0, 0, 0.30) 40%,
       rgba(0, 0, 0, 0.30) 100%);
 }
 
-/* Flechas de navegación (reutiliza el lenguaje de .floating-actions__btn) */
 .hero__arrow {
   position: absolute;
   top: 50%;
@@ -518,7 +514,6 @@ img {
   right: 116px;
 }
 
-/* Puntos indicadores */
 .hero__dots {
   position: absolute;
   bottom: 18px;
@@ -529,7 +524,6 @@ img {
   gap: 10px;
 }
 
-/* ELEGANCE AUDIT v1 — dots con estado claro (círculo → pill dorada activa) */
 .hero__dot {
   width: 8px;
   height: 8px;
@@ -583,7 +577,6 @@ img {
 .hero__title-sub {
   font-family: var(--font-body);
   font-size: clamp(0.9rem, 2.5vw, 1.35rem);
-  /* ELEGANCE AUDIT v1 — H1 en crema dorada con más peso y separadores oro */
   font-weight: 700;
   color: var(--color-gold-light);
   text-transform: uppercase;
@@ -602,7 +595,6 @@ img {
   font-size: clamp(0.95rem, 2vw, 1.15rem);
   max-width: 580px;
   margin: 0 auto 48px;
-  /* ELEGANCE AUDIT v1 — subtítulo legible (blanco 90%, ligero, más interlineado) */
   font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.04em;
@@ -616,7 +608,6 @@ img {
   gap: 20px;
 }
 
-/* ELEGANCE AUDIT v1 — botones del hero con jerarquía clara (scoped al hero) */
 .hero__actions .btn--primary {
   background: var(--color-gold);
   color: #1A1A1A;
@@ -657,7 +648,7 @@ img {
   transform: translateY(-2px);
 }
 
-/* ─── SERVICIOS (CARTA DE SERVICIOS CON TABS INTERACTIVOS) ── */
+/* ─── SERVICIOS (CARTA DE SERVICIOS CON TABS INTERACTIVOS) [MIGRADO A TAILWIND] ──
 .servicios {
   padding: var(--space-section) 0;
   background-color: var(--color-light-bg);
@@ -672,7 +663,6 @@ img {
   margin-bottom: 48px;
 }
 
-/* ELEGANCE UX v1 — pestañas con estados claramente diferenciados */
 .tab-btn {
   background: transparent;
   color: #666;
@@ -752,7 +742,6 @@ img {
   display: block;
 }
 
-/* ELEGANCE UX v1 — badge "Gratis" junto al nombre (no altera el color del precio) */
 .badge-free {
   display: inline-block;
   background: #EAF3DE;
@@ -784,7 +773,6 @@ img {
   top: -6px;
 }
 
-/* ELEGANCE UX v1 — precio con color uniforme (sin excepción para gratuitos) */
 .service-item__price {
   font-family: var(--font-display);
   font-size: 1.15rem;
@@ -793,7 +781,6 @@ img {
   white-space: nowrap;
 }
 
-/* ELEGANCE UX v1 — separador entre servicios (el último de cada columna sin borde) */
 .service-item {
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
   padding-bottom: 18px;
@@ -804,7 +791,6 @@ img {
   padding-bottom: 0;
 }
 
-/* ELEGANCE UX v1 — botón "Reservar" con área táctil de 44px */
 .service-item__btn {
   margin-left: 16px;
   min-height: 44px;
@@ -827,8 +813,9 @@ img {
   background: var(--color-gold-warm);
   color: var(--color-dark-main);
 }
+*/
 
-/* ─── TU VIAJE (LÍNEA DE TIEMPO) ────────────────────────── */
+/* ─── TU VIAJE (LÍNEA DE TIEMPO) [MIGRADO A TAILWIND] ─────
 .viaje {
   padding: var(--space-section) 0;
   background-color: var(--color-dark-bg);
@@ -847,7 +834,6 @@ img {
   position: relative;
 }
 
-/* ELEGANCE UX v1 — números decorativos tenues (sin saltar a oro sólido) */
 .viaje__number {
   font-family: var(--font-display);
   font-size: 4rem;
@@ -862,7 +848,6 @@ img {
   color: rgba(201, 168, 76, 0.45);
 }
 
-/* ELEGANCE UX v1 — conector de secuencia entre pasos (solo desktop) */
 @media (min-width: 769px) {
   .viaje__step {
     border-top: 1px dashed rgba(201, 168, 76, 0.30);
@@ -881,14 +866,14 @@ img {
   color: rgba(255, 255, 255, 0.60);
   line-height: 1.7;
 }
+*/
 
-/* ─── GALERÍA Y DECLARACIÓN DE MARCA ───────────────────── */
+/* ─── GALERÍA Y DECLARACIÓN DE MARCA [MIGRADO A TAILWIND] ───
 .galeria {
   padding: var(--space-section) 0;
   background-color: var(--color-light-bg);
 }
 
-/* ELEGANCE UX v1 — grid simétrico (sin foto colgando) */
 .galeria__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -905,12 +890,10 @@ img {
   cursor: zoom-in;
 }
 
-/* Se neutraliza el span: todas las celdas iguales (también el render dinámico) */
 .galeria__item.featured {
   grid-column: auto;
 }
 
-/* Indicador de lupa al hacer hover */
 .galeria__item::after {
   content: "⌕";
   position: absolute;
@@ -935,7 +918,6 @@ img {
   }
 }
 
-/* ELEGANCE UX v1 — lightbox de galería */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -981,7 +963,6 @@ img {
   color: var(--color-dark);
 }
 
-/* Los wrappers <picture> deben rellenar su contenedor */
 .galeria__item picture {
   display: block;
   width: 100%;
@@ -1033,7 +1014,6 @@ img {
   text-align: center;
 }
 
-/* Estilo para las tarjetas de antes y después vacías */
 .galeria__placeholder {
   width: 100%;
   height: 100%;
@@ -1056,6 +1036,7 @@ img {
   font-size: 0.8rem;
   color: var(--color-text-muted);
 }
+*/
 
 
 /* ─── EN ACCIÓN — GRID DE VIDEOS CORTOS ────────────────── */
@@ -1141,7 +1122,7 @@ img {
   font-style: normal;
 }
 
-/* Frase de Marca */
+/* Frase de Marca [MIGRADO A TAILWIND]
 .marca-quote {
   padding: 100px 24px;
   background: var(--color-light-warm);
@@ -1168,8 +1149,9 @@ img {
   margin-top: 24px;
   display: block;
 }
+*/
 
-/* ─── HORARIOS Y CONTACTO REAL ────────────────────────── */
+/* ─── HORARIOS, RESERVA, MODAL Y FOOTER [MIGRADO A TAILWIND] ──────────
 .contacto {
   padding: var(--space-section) 0;
   background-color: var(--color-light-bg);
@@ -1219,7 +1201,6 @@ img {
   color: var(--color-text-muted);
 }
 
-/* ELEGANCE UX v1 — email/teléfono como enlaces dorados (subrayado en hover) */
 .contacto__item a {
   color: var(--color-gold);
   font-weight: 500;
@@ -1268,7 +1249,6 @@ img {
   padding-bottom: 12px;
 }
 
-/* ELEGANCE UX v1 — patrón tipográfico consistente en todas las filas */
 .contacto__horario-row {
   display: flex;
   justify-content: space-between;
@@ -1286,7 +1266,6 @@ img {
   font-weight: 500;
 }
 
-/* ─── RESERVA (FORMULARIO PREMIUM) ──────────────────────── */
 .reserva {
   padding: var(--space-section) 0;
   background-color: var(--color-dark-main);
@@ -1347,8 +1326,6 @@ img {
   margin-top: 16px;
 }
 
-/* Caja CTA de reserva (antes con estilos inline) */
-/* ELEGANCE UX v1 — borde dorado con presencia + leve fondo para separarla */
 .reserva__form-box--cta {
   text-align: center;
   max-width: 650px;
@@ -1364,7 +1341,6 @@ img {
   margin-bottom: 16px;
 }
 
-/* ELEGANCE UX v1 — párrafo en un solo color uniforme */
 .reserva__cta-text {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.85);
@@ -1384,14 +1360,12 @@ img {
   color: var(--color-gold-warm);
 }
 
-/* Botón "Cómo llegar" del mapa (antes con estilos inline) */
 .contacto__map-btn {
   padding: 12px 24px;
   font-size: 0.7rem;
   text-align: center;
 }
 
-/* ─── BOTONES FLOTANTES (WhatsApp / Llamar) ─────────────── */
 .floating-actions {
   position: fixed;
   right: 20px;
@@ -1428,7 +1402,6 @@ img {
   fill: currentColor;
 }
 
-/* ─── CUSTOM MODAL (CONFIRMACIÓN ELEGANTE) ──────────────── */
 .modal {
   position: fixed;
   top: 0;
@@ -1494,7 +1467,6 @@ img {
   line-height: 1.6;
 }
 
-/* ─── FOOTER (LUJO OSCURO) ────────────────────────────── */
 .footer {
   background: var(--color-dark-main);
   color: var(--color-text-light);
@@ -1568,6 +1540,7 @@ img {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.4);
 }
+*/
 
 /* ─── ANIMACIONES DE ENTRADA SUAVES (Modern CSS) ────────── */
 .fade-in-up {
@@ -1718,6 +1691,7 @@ img {
   --color-border-dark: rgba(197, 168, 128, 0.4);
 }
 
+/* [MIGRADO A TAILWIND]
 [data-theme="light"] .header {
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--color-border-light);
@@ -1747,7 +1721,7 @@ img {
 }
 
 [data-theme="light"] .hero__title-sub {
-  color: #8c6b16; /* Un dorado más oscuro y contrastado */
+  color: #8c6b16; 
   font-weight: 800;
   border-color: #8c6b16;
   text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
@@ -1826,3 +1800,4 @@ img {
   background: #ffffff;
   color: var(--color-text-dark);
 }
+*/

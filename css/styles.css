@@ -448,9 +448,9 @@ img {
      (cubre mejor los slides con zonas claras: paredes, espejos) */
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 0, 0, 0.80) 0%,
-    rgba(0, 0, 0, 0.78) 40%,
-    rgba(0, 0, 0, 0.60) 100%
+    rgba(0, 0, 0, 0.10) 0%,
+    rgba(0, 0, 0, 0.10) 40%,
+    rgba(0, 0, 0, 0.10) 100%
   );
 }
 
@@ -1656,9 +1656,9 @@ img {
 [data-theme="light"] .hero__bg-overlay {
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.80) 40%,
-    rgba(255, 255, 255, 0.60) 100%
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.10) 40%,
+    rgba(255, 255, 255, 0.10) 100%
   );
 }
 

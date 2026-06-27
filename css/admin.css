@@ -21,6 +21,15 @@
   --transition-luxury: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+[data-theme="light"] {
+  --color-dark-main:   #f4efe5; /* Fondo principal claro */
+  --color-dark-bg:     #ffffff; /* Fondo secundario claro */
+  --color-dark-card:   #faf8f5; /* Fondo tarjetas claro */
+  --color-text-light:  #222222; /* Texto oscuro */
+  --color-text-muted:  #666666; /* Texto muteado oscuro */
+  --color-border-dark: rgba(197, 168, 128, 0.4);
+}
+
 /* RESET */
 *, *::before, *::after {
   margin: 0;

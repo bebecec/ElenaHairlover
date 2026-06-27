@@ -98,6 +98,29 @@ const serviceCategorySelect = document.getElementById("service-category");
 const modalCancelBtn = document.getElementById("modal-cancel-btn");
 
 const galleryGrid = document.getElementById("gallery-grid");
+
+// ─── Theme Toggle Logic ─────────────────────────────────
+const themeToggleBtn = document.getElementById("theme-toggle-btn");
+if (themeToggleBtn) {
+  const currentTheme = localStorage.getItem("elegance_admin_theme") || "dark";
+  if (currentTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+    themeToggleBtn.textContent = "🌙 Modo";
+  }
+  
+  themeToggleBtn.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("elegance_admin_theme", "dark");
+      themeToggleBtn.textContent = "☀️ Modo";
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("elegance_admin_theme", "light");
+      themeToggleBtn.textContent = "🌙 Modo";
+    }
+  });
+}
 const galleryDropzone = document.getElementById("gallery-dropzone");
 const galleryUploadInput = document.getElementById("gallery-upload-input");
 

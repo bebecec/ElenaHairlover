@@ -30,4 +30,5 @@ Elegance by Stoica es un sitio web estático premium para una peluquería y cent
 
 
 ### ⬜ Hito 2: Mantenimiento y Evolución (Futuro)
+- [x] [2026-06-27 14:27] Reinstalar y configurar servidor MCP de Context7 con API Key.
 - [ ] [2026-06-27 13:30] Implementar nuevas integraciones o mejoras según sea solicitado por el Product Owner.

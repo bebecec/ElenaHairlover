@@ -1,7 +1,7 @@
 # ESTADO ACTUAL · CURRENT STATE
 
 **Proyecto**: Elegance by Stoica
-**Última actualización**: 2026-06-27 13:28
+**Última actualización**: 2026-06-27 16:09
 **Modo**: LITE (3 Archivos Core)
 
 ## Contadores del Proceso
@@ -12,15 +12,19 @@
 ---
 
 ## Situación General
-El proyecto se ha inicializado bajo el **MODO LITE** de Walter. El código del sitio web estático (HTML, CSS y JS con soporte i18n y panel de administración) está en un estado estable y funcional.
+El proyecto se encuentra en desarrollo activo bajo el **MODO LITE** de Walter. La inicialización ha sido completada con éxito y se ha ejecutado el comando `LIMPIAR_CONTEXTO_WALTER` para archivar todas las tareas del Hito 1 y la primera tarea del Hito 2 en `ARCHIVO__ARCHIVE.md`.
+
+Actualmente estamos migrando los estilos del sitio web a Tailwind CSS v3 a través de Play CDN manteniendo el soporte del tema (Claro/Oscuro) en vanilla JS.
 
 ---
 
-## Hito Activo: Inicialización y Estabilización (2026-06-27 13:28)
-- **Objetivo**: Establecer los archivos de control del MODO LITE en el proyecto dentro de la carpeta `.agents/`.
-- **Progreso**: Archivos core inicializados y creados correctamente.
+## Hito Activo: Hito 2: Mantenimiento y Evolución (2026-06-27 16:09)
+- **Objetivo**: Refactorizar y actualizar los estilos del proyecto Elegance by Stoica usando Tailwind CSS v3 por CDN y mantener la compatibilidad del tema y la lógica dinámica.
+- **Progreso**: Mapeadas las variables CSS de tema en el config de Tailwind; refactorizados el Header, Navegación y Hero de `index.html` a Tailwind, comentando sus estilos redundantes en `styles.css`.
 
 ---
 
-## Próximos Pasos (2026-06-27 13:28)
-1. Esperar la validación y confirmación de arranque del Product Owner (WalTter).
+## Próximos Pasos (2026-06-27 16:09)
+1. Continuar con la refactorización de las secciones restantes (`contacto`, `reserva`, `footer`, `floating-actions`, `modal`) en `index.html` a Tailwind CSS.
+2. Comentar los estilos antiguos correspondientes en `styles.css`.
+3. Validar de forma exhaustiva la responsividad y el funcionamiento de la alternancia de temas.

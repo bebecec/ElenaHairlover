@@ -151,10 +151,46 @@ const videoEditCancelBtn = document.getElementById("video-edit-cancel-btn");
 const toastContainer = document.getElementById("toast-container");
 let tempImageSrc = null;
 
+function updateStorageUsage() {
+  const badge = document.getElementById("storage-usage-badge");
+  if (!badge) return;
+
+  if (window.useFirebase) {
+    badge.style.display = "none";
+    return;
+  }
+
+  let chars = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith("elegance_")) {
+      const val = localStorage.getItem(key);
+      if (val) chars += key.length + val.length;
+    }
+  }
+
+  const quota = 5 * 1024 * 1024; // 5MB de caracteres UTF-16
+  const usedMB = (chars / (1024 * 1024)).toFixed(2);
+  const percent = Math.min(100, (chars / quota) * 100).toFixed(1);
+
+  badge.textContent = `Capacidad: ${percent}% (${usedMB}MB)`;
+  badge.style.display = "inline-block";
+
+  badge.className = "badge"; // Limpiar clases previas
+  if (percent < 70) {
+    badge.classList.add("storage-ok");
+  } else if (percent < 90) {
+    badge.classList.add("storage-warning");
+  } else {
+    badge.classList.add("storage-danger");
+  }
+}
+
 // ═══════════════════════════════════════════════════════════
 // INICIALIZACIÓN — Sin login en modo local
 // ═══════════════════════════════════════════════════════════
 function initDatabase() {
+  updateStorageUsage(); // Cargar estado inicial del espacio de almacenamiento
   if (window.useFirebase) {
     dbModeBadge.textContent = "Firebase Activo";
     dbModeBadge.className = "badge mode-firebase";
@@ -317,6 +353,7 @@ async function deleteServiceItem(id) {
     } else {
       services = services.filter(s => s.id !== id);
       localStorage.setItem("elegance_services", JSON.stringify(services));
+      updateStorageUsage();
       renderServicesTable();
       showToast("Servicio eliminado", "success");
     }
@@ -387,6 +424,7 @@ serviceForm.addEventListener("submit", async (e) => {
       showToast("Servicio añadido", "success");
     }
     localStorage.setItem("elegance_services", JSON.stringify(services));
+    updateStorageUsage();
     serviceModal.style.display = "none";
     renderServicesTable();
   }
@@ -419,6 +457,7 @@ salonInfoForm.addEventListener("submit", async (e) => {
   } else {
     salonInfo = { ...data };
     localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
+    updateStorageUsage();
     showToast("Información del salón guardada", "success");
   }
 });
@@ -443,7 +482,14 @@ function loadGallery() {
 }
 
 function saveGallery() {
-  localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
+  try {
+    localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
+    updateStorageUsage();
+    return true;
+  } catch (err) {
+    showToast("No hay espacio para guardar en la galería. Sube fotos más ligeras.", "error");
+    return false;
+  }
 }
 
 function renderGallery() {
@@ -530,51 +576,62 @@ galleryUploadInput.addEventListener("change", (e) => {
 
 // Input de reemplazo de archivo de imagen individual
 if (imageEditFileInput) {
-  imageEditFileInput.addEventListener("change", (e) => {
+  imageEditFileInput.addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
         showToast("Por favor, selecciona una imagen válida", "error");
         return;
       }
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        imagePreviewImg.src = ev.target.result;
-        tempImageSrc = ev.target.result;
-      };
-      reader.readAsDataURL(file);
+      try {
+        const isHero = previewingImageId && (previewingImageId.startsWith("hero_") || previewingImageId.startsWith("h_"));
+        const maxWidth = isHero ? 1600 : 1200;
+        const quality = isHero ? 0.82 : 0.78;
+        const src = await resizeImageFile(file, maxWidth, quality);
+        imagePreviewImg.src = src;
+        tempImageSrc = src;
+      } catch (err) {
+        showToast("Error al procesar la imagen", "error");
+      }
     }
     e.target.value = "";
   });
 }
 
-function handleFileUpload(files) {
+async function handleFileUpload(files) {
   if (!files || files.length === 0) return;
   let count = 0;
 
-  Array.from(files).forEach(file => {
+  for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
       showToast(`"${file.name}" no es una imagen válida`, "error");
-      return;
+      continue;
     }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
+    try {
+      const src = await resizeImageFile(file, 1200, 0.78);
       const newImg = {
         id: "gal_" + Date.now() + "_" + Math.random().toString(36).substr(2, 6),
         name: file.name.replace(/\.[^/.]+$/, ""),
-        src: ev.target.result,
+        src,
         addedAt: Date.now()
       };
       galleryImages.push(newImg);
       count++;
-      if (count === files.length) {
-        saveGallery();
-        renderGallery();
-        showToast(`${count} imagen${count > 1 ? "es" : ""} añadida${count > 1 ? "s" : ""} a la galería`, "success");
-      }
-    };
-    reader.readAsDataURL(file);
-  });
+    } catch (err) {
+      showToast(`No se pudo procesar "${file.name}"`, "error");
+    }
+  }
+
+  if (count > 0) {
+    if (saveGallery()) {
+      renderGallery();
+      showToast(`${count} imagen${count > 1 ? "es" : ""} añadida${count > 1 ? "s" : ""} a la galería`, "success");
+    } else {
+      // Revertir agregados si excedió cuota
+      galleryImages.splice(galleryImages.length - count, count);
+      renderGallery();
+    }
+  }
 }
 
 // Drag & Drop en la dropzone
@@ -677,6 +734,7 @@ function loadHero() {
 function saveHero() {
   try {
     localStorage.setItem("elegance_hero", JSON.stringify(heroImages));
+    updateStorageUsage();
     return true;
   } catch (err) {
     showToast("No hay espacio para guardar tantas fotos. Sube menos o más ligeras.", "error");
@@ -987,6 +1045,7 @@ async function saveVideoMetadata(slotId, label, desc) {
     }
   } else {
     localStorage.setItem("elegance_videos_metadata", JSON.stringify(videosMetadata));
+    updateStorageUsage();
     showToast("Información del vídeo guardada", "success");
   }
   applyVideosMetadata();

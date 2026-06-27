@@ -145,6 +145,30 @@ a {
   border-color: rgba(46, 204, 113, 0.2);
 }
 
+.badge.storage-ok {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.badge.storage-warning {
+  background: rgba(243, 156, 18, 0.15);
+  color: #e67e22;
+  border-color: rgba(243, 156, 18, 0.3);
+}
+
+.badge.storage-danger {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border-color: rgba(231, 76, 60, 0.3);
+  animation: storagePulse 1.5s infinite alternate;
+}
+
+@keyframes storagePulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; box-shadow: 0 0 8px rgba(231, 76, 60, 0.4); }
+}
+
 /* LOGIN SCREEN */
 .login-overlay {
   position: fixed;

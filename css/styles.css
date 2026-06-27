@@ -1662,6 +1662,37 @@ img {
   );
 }
 
+[data-theme="light"] .hero__subtitle {
+  color: #222222;
+  text-shadow: none;
+}
+
+[data-theme="light"] .hero__title-sub {
+  color: var(--color-gold-dark);
+  text-shadow: none;
+  border-color: var(--color-gold-dark);
+}
+
+[data-theme="light"] .hero__title-script {
+  color: var(--color-gold-dark);
+  text-shadow: none;
+}
+
+[data-theme="light"] .header__link {
+  color: #222222;
+}
+
+[data-theme="light"] .hero__arrow {
+  color: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="light"] .hero__dot {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
 [data-theme="light"] .reserva__form-box--cta {
   background: rgba(0, 0, 0, 0.03);
 }

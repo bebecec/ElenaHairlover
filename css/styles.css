@@ -1627,3 +1627,57 @@ img {
   outline-offset: 3px;
   transition: outline-offset 0.15s ease-out;
 }
+
+/* ─── MODO CLARO (MAIN SITE) ───────────────────────────── */
+[data-theme="light"] {
+  /* Invertimos colores principales para las secciones oscuras */
+  --color-dark-main: #ffffff;
+  --color-dark-bg: #f8f6f1;
+  --color-dark-card: #ffffff;
+  --color-text-light: #222222;
+  --color-text-dark: #222222;
+  
+  /* Forzar bordes más oscuros en fondos claros */
+  --color-border-dark: rgba(197, 168, 128, 0.4);
+}
+
+[data-theme="light"] .header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+[data-theme="light"] .header__link {
+  color: var(--color-text-dark);
+}
+[data-theme="light"] .header__link:hover {
+  color: var(--color-gold);
+}
+
+[data-theme="light"] .hero__bg-overlay {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.80) 40%,
+    rgba(255, 255, 255, 0.60) 100%
+  );
+}
+
+[data-theme="light"] .reserva__form-box--cta {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .reserva__cta-text {
+  color: var(--color-text-dark);
+}
+
+[data-theme="light"] .reserva__field input,
+[data-theme="light"] .reserva__field select {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--color-text-dark);
+  border-color: rgba(197, 168, 128, 0.4);
+}
+
+[data-theme="light"] .reserva__field select option {
+  background: #ffffff;
+  color: var(--color-text-dark);
+}

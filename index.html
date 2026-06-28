@@ -763,10 +763,9 @@
         </div>
       </div>
 
-      <button class="absolute top-1/2 -translate-y-1/2 z-[5] w-12 h-12 rounded-full flex items-center justify-center font-body text-[1.6rem] leading-none cursor-pointer bg-[#111111]/45 border border-gold-warm text-gold-warm transition-all duration-200 hover:bg-gold-warm hover:text-dark-main left-[116px] md:left-2 hero__arrow hero__arrow--prev" aria-label="Foto anterior" type="button"
-        data-i18n-attr="aria-label:hero.prev">&#8249;</button>
-      <button class="absolute top-1/2 -translate-y-1/2 z-[5] w-12 h-12 rounded-full flex items-center justify-center font-body text-[1.6rem] leading-none cursor-pointer bg-[#111111]/45 border border-gold-warm text-gold-warm transition-all duration-200 hover:bg-gold-warm hover:text-dark-main right-[116px] md:right-2 hero__arrow hero__arrow--next" aria-label="Foto siguiente" type="button"
-        data-i18n-attr="aria-label:hero.next">&#8250;</button>
+      <!-- Zonas de navegación lateral transparentes (ELEGANCE UX v2) -->
+      <div class="absolute top-0 left-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--prev" role="button" aria-label="Foto anterior" data-i18n-attr="aria-label:hero.prev"></div>
+      <div class="absolute top-0 right-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--next" role="button" aria-label="Foto siguiente" data-i18n-attr="aria-label:hero.next"></div>
       <div class="absolute bottom-[18px] left-1/2 -translate-x-1/2 z-[5] flex gap-2.5 hero__dots" role="tablist" aria-label="Selector de fotos del salón"></div>
     </div>
   </section>

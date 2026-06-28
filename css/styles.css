@@ -8,12 +8,14 @@
 /* ─── VARIABLES & CONFIGURACIÓN ────────────────────────── */
 :root {
   --color-dark-main: #111111;
+  --color-dark-main-rgb: 17 17 17;
   /* Carbón profundo */
   --color-dark-bg: #171717;
   /* Fondo secundario oscuro */
   --color-dark-card: #1f1f1f;
   /* Tarjetas en modo oscuro */
   --color-gold-warm: #c5a880;
+  --color-gold-warm-rgb: 197 168 128;
   /* Oro champán refinado */
   --color-gold-bright: #d4af37;
   /* Oro brillante para acentos */
@@ -1682,6 +1684,7 @@ img {
 [data-theme="light"] {
   /* Invertimos colores principales para las secciones oscuras */
   --color-dark-main: #ffffff;
+  --color-dark-main-rgb: 255 255 255;
   --color-dark-bg: #f8f6f1;
   --color-dark-card: #ffffff;
   --color-text-light: #222222;

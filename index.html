@@ -73,9 +73,10 @@
   </script>
 
   <style type="text/tailwindcss">
-    /* Header Scrolled States */
+    /* Estados del Header al hacer scroll */
     .header.scrolled {
-      @apply bg-dark-main/92 backdrop-blur-lg border-b border-border-dark shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+      background-color: rgb(var(--color-dark-main-rgb) / 0.92);
+      @apply backdrop-blur-lg border-b border-border-dark shadow-[0_4px_30px_rgba(0,0,0,0.1)];
     }
     .header.scrolled .header__inner {
       @apply h-[76px];
@@ -84,7 +85,7 @@
       @apply h-[98px];
     }
 
-    /* Header Nav Links */
+    /* Enlaces de navegación del Header */
     .header__link {
       @apply relative py-1.5 font-body text-[0.7rem] font-medium uppercase tracking-[0.15em] text-white/90 transition-colors duration-300;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
@@ -100,19 +101,20 @@
       @apply w-full;
     }
 
-    /* Light Theme Overrides for Header */
+    /* Sobrescrituras de tema claro para el Header */
     [data-theme="light"] .header.scrolled {
-      @apply bg-white/92 border-b border-border-light shadow-[0_4px_30px_rgba(0,0,0,0.05)];
+      background-color: rgb(255 255 255 / 0.92);
+      @apply border-b border-border-light shadow-[0_4px_30px_rgba(0,0,0,0.05)];
     }
     [data-theme="light"] .header__link {
-      @apply text-dark-main/90;
+      color: rgb(var(--color-dark-main-rgb) / 0.9);
       text-shadow: none;
     }
     [data-theme="light"] .header__link:hover {
       @apply text-dark-main;
     }
 
-    /* Mobile Menu Spans */
+    /* Líneas del botón del menú móvil */
     .header__menu-btn span {
       @apply block w-6 h-[1.5px] bg-white transition-all duration-200;
     }
@@ -130,21 +132,23 @@
       @apply bg-dark-main;
     }
 
-    /* Language Switcher Separators and Active styles */
+    /* Separadores y estilos activos del selector de idioma */
     .lang-switch__btn+.lang-switch__btn {
-      @apply border-l border-white/18;
+      @apply border-l;
+      border-left-color: rgba(255, 255, 255, 0.18);
     }
     .lang-switch__btn.is-active {
       @apply text-gold-warm font-bold;
     }
     [data-theme="light"] .lang-switch__btn+.lang-switch__btn {
-      @apply border-l border-dark-main/15;
+      @apply border-l;
+      border-left-color: rgb(var(--color-dark-main-rgb) / 0.15);
     }
     [data-theme="light"] .lang-switch__btn.is-active {
       @apply text-gold-dark font-bold;
     }
 
-    /* Hero Slides Opacity Transition */
+    /* Transición de opacidad de las diapositivas del Hero */
     .hero__slide {
       @apply absolute inset-0 opacity-0 z-[1] transition-opacity duration-1000 ease-in-out;
     }
@@ -152,7 +156,7 @@
       @apply opacity-100 z-[2];
     }
 
-    /* Hero Background Overlay (Radial Gradient) */
+    /* Superposición de fondo del Hero (Gradiente radial) */
     .hero__bg-overlay {
       @apply absolute inset-0 z-[3];
       background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 40%, rgba(0, 0, 0, 0.30) 100%);
@@ -161,7 +165,7 @@
       background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 40%, rgba(255, 255, 255, 0.30) 100%);
     }
 
-    /* Hero Text Shadows */
+    /* Sombras de texto del Hero */
     .hero__title-sub {
       text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 1);
     }
@@ -180,9 +184,10 @@
       text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
     }
 
-    /* Hero Dot Active pill shape */
+    /* Forma de píldora activa de los puntos del Hero */
     .hero__dot {
-      @apply w-2 h-2 p-0 rounded-full cursor-pointer bg-white/35 border border-white/50 transition-all duration-300;
+      @apply w-2 h-2 p-0 rounded-full cursor-pointer border border-white/50 transition-all duration-300;
+      background-color: rgba(255, 255, 255, 0.35);
     }
     .hero__dot.is-active {
       @apply w-6 h-2 rounded-[4px] bg-gold-warm border-none;
@@ -194,7 +199,7 @@
       @apply bg-[#8c6b16] border-none;
     }
 
-    /* Common layout components */
+    /* Componentes de diseño comunes */
     .container {
       @apply max-w-[1200px] mx-auto px-6;
     }
@@ -214,7 +219,7 @@
       @apply w-20 h-[1px] bg-gradient-to-r from-transparent via-gold-warm to-transparent mx-auto mt-5;
     }
 
-    /* Services Section Layout */
+    /* Diseño de la sección de Servicios */
     .servicios {
       @apply py-20 md:py-16 bg-dark-bg;
     }
@@ -225,29 +230,33 @@
       @apply flex justify-center flex-wrap gap-3 mt-12 mb-12;
     }
 
-    /* Tab Button Styles */
+    /* Estilos de los botones de pestañas */
     .tab-btn {
       @apply bg-transparent text-white/50 border border-white/10 rounded-md font-body text-[0.75rem] font-medium uppercase tracking-[0.15em] px-6 py-3 cursor-pointer transition-all duration-200;
     }
     .tab-btn:hover {
-      @apply bg-gold-warm/10 text-white border-white/20;
+      background-color: rgb(var(--color-gold-warm-rgb) / 0.1);
+      @apply text-white border-white/20;
     }
     .tab-btn.active {
       @apply bg-gold-warm text-dark-main font-semibold border-none;
     }
 
-    /* Light Theme Tab Button Overrides */
+    /* Sobrescrituras de tema claro para los botones de pestaña */
     [data-theme="light"] .tab-btn {
-      @apply text-dark-main/60 border-dark-main/10;
+      color: rgb(var(--color-dark-main-rgb) / 0.6);
+      border-color: rgb(var(--color-dark-main-rgb) / 0.1);
     }
     [data-theme="light"] .tab-btn:hover {
-      @apply bg-gold-warm/10 text-dark-main border-dark-main/20;
+      background-color: rgb(var(--color-gold-warm-rgb) / 0.1);
+      border-color: rgb(var(--color-dark-main-rgb) / 0.2);
+      @apply text-dark-main;
     }
     [data-theme="light"] .tab-btn.active {
       @apply bg-[#8c6b16] text-white;
     }
 
-    /* Services Content Panel */
+    /* Panel de contenido de servicios */
     .servicios__tabs-content {
       @apply bg-dark-card border border-border-dark p-12 md:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)];
     }
@@ -255,7 +264,7 @@
       @apply bg-white border border-border-light shadow-[0_10px_30px_rgba(0,0,0,0.02)];
     }
 
-    /* Tab Panel States */
+    /* Estados de los paneles de pestañas */
     .tab-panel {
       @apply hidden;
     }
@@ -264,20 +273,21 @@
       animation: tabFadeIn 0.5s ease forwards;
     }
 
-    /* Grid Layout */
+    /* Diseño en cuadrícula (Grid) */
     .services-list {
       @apply grid grid-cols-2 md:grid-cols-1 gap-x-[60px] gap-y-8;
     }
 
-    /* Service Item Row */
+    /* Fila del elemento de servicio */
     .service-item {
       @apply flex items-baseline justify-between relative border-b border-white/5 pb-[18px] last:border-none last:pb-0;
     }
     [data-theme="light"] .service-item {
-      @apply border-b border-dark-main/5;
+      @apply border-b;
+      border-bottom-color: rgb(var(--color-dark-main-rgb) / 0.05);
     }
 
-    /* Inner text elements */
+    /* Elementos de texto internos */
     .service-item__name {
       @apply font-body text-[0.9rem] font-medium text-white block;
     }
@@ -289,11 +299,12 @@
       @apply font-body text-[0.75rem] text-white/50 mt-1 block;
     }
     [data-theme="light"] .service-item__duration {
-      @apply text-dark-main/50;
+      color: rgb(var(--color-dark-main-rgb) / 0.5);
     }
 
     .service-item__dots {
-      @apply flex-grow border-b border-dotted border-gold-warm/40 mx-3 self-end relative -top-1.5;
+      @apply flex-grow border-b border-dotted mx-3 self-end relative -top-1.5;
+      border-bottom-color: rgb(var(--color-gold-warm-rgb) / 0.4);
     }
 
     .service-item__price {
@@ -303,7 +314,7 @@
       @apply text-[#8B7355];
     }
 
-    /* Book Button inside service row */
+    /* Botón de reserva dentro de la fila de servicio */
     .service-item__btn {
       @apply ml-4 min-h-[44px] inline-flex items-center justify-center font-body text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-white border border-gold-warm px-3.5 py-1.5 whitespace-nowrap transition-all duration-200;
     }
@@ -317,24 +328,26 @@
       @apply bg-gold-warm text-dark-main;
     }
 
-    /* Free Badge */
+    /* Etiqueta de servicio gratuito */
     .badge-free {
       @apply inline-block bg-[#EAF3DE] text-[#3B6D11] text-[11px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded ml-2 align-middle;
     }
 
-    /* Timeline (Viaje) Styles */
+    /* Estilos de la línea de tiempo (Viaje) */
     .viaje__grid {
       @apply grid gap-10 mt-[60px];
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
     .viaje__step {
-      @apply relative border-t border-dashed border-gold-warm/30 pt-7 md:border-none md:pt-0;
+      @apply relative border-t border-dashed pt-7 md:border-none md:pt-0;
+      border-top-color: rgb(var(--color-gold-warm-rgb) / 0.3);
     }
     .viaje__number {
-      @apply font-display text-[4rem] font-extralight text-gold-warm/25 leading-none mb-4 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+      @apply font-display text-[4rem] font-extralight leading-none mb-4 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+      color: rgb(var(--color-gold-warm-rgb) / 0.25);
     }
     .viaje__step:hover .viaje__number {
-      @apply text-gold-warm/45;
+      color: rgb(var(--color-gold-warm-rgb) / 0.45);
     }
     .viaje__step-title {
       @apply text-[1.4rem] mb-3 text-white;
@@ -346,10 +359,10 @@
       @apply text-[0.85rem] text-white/60 leading-[1.7];
     }
     [data-theme="light"] .viaje__step-text {
-      @apply text-dark-main/60;
+      color: rgb(var(--color-dark-main-rgb) / 0.6);
     }
 
-    /* Gallery (Galeria) Styles */
+    /* Estilos de la Galería */
     .galeria {
       @apply py-20 bg-light-bg;
     }
@@ -365,7 +378,7 @@
     .galeria__item.featured {
       @apply col-auto;
     }
-    /* Magnifying glass hover indicator */
+    /* Indicador de lupa al pasar el cursor */
     .galeria__item::after {
       content: "⌕";
       @apply absolute top-3 right-3.5 z-[4] text-[1.5rem] leading-none text-white opacity-0 transition-opacity duration-200;
@@ -381,7 +394,8 @@
       @apply scale-105;
     }
     .galeria__overlay {
-      @apply absolute inset-0 bg-dark-main/75 flex flex-col justify-center items-center p-[30px] opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+      background-color: rgb(var(--color-dark-main-rgb) / 0.75);
+      @apply absolute inset-0 flex flex-col justify-center items-center p-[30px] opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
     }
     .galeria__item:hover .galeria__overlay {
       @apply opacity-100;
@@ -399,10 +413,11 @@
       @apply text-[1.4rem] mb-3 text-dark-main;
     }
     .galeria__placeholder p {
-      @apply text-[0.8rem] text-dark-main/50;
+      @apply text-[0.8rem];
+      color: rgb(var(--color-dark-main-rgb) / 0.5);
     }
 
-    /* Brand Quote Styles */
+    /* Estilos de la cita de marca */
     .marca-quote {
       @apply py-[100px] px-6 bg-light-warm text-center;
     }
@@ -416,7 +431,7 @@
       @apply font-body text-[0.75rem] font-medium uppercase tracking-[0.25em] text-gold-warm mt-6 block;
     }
 
-    /* Contact (Contacto) Styles */
+    /* Estilos de Contacto */
     .contacto {
       @apply py-20 md:py-16 bg-light-bg border-t border-border-light;
     }
@@ -445,7 +460,8 @@
       @apply text-[1.3rem] mb-2 text-dark-main font-display font-light;
     }
     .contacto__item p {
-      @apply text-[0.9rem] text-dark-main/60;
+      @apply text-[0.9rem];
+      color: rgb(var(--color-dark-main-rgb) / 0.6);
     }
     .contacto__item a {
       @apply text-gold-warm font-medium hover:underline;
@@ -454,36 +470,42 @@
       @apply bg-light-warm border border-border-light p-12 md:p-6;
     }
     .contacto__horario-card h4 {
-      @apply text-[1.6rem] mb-6 text-dark-main border-b border-gold-warm/30 pb-3 font-display font-light;
+      @apply text-[1.6rem] mb-6 text-dark-main border-b pb-3 font-display font-light;
+      border-bottom-color: rgb(var(--color-gold-warm-rgb) / 0.3);
     }
     .contacto__horario-row {
       @apply flex justify-between mb-4 text-[0.9rem];
     }
     .contacto__horario-row span:first-child {
-      @apply text-dark-main/60 font-normal;
+      @apply font-normal;
+      color: rgb(var(--color-dark-main-rgb) / 0.6);
     }
     .contacto__horario-row span:nth-child(2) {
       @apply text-dark-main font-medium;
     }
 
-    /* Reserve (Reserva) Styles */
+    /* Estilos de Reserva */
     .reserva {
       @apply py-20 md:py-16 bg-dark-main text-white;
     }
     .reserva__form-box--cta {
-      @apply text-center max-w-[650px] mx-auto mt-[60px] border border-gold-warm/35 rounded-xl bg-white/2 p-12 md:p-6;
+      @apply text-center max-w-[650px] mx-auto mt-[60px] border rounded-xl p-12 md:p-6;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-color: rgb(var(--color-gold-warm-rgb) / 0.35);
     }
     .reserva__cta-title {
       @apply font-display text-[1.8rem] text-gold-warm mb-4 font-light;
     }
     .reserva__cta-text {
-      @apply text-[0.9rem] text-white/85 mb-9 leading-[1.8] font-body;
+      @apply text-[0.9rem] mb-9 leading-[1.8] font-body;
+      color: rgba(255, 255, 255, 0.85);
     }
     [data-theme="light"] .reserva__cta-text {
-      @apply text-dark-main/85;
+      color: rgb(var(--color-dark-main-rgb) / 0.85);
     }
     [data-theme="light"] .reserva__form-box--cta {
-      @apply border-gold-warm/50 bg-black/5;
+      @apply bg-black/5;
+      border-color: rgb(var(--color-gold-warm-rgb) / 0.5);
     }
     .reserva__cta-btn {
       @apply text-[0.85rem] py-[18px] px-9 w-full;
@@ -495,9 +517,9 @@
       @apply text-[0.75rem] text-white/40 text-center mt-4 font-body;
     }
 
-    /* Footer Styles */
+    /* Estilos del Pie de Página (Footer) */
     .footer {
-      @apply bg-dark-main text-white py-20 pb-7.5 border-t border-border-dark;
+      @apply bg-dark-main text-white py-20 pb-[30px] border-t border-border-dark;
     }
     .footer__inner {
       @apply grid gap-[60px] mb-[60px];
@@ -537,10 +559,10 @@
       @apply text-[0.8rem] text-white/60 font-body;
     }
     .footer__copy {
-      @apply text-center border-t border-white/5 pt-7.5 text-[0.75rem] text-white/40 font-body;
+      @apply text-center border-t border-white/5 pt-[30px] text-[0.75rem] text-white/40 font-body;
     }
 
-    /* Floating Actions */
+    /* Acciones Flotantes */
     .floating-actions {
       @apply fixed right-5 bottom-5 z-[90] flex flex-col gap-3.5;
     }
@@ -551,12 +573,13 @@
       @apply bg-white hover:text-white hover:bg-gold-warm;
     }
     .floating-actions__btn svg {
-      @apply w-6.5 h-6.5 fill-current;
+      @apply w-[26px] h-[26px] fill-current;
     }
 
-    /* Modal Styles */
+    /* Estilos de las ventanas modales (Modal) */
     .modal {
-      @apply fixed inset-0 z-[1000] bg-dark-main/85 backdrop-blur-[12px] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
+      @apply fixed inset-0 z-[1000] backdrop-blur-[12px] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
+      background-color: rgb(var(--color-dark-main-rgb) / 0.85);
     }
     .modal.active {
       @apply opacity-100 pointer-events-auto;

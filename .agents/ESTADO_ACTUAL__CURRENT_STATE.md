@@ -1,7 +1,7 @@
 # ESTADO ACTUAL · CURRENT STATE
 
 **Proyecto**: Elegance by Stoica
-**Última actualización**: 2026-06-28 10:20
+**Última actualización**: 2026-06-28 10:29
 **Modo**: LITE (3 Archivos Core)
 
 ## Contadores del Proceso
@@ -18,9 +18,9 @@ Actualmente estamos migrando los estilos del sitio web a Tailwind CSS v3 a trav�
 
 ---
 
-## Hito Activo: Hito 2: Mantenimiento y Evolución (2026-06-28 10:20)
+## Hito Activo: Hito 2: Mantenimiento y Evolución (2026-06-28 10:29)
 - **Objetivo**: Refactorizar y actualizar los estilos del proyecto Elegance by Stoica usando Tailwind CSS v3 por CDN y mantener la compatibilidad del tema y la lógica dinámica.
-- **Progreso**: Mapeadas las variables CSS de tema en el config de Tailwind; refactorizados el Header, Navegación y Hero de `index.html` a Tailwind, comentando sus estilos redundantes en `styles.css`. Realizada una auditoría del manifiesto traduciendo todos los comentarios CSS en `index.html` de inglés a español, garantizando el cumplimiento de la Regla 1.
+- **Progreso**: Mapeadas las variables CSS de tema en el config de Tailwind; refactorizados el Header, Navegación y Hero de `index.html` a Tailwind, comentando sus estilos redundantes en `styles.css`. Realizada una auditoría del manifiesto traduciendo todos los comentarios CSS en `index.html` de inglés a español, garantizando el cumplimiento de la Regla 1. Asegurada la cobertura al 100% de las fotos del carrusel del Hero (tanto estáticas con picture como dinámicas generadas desde el panel de administración).
 
 ---
 

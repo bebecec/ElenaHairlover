@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slidesWrap && Array.isArray(heroImages) && heroImages.length > 0) {
           slidesWrap.innerHTML = heroImages.map((img, i) => `
             <div class="hero__slide${i === 0 ? ' is-active' : ''}">
-              <img class="hero__slide-img" src="${escapeHtml(img.src)}" alt="" aria-hidden="true" />
+              <img class="block w-full h-full object-cover hero__slide-img" src="${escapeHtml(img.src)}" alt="" aria-hidden="true" />
             </div>
           `).join('');
         }

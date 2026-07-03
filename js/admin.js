@@ -44,9 +44,7 @@ const initialServicesSeed = [
   { id: "d4", name: "Depilación Cera Completa", duration: "45 min — Piernas, ingles y axilas (Cera tibia o caliente)", price: "Desde 35,00 €", category: "depilacion" },
   { id: "d5", name: "Depilación Cera Zonas Individuales", duration: "15 min — Cejas, labio superior, axilas o ingles básicas", price: "Desde 8,00 €", category: "depilacion" },
 
-  // Uñas & Mirada
-  { id: "u1", name: "Manicura Semi-Permanente Spa", duration: "45 min — Limpieza de cutícula, exfoliación, esmaltado semi-permanente", price: "25,00 €", category: "unas-mirada" },
-  { id: "u2", name: "Pedicura Profesional Reconstructora", duration: "1 hora — Spa de pies, eliminación de durezas y esmaltado", price: "35,00 €", category: "unas-mirada" },
+  // Cejas & Pestañas (sin manicura/pedicura: retiradas de la web pública)
   { id: "u3", name: "Micropigmentación de Cejas (Efecto Polvo / Microblading)", duration: "2 horas — Diseño de cejas de larga duración", price: "Desde 180,00 €", category: "unas-mirada" },
   { id: "u4", name: "Lifting de Pestañas con Tinte", duration: "45 min — Curvatura y profundidad natural para tu mirada", price: "35,00 €", category: "unas-mirada" },
   { id: "u5", name: "Diseño & Depilación de Cejas con Tinte Hena", duration: "30 min — Visajismo y sombreado natural", price: "20,00 €", category: "unas-mirada" }
@@ -339,24 +337,25 @@ async function deleteServiceItem(id) {
   const service = services.find(s => s.id === id);
   if (!service) return;
 
-  if (confirm(`¿Estás seguro de que deseas eliminar "${service.name}"?`)) {
-    if (window.useFirebase) {
-      const { deleteDoc, doc } = window.FirebaseLib;
-      try {
-        await deleteDoc(doc(db, "servicios", id));
-        services = services.filter(s => s.id !== id);
-        renderServicesTable();
-        showToast("Servicio eliminado correctamente", "success");
-      } catch (error) {
-        showToast("Error al eliminar de Firebase: " + error.message, "error");
-      }
-    } else {
+  const ok = await showConfirm(`¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acción no se puede deshacer.`, { title: "Eliminar servicio" });
+  if (!ok) return;
+
+  if (window.useFirebase) {
+    const { deleteDoc, doc } = window.FirebaseLib;
+    try {
+      await deleteDoc(doc(db, "servicios", id));
       services = services.filter(s => s.id !== id);
-      localStorage.setItem("elegance_services", JSON.stringify(services));
-      updateStorageUsage();
       renderServicesTable();
-      showToast("Servicio eliminado", "success");
+      showToast("Servicio eliminado correctamente", "success");
+    } catch (error) {
+      showToast("Error al eliminar de Firebase: " + error.message, "error");
     }
+  } else {
+    services = services.filter(s => s.id !== id);
+    localStorage.setItem("elegance_services", JSON.stringify(services));
+    updateStorageUsage();
+    renderServicesTable();
+    showToast("Servicio eliminado", "success");
   }
 }
 
@@ -557,15 +556,15 @@ function openImagePreview(id) {
   imagePreviewModal.style.display = "flex";
 }
 
-function deleteGalleryImage(id) {
+async function deleteGalleryImage(id) {
   const img = galleryImages.find(i => i.id === id);
   if (!img) return;
-  if (confirm(`¿Eliminar la imagen "${img.name}" de la galería?`)) {
-    galleryImages = galleryImages.filter(i => i.id !== id);
-    saveGallery();
-    renderGallery();
-    showToast("Imagen eliminada de la galería", "success");
-  }
+  const ok = await showConfirm(`¿Eliminar la imagen "${img.name}" de la galería?`, { title: "Eliminar imagen" });
+  if (!ok) return;
+  galleryImages = galleryImages.filter(i => i.id !== id);
+  saveGallery();
+  renderGallery();
+  showToast("Imagen eliminada de la galería", "success");
 }
 
 // Input de subida de archivos
@@ -802,15 +801,15 @@ function moveHero(id, dir) {
   renderHero();
 }
 
-function deleteHeroImage(id) {
+async function deleteHeroImage(id) {
   const img = heroImages.find(i => i.id === id);
   if (!img) return;
-  if (confirm(`¿Quitar la foto "${img.name}" del carrusel del hero?`)) {
-    heroImages = heroImages.filter(i => i.id !== id);
-    saveHero();
-    renderHero();
-    showToast("Foto quitada del carrusel", "success");
-  }
+  const ok = await showConfirm(`¿Quitar la foto "${img.name}" del carrusel del hero?`, { title: "Quitar foto", acceptText: "Quitar" });
+  if (!ok) return;
+  heroImages = heroImages.filter(i => i.id !== id);
+  saveHero();
+  renderHero();
+  showToast("Foto quitada del carrusel", "success");
 }
 
 // Redimensiona una imagen a un ancho máximo y la devuelve como dataURL (JPEG)
@@ -952,6 +951,47 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// Diálogo de confirmación on-brand (sustituye a window.confirm).
+// Devuelve una promesa que resuelve true si se acepta, false si se cancela.
+function showConfirm(message, { title = "Confirmar acción", acceptText = "Eliminar" } = {}) {
+  return new Promise((resolve) => {
+    const overlay = document.getElementById("confirm-modal");
+    const titleEl = document.getElementById("confirm-modal-title");
+    const textEl = document.getElementById("confirm-modal-text");
+    const acceptBtn = document.getElementById("confirm-modal-accept");
+    const cancelBtn = document.getElementById("confirm-modal-cancel");
+
+    // Reserva de seguridad si el modal no existe en el DOM
+    if (!overlay || !acceptBtn || !cancelBtn) {
+      resolve(window.confirm(message));
+      return;
+    }
+
+    titleEl.textContent = title;
+    textEl.textContent = message;
+    acceptBtn.textContent = acceptText;
+    overlay.style.display = "flex";
+
+    const cleanup = (result) => {
+      overlay.style.display = "none";
+      acceptBtn.removeEventListener("click", onAccept);
+      cancelBtn.removeEventListener("click", onCancel);
+      overlay.removeEventListener("click", onOverlay);
+      document.removeEventListener("keydown", onKey);
+      resolve(result);
+    };
+    const onAccept = () => cleanup(true);
+    const onCancel = () => cleanup(false);
+    const onOverlay = (e) => { if (e.target === overlay) cleanup(false); };
+    const onKey = (e) => { if (e.key === "Escape") cleanup(false); };
+
+    acceptBtn.addEventListener("click", onAccept);
+    cancelBtn.addEventListener("click", onCancel);
+    overlay.addEventListener("click", onOverlay);
+    document.addEventListener("keydown", onKey);
+  });
+}
+
 function showToast(message, type = "success") {
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
@@ -982,7 +1022,7 @@ const defaultVideosMetadata = {
   'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
   'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
   'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
-  'clip-unas': { label: 'Uñas & Mirada', desc: 'Clip de manicura y micropigmentación' }
+  'clip-unas': { label: 'Cejas & Pestañas', desc: 'Clip de cejas y pestañas' }
 };
 
 let videosMetadata = {};

@@ -44,7 +44,7 @@
           <button class="admin-tab-btn active" data-section="servicios">Gestión de Tratamientos</button>
           <button class="admin-tab-btn" data-section="hero">Carrusel del Hero</button>
           <button class="admin-tab-btn" data-section="galeria">Galería de Imágenes</button>
-          <button class="admin-tab-btn" data-section="videos">Gestión de Vídeos</button>
+          <button class="admin-tab-btn" data-section="videos">Vídeos (Próximamente)</button>
           <button class="admin-tab-btn" data-section="informacion">Información del Salón</button>
         </div>
 
@@ -64,7 +64,7 @@
             <button class="category-tab-btn" data-cat="corporal">Estética Corporal</button>
             <button class="category-tab-btn" data-cat="peluqueria">Peluquería</button>
             <button class="category-tab-btn" data-cat="depilacion">Depilación</button>
-            <button class="category-tab-btn" data-cat="unas-mirada">Uñas &amp; Mirada</button>
+            <button class="category-tab-btn" data-cat="unas-mirada">Cejas &amp; Pestañas</button>
           </div>
 
           <!-- Listado de Servicios -->
@@ -301,7 +301,7 @@
                 <div class="video-slot__live-badge" id="badge-clip-unas" style="display:none;">● PREVIEW</div>
               </div>
               <div class="video-slot__info">
-                <h4 class="video-slot__label">Uñas &amp; Mirada</h4>
+                <h4 class="video-slot__label">Cejas &amp; Pestañas</h4>
                 <p class="video-slot__desc">Clip de manicura y micropigmentación</p>
                 <div class="video-slot__meta" id="meta-clip-unas" style="display:none;"><span id="metatext-clip-unas"
                     class="video-slot__metatext"></span></div>
@@ -332,7 +332,7 @@
           <form id="salon-info-form" class="salon-info-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="info-phone">Teléfono del Centro</label>
+                <label for="info-phone">Teléfono del Salón</label>
                 <input type="text" id="info-phone" required value="872 03 24 92" />
               </div>
               <div class="form-group">
@@ -378,7 +378,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn--primary">Guardar Datos del Centro</button>
+            <button type="submit" class="btn btn--primary">Guardar Datos del Salón</button>
           </form>
         </section>
 
@@ -416,7 +416,7 @@
               <option value="corporal">Estética Corporal</option>
               <option value="peluqueria">Peluquería</option>
               <option value="depilacion">Depilación</option>
-              <option value="unas-mirada">Uñas &amp; Mirada</option>
+              <option value="unas-mirada">Cejas &amp; Pestañas</option>
             </select>
           </div>
         </div>
@@ -426,6 +426,18 @@
           <button type="submit" class="btn btn--primary" id="modal-save-btn">Guardar</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIRMACIÓN GENÉRICO (on-brand, sustituye a confirm()) -->
+  <div class="modal-overlay" id="confirm-modal" style="display: none;">
+    <div class="modal-box modal-box--confirm">
+      <h3 id="confirm-modal-title">Confirmar acción</h3>
+      <p class="confirm-modal__text" id="confirm-modal-text">¿Estás seguro?</p>
+      <div class="modal-box__actions">
+        <button type="button" class="btn btn--secondary" id="confirm-modal-cancel">Cancelar</button>
+        <button type="button" class="btn btn--danger" id="confirm-modal-accept">Eliminar</button>
+      </div>
     </div>
   </div>
 

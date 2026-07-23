@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -81,7 +81,7 @@
       @apply h-[98px];
     }
 
-    /* Enlaces de navegación del Header */
+    /* Enlaces de navegaciÃ³n del Header */
     .header__link {
       @apply relative py-1.5 font-body text-[0.7rem] font-medium uppercase tracking-[0.15em] text-white/90 transition-colors duration-300;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
@@ -110,7 +110,7 @@
       @apply text-dark-main;
     }
 
-    /* Líneas del botón del menú móvil */
+    /* LÃ­neas del botÃ³n del menÃº mÃ³vil */
     .header__menu-btn span {
       @apply block w-6 h-[1.5px] bg-white transition-all duration-200;
     }
@@ -144,7 +144,7 @@
       @apply text-gold-dark font-bold;
     }
 
-    /* Transición de opacidad de las diapositivas del Hero */
+    /* TransiciÃ³n de opacidad de las diapositivas del Hero */
     .hero__slide {
       @apply absolute inset-0 opacity-0 z-[1] transition-opacity duration-1000 ease-in-out;
     }
@@ -158,7 +158,7 @@
       @apply block w-full h-full object-cover;
     }
 
-    /* Superposición de fondo del Hero (Gradiente radial) */
+    /* SuperposiciÃ³n de fondo del Hero (Gradiente radial) */
     .hero__bg-overlay {
       @apply absolute inset-0 z-[3];
       background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 40%, rgba(0, 0, 0, 0.30) 100%);
@@ -186,7 +186,7 @@
       text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
     }
 
-    /* Forma de píldora activa de los puntos del Hero */
+    /* Forma de pÃ­ldora activa de los puntos del Hero */
     .hero__dot {
       @apply w-2 h-2 p-0 rounded-full cursor-pointer border border-white/50 transition-all duration-300;
       background-color: rgba(255, 255, 255, 0.35);
@@ -201,7 +201,7 @@
       @apply bg-[#8c6b16] border-none;
     }
 
-    /* Componentes de diseño comunes */
+    /* Componentes de diseÃ±o comunes */
     .container {
       @apply max-w-[1200px] mx-auto px-6;
     }
@@ -221,7 +221,7 @@
       @apply w-20 h-[1px] bg-gradient-to-r from-transparent via-gold-warm to-transparent mx-auto mt-5;
     }
 
-    /* Diseño de la sección de Servicios */
+    /* DiseÃ±o de la secciÃ³n de Servicios */
     .servicios {
       @apply py-20 md:py-16 bg-dark-bg;
     }
@@ -232,7 +232,7 @@
       @apply flex justify-center flex-wrap gap-3 mt-12 mb-12;
     }
 
-    /* Estilos de los botones de pestañas */
+    /* Estilos de los botones de pestaÃ±as */
     .tab-btn {
       @apply bg-transparent text-white/50 border border-white/10 rounded-md font-body text-[0.75rem] font-medium uppercase tracking-[0.15em] px-6 py-3 cursor-pointer transition-all duration-200;
     }
@@ -244,7 +244,7 @@
       @apply bg-gold-warm text-dark-main font-semibold border-none;
     }
 
-    /* Sobrescrituras de tema claro para los botones de pestaña */
+    /* Sobrescrituras de tema claro para los botones de pestaÃ±a */
     [data-theme="light"] .tab-btn {
       color: rgb(var(--color-dark-main-rgb) / 0.6);
       border-color: rgb(var(--color-dark-main-rgb) / 0.1);
@@ -266,7 +266,7 @@
       @apply bg-white border border-border-light shadow-[0_10px_30px_rgba(0,0,0,0.02)];
     }
 
-    /* Estados de los paneles de pestañas */
+    /* Estados de los paneles de pestaÃ±as */
     .tab-panel {
       @apply hidden;
     }
@@ -275,7 +275,7 @@
       animation: tabFadeIn 0.5s ease forwards;
     }
 
-    /* Diseño en cuadrícula (Grid) */
+    /* DiseÃ±o en cuadrÃ­cula (Grid) */
     .services-list {
       @apply grid grid-cols-2 md:grid-cols-1 gap-x-[60px] gap-y-8;
     }
@@ -316,7 +316,7 @@
       @apply text-[#8B7355];
     }
 
-    /* Botón de reserva dentro de la fila de servicio */
+    /* BotÃ³n de reserva dentro de la fila de servicio */
     .service-item__btn {
       @apply ml-4 min-h-[44px] inline-flex items-center justify-center font-body text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-white border border-gold-warm px-3.5 py-1.5 whitespace-nowrap transition-all duration-200;
     }
@@ -335,7 +335,7 @@
       @apply inline-block bg-[#EAF3DE] text-[#3B6D11] text-[11px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded ml-2 align-middle;
     }
 
-    /* Estilos de la línea de tiempo (Viaje) */
+    /* Estilos de la lÃ­nea de tiempo (Viaje) */
     .viaje__grid {
       @apply grid gap-10 mt-[60px];
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -364,7 +364,7 @@
       color: rgb(var(--color-dark-main-rgb) / 0.6);
     }
 
-    /* Estilos de la Galería */
+    /* Estilos de la GalerÃ­a */
     .galeria {
       @apply py-20 bg-light-bg;
     }
@@ -382,7 +382,7 @@
     }
     /* Indicador de lupa al pasar el cursor */
     .galeria__item::after {
-      content: "⌕";
+      content: "âŒ•";
       @apply absolute top-3 right-3.5 z-[4] text-[1.5rem] leading-none text-white opacity-0 transition-opacity duration-200;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
@@ -519,7 +519,7 @@
       @apply text-[0.75rem] text-white/40 text-center mt-4 font-body;
     }
 
-    /* Estilos del Pie de Página (Footer) */
+    /* Estilos del Pie de PÃ¡gina (Footer) */
     .footer {
       @apply bg-dark-main text-white py-20 pb-[30px] border-t border-border-dark;
     }
@@ -622,7 +622,7 @@
       "streetAddress": "Gran Via de Jaume I, 6, local 1",
       "addressLocality": "Girona",
       "postalCode": "17001",
-      "addressRegion": "Cataluña",
+      "addressRegion": "CataluÃ±a",
       "addressCountry": "ES"
     },
     "openingHoursSpecification": [
@@ -639,7 +639,7 @@
         "closes": "15:00"
       }
     ],
-    "priceRange": "€€€",
+    "priceRange": "â‚¬â‚¬â‚¬",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 41.9857698,
@@ -656,13 +656,13 @@
 
 <body>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- HEADER — Navegación Fija con Filtro Frosted -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- HEADER â€” NavegaciÃ³n Fija con Filtro Frosted -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <header class="fixed top-0 left-0 w-full z-[100] bg-transparent border-b border-transparent transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header" id="header">
     <div class="max-w-[1300px] mx-auto px-8 md:px-5 h-[90px] flex items-center justify-between transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__inner">
       <div class="flex items-center">
-        <a href="#inicio" aria-label="Elegance by Stoica — Inicio">
+        <a href="#inicio" aria-label="Elegance by Stoica â€” Inicio">
           <img src="img/logo_1.png" alt="Universal Brand" class="h-[111px] w-auto block transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] header__logo-img" />
         </a>
       </div>
@@ -672,25 +672,25 @@
         <a href="#inicio" class="header__link" data-i18n="nav.home">Inicio</a>
         <a href="#servicios" class="header__link" data-i18n="nav.services">Servicios</a>
         <a href="#experiencia" class="header__link" data-i18n="nav.experience">Experiencia</a>
-        <a href="#galeria" class="header__link" data-i18n="nav.gallery">Galería</a>
+        <a href="#galeria" class="header__link" data-i18n="nav.gallery">GalerÃ­a</a>
         <a href="#contacto" class="header__link" data-i18n="nav.contact">Contacto</a>
         
-        <!-- ELEGANCE UX v1 — selector de tema -->
-        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="main-theme-toggle" title="Alternar Modo Claro/Oscuro" aria-label="Alternar modo claro u oscuro">☀️</button>
+        <!-- ELEGANCE UX v1 â€” selector de tema -->
+        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="main-theme-toggle" title="Alternar Modo Claro/Oscuro" aria-label="Alternar modo claro u oscuro">â˜€ï¸</button>
         
-        <!-- ELEGANCE UX v1 — selector de idioma -->
+        <!-- ELEGANCE UX v1 â€” selector de idioma -->
         <div class="flex items-center gap-1" role="group" aria-label="Selector de idioma">
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="ro" aria-pressed="false">RO</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="ru" aria-pressed="false">RU</button>
         </div>
-        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200"
+        <a href="https://elenahairlover.gettimely.com" target="_blank" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200"
           data-i18n="nav.book">Reservar Cita</a>
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button class="flex md:hidden flex-col gap-1.5 bg-transparent border-none cursor-pointer p-2 z-[110]" id="menu-btn" aria-label="Abrir menú" aria-controls="mobile-nav"
+      <button class="flex md:hidden flex-col gap-1.5 bg-transparent border-none cursor-pointer p-2 z-[110]" id="menu-btn" aria-label="Abrir menÃº" aria-controls="mobile-nav"
         aria-expanded="false" data-i18n-attr="aria-label:nav.menu">
         <span></span><span></span><span></span>
       </button>
@@ -698,9 +698,9 @@
 
     <!-- Mobile Nav Overlay -->
     <nav class="fixed top-0 -right-full w-full h-screen bg-dark-main z-[105] flex flex-col justify-center items-center gap-7 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__mobile-nav" id="mobile-nav">
-      <!-- ELEGANCE UX v1 — selector de tema y de idioma (fila superior en móvil) -->
+      <!-- ELEGANCE UX v1 â€” selector de tema y de idioma (fila superior en mÃ³vil) -->
       <div class="flex gap-2 justify-center mb-6">
-        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="mobile-theme-toggle" title="Alternar Modo" aria-label="Alternar modo claro u oscuro">☀️</button>
+        <button class="border border-gold-warm bg-transparent text-gold-warm px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] hover:bg-gold-warm hover:text-dark-main transition-colors duration-200" id="mobile-theme-toggle" title="Alternar Modo" aria-label="Alternar modo claro u oscuro">â˜€ï¸</button>
         <div class="flex justify-center gap-1.5" role="group" aria-label="Selector de idioma" style="margin-bottom: 0;">
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="cat" aria-pressed="false">CAT</button>
@@ -711,21 +711,21 @@
       <a href="#inicio" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.home">Inicio</a>
       <a href="#servicios" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.services">Servicios</a>
       <a href="#experiencia" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.experience">Experiencia</a>
-      <a href="#galeria" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.gallery">Galería</a>
+      <a href="#galeria" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.gallery">GalerÃ­a</a>
       <a href="#contacto" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.contact">Contacto</a>
-      <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+      <a href="https://elenahairlover.gettimely.com" target="_blank"
         class="font-body text-[1rem] font-medium uppercase tracking-[0.15em] px-10 py-3.5 bg-gold-warm text-dark-main mt-4 hover:bg-transparent hover:text-gold-warm border border-gold-warm transition-colors duration-200" data-i18n="nav.book">Reservar Cita</a>
     </nav>
   </header>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- HERO — Estilo Lujo con Foto Real y Brillo -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- HERO â€” Estilo Lujo con Foto Real y Brillo -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="relative min-h-screen overflow-hidden flex items-center justify-center text-center text-white hero" id="inicio">
     <div class="absolute inset-0 overflow-hidden hero__carousel" data-autoplay="15000">
       <div class="absolute inset-0 hero__slides">
-        <!-- Para añadir más fotos (hasta 5-6): duplicar un bloque .hero__slide
-             con su imagen en img/ (y, si puede ser, su versión .webp). Las flechas
+        <!-- Para aÃ±adir mÃ¡s fotos (hasta 5-6): duplicar un bloque .hero__slide
+             con su imagen en img/ (y, si puede ser, su versiÃ³n .webp). Las flechas
              y los puntos se ajustan solos. -->
         <div class="hero__slide is-active">
           <picture>
@@ -745,48 +745,48 @@
 
       <div class="absolute inset-0 z-[4] flex flex-col items-center justify-center px-12 md:px-5.5 hero__content fade-in-up">
         <h1 class="flex flex-col items-center mb-[30px] hero__title">
-          <span class="font-body text-[clamp(0.9rem,2.5vw,1.35rem)] font-bold text-gold-light uppercase tracking-[0.18em] block mt-2 border-t border-b border-gold-warm py-2 px-9 leading-[1.2] hero__title-sub" data-i18n="hero.title">Peluquería &amp; Estética Avanzada · Girona</span>
+          <span class="font-body text-[clamp(0.9rem,2.5vw,1.35rem)] font-bold text-gold-light uppercase tracking-[0.18em] block mt-2 border-t border-b border-gold-warm py-2 px-9 leading-[1.2] hero__title-sub" data-i18n="hero.title">PeluquerÃ­a &amp; EstÃ©tica Avanzada Â· Girona</span>
         </h1>
 
         <p class="font-body text-[clamp(0.95rem,2vw,1.15rem)] max-w-[580px] mx-auto mb-12 font-normal text-white/95 tracking-[0.04em] leading-[1.7] hero__subtitle" data-i18n="hero.subtitle">
-          Peluquería de vanguardia y estética avanzada en Girona. Un oasis de bienestar y tratamientos exclusivos
+          PeluquerÃ­a de vanguardia y estÃ©tica avanzada en Girona. Un oasis de bienestar y tratamientos exclusivos
           personalizados para ti.
         </p>
         <div class="flex justify-center gap-5 hero__actions">
-          <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank"
+          <a href="https://elenahairlover.gettimely.com" target="_blank"
             class="bg-gold-warm text-[#1A1A1A] border-none px-8 py-3.5 text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5 btn btn--primary" data-i18n="hero.cta_primary">Reservar Cita Online</a>
           <a href="#servicios" class="bg-gold-warm/15 text-gold-light border border-gold-warm/15 px-8 py-3.5 text-[13px] font-medium tracking-[0.12em] uppercase backdrop-blur-[4px] transition-all duration-300 hover:bg-gold-warm/28 hover:-translate-y-0.5 btn btn--secondary" data-i18n="hero.cta_secondary">Explorar Servicios</a>
         </div>
       </div>
 
-      <!-- Zonas de navegación lateral transparentes (ELEGANCE UX v2) -->
+      <!-- Zonas de navegaciÃ³n lateral transparentes (ELEGANCE UX v2) -->
       <div class="absolute top-0 left-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--prev" role="button" aria-label="Foto anterior" data-i18n-attr="aria-label:hero.prev"></div>
       <div class="absolute top-0 right-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--next" role="button" aria-label="Foto siguiente" data-i18n-attr="aria-label:hero.next"></div>
-      <div class="absolute bottom-[18px] left-1/2 -translate-x-1/2 z-[5] flex gap-2.5 hero__dots" role="tablist" aria-label="Selector de fotos del salón"></div>
+      <div class="absolute bottom-[18px] left-1/2 -translate-x-1/2 z-[5] flex gap-2.5 hero__dots" role="tablist" aria-label="Selector de fotos del salÃ³n"></div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- SERVICIOS — Carta de Servicios Interactiva  -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- SERVICIOS â€” Carta de Servicios Interactiva  -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="servicios" id="servicios">
     <div class="container">
       <span class="section-label" data-i18n="services.label">Nuestra Carta de Precios</span>
       <h2 class="section-title" data-i18n="services.title">Servicios & Tratamientos</h2>
       <div class="section-divider"></div>
 
-      <!-- Botones de las pestañas -->
+      <!-- Botones de las pestaÃ±as -->
       <div class="servicios__tabs-nav fade-in-up">
-        <button class="tab-btn active" data-tab="facial" data-i18n="services.tab_facial">Estética Facial</button>
-        <button class="tab-btn" data-tab="corporal" data-i18n="services.tab_corporal">Estética Corporal</button>
-        <button class="tab-btn" data-tab="peluqueria" data-i18n="services.tab_peluqueria">Peluquería</button>
-        <button class="tab-btn" data-tab="depilacion" data-i18n="services.tab_depilacion">Depilación</button>
-        <button class="tab-btn" data-tab="unas-mirada" data-i18n="services.tab_unas">Cejas & Pestañas</button>
+        <button class="tab-btn active" data-tab="facial" data-i18n="services.tab_facial">EstÃ©tica Facial</button>
+        <button class="tab-btn" data-tab="corporal" data-i18n="services.tab_corporal">EstÃ©tica Corporal</button>
+        <button class="tab-btn" data-tab="peluqueria" data-i18n="services.tab_peluqueria">PeluquerÃ­a</button>
+        <button class="tab-btn" data-tab="depilacion" data-i18n="services.tab_depilacion">DepilaciÃ³n</button>
+        <button class="tab-btn" data-tab="unas-mirada" data-i18n="services.tab_unas">Cejas & PestaÃ±as</button>
       </div>
 
-      <!-- Contenedores de las pestañas -->
+      <!-- Contenedores de las pestaÃ±as -->
       <div class="servicios__tabs-content fade-in-up">
-        <!-- Contenedores din�micos para los servicios cargados por JS/Firebase -->
+        <!-- Contenedores dinámicos para los servicios cargados por JS/Firebase -->
         <div class="tab-panel active" id="facial">
           <div class="services-list" id="services-facial"></div>
         </div>
@@ -806,9 +806,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- TU EXPERIENCIA — Timeline Lujosa           -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- TU EXPERIENCIA â€” Timeline Lujosa           -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="viaje" id="experiencia">
     <div class="container">
       <span class="section-label" data-i18n="experience.label">El Proceso</span>
@@ -820,19 +820,19 @@
           <div class="viaje__number">01</div>
           <h3 class="viaje__step-title" data-i18n="experience.step1_title">Consulta Inicial</h3>
           <p class="viaje__step-text" data-i18n="experience.step1_text">Evaluamos detalladamente las necesidades de tu piel, cuerpo o cabello en una cita
-            de diagnóstico gratuita.</p>
+            de diagnÃ³stico gratuita.</p>
         </div>
         <div class="viaje__step fade-in-up" style="animation-delay: 0.1s">
           <div class="viaje__number">02</div>
           <h3 class="viaje__step-title" data-i18n="experience.step2_title">Plan Personalizado</h3>
-          <p class="viaje__step-text" data-i18n="experience.step2_text">Diseñamos un protocolo a medida combinando estilismo y la tecnología estética
-            idónea para ti.</p>
+          <p class="viaje__step-text" data-i18n="experience.step2_text">DiseÃ±amos un protocolo a medida combinando estilismo y la tecnologÃ­a estÃ©tica
+            idÃ³nea para ti.</p>
         </div>
         <div class="viaje__step fade-in-up" style="animation-delay: 0.2s">
           <div class="viaje__number">03</div>
           <h3 class="viaje__step-title" data-i18n="experience.step3_title">Tratamiento Premium</h3>
-          <p class="viaje__step-text" data-i18n="experience.step3_text">Disfruta de tu sesión de belleza en un ambiente relajante con productos de alta
-            gama y aparatología de punta.</p>
+          <p class="viaje__step-text" data-i18n="experience.step3_text">Disfruta de tu sesiÃ³n de belleza en un ambiente relajante con productos de alta
+            gama y aparatologÃ­a de punta.</p>
         </div>
         <div class="viaje__step fade-in-up" style="animation-delay: 0.3s">
           <div class="viaje__number">04</div>
@@ -844,13 +844,13 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- GALERÍA — Fotos Reales                     -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- GALERÃA â€” Fotos Reales                     -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="galeria" id="galeria">
     <div class="container">
       <span class="section-label" data-i18n="gallery.label">Resultados</span>
-      <h2 class="section-title" data-i18n="gallery.title">El Salón & Resultados</h2>
+      <h2 class="section-title" data-i18n="gallery.title">El SalÃ³n & Resultados</h2>
       <div class="section-divider"></div>
 
       <div class="galeria__grid">
@@ -858,24 +858,24 @@
         <div class="galeria__item featured fade-in-up">
           <picture>
             <source srcset="img/entrada.webp" type="image/webp" />
-            <img src="img/entrada.png" alt="Entrada del salón Elegance by Stoica en Girona"
+            <img src="img/entrada.png" alt="Entrada del salÃ³n Elegance by Stoica en Girona"
               class="galeria__img" width="1200" height="900" loading="lazy" />
           </picture>
           <div class="galeria__overlay">
-            <h3 class="galeria__overlay-title" data-i18n="gallery.item1_title">Nuestro Salón</h3>
-            <p class="galeria__overlay-desc" data-i18n="gallery.item1_desc">Ubicado en Girona — Un espacio de alta estética y confort</p>
+            <h3 class="galeria__overlay-title" data-i18n="gallery.item1_title">Nuestro SalÃ³n</h3>
+            <p class="galeria__overlay-desc" data-i18n="gallery.item1_desc">Ubicado en Girona â€” Un espacio de alta estÃ©tica y confort</p>
           </div>
         </div>
 
-        <!-- Item 2: Peluquería en Acción -->
+        <!-- Item 2: PeluquerÃ­a en AcciÃ³n -->
         <div class="galeria__item fade-in-up" style="animation-delay: 0.15s">
           <picture>
             <source srcset="img/galeria1.webp" type="image/webp" />
-            <img src="img/galeria1.png" alt="Servicios de peluquería en acción en Elegance by Stoica"
+            <img src="img/galeria1.png" alt="Servicios de peluquerÃ­a en acciÃ³n en Elegance by Stoica"
               class="galeria__img" width="1200" height="900" loading="lazy" />
           </picture>
           <div class="galeria__overlay">
-            <h3 class="galeria__overlay-title" data-i18n="gallery.item2_title">Estilismo en Acción</h3>
+            <h3 class="galeria__overlay-title" data-i18n="gallery.item2_title">Estilismo en AcciÃ³n</h3>
             <p class="galeria__overlay-desc" data-i18n="gallery.item2_desc">Cortes, color y peinados personalizados por nuestras estilistas</p>
           </div>
         </div>
@@ -888,46 +888,46 @@
     <blockquote class="marca-quote__text" data-i18n="marca.quote">
       "La elegancia no es darse a notar, sino ser recordada."
     </blockquote>
-    <span class="marca-quote__author">— Giorgio Armani</span>
+    <span class="marca-quote__author">â€” Giorgio Armani</span>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <!-- HORARIOS Y CONTACTO REAL                    -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="contacto" id="contacto">
     <div class="container">
-      <span class="section-label" data-i18n="contact.label">Contacto & Dirección</span>
-      <h2 class="section-title" data-i18n="contact.title">Visítanos</h2>
+      <span class="section-label" data-i18n="contact.label">Contacto & DirecciÃ³n</span>
+      <h2 class="section-title" data-i18n="contact.title">VisÃ­tanos</h2>
       <div class="section-divider"></div>
 
       <div class="contacto__grid">
         <!-- Info Izquierda -->
         <div class="contacto__info fade-in-up">
           <div class="contacto__item">
-            <h4 data-i18n="contact.loc_title">Ubicación</h4>
-            <p>Gran Via de Jaume I, 6, local 1<br>17001 Girona, España</p>
+            <h4 data-i18n="contact.loc_title">UbicaciÃ³n</h4>
+            <p>Gran Via de Jaume I, 6, local 1<br>17001 Girona, EspaÃ±a</p>
           </div>
 
           <div class="contacto__item">
             <h4 data-i18n="contact.contact_title">Medios de Contacto</h4>
             <p><span data-i18n="contact.email_label">Email:</span> <a href="mailto:salonfashiongirona@yahoo.com">salonfashiongirona@yahoo.com</a></p>
-            <p><span data-i18n="contact.phone_label">Teléfono:</span> <a href="tel:+34872032492">872 03 24 92</a></p>
+            <p><span data-i18n="contact.phone_label">TelÃ©fono:</span> <a href="tel:+34872032492">872 03 24 92</a></p>
           </div>
-          <!-- ELEGANCE UX v1 — badges de redes eliminados: la barra flotante lateral ya cubre IG/Facebook -->
+          <!-- ELEGANCE UX v1 â€” badges de redes eliminados: la barra flotante lateral ya cubre IG/Facebook -->
         </div>
 
         <!-- Horarios Centro -->
         <div class="contacto__horario-card fade-in-up" style="animation-delay: 0.15s">
-          <h4 data-i18n="contact.hours_title">Horario del Salón</h4>
+          <h4 data-i18n="contact.hours_title">Horario del SalÃ³n</h4>
 
           <div class="contacto__horario-row">
             <span data-i18n="contact.day_tuefri">Martes a Viernes</span>
-            <span>09:00h – 19:00h</span>
+            <span>09:00h â€“ 19:00h</span>
           </div>
 
           <div class="contacto__horario-row">
-            <span data-i18n="contact.day_sat">Sábados</span>
-            <span>08:00h – 15:00h</span>
+            <span data-i18n="contact.day_sat">SÃ¡bados</span>
+            <span>08:00h â€“ 15:00h</span>
           </div>
 
           <div class="contacto__horario-row closed">
@@ -943,15 +943,15 @@
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <a href="https://www.google.com/maps/place/Elegance+by+Stoica/@41.9857738,2.8194893,17z/data=!3m1!4b1!4m6!3m5!1s0x12bae73a2297498d:0xcd09506aa5b16cba!8m2!3d41.9857698!4d2.8220642!16s%2Fg%2F12m9fxp5t?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
             target="_blank" rel="noopener" class="btn btn--gold-outline btn--full contacto__map-btn"
-            data-i18n="contact.map_btn">Cómo llegar en Google Maps</a>
+            data-i18n="contact.map_btn">CÃ³mo llegar en Google Maps</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- RESERVA — Portal Online                     -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- RESERVA â€” Portal Online                     -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <section class="reserva" id="reserva">
     <div class="container">
       <span class="section-label" data-i18n="reserve.label">Reserva Online al Instante</span>
@@ -961,94 +961,94 @@
       <div class="reserva__form-box reserva__form-box--cta fade-in-up">
         <h3 class="reserva__cta-title" data-i18n="reserve.cta_title">Plataforma de Reserva Directa</h3>
         <p class="reserva__cta-text" data-i18n="reserve.cta_text">
-          Elige tus tratamientos favoritos de peluquería, estética avanzada, manicura o masajes, selecciona tu estilista
-          o esteticista preferida y reserva el día y hora que mejor te convenga. Todo de forma inmediata y sin esperas a
-          través de nuestro portal oficial.
+          Elige tus tratamientos favoritos de peluquerÃ­a, estÃ©tica avanzada, manicura o masajes, selecciona tu estilista
+          o esteticista preferida y reserva el dÃ­a y hora que mejor te convenga. Todo de forma inmediata y sin esperas a
+          travÃ©s de nuestro portal oficial.
         </p>
-        <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" rel="noopener"
+        <a href="https://elenahairlover.gettimely.com" target="_blank" rel="noopener"
           class="btn btn--primary btn--full reserva__cta-btn" data-i18n="reserve.cta_btn">
           Reservar Cita Online
         </a>
-        <p class="reserva__trust" data-i18n="reserve.trust">✓ Sin esperas &nbsp;·&nbsp; ✓ Confirmación inmediata &nbsp;·&nbsp; ✓ 100&nbsp;% online</p>
-        <p class="reserva__note" data-i18n="reserve.note">Plataforma externa segura gestionada por Estetical.es</p>
+        <p class="reserva__trust" data-i18n="reserve.trust">âœ“ Sin esperas &nbsp;Â·&nbsp; âœ“ ConfirmaciÃ³n inmediata &nbsp;Â·&nbsp; âœ“ 100&nbsp;% online</p>
+        <p class="reserva__note" data-i18n="reserve.note">Plataforma externa segura gestionada por Timely</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <!-- FOOTER                                      -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <img src="img/logo_1.png" alt="Universal Brand" class="footer__logo-img" />
-        <p class="footer__desc" data-i18n="footer.desc">Peluquería y Estética Avanzada en Girona. Tu belleza, estilo y bienestar son nuestra
-          dedicación exclusiva.</p>
+        <p class="footer__desc" data-i18n="footer.desc">PeluquerÃ­a y EstÃ©tica Avanzada en Girona. Tu belleza, estilo y bienestar son nuestra
+          dedicaciÃ³n exclusiva.</p>
       </div>
       <div class="footer__nav">
-        <h4 data-i18n="footer.nav_title">Navegación</h4>
+        <h4 data-i18n="footer.nav_title">NavegaciÃ³n</h4>
         <a href="#inicio" data-i18n="nav.home">Inicio</a>
         <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
-        <a href="#galeria" data-i18n="nav.gallery">Galería</a>
+        <a href="#galeria" data-i18n="nav.gallery">GalerÃ­a</a>
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </div>
       <div class="footer__contact">
-        <h4 data-i18n="footer.support_title">Ubicación & Soporte</h4>
+        <h4 data-i18n="footer.support_title">UbicaciÃ³n & Soporte</h4>
         <p>Gran Via de Jaume I, 6, local 1, Girona</p>
-        <p><span data-i18n="contact.phone_label">Teléfono:</span> <a href="tel:+34872032492">872 03 24 92</a></p>
+        <p><span data-i18n="contact.phone_label">TelÃ©fono:</span> <a href="tel:+34872032492">872 03 24 92</a></p>
         <p><span data-i18n="contact.email_label">Email:</span> <a href="mailto:salonfashiongirona@yahoo.com">salonfashiongirona@yahoo.com</a></p>
-        <p class="footer__hours" data-i18n="footer.hours_line">Horario: Mar-Vie: 9h-19h / Sáb: 8h-15h</p>
+        <p class="footer__hours" data-i18n="footer.hours_line">Horario: Mar-Vie: 9h-19h / SÃ¡b: 8h-15h</p>
       </div>
     </div>
     <div class="footer__copy">
-      <p data-i18n="footer.copyright">&copy; 2026 Elegance by Stoica. Todos los derechos reservados. Girona, Cataluña.</p>
+      <p data-i18n="footer.copyright">&copy; 2026 Elegance by Stoica. Todos los derechos reservados. Girona, CataluÃ±a.</p>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- BOTONES FLOTANTES — Contacto rápido          -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- BOTONES FLOTANTES â€” Contacto rÃ¡pido          -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="floating-actions">
-    <a href="tel:+353894501215" class="floating-actions__btn" aria-label="Llamar al salón">
+    <a href="tel:+353894501215" class="floating-actions__btn" aria-label="Llamar al salÃ³n">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
       </svg>
     </a>
     <a href="https://wa.me/353894501215" target="_blank" rel="noopener" class="floating-actions__btn" data-whatsapp
-      aria-label="Escríbenos por WhatsApp">
+      aria-label="EscrÃ­benos por WhatsApp">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>
     </a>
     <a href="https://www.instagram.com/elena_hairlover/" target="_blank" rel="noopener"
-      class="floating-actions__btn" aria-label="Síguenos en Instagram">
+      class="floating-actions__btn" aria-label="SÃ­guenos en Instagram">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.4a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/>
       </svg>
     </a>
     <a href="https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/" target="_blank" rel="noopener"
-      class="floating-actions__btn" aria-label="Síguenos en Facebook">
+      class="floating-actions__btn" aria-label="SÃ­guenos en Facebook">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/>
       </svg>
     </a>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- CUSTOM MODAL — Notificación Elegante         -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- CUSTOM MODAL â€” NotificaciÃ³n Elegante         -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div class="modal" id="modal-success" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal__content">
-      <div class="modal__icon" aria-hidden="true">✓</div>
-      <h3 class="modal__title" id="modal-title">¡Reserva Solicitada!</h3>
-      <p class="modal__text" id="modal-text">Tu solicitud ha sido recibida con éxito. Nos pondremos en contacto contigo
+      <div class="modal__icon" aria-hidden="true">âœ“</div>
+      <h3 class="modal__title" id="modal-title">Â¡Reserva Solicitada!</h3>
+      <p class="modal__text" id="modal-text">Tu solicitud ha sido recibida con Ã©xito. Nos pondremos en contacto contigo
         en menos de 2 horas.</p>
       <button class="btn btn--gold-outline" id="modal-close">Cerrar Ventana</button>
     </div>
   </div>
 
-  <!-- Configuración primero, para conocer si Firebase está activo -->
+  <!-- ConfiguraciÃ³n primero, para conocer si Firebase estÃ¡ activo -->
   <script src="js/config.js"></script>
 
   <!-- Firebase (v10) solo se descarga si hay credenciales reales configuradas -->
@@ -1062,7 +1062,7 @@
     }
   </script>
 
-  <!-- ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) -->
+  <!-- ELEGANCE UX v1 â€” i18n (se carga antes de main.js; se auto-inicializa) -->
   <script src="js/i18n-loader.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>

@@ -52,8 +52,9 @@
     "desc": "We are located in the heart of the city."
   },
   "reserve": {
-    "title": "Book an Appointment",
-    "cta_title": "Direct Booking Platform"
+    "title": "Book your Appointment",
+    "cta_title": "Direct Booking Platform",
+    "note": "Secure external platform managed by Timely"
   },
   "admin": {
     "dashboard": "Admin Dashboard",

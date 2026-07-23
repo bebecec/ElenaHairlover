@@ -1,14 +1,14 @@
-/* ═══════════════════════════════════════════════════════════
-   ELEGANCE BY STOICA — Controladores JavaScript Dinámicos
-   ═══════════════════════════════════════════════════════════ */
+﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   ELEGANCE BY STOICA â€” Controladores JavaScript DinÃ¡micos
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-// Nota: el catálogo de servicios y los datos de contacto viven en el HTML
-// estático de index.html (fuente de verdad, mejor para SEO). El panel de
-// administración (admin.js) mantiene su propia semilla y escribe en
+// Nota: el catÃ¡logo de servicios y los datos de contacto viven en el HTML
+// estÃ¡tico de index.html (fuente de verdad, mejor para SEO). El panel de
+// administraciÃ³n (admin.js) mantiene su propia semilla y escribe en
 // localStorage / Firebase; esta web solo lee esos datos si existen.
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ─── THEME TOGGLE (MAIN SITE) ────────────────────────── */
+  /* â”€â”€â”€ THEME TOGGLE (MAIN SITE) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const savedTheme = localStorage.getItem("elegance_main_theme") || "dark";
   if (savedTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   toggleButtons.forEach(btn => {
     if (!btn) return;
-    btn.textContent = savedTheme === "light" ? "🌙" : "☀️";
+    btn.textContent = savedTheme === "light" ? "ðŸŒ™" : "â˜€ï¸";
     
     btn.addEventListener("click", () => {
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       toggleButtons.forEach(b => {
-        if(b) b.textContent = newTheme === "light" ? "🌙" : "☀️";
+        if(b) b.textContent = newTheme === "light" ? "ðŸŒ™" : "â˜€ï¸";
       });
     });
   });
 
-  // ─── Header con scroll (Efecto Glassmorphism translúcido) ──
+  // â”€â”€â”€ Header con scroll (Efecto Glassmorphism translÃºcido) â”€â”€
   const header = document.getElementById('header');
   if (header) {
     const checkScroll = () => {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkScroll();
   }
 
-  // ─── Menú móvil ────────────────────────────────────────
+  // â”€â”€â”€ MenÃº mÃ³vil â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const menuBtn = document.getElementById('menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Pestañas de Servicios (Carta interactiva) ───────
+  // â”€â”€â”€ PestaÃ±as de Servicios (Carta interactiva) â”€â”€â”€â”€â”€â”€â”€
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -93,13 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Carrusel del Hero (autoplay + flechas + puntos + swipe) ──
+  // â”€â”€â”€ Carrusel del Hero (autoplay + flechas + puntos + swipe) â”€â”€
   function initHeroCarousel() {
     const carousel = document.querySelector('.hero__carousel');
     if (!carousel) return;
 
-    // Si el panel de administración guardó fotos del hero, reconstruimos los
-    // slides desde localStorage. Si no, se conservan los slides estáticos.
+    // Si el panel de administraciÃ³n guardÃ³ fotos del hero, reconstruimos los
+    // slides desde localStorage. Si no, se conservan los slides estÃ¡ticos.
     try {
       const savedHero = localStorage.getItem('elegance_hero');
       if (savedHero) {
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = carousel.querySelector('.hero__arrow--next');
     if (slides.length === 0) return;
 
-    // Con una sola foto no hace falta navegación ni autoplay
+    // Con una sola foto no hace falta navegaciÃ³n ni autoplay
     if (slides.length < 2) {
       [dotsWrap, prevBtn, nextBtn].forEach(el => el && (el.style.display = 'none'));
       return;
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
 
-    // Swipe táctil
+    // Swipe tÃ¡ctil
     let touchStartX = 0;
     carousel.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
@@ -187,9 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initHeroCarousel();
 
-  // ─── Lightbox de galería (ELEGANCE UX v1) ───────────────
-  // Visor a pantalla completa. Usa delegación en .galeria__grid para que
-  // funcione también con las imágenes inyectadas dinámicamente.
+  // â”€â”€â”€ Lightbox de galerÃ­a (ELEGANCE UX v1) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Visor a pantalla completa. Usa delegaciÃ³n en .galeria__grid para que
+  // funcione tambiÃ©n con las imÃ¡genes inyectadas dinÃ¡micamente.
   function initGalleryLightbox() {
     const grid = document.querySelector('.galeria__grid');
     if (!grid) return;
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initGalleryLightbox();
 
-  // ─── CARGA DINÁMICA DE TRATAMIENTOS Y CONFIGURACIÓN ──────
+  // â”€â”€â”€ CARGA DINÃMICA DE TRATAMIENTOS Y CONFIGURACIÃ“N â”€â”€â”€â”€â”€â”€
   async function initDynamicContent() {
     let services = [];
     let salonInfo = {};
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
           services.push({ id: doc.id, ...doc.data() });
         });
 
-        // Información General
+        // InformaciÃ³n General
         const iSnap = await getDocs(collection(db, "salon_info"));
         if (!iSnap.empty) {
           salonInfo = iSnap.docs[0].data();
@@ -265,9 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // El HTML estático ya contiene el catálogo completo (mejor para SEO y sin
-    // parpadeo). Solo re-renderizamos dinámicamente si hay datos REALES:
-    // de Firebase, o ediciones guardadas por el panel de administración en
+    // El HTML estÃ¡tico ya contiene el catÃ¡logo completo (mejor para SEO y sin
+    // parpadeo). Solo re-renderizamos dinÃ¡micamente si hay datos REALES:
+    // de Firebase, o ediciones guardadas por el panel de administraciÃ³n en
     // localStorage. Si no hay nada, conservamos el HTML tal cual.
     if (services.length === 0) {
       const savedServices = localStorage.getItem("elegance_services");
@@ -281,8 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
       salonInfo = JSON.parse(savedInfo);
     }
 
-    // Renderizar Servicios solo si hay datos dinámicos; si no, se conserva el
-    // HTML estático ya presente en la página.
+    // Renderizar Servicios solo si hay datos dinÃ¡micos; si no, se conserva el
+    // HTML estÃ¡tico ya presente en la pÃ¡gina.
     if (services.length > 0) {
       const categories = ["facial", "corporal", "peluqueria", "depilacion", "unas-mirada"];
       categories.forEach(cat => {
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const catServices = services.filter(s => s.category === cat);
             if (catServices.length === 0) {
-              listContainer.innerHTML = `<p style="grid-column: span 2; text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">Próximamente nuevos servicios.</p>`;
+              listContainer.innerHTML = `<p style="grid-column: span 2; text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">PrÃ³ximamente nuevos servicios.</p>`;
               return;
             }
 
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="service-item__dots"></div>
                 <span class="service-item__price">${escapeHtml(s.price)}</span>
-                <a href="https://micentro.estetical.es/centro/elegance-by-stoica" target="_blank" class="service-item__btn" data-service="${escapeHtml(s.name)}">Reservar</a>
+                <a href="https://elenahairlover.gettimely.com" target="_blank" class="service-item__btn" data-service="${escapeHtml(s.name)}">Reservar</a>
               `;
               listContainer.appendChild(item);
             });
@@ -317,19 +317,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Inyectar datos del salón solo si el panel los ha personalizado
+    // Inyectar datos del salÃ³n solo si el panel los ha personalizado
     if (salonInfo && salonInfo.phone) {
       updateSalonContactInfo(salonInfo);
     }
 
-    // Cargar galería dinámicamente (solo si hay imágenes guardadas)
+    // Cargar galerÃ­a dinÃ¡micamente (solo si hay imÃ¡genes guardadas)
     await loadDynamicGallery();
   }
 
   async function loadDynamicGallery() {
-    // Solo sustituimos la galería estática si el panel de administración ha
-    // guardado imágenes propias. Si no, conservamos el HTML (mejor SEO, sin
-    // parpadeo y sin riesgo de referenciar imágenes inexistentes).
+    // Solo sustituimos la galerÃ­a estÃ¡tica si el panel de administraciÃ³n ha
+    // guardado imÃ¡genes propias. Si no, conservamos el HTML (mejor SEO, sin
+    // parpadeo y sin riesgo de referenciar imÃ¡genes inexistentes).
     const saved = localStorage.getItem("elegance_gallery");
     if (!saved) return;
 
@@ -360,18 +360,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateSalonContactInfo(info) {
-    // Teléfono
+    // TelÃ©fono
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
       const displayFormatted = info.phone || "872 03 24 92";
       link.href = `tel:+34${displayFormatted.replace(/\s+/g, '')}`;
-      // El botón flotante conserva su icono SVG; solo se actualiza su enlace.
+      // El botÃ³n flotante conserva su icono SVG; solo se actualiza su enlace.
       if (!link.classList.contains('floating-actions__btn')) {
         link.textContent = displayFormatted;
       }
     });
 
-    // WhatsApp (botón flotante) — número propio, normalizado a wa.me/34…
+    // WhatsApp (botÃ³n flotante) â€” nÃºmero propio, normalizado a wa.me/34â€¦
     let wa = (info.whatsapp || "648158717").replace(/\D/g, '');
     if (!wa.startsWith('34')) wa = '34' + wa;
     document.querySelectorAll('[data-whatsapp]').forEach(link => {
@@ -386,11 +386,11 @@ document.addEventListener('DOMContentLoaded', () => {
       link.href = `mailto:${email}`;
     });
 
-    // Dirección
+    // DirecciÃ³n
     const addressElements = document.querySelectorAll('.contacto__item p, .footer__contact p');
     addressElements.forEach(el => {
-      if (el.textContent.includes("Jaume I") || el.textContent.includes("Girona, España")) {
-        const address = info.address || "Gran Via de Jaume I, 6, local 1\n17001 Girona, España";
+      if (el.textContent.includes("Jaume I") || el.textContent.includes("Girona, EspaÃ±a")) {
+        const address = info.address || "Gran Via de Jaume I, 6, local 1\n17001 Girona, EspaÃ±a";
         el.innerHTML = address.replace(/\n/g, '<br>');
       }
     });
@@ -411,8 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (horarioCard) {
       const rows = horarioCard.querySelectorAll('.contacto__horario-row');
       if (rows.length >= 2) {
-        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h – 19:00h";
-        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h – 15:00h";
+        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h â€“ 19:00h";
+        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h â€“ 15:00h";
       }
     }
   }
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Inicializar carga dinámica
+  // Inicializar carga dinÃ¡mica
   // Esperamos 100ms para asegurar que Firebase CDN y config.js terminen de registrarse
   setTimeout(() => {
     initDynamicContent();

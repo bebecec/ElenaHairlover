@@ -53,7 +53,8 @@
   },
   "reserve": {
     "title": "Reserva tu Cita",
-    "cta_title": "Plataforma de Reserva Directa"
+    "cta_title": "Plataforma de Reserva Directa",
+    "note": "Plataforma externa segura gestionada por Timely"
   },
   "admin": {
     "dashboard": "Panel de Administración",

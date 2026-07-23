@@ -218,6 +218,8 @@ function initDatabase() {
 // CARGA DE DATOS
 // ═══════════════════════════════════════════════════════════
 async function loadData() {
+  servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-loading" style="text-align: center; padding: 32px;" data-i18n="states.loading">${window.I18nLoader ? window.I18nLoader.getText("states.loading") : "Cargando..."}</td></tr>`;
+
   if (window.useFirebase) {
     const { getDocs, collection } = window.FirebaseLib;
     try {
@@ -255,6 +257,7 @@ async function loadData() {
       renderServicesTable();
     } catch (error) {
       console.error(error);
+      servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-error" style="text-align: center; color: red; padding: 32px;" data-i18n="states.error">${window.I18nLoader ? window.I18nLoader.getText("states.error") : "Error"}</td></tr>`;
       showToast("Error al cargar datos de Firebase: " + error.message, "error");
     }
   } else {
@@ -275,7 +278,7 @@ async function loadData() {
       localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     }
 
-    // Galería
+    // Galer�a
     loadGallery();
     loadHero();
     populateSalonInfoForm();
@@ -283,15 +286,16 @@ async function loadData() {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
+// -----------------------------------------------------------
 // SERVICIOS
-// ═══════════════════════════════════════════════════════════
+// -----------------------------------------------------------
 function renderServicesTable() {
   servicesTbody.innerHTML = "";
   const filtered = services.filter(s => s.category === currentCategory);
 
   if (filtered.length === 0) {
-    servicesTbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--color-text-muted); padding: 32px;">No hay tratamientos en esta categoría. Haz clic en "Nuevo Servicio" para añadir uno.</td></tr>`;
+    servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "Vac�o"}</td></tr>`;
+    if (window.I18nLoader) window.I18nLoader.translateDOM();
     return;
   }
 
@@ -1220,3 +1224,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initDatabase();
   initVideoManagement();
 });
+
+

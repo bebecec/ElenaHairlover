@@ -20,6 +20,16 @@ const I18nLoader = {
     }
   },
 
+  getText(keyStr) {
+    const keys = keyStr.split('.');
+    let text = this.translations;
+    for (const key of keys) {
+      if (text === undefined) break;
+      text = text[key];
+    }
+    return (text !== undefined && typeof text === 'string') ? text : keyStr;
+  },
+
   translateDOM() {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
@@ -49,3 +59,4 @@ const I18nLoader = {
 document.addEventListener('DOMContentLoaded', () => {
   I18nLoader.init();
 });
+

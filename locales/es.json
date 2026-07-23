@@ -2,14 +2,58 @@
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Inicio",
-    "features": "Servicios",
-    "pricing": "Precios",
-    "contact": "Contacto"
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "gallery": "Galería",
+    "contact": "Contacto",
+    "book": "Reservar Cita",
+    "menu": "Abrir menú"
   },
   "hero": {
     "title": "Elena Hairlover",
     "subtitle": "Because your hair tells your story ♡",
-    "cta": "Reserva online"
+    "cta_primary": "Reservar Cita Online",
+    "cta_secondary": "Explorar Servicios",
+    "prev": "Foto anterior",
+    "next": "Foto siguiente"
+  },
+  "services": {
+    "label": "Nuestra Carta de Precios",
+    "title": "Servicios & Tratamientos",
+    "tab_facial": "Estética Facial",
+    "tab_corporal": "Estética Corporal",
+    "tab_peluqueria": "Peluquería",
+    "tab_depilacion": "Depilación",
+    "tab_unas": "Cejas & Pestañas"
+  },
+  "experience": {
+    "title": "Tu Experiencia Elegance",
+    "step1_title": "Consulta Inicial",
+    "step1_desc": "Evaluación personalizada de tus necesidades.",
+    "step2_title": "Plan Personalizado",
+    "step2_desc": "Diseñamos un plan exclusivo para ti.",
+    "step3_title": "Tratamiento Premium",
+    "step3_desc": "Aplicación de técnicas avanzadas.",
+    "step4_title": "Cuidado Continuo",
+    "step4_desc": "Seguimiento para resultados duraderos."
+  },
+  "gallery": {
+    "title": "El Salón & Resultados",
+    "item1_title": "Nuestro Salón",
+    "item2_title": "Estilismo en Acción",
+    "item3_title": "Resultados Únicos",
+    "item4_title": "Relax Total"
+  },
+  "contact": {
+    "title": "Visítanos",
+    "loc_title": "Ubicación",
+    "contact_title": "Medios de Contacto",
+    "hours_title": "Horario del Salón",
+    "desc": "Estamos ubicados en el corazón de la ciudad."
+  },
+  "reserve": {
+    "title": "Reserva tu Cita",
+    "cta_title": "Plataforma de Reserva Directa"
   },
   "admin": {
     "dashboard": "Panel de Administración",
@@ -31,6 +75,8 @@
   "footer": {
     "desc": "Hair Stylist ✨ Colour • Balayage • Blondes • Cuts 📍 Blanchardstown • Coolmine",
     "nav_title": "Navegación",
+    "support_title": "Ubicación & Soporte",
+    "legal_title": "Legal",
     "hours_line": "Book online: elenahairlover.gettimely.com",
     "copyright": "© 2026 Elena Hairlover. Todos los derechos reservados."
   }

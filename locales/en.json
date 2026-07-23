@@ -2,14 +2,58 @@
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Home",
-    "features": "Services",
-    "pricing": "Pricing",
-    "contact": "Contact"
+    "services": "Services",
+    "experience": "Experience",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "book": "Book Online",
+    "menu": "Open menu"
   },
   "hero": {
     "title": "Elena Hairlover",
     "subtitle": "Because your hair tells your story ♡",
-    "cta": "Book online"
+    "cta_primary": "Book Online",
+    "cta_secondary": "Explore Services",
+    "prev": "Previous photo",
+    "next": "Next photo"
+  },
+  "services": {
+    "label": "Our Price List",
+    "title": "Services & Treatments",
+    "tab_facial": "Facial Aesthetics",
+    "tab_corporal": "Body Aesthetics",
+    "tab_peluqueria": "Hair Salon",
+    "tab_depilacion": "Hair Removal",
+    "tab_unas": "Brows & Lashes"
+  },
+  "experience": {
+    "title": "Your Elegance Experience",
+    "step1_title": "Initial Consultation",
+    "step1_desc": "Personalized assessment of your needs.",
+    "step2_title": "Personalized Plan",
+    "step2_desc": "We design an exclusive plan for you.",
+    "step3_title": "Premium Treatment",
+    "step3_desc": "Application of advanced techniques.",
+    "step4_title": "Continuous Care",
+    "step4_desc": "Follow-up for long-lasting results."
+  },
+  "gallery": {
+    "title": "Salon & Results",
+    "item1_title": "Our Salon",
+    "item2_title": "Styling in Action",
+    "item3_title": "Unique Results",
+    "item4_title": "Total Relax"
+  },
+  "contact": {
+    "title": "Visit Us",
+    "loc_title": "Location",
+    "contact_title": "Contact Methods",
+    "hours_title": "Salon Hours",
+    "desc": "We are located in the heart of the city."
+  },
+  "reserve": {
+    "title": "Book an Appointment",
+    "cta_title": "Direct Booking Platform"
   },
   "admin": {
     "dashboard": "Admin Dashboard",
@@ -31,6 +75,8 @@
   "footer": {
     "desc": "Hair Stylist ✨ Colour • Balayage • Blondes • Cuts 📍 Blanchardstown • Coolmine",
     "nav_title": "Navigation",
+    "support_title": "Location & Support",
+    "legal_title": "Legal",
     "hours_line": "Book online: elenahairlover.gettimely.com",
     "copyright": "© 2026 Elena Hairlover. All rights reserved."
   }

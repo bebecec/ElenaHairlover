@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addressElements = document.querySelectorAll('.contacto__item p, .footer__contact p');
     addressElements.forEach(el => {
       if (el.textContent.includes("Jaume I") || el.textContent.includes("Girona, EspaÃ±a")) {
-        const address = info.address || "Innovation House, Porters Road\nCoolmine Business Park\nDublin 15, Blanchardstown\nD15 VW61";
+        const address = info.address || "Unit E, Roselawn Shopping Centre\nRoselawn Rd, Sheepmoor\nDublin 15\nD15 NP60, Irlanda";
         el.innerHTML = address.replace(/\n/g, '<br>');
       }
     });

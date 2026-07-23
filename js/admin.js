@@ -1,64 +1,56 @@
-// ═══════════════════════════════════════════════════════════
-// ELEGANCE BY STOICA — Lógica del Panel de Administración Híbrido
-// ═══════════════════════════════════════════════════════════
+﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ELEGANCE BY STOICA â€” LÃ³gica del Panel de AdministraciÃ³n HÃ­brido
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 // Semilla inicial de datos para poblar el sistema la primera vez
 const initialServicesSeed = [
-  // Facial
-  { id: "f1", name: "Tratamiento de la mirada T3", duration: "1 hora — Cuidado especial del contorno ocular", price: "55,00 €", category: "facial" },
-  { id: "f2", name: "Fotorejuvenecimiento IPL con FHOS", duration: "40 min — Luminosidad y firmeza celular", price: "85,00 €", category: "facial" },
-  { id: "f3", name: "Carbón Activo FHOS Bioluminiscente", duration: "25 min — Tratamiento rejuvenecedor con IPL Protheus", price: "60,00 €", category: "facial" },
-  { id: "f4", name: "Dermo Peel Expert T3", duration: "50 min — Exfoliación profunda y renovación celular", price: "55,00 €", category: "facial" },
-  { id: "f5", name: "Higiene Hidro Detox T3", duration: "1h 30min — Desintoxicación profunda de la piel", price: "55,00 €", category: "facial" },
-  { id: "f6", name: "Vitamina C con Células Madre T3", duration: "1h 20min — Tratamiento antioxidante e iluminador", price: "65,00 €", category: "facial" },
-  { id: "f7", name: "Tratamiento Anti-edad Vinci", duration: "1 hora — Reafirmación y reducción de arrugas", price: "75,00 €", category: "facial" },
-  { id: "f8", name: "Doble Mentón T3", duration: "1 hora — Remodelación y reducción localizada de papada", price: "50,00 €", category: "facial" },
-  { id: "f9", name: "Juventud Definitiva Celular 3 T3", duration: "1h 20min — Regeneración celular intensiva", price: "65,00 €", category: "facial" },
-  { id: "f10", name: "Diagnóstico Facial", duration: "15 min — Evaluación detallada sin compromiso", price: "Gratuito", category: "facial" },
-  
-  // Corporal
-  { id: "c1", name: "Tratamiento Reafirmante Protheus con FHOS", duration: "40 min — Remodelación y tonificación con aparatología", price: "85,00 €", category: "corporal" },
-  { id: "c2", name: "Radiofrecuencia Vinci Corporal", duration: "1 hora — Reafirmación y remodelación tisular", price: "80,00 €", category: "corporal" },
-  { id: "c3", name: "Liporadiología Vinci", duration: "1 hora — Reductor, celulitis y modelado corporal", price: "80,00 €", category: "corporal" },
-  { id: "c4", name: "Ondas de Choque Athor", duration: "40 min — Combate la celulitis y flacidez", price: "50,00 €", category: "corporal" },
-  { id: "c5", name: "Titans Corporal", duration: "30 min — Estimulación muscular por electromagnetismo", price: "50,00 €", category: "corporal" },
-  { id: "c6", name: "Tratamiento Espalda de Seda", duration: "1 hora — Exfoliación, hidratación y masaje", price: "60,00 €", category: "corporal" },
-  { id: "c7", name: "Crioslim Piernas Cansadas", duration: "30 min — Alivio, ligereza y reactivación circulatoria", price: "30,00 €", category: "corporal" },
-  { id: "c8", name: "Peeling e Hidratación Corporal", duration: "40 min — Piel suave, renovada y profundamente nutrida", price: "54,00 €", category: "corporal" },
-  { id: "c9", name: "Criolipólisis Vinci", duration: "1 hora — Eliminación de grasa localizada por frío", price: "65,00 €", category: "corporal" },
-  { id: "c10", name: "Presoterapia", duration: "30 min — Drenaje linfático y eliminación de toxinas", price: "16,00 €", category: "corporal" },
-  { id: "c11", name: "Diagnóstico Corporal", duration: "15 min — Plan corporal a medida", price: "Gratuito", category: "corporal" },
-
-  // Peluquería
-  { id: "p1", name: "Corte de Cabello Femenino", duration: "45 min — Lavado, corte de tendencia y peinado base", price: "Desde 25,00 €", category: "peluqueria" },
-  { id: "p2", name: "Coloración Premium (Sin Amoníaco)", duration: "1 hora — Cobertura perfecta y brillo multidimensional", price: "Desde 35,00 €", category: "peluqueria" },
-  { id: "p3", name: "Mechas Balayage & Babylights", duration: "2h 30min — Degradados y puntos de luz naturales", price: "Desde 75,00 €", category: "peluqueria" },
-  { id: "p4", name: "Alisado Orgánico de Queratina", duration: "2 horas — Liso perfecto, control de frizz y brillo espejo", price: "Desde 60,00 €", category: "peluqueria" },
-  { id: "p5", name: "Tratamientos Capilares de Reconstrucción", duration: "45 min — Nutrición intensiva para cabellos dañados", price: "Desde 30,00 €", category: "peluqueria" },
-  { id: "p6", name: "Peinado & Recogido de Eventos", duration: "1 hora — Ondas, recogidos y semirecogidos especiales", price: "Desde 30,00 €", category: "peluqueria" },
-
-  // Depilación
-  { id: "d1", name: "Depilación Láser — Cuerpo Entero (Mujer)", duration: "1h 15min — Láser de diodo de LED Frío / IPL", price: "Desde 99,00 €", category: "depilacion" },
-  { id: "d2", name: "Láser Pecho + Hombros + Abdomen (Hombre)", duration: "25 min — Sesión de alta potencia y máxima velocidad", price: "49,00 €", category: "depilacion" },
-  { id: "d3", name: "Depilación Láser Zonas Medianas", duration: "20 min — Axilas, ingles brasileñas, hombros o medias piernas", price: "Desde 29,00 €", category: "depilacion" },
-  { id: "d4", name: "Depilación Cera Completa", duration: "45 min — Piernas, ingles y axilas (Cera tibia o caliente)", price: "Desde 35,00 €", category: "depilacion" },
-  { id: "d5", name: "Depilación Cera Zonas Individuales", duration: "15 min — Cejas, labio superior, axilas o ingles básicas", price: "Desde 8,00 €", category: "depilacion" },
-
-  // Cejas & Pestañas (sin manicura/pedicura: retiradas de la web pública)
-  { id: "u3", name: "Micropigmentación de Cejas (Efecto Polvo / Microblading)", duration: "2 horas — Diseño de cejas de larga duración", price: "Desde 180,00 €", category: "unas-mirada" },
-  { id: "u4", name: "Lifting de Pestañas con Tinte", duration: "45 min — Curvatura y profundidad natural para tu mirada", price: "35,00 €", category: "unas-mirada" },
-  { id: "u5", name: "Diseño & Depilación de Cejas con Tinte Hena", duration: "30 min — Visajismo y sombreado natural", price: "20,00 €", category: "unas-mirada" }
+  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "€55", category: "peluqueria" },
+  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "€60", category: "peluqueria" },
+  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "€65", category: "peluqueria" },
+  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "€25", category: "peluqueria" },
+  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "€28", category: "peluqueria" },
+  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "€30", category: "peluqueria" },
+  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "30 mins", price: "€35", category: "peluqueria" },
+  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "€38", category: "peluqueria" },
+  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "€40", category: "peluqueria" },
+  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "€40", category: "peluqueria" },
+  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "€45", category: "peluqueria" },
+  { id: "p12", name: "Dry cut", duration: "30 mins", price: "€30", category: "peluqueria" },
+  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "€120", category: "peluqueria" },
+  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "€130", category: "peluqueria" },
+  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "€140", category: "peluqueria" },
+  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "€70", category: "peluqueria" },
+  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "€75", category: "peluqueria" },
+  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "€80", category: "peluqueria" },
+  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "€80", category: "peluqueria" },
+  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "€85", category: "peluqueria" },
+  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "€95", category: "peluqueria" },
+  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "€120", category: "peluqueria" },
+  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "€130", category: "peluqueria" },
+  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "€135", category: "peluqueria" },
+  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "€145", category: "peluqueria" },
+  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "€155", category: "peluqueria" },
+  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "€165", category: "peluqueria" },
+  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "€125", category: "peluqueria" },
+  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "€130", category: "peluqueria" },
+  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "€135", category: "peluqueria" },
+  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "€145", category: "peluqueria" },
+  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "€155", category: "peluqueria" },
+  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "€165", category: "peluqueria" },
+  { id: "p34", name: "Upstyle", duration: "1 hour", price: "€60", category: "peluqueria" },
+  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "€25", category: "peluqueria" },
+  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "€20", category: "peluqueria" }
 ];
 
 const initialSalonInfoSeed = {
   phone: "872 03 24 92",
   whatsapp: "648 15 87 17",
   email: "salonfashiongirona@yahoo.com",
-  address: "Gran Via de Jaume I, 6, local 1, 17001 Girona, España",
+  address: "Gran Via de Jaume I, 6, local 1, 17001 Girona, EspaÃ±a",
   instagram: "https://www.instagram.com/elegancebystoica/?hl=es",
   facebook: "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/",
-  hoursWeek: "09:00h – 19:00h",
-  hoursSat: "08:00h – 15:00h"
+  hoursWeek: "09:00h â€“ 19:00h",
+  hoursSat: "08:00h â€“ 15:00h"
 };
 
 // Variables de estado
@@ -97,13 +89,13 @@ const modalCancelBtn = document.getElementById("modal-cancel-btn");
 
 const galleryGrid = document.getElementById("gallery-grid");
 
-// ─── Theme Toggle Logic ─────────────────────────────────
+// â”€â”€â”€ Theme Toggle Logic â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 if (themeToggleBtn) {
   const currentTheme = localStorage.getItem("elegance_admin_theme") || "dark";
   if (currentTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
-    themeToggleBtn.textContent = "🌙 Modo";
+    themeToggleBtn.textContent = "ðŸŒ™ Modo";
   }
   
   themeToggleBtn.addEventListener("click", () => {
@@ -111,11 +103,11 @@ if (themeToggleBtn) {
     if (isLight) {
       document.documentElement.removeAttribute("data-theme");
       localStorage.setItem("elegance_admin_theme", "dark");
-      themeToggleBtn.textContent = "☀️ Modo";
+      themeToggleBtn.textContent = "â˜€ï¸ Modo";
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("elegance_admin_theme", "light");
-      themeToggleBtn.textContent = "🌙 Modo";
+      themeToggleBtn.textContent = "ðŸŒ™ Modo";
     }
   });
 }
@@ -132,13 +124,13 @@ const imageModalClose = document.getElementById("image-modal-close");
 const imageModalCancel = document.getElementById("image-modal-cancel");
 const imageModalDelete = document.getElementById("image-modal-delete");
 
-// Nuevos elementos para edición de imágenes
+// Nuevos elementos para ediciÃ³n de imÃ¡genes
 const imagePreviewNameInput = document.getElementById("image-preview-name-input");
 const imagePreviewDescInput = document.getElementById("image-preview-desc-input");
 const imageModalSave = document.getElementById("image-modal-save");
 const imageEditFileInput = document.getElementById("image-edit-file-input");
 
-// Elementos para edición de vídeos
+// Elementos para ediciÃ³n de vÃ­deos
 const videoEditModal = document.getElementById("video-edit-modal");
 const videoEditForm = document.getElementById("video-edit-form");
 const videoEditSlotIdInput = document.getElementById("video-edit-slot-id");
@@ -184,9 +176,9 @@ function updateStorageUsage() {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-// INICIALIZACIÓN — Sin login en modo local
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// INICIALIZACIÃ“N â€” Sin login en modo local
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function initDatabase() {
   updateStorageUsage(); // Cargar estado inicial del espacio de almacenamiento
   if (window.useFirebase) {
@@ -198,7 +190,7 @@ function initDatabase() {
     auth = getAuth(firebaseApp);
     db = getFirestore(firebaseApp);
 
-    // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
+    // En Firebase, sÃ­ se requiere autenticaciÃ³n (ver implementaciÃ³n Firebase separada)
     onAuthStateChanged(auth, (user) => {
       if (user) {
         adminUserEmail.textContent = user.email;
@@ -214,9 +206,9 @@ function initDatabase() {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // CARGA DE DATOS
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 async function loadData() {
   servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-loading" style="text-align: center; padding: 32px;" data-i18n="states.loading">${window.I18nLoader ? window.I18nLoader.getText("states.loading") : "Cargando..."}</td></tr>`;
 
@@ -278,7 +270,7 @@ async function loadData() {
       localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     }
 
-    // Galer�a
+    // Galería
     loadGallery();
     loadHero();
     populateSalonInfoForm();
@@ -294,7 +286,7 @@ function renderServicesTable() {
   const filtered = services.filter(s => s.category === currentCategory);
 
   if (filtered.length === 0) {
-    servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "Vac�o"}</td></tr>`;
+    servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "Vacío"}</td></tr>`;
     if (window.I18nLoader) window.I18nLoader.translateDOM();
     return;
   }
@@ -341,7 +333,7 @@ async function deleteServiceItem(id) {
   const service = services.find(s => s.id === id);
   if (!service) return;
 
-  const ok = await showConfirm(`¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acción no se puede deshacer.`, { title: "Eliminar servicio" });
+  const ok = await showConfirm(`Â¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acciÃ³n no se puede deshacer.`, { title: "Eliminar servicio" });
   if (!ok) return;
 
   if (window.useFirebase) {
@@ -409,7 +401,7 @@ serviceForm.addEventListener("submit", async (e) => {
       } else {
         const docRef = await addDoc(collection(db, "servicios"), { name, duration, price, category });
         services.push({ id: docRef.id, name, duration, price, category });
-        showToast("Servicio añadido a Firebase", "success");
+        showToast("Servicio aÃ±adido a Firebase", "success");
       }
       serviceModal.style.display = "none";
       renderServicesTable();
@@ -424,7 +416,7 @@ serviceForm.addEventListener("submit", async (e) => {
     } else {
       const newId = "local_" + Date.now();
       services.push({ id: newId, name, duration, price, category });
-      showToast("Servicio añadido", "success");
+      showToast("Servicio aÃ±adido", "success");
     }
     localStorage.setItem("elegance_services", JSON.stringify(services));
     updateStorageUsage();
@@ -453,31 +445,31 @@ salonInfoForm.addEventListener("submit", async (e) => {
       const docId = salonInfo.docId;
       await setDoc(doc(db, "salon_info", docId), data);
       salonInfo = { ...data, docId };
-      showToast("Información del salón guardada en Firebase", "success");
+      showToast("InformaciÃ³n del salÃ³n guardada en Firebase", "success");
     } catch (error) {
-      showToast("Error al guardar información: " + error.message, "error");
+      showToast("Error al guardar informaciÃ³n: " + error.message, "error");
     }
   } else {
     salonInfo = { ...data };
     localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     updateStorageUsage();
-    showToast("Información del salón guardada", "success");
+    showToast("InformaciÃ³n del salÃ³n guardada", "success");
   }
 });
 
-// ═══════════════════════════════════════════════════════════
-// GESTIÓN DE GALERÍA
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// GESTIÃ“N DE GALERÃA
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 function loadGallery() {
   const saved = localStorage.getItem("elegance_gallery");
   if (saved) {
     galleryImages = JSON.parse(saved);
   } else {
-    // Pre-cargar imágenes existentes del proyecto con descripciones por defecto
+    // Pre-cargar imÃ¡genes existentes del proyecto con descripciones por defecto
     galleryImages = [
-      { id: "g_entrada", name: "Entrada del Salón", desc: "Ubicado en Girona — Un espacio de alta estética y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
-      { id: "g_galeria1", name: "Interior — Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
+      { id: "g_entrada", name: "Entrada del SalÃ³n", desc: "Ubicado en Girona â€” Un espacio de alta estÃ©tica y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
+      { id: "g_galeria1", name: "Interior â€” Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
     ];
     localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
   }
@@ -490,7 +482,7 @@ function saveGallery() {
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar en la galería. Sube fotos más ligeras.", "error");
+    showToast("No hay espacio para guardar en la galerÃ­a. Sube fotos mÃ¡s ligeras.", "error");
     return false;
   }
 }
@@ -532,13 +524,13 @@ function renderGallery() {
     galleryGrid.appendChild(card);
   });
 
-  // Añadir botón "+" al final del grid
+  // AÃ±adir botÃ³n "+" al final del grid
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "gallery-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>Añadir imagen</span>
+    <span>AÃ±adir imagen</span>
   `;
   galleryGrid.appendChild(addCard);
 }
@@ -563,12 +555,12 @@ function openImagePreview(id) {
 async function deleteGalleryImage(id) {
   const img = galleryImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`¿Eliminar la imagen "${img.name}" de la galería?`, { title: "Eliminar imagen" });
+  const ok = await showConfirm(`Â¿Eliminar la imagen "${img.name}" de la galerÃ­a?`, { title: "Eliminar imagen" });
   if (!ok) return;
   galleryImages = galleryImages.filter(i => i.id !== id);
   saveGallery();
   renderGallery();
-  showToast("Imagen eliminada de la galería", "success");
+  showToast("Imagen eliminada de la galerÃ­a", "success");
 }
 
 // Input de subida de archivos
@@ -583,7 +575,7 @@ if (imageEditFileInput) {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
-        showToast("Por favor, selecciona una imagen válida", "error");
+        showToast("Por favor, selecciona una imagen vÃ¡lida", "error");
         return;
       }
       try {
@@ -607,7 +599,7 @@ async function handleFileUpload(files) {
 
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen válida`, "error");
+      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
       continue;
     }
     try {
@@ -628,9 +620,9 @@ async function handleFileUpload(files) {
   if (count > 0) {
     if (saveGallery()) {
       renderGallery();
-      showToast(`${count} imagen${count > 1 ? "es" : ""} añadida${count > 1 ? "s" : ""} a la galería`, "success");
+      showToast(`${count} imagen${count > 1 ? "es" : ""} aÃ±adida${count > 1 ? "s" : ""} a la galerÃ­a`, "success");
     } else {
-      // Revertir agregados si excedió cuota
+      // Revertir agregados si excediÃ³ cuota
       galleryImages.splice(galleryImages.length - count, count);
       renderGallery();
     }
@@ -653,7 +645,7 @@ galleryDropzone.addEventListener("drop", (e) => {
   handleFileUpload(e.dataTransfer.files);
 });
 
-// También drag & drop sobre el grid completo (cuando hay imágenes)
+// TambiÃ©n drag & drop sobre el grid completo (cuando hay imÃ¡genes)
 galleryGrid.addEventListener("dragover", (e) => {
   e.preventDefault();
   galleryGrid.classList.add("dragover-active");
@@ -715,19 +707,19 @@ if (imageModalSave) {
   });
 }
 
-// ═══════════════════════════════════════════════════════════
-// GESTIÓN DEL CARRUSEL DEL HERO
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// GESTIÃ“N DEL CARRUSEL DEL HERO
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 function loadHero() {
   const saved = localStorage.getItem("elegance_hero");
   if (saved) {
     heroImages = JSON.parse(saved);
   } else {
-    // Semilla con las 2 fotos que ya están en el carrusel estático
+    // Semilla con las 2 fotos que ya estÃ¡n en el carrusel estÃ¡tico
     heroImages = [
-      { id: "h_galeria1", name: "Interior del salón", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
-      { id: "h_entrada", name: "Entrada del salón", src: "img/entrada.png", addedAt: Date.now() - 1000 }
+      { id: "h_galeria1", name: "Interior del salÃ³n", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
+      { id: "h_entrada", name: "Entrada del salÃ³n", src: "img/entrada.png", addedAt: Date.now() - 1000 }
     ];
     saveHero();
   }
@@ -740,7 +732,7 @@ function saveHero() {
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar tantas fotos. Sube menos o más ligeras.", "error");
+    showToast("No hay espacio para guardar tantas fotos. Sube menos o mÃ¡s ligeras.", "error");
     return false;
   }
 }
@@ -759,13 +751,13 @@ function renderHero() {
     const card = document.createElement("div");
     card.className = "gallery-card";
     card.dataset.id = img.id;
-    const orderBadge = index === 0 ? '<span class="gallery-card__order">1ª · Portada</span>' : `<span class="gallery-card__order">${index + 1}ª</span>`;
+    const orderBadge = index === 0 ? '<span class="gallery-card__order">1Âª Â· Portada</span>' : `<span class="gallery-card__order">${index + 1}Âª</span>`;
     card.innerHTML = `
       <div class="gallery-card__img-wrap">
         <img src="${img.src}" alt="${escapeHtml(img.name)}" loading="lazy" />
         <div class="gallery-card__overlay">
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>◀</button>
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover después" ${index === heroImages.length - 1 ? "disabled" : ""}>▶</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>â—€</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover despuÃ©s" ${index === heroImages.length - 1 ? "disabled" : ""}>â–¶</button>
           <button class="gallery-btn gallery-btn--delete" data-id="${img.id}" title="Eliminar foto">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
           </button>
@@ -785,13 +777,13 @@ function renderHero() {
     heroGrid.appendChild(card);
   });
 
-  // Tarjeta "+" para añadir
+  // Tarjeta "+" para aÃ±adir
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "hero-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>Añadir foto</span>
+    <span>AÃ±adir foto</span>
   `;
   heroGrid.appendChild(addCard);
 }
@@ -808,7 +800,7 @@ function moveHero(id, dir) {
 async function deleteHeroImage(id) {
   const img = heroImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`¿Quitar la foto "${img.name}" del carrusel del hero?`, { title: "Quitar foto", acceptText: "Quitar" });
+  const ok = await showConfirm(`Â¿Quitar la foto "${img.name}" del carrusel del hero?`, { title: "Quitar foto", acceptText: "Quitar" });
   if (!ok) return;
   heroImages = heroImages.filter(i => i.id !== id);
   saveHero();
@@ -816,7 +808,7 @@ async function deleteHeroImage(id) {
   showToast("Foto quitada del carrusel", "success");
 }
 
-// Redimensiona una imagen a un ancho máximo y la devuelve como dataURL (JPEG)
+// Redimensiona una imagen a un ancho mÃ¡ximo y la devuelve como dataURL (JPEG)
 function resizeImageFile(file, maxWidth, quality) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -844,7 +836,7 @@ async function handleHeroUpload(files) {
   let added = 0;
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen válida`, "error");
+      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
       continue;
     }
     try {
@@ -863,9 +855,9 @@ async function handleHeroUpload(files) {
   if (added > 0) {
     if (saveHero()) {
       renderHero();
-      showToast(`${added} foto${added > 1 ? "s" : ""} añadida${added > 1 ? "s" : ""} al carrusel`, "success");
+      showToast(`${added} foto${added > 1 ? "s" : ""} aÃ±adida${added > 1 ? "s" : ""} al carrusel`, "success");
     } else {
-      // Revertir las añadidas si no se pudo guardar (cuota)
+      // Revertir las aÃ±adidas si no se pudo guardar (cuota)
       heroImages.splice(heroImages.length - added, added);
       renderHero();
     }
@@ -899,9 +891,9 @@ if (heroGrid) {
   });
 }
 
-// ═══════════════════════════════════════════════════════════
-// NAVEGACIÓN DE PESTAÑAS
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// NAVEGACIÃ“N DE PESTAÃ‘AS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 document.querySelectorAll(".admin-tab-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     document.querySelectorAll(".admin-tab-btn").forEach(b => b.classList.remove("active"));
@@ -942,9 +934,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // UTILIDADES
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function escapeHtml(text) {
   if (!text) return "";
   return text
@@ -955,9 +947,9 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-// Diálogo de confirmación on-brand (sustituye a window.confirm).
+// DiÃ¡logo de confirmaciÃ³n on-brand (sustituye a window.confirm).
 // Devuelve una promesa que resuelve true si se acepta, false si se cancela.
-function showConfirm(message, { title = "Confirmar acción", acceptText = "Eliminar" } = {}) {
+function showConfirm(message, { title = "Confirmar acciÃ³n", acceptText = "Eliminar" } = {}) {
   return new Promise((resolve) => {
     const overlay = document.getElementById("confirm-modal");
     const titleEl = document.getElementById("confirm-modal-title");
@@ -1000,7 +992,7 @@ function showToast(message, type = "success") {
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
   toast.innerHTML = `
-    <span>${type === "success" ? "✓" : "✗"}</span>
+    <span>${type === "success" ? "âœ“" : "âœ—"}</span>
     <span>${message}</span>
   `;
   toastContainer.appendChild(toast);
@@ -1014,19 +1006,19 @@ function showToast(message, type = "success") {
   }, 4000);
 }
 
-// ═══════════════════════════════════════════════════════════
-// GESTIÓN DE VÍDEOS Y METADATOS
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// GESTIÃ“N DE VÃDEOS Y METADATOS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 const videoSlotIds = ['hero', 'clip-facial', 'clip-peluqueria', 'clip-corporal', 'clip-unas'];
 const videoObjectURLs = {};
 
 const defaultVideosMetadata = {
-  'hero': { label: 'Hero Principal', desc: 'Vídeo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
-  'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
-  'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
-  'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
-  'clip-unas': { label: 'Cejas & Pestañas', desc: 'Clip de cejas y pestañas' }
+  'hero': { label: 'Hero Principal', desc: 'VÃ­deo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
+  'clip-facial': { label: 'EstÃ©tica Facial', desc: 'Clip de tratamientos faciales' },
+  'clip-peluqueria': { label: 'PeluquerÃ­a', desc: 'Clip de servicios de peluquerÃ­a' },
+  'clip-corporal': { label: 'EstÃ©tica Corporal', desc: 'Clip de tratamientos corporales' },
+  'clip-unas': { label: 'Cejas & PestaÃ±as', desc: 'Clip de cejas y pestaÃ±as' }
 };
 
 let videosMetadata = {};
@@ -1047,7 +1039,7 @@ async function loadVideosMetadata() {
         }
       });
     } catch (err) {
-      console.error("Error al cargar metadatos de vídeo de Firebase:", err);
+      console.error("Error al cargar metadatos de vÃ­deo de Firebase:", err);
       videosMetadata = { ...defaultVideosMetadata };
     }
   } else {
@@ -1083,14 +1075,14 @@ async function saveVideoMetadata(slotId, label, desc) {
     const { setDoc, doc } = window.FirebaseLib;
     try {
       await setDoc(doc(db, "videos_metadata", slotId), { label, desc });
-      showToast("Información del vídeo guardada en Firebase", "success");
+      showToast("InformaciÃ³n del vÃ­deo guardada en Firebase", "success");
     } catch (err) {
       showToast("Error al guardar en Firebase: " + err.message, "error");
     }
   } else {
     localStorage.setItem("elegance_videos_metadata", JSON.stringify(videosMetadata));
     updateStorageUsage();
-    showToast("Información del vídeo guardada", "success");
+    showToast("InformaciÃ³n del vÃ­deo guardada", "success");
   }
   applyVideosMetadata();
 }
@@ -1116,7 +1108,7 @@ function initVideoManagement() {
     }
   });
 
-  // Listener para botones de edición
+  // Listener para botones de ediciÃ³n
   document.querySelectorAll(".video-edit-info-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const slotId = e.target.getAttribute("data-slot");
@@ -1187,11 +1179,11 @@ function loadVideoSlot(slotId, file) {
   const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
   const sizeOk = file.size < 5 * 1024 * 1024;
   if (metatext) {
-    metatext.textContent = `${file.name} · ${sizeMB} MB${!sizeOk ? ' ⚠️ Comprime con HandBrake' : ' ✓ Tamaño correcto'}`;
+    metatext.textContent = `${file.name} Â· ${sizeMB} MB${!sizeOk ? ' âš ï¸ Comprime con HandBrake' : ' âœ“ TamaÃ±o correcto'}`;
     metatext.style.color = sizeOk ? '#2ecc71' : '#e74c3c';
   }
 
-  showToast(`Vídeo "${file.name}" cargado en preview`, 'success');
+  showToast(`VÃ­deo "${file.name}" cargado en preview`, 'success');
 }
 
 function clearVideoSlot(slotId) {

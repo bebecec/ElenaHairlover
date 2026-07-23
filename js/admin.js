@@ -10,7 +10,7 @@ const initialServicesSeed = [
   { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "€25", category: "peluqueria" },
   { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "€28", category: "peluqueria" },
   { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "€30", category: "peluqueria" },
-  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "30 mins", price: "€35", category: "peluqueria" },
+  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "€35", category: "peluqueria" },
   { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "€38", category: "peluqueria" },
   { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "€40", category: "peluqueria" },
   { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "€40", category: "peluqueria" },
@@ -39,14 +39,16 @@ const initialServicesSeed = [
   { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "€165", category: "peluqueria" },
   { id: "p34", name: "Upstyle", duration: "1 hour", price: "€60", category: "peluqueria" },
   { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "€25", category: "peluqueria" },
-  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "€20", category: "peluqueria" }
+  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "€20", category: "peluqueria" },
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "€20", category: "peluqueria" },
+  { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
 const initialSalonInfoSeed = {
   phone: "872 03 24 92",
   whatsapp: "648 15 87 17",
   email: "salonfashiongirona@yahoo.com",
-  address: "Gran Via de Jaume I, 6, local 1, 17001 Girona, EspaÃ±a",
+  address: "Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61",
   instagram: "https://www.instagram.com/elegancebystoica/?hl=es",
   facebook: "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/",
   hoursWeek: "09:00h â€“ 19:00h",

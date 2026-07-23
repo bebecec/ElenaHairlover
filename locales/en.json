@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "brand": "EH | Elena Hairlover",
+    "home": "Home",
+    "features": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Elena Hairlover",
+    "subtitle": "Because your hair tells your story ♡",
+    "cta": "Book online"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "tab_items": "Services Management",
+    "tab_hero": "Carousel",
+    "tab_gallery": "Gallery",
+    "tab_settings": "Settings",
+    "btn_new": "+ New Service",
+    "table_name": "Name",
+    "table_detail": "Detail",
+    "table_price": "Price",
+    "table_actions": "Actions"
+  },
+  "states": {
+    "loading": "Loading data...",
+    "empty": "No data available.",
+    "error": "Error loading data."
+  },
+  "footer": {
+    "desc": "Hair Stylist ✨ Colour • Balayage • Blondes • Cuts 📍 Blanchardstown • Coolmine",
+    "nav_title": "Navigation",
+    "hours_line": "Book online: elenahairlover.gettimely.com",
+    "copyright": "© 2026 Elena Hairlover. All rights reserved."
+  }
+}

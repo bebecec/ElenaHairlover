@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Administración | Elegance by Stoica</title>
+  <title data-i18n="admin.dashboard">Panel de Administración | Universal</title>
 
   <!-- Google Fonts: Cormorant Garamond + Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
     <header class="admin-header">
       <div class="admin-header__inner">
         <div class="admin-header__brand">
-          <img src="img/Logo_Elegance_Vectorial.svg" alt="Elegance by Stoica" class="admin-header__logo" />
+          <img src="img/logo_1.png" alt="Universal Brand" class="admin-header__logo" />
           <span class="badge" id="db-mode-badge">Cargando modo...</span>
           <span class="badge" id="storage-usage-badge" style="display: none; margin-left: 8px;">Cargando espacio...</span>
         </div>
@@ -41,11 +41,10 @@
 
         <!-- Pestañas de Secciones -->
         <div class="admin-nav-tabs">
-          <button class="admin-tab-btn active" data-section="servicios">Gestión de Tratamientos</button>
-          <button class="admin-tab-btn" data-section="hero">Carrusel del Hero</button>
-          <button class="admin-tab-btn" data-section="galeria">Galería de Imágenes</button>
-          <button class="admin-tab-btn" data-section="videos">Vídeos (Próximamente)</button>
-          <button class="admin-tab-btn" data-section="informacion">Información del Salón</button>
+          <button class="admin-tab-btn active" data-section="servicios" data-i18n="admin.tab_items">Gestión de Ítems</button>
+          <button class="admin-tab-btn" data-section="hero" data-i18n="admin.tab_hero">Carrusel del Hero</button>
+          <button class="admin-tab-btn" data-section="galeria" data-i18n="admin.tab_gallery">Galería de Imágenes</button>
+          <button class="admin-tab-btn" data-section="informacion" data-i18n="admin.tab_settings">Configuración</button>
         </div>
 
         <!-- SECCIÓN 1: GESTIÓN DE SERVICIOS -->
@@ -515,6 +514,7 @@
 
   <!-- Lógica e Inicialización del Panel -->
   <script src="js/config.js"></script>
+  <script src="js/i18n-loader.js"></script>
   <script src="js/admin.js"></script>
 </body>
 

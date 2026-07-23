@@ -48,7 +48,7 @@ const initialSalonInfoSeed = {
   phone: "872 03 24 92",
   whatsapp: "648 15 87 17",
   email: "salonfashiongirona@yahoo.com",
-  address: "Unit E, Roselawn Shopping Centre, Roselawn Rd, Sheepmoor, Dublin 15, D15 NP60, Irlanda",
+  address: "Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61",
   instagram: "https://www.instagram.com/elegancebystoica/?hl=es",
   facebook: "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/",
   hoursWeek: "09:00h â€“ 19:00h",

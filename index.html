@@ -68,107 +68,142 @@
     }
   </script>
 
-  <style type="text/tailwindcss">
+    <style>
     /* Header siempre visible con efecto vidrio esmerilado (Glassmorphism) */
     .header {
       background-color: rgba(17, 17, 17, 0.88);
-      @apply backdrop-blur-xl border-b border-border-dark/60 shadow-[0_4px_30px_rgba(0,0,0,0.3)];
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border-dark);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
     .header.scrolled {
       background-color: rgba(17, 17, 17, 0.96);
-      @apply shadow-[0_8px_32px_rgba(0,0,0,0.5)];
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
     .header.scrolled .header__inner {
-      @apply h-[72px];
+      height: 72px;
     }
     .header.scrolled .header__logo-img {
-      @apply max-h-[50px];
+      max-height: 50px;
     }
 
     /* Enlaces de navegación del Header */
     .header__link {
-      @apply relative py-1.5 font-body text-[0.7rem] font-medium uppercase tracking-[0.15em] text-white/90 transition-colors duration-300;
+      position: relative;
+      padding-top: 0.375rem;
+      padding-bottom: 0.375rem;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 300ms ease;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
     }
     .header__link::after {
       content: '';
-      @apply absolute bottom-0 left-0 w-0 h-[1px] bg-gold-warm transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-gold-warm);
+      transition: all 800ms cubic-bezier(0.25, 1, 0.22, 1);
     }
     .header__link:hover {
-      @apply text-white;
+      color: #ffffff;
     }
     .header__link:hover::after {
-      @apply w-full;
+      width: 100%;
     }
 
     /* Sobrescrituras de tema claro para el Header */
     [data-theme="light"] .header {
       background-color: rgba(250, 248, 245, 0.92);
-      @apply border-b border-border-light shadow-[0_4px_30px_rgba(0,0,0,0.06)];
+      border-bottom: 1px solid var(--color-border-light);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
     }
     [data-theme="light"] .header.scrolled {
       background-color: rgba(255, 255, 255, 0.98);
-      @apply shadow-[0_8px_32px_rgba(0,0,0,0.1)];
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
     [data-theme="light"] .header__link {
-      color: rgb(var(--color-dark-main-rgb) / 0.9);
+      color: var(--color-text-dark);
       text-shadow: none;
     }
     [data-theme="light"] .header__link:hover {
-      @apply text-dark-main;
+      color: var(--color-gold-warm);
     }
 
     /* Líneas del botón del menú móvil */
     .header__menu-btn span {
-      @apply block w-6 h-[1.5px] bg-white transition-all duration-200;
+      display: block;
+      width: 1.5rem;
+      height: 1.5px;
+      background-color: #ffffff;
+      transition: all 200ms ease;
     }
     .header__menu-btn.active span:nth-child(1) {
-      @apply rotate-45 translate-x-[5px] translate-y-[5px];
+      transform: rotate(45deg) translate(5px, 5px);
     }
     .header__menu-btn.active span:nth-child(2) {
-      @apply opacity-0;
+      opacity: 0;
     }
     .header__menu-btn.active span:nth-child(3) {
-      @apply -rotate-45 translate-x-[5px] -translate-y-[6px];
+      transform: rotate(-45deg) translate(5px, -6px);
     }
 
     [data-theme="light"] .header__menu-btn span {
-      @apply bg-dark-main;
+      background-color: var(--color-dark-main);
     }
 
     /* Separadores y estilos activos del selector de idioma */
     .lang-switch__btn+.lang-switch__btn {
-      @apply border-l;
-      border-left-color: rgba(255, 255, 255, 0.18);
+      border-left: 1px solid rgba(255, 255, 255, 0.18);
     }
     .lang-switch__btn.is-active {
-      @apply text-gold-warm font-bold;
+      color: var(--color-gold-warm);
+      font-weight: 700;
     }
     [data-theme="light"] .lang-switch__btn+.lang-switch__btn {
-      @apply border-l;
-      border-left-color: rgb(var(--color-dark-main-rgb) / 0.15);
+      border-left: 1px solid rgba(34, 34, 34, 0.15);
     }
     [data-theme="light"] .lang-switch__btn.is-active {
-      @apply text-gold-dark font-bold;
+      color: var(--color-gold-dark);
+      font-weight: 700;
     }
 
     /* Transición de opacidad de las diapositivas del Hero */
     .hero__slide {
-      @apply absolute inset-0 opacity-0 z-[1] transition-opacity duration-1000 ease-in-out;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1000ms ease-in-out;
     }
     .hero__slide.is-active {
-      @apply opacity-100 z-[2];
+      opacity: 1;
+      z-index: 2;
     }
     .hero__slide picture {
-      @apply block w-full h-full;
+      display: block;
+      width: 100%;
+      height: 100%;
     }
     .hero__slide-img {
-      @apply block w-full h-full object-cover;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* Superposición de fondo del Hero (Gradiente radial) */
+    /* Superposición de fondo del Hero */
     .hero__bg-overlay {
-      @apply absolute inset-0 z-[3];
+      position: absolute;
+      inset: 0;
+      z-index: 3;
       background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 40%, rgba(0, 0, 0, 0.30) 100%);
     }
     [data-theme="light"] .hero__bg-overlay {
@@ -196,418 +231,29 @@
 
     /* Forma de píldora activa de los puntos del Hero */
     .hero__dot {
-      @apply w-2 h-2 p-0 rounded-full cursor-pointer border border-white/50 transition-all duration-300;
+      width: 0.5rem;
+      height: 0.5rem;
+      padding: 0;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 300ms ease;
       background-color: rgba(255, 255, 255, 0.35);
     }
     .hero__dot.is-active {
-      @apply w-6 h-2 rounded-[4px] bg-gold-warm border-none;
+      width: 1.5rem;
+      height: 0.5rem;
+      border-radius: 4px;
+      background-color: var(--color-gold-warm);
+      border: none;
     }
     [data-theme="light"] .hero__dot {
-      @apply bg-black/30 border-black/40;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-color: rgba(0, 0, 0, 0.4);
     }
     [data-theme="light"] .hero__dot.is-active {
-      @apply bg-[#8c6b16] border-none;
-    }
-
-    /* Componentes de diseño comunes */
-    .container {
-      @apply max-w-[1200px] mx-auto px-6;
-    }
-    .section-label {
-      @apply block font-body text-[0.75rem] font-medium uppercase tracking-[0.25em] text-gold-warm text-center mb-3;
-    }
-    .section-title {
-      @apply font-display font-light text-[clamp(2rem,4vw,3rem)] text-center text-white tracking-[0.02em];
-    }
-    [data-theme="light"] .section-title {
-      @apply text-dark-main;
-    }
-    .section-title.light {
-      @apply text-white;
-    }
-    .section-divider {
-      @apply w-20 h-[1px] bg-gradient-to-r from-transparent via-gold-warm to-transparent mx-auto mt-5;
-    }
-
-    /* Diseño de la sección de Servicios */
-    .servicios {
-      @apply py-20 md:py-16 bg-dark-bg;
-    }
-    [data-theme="light"] .servicios {
-      @apply bg-light-bg;
-    }
-    .servicios__tabs-nav {
-      @apply flex justify-center flex-wrap gap-3 mt-12 mb-12;
-    }
-
-    /* Estilos de los botones de pestañas */
-    .tab-btn {
-      @apply bg-transparent text-white/50 border border-white/10 rounded-md font-body text-[0.75rem] font-medium uppercase tracking-[0.15em] px-6 py-3 cursor-pointer transition-all duration-200;
-    }
-    .tab-btn:hover {
-      background-color: rgb(var(--color-gold-warm-rgb) / 0.1);
-      @apply text-white border-white/20;
-    }
-    .tab-btn.active {
-      @apply bg-gold-warm text-dark-main font-semibold border-none;
-    }
-
-    /* Sobrescrituras de tema claro para los botones de pestaña */
-    [data-theme="light"] .tab-btn {
-      color: rgb(var(--color-dark-main-rgb) / 0.6);
-      border-color: rgb(var(--color-dark-main-rgb) / 0.1);
-    }
-    [data-theme="light"] .tab-btn:hover {
-      background-color: rgb(var(--color-gold-warm-rgb) / 0.1);
-      border-color: rgb(var(--color-dark-main-rgb) / 0.2);
-      @apply text-dark-main;
-    }
-    [data-theme="light"] .tab-btn.active {
-      @apply bg-[#8c6b16] text-white;
-    }
-
-    /* Panel de contenido de servicios */
-    .servicios__tabs-content {
-      @apply bg-dark-card border border-border-dark p-12 md:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)];
-    }
-    [data-theme="light"] .servicios__tabs-content {
-      @apply bg-white border border-border-light shadow-[0_10px_30px_rgba(0,0,0,0.02)];
-    }
-
-    /* Estados de los paneles de pestañas */
-    .tab-panel {
-      @apply hidden;
-    }
-    .tab-panel.active {
-      @apply block;
-      animation: tabFadeIn 0.5s ease forwards;
-    }
-
-    /* Diseño en cuadrícula (Grid) */
-    .services-list {
-      @apply grid grid-cols-2 md:grid-cols-1 gap-x-[60px] gap-y-8;
-    }
-
-    /* Fila del elemento de servicio */
-    .service-item {
-      @apply flex items-baseline justify-between relative border-b border-white/5 pb-[18px] last:border-none last:pb-0;
-    }
-    [data-theme="light"] .service-item {
-      @apply border-b;
-      border-bottom-color: rgb(var(--color-dark-main-rgb) / 0.05);
-    }
-
-    /* Elementos de texto internos */
-    .service-item__name {
-      @apply font-body text-[0.9rem] font-medium text-white block;
-    }
-    [data-theme="light"] .service-item__name {
-      @apply text-dark-main;
-    }
-
-    .service-item__duration {
-      @apply font-body text-[0.75rem] text-white/50 mt-1 block;
-    }
-    [data-theme="light"] .service-item__duration {
-      color: rgb(var(--color-dark-main-rgb) / 0.5);
-    }
-
-    .service-item__dots {
-      @apply flex-grow border-b border-dotted mx-3 self-end relative -top-1.5;
-      border-bottom-color: rgb(var(--color-gold-warm-rgb) / 0.4);
-    }
-
-    .service-item__price {
-      @apply font-display text-[1.15rem] font-semibold text-gold-warm whitespace-nowrap;
-    }
-    [data-theme="light"] .service-item__price {
-      @apply text-[#8B7355];
-    }
-
-    /* Botón de reserva dentro de la fila de servicio */
-    .service-item__btn {
-      @apply ml-4 min-h-[44px] inline-flex items-center justify-center font-body text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-white border border-gold-warm px-3.5 py-1.5 whitespace-nowrap transition-all duration-200;
-    }
-    .service-item__btn:hover {
-      @apply bg-gold-warm text-dark-main;
-    }
-    [data-theme="light"] .service-item__btn {
-      @apply text-dark-main border-gold-warm;
-    }
-    [data-theme="light"] .service-item__btn:hover {
-      @apply bg-gold-warm text-dark-main;
-    }
-
-    /* Etiqueta de servicio gratuito */
-    .badge-free {
-      @apply inline-block bg-[#EAF3DE] text-[#3B6D11] text-[11px] font-semibold tracking-[0.04em] px-2 py-0.5 rounded ml-2 align-middle;
-    }
-
-    /* Estilos de la línea de tiempo (Viaje) */
-    .viaje__grid {
-      @apply grid gap-10 mt-[60px];
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-    .viaje__step {
-      @apply relative border-t border-dashed pt-7 md:border-none md:pt-0;
-      border-top-color: rgb(var(--color-gold-warm-rgb) / 0.3);
-    }
-    .viaje__number {
-      @apply font-display text-[4rem] font-extralight leading-none mb-4 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
-      color: rgb(var(--color-gold-warm-rgb) / 0.25);
-    }
-    .viaje__step:hover .viaje__number {
-      color: rgb(var(--color-gold-warm-rgb) / 0.45);
-    }
-    .viaje__step-title {
-      @apply text-[1.4rem] mb-3 text-white;
-    }
-    [data-theme="light"] .viaje__step-title {
-      @apply text-dark-main;
-    }
-    .viaje__step-text {
-      @apply text-[0.85rem] text-white/60 leading-[1.7];
-    }
-    [data-theme="light"] .viaje__step-text {
-      color: rgb(var(--color-dark-main-rgb) / 0.6);
-    }
-
-    /* Estilos de la Galería */
-    .galeria {
-      @apply py-20 bg-light-bg;
-    }
-    [data-theme="light"] .galeria {
-      @apply bg-light-bg;
-    }
-    .galeria__grid {
-      @apply grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-4 mt-[60px];
-    }
-    .galeria__item {
-      @apply relative overflow-hidden border border-border-light aspect-[4/3] h-auto cursor-zoom-in;
-    }
-    .galeria__item.featured {
-      @apply col-auto;
-    }
-    /* Indicador de lupa al pasar el cursor */
-    .galeria__item::after {
-      content: "✦";
-      @apply absolute top-3 right-3.5 z-[4] text-[1.5rem] leading-none text-white opacity-0 transition-opacity duration-200;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-    }
-    .galeria__item:hover::after {
-      @apply opacity-90;
-    }
-    .galeria__img {
-      @apply w-full h-full object-cover transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
-    }
-    .galeria__item:hover .galeria__img {
-      @apply scale-105;
-    }
-    .galeria__overlay {
-      background-color: rgb(var(--color-dark-main-rgb) / 0.75);
-      @apply absolute inset-0 flex flex-col justify-center items-center p-[30px] opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)];
-    }
-    .galeria__item:hover .galeria__overlay {
-      @apply opacity-100;
-    }
-    .galeria__overlay-title {
-      @apply text-white text-[1.8rem] mb-2;
-    }
-    .galeria__overlay-desc {
-      @apply text-gold-warm text-[0.8rem] uppercase tracking-[0.15em] text-center;
-    }
-    .galeria__placeholder {
-      @apply w-full h-full flex flex-col justify-center items-center bg-light-card p-10 text-center;
-    }
-    .galeria__placeholder h4 {
-      @apply text-[1.4rem] mb-3 text-dark-main;
-    }
-    .galeria__placeholder p {
-      @apply text-[0.8rem];
-      color: rgb(var(--color-dark-main-rgb) / 0.5);
-    }
-
-    /* Estilos de la cita de marca */
-    .marca-quote {
-      @apply py-[100px] px-6 bg-light-warm text-center;
-    }
-    [data-theme="light"] .marca-quote {
-      @apply bg-light-warm;
-    }
-    .marca-quote__text {
-      @apply font-display text-[clamp(1.8rem,3vw,2.5rem)] italic font-light max-w-[800px] mx-auto text-dark-main;
-    }
-    .marca-quote__author {
-      @apply font-body text-[0.75rem] font-medium uppercase tracking-[0.25em] text-gold-warm mt-6 block;
-    }
-
-    /* Estilos de Contacto */
-    .contacto {
-      @apply py-20 md:py-16 bg-light-bg border-t border-border-light;
-    }
-    .contacto__grid {
-      @apply grid gap-10 mt-[60px];
-      grid-template-columns: 1fr 1fr 1.2fr;
-    }
-    @media (max-width: 992px) {
-      .contacto__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .contacto__map-container {
-      @apply flex flex-col gap-4;
-    }
-    .contacto__map {
-      @apply w-full h-[250px] border border-border-light grayscale contrast-[1.1] transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
-    }
-    .contacto__map:hover {
-      @apply filter-none border-gold-warm;
-    }
-    .contacto__info {
-      @apply flex flex-col gap-9;
-    }
-    .contacto__item h4 {
-      @apply text-[1.3rem] mb-2 text-dark-main font-display font-light;
-    }
-    .contacto__item p {
-      @apply text-[0.9rem];
-      color: rgb(var(--color-dark-main-rgb) / 0.6);
-    }
-    .contacto__item a {
-      @apply text-gold-warm font-medium hover:underline;
-    }
-    .contacto__horario-card {
-      @apply bg-light-warm border border-border-light p-12 md:p-6;
-    }
-    .contacto__horario-card h4 {
-      @apply text-[1.6rem] mb-6 text-dark-main border-b pb-3 font-display font-light;
-      border-bottom-color: rgb(var(--color-gold-warm-rgb) / 0.3);
-    }
-    .contacto__horario-row {
-      @apply flex justify-between mb-4 text-[0.9rem];
-    }
-    .contacto__horario-row span:first-child {
-      @apply font-normal;
-      color: rgb(var(--color-dark-main-rgb) / 0.6);
-    }
-    .contacto__horario-row span:nth-child(2) {
-      @apply text-dark-main font-medium;
-    }
-
-    /* Estilos de Reserva */
-    .reserva {
-      @apply py-20 md:py-16 bg-dark-main text-white;
-    }
-    .reserva__form-box--cta {
-      @apply text-center max-w-[650px] mx-auto mt-[60px] border rounded-xl p-12 md:p-6;
-      background-color: rgba(255, 255, 255, 0.02);
-      border-color: rgb(var(--color-gold-warm-rgb) / 0.35);
-    }
-    .reserva__cta-title {
-      @apply font-display text-[1.8rem] text-gold-warm mb-4 font-light;
-    }
-    .reserva__cta-text {
-      @apply text-[0.9rem] mb-9 leading-[1.8] font-body;
-      color: rgba(255, 255, 255, 0.85);
-    }
-    [data-theme="light"] .reserva__cta-text {
-      color: rgb(var(--color-dark-main-rgb) / 0.85);
-    }
-    [data-theme="light"] .reserva__form-box--cta {
-      @apply bg-black/5;
-      border-color: rgb(var(--color-gold-warm-rgb) / 0.5);
-    }
-    .reserva__cta-btn {
-      @apply text-[0.85rem] py-[18px] px-9 w-full;
-    }
-    .reserva__trust {
-      @apply mt-5 text-[0.75rem] tracking-[0.08em] text-gold-warm font-body;
-    }
-    .reserva__note {
-      @apply text-[0.75rem] text-white/40 text-center mt-4 font-body;
-    }
-
-    /* Estilos del Pie de Página (Footer) */
-    .footer {
-      @apply bg-dark-main text-white py-20 pb-[30px] border-t border-border-dark;
-    }
-    .footer__inner {
-      @apply grid gap-[60px] mb-[60px];
-      grid-template-columns: 2fr 1fr 1fr;
-    }
-    @media (max-width: 992px) {
-      .footer__inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-    .footer__brand {
-      @apply flex flex-col gap-5;
-    }
-    .footer__logo-img {
-      @apply h-[90px] w-auto self-start;
-    }
-    [data-theme="light"] .footer__logo-img {
-      @apply filter invert;
-    }
-    .footer__desc {
-      @apply text-[0.8rem] text-white/50 max-w-[400px] leading-[1.7] font-body;
-    }
-    .footer__nav, .footer__contact {
-      @apply flex flex-col gap-4;
-    }
-    .footer__nav h4, .footer__contact h4 {
-      @apply text-[1rem] uppercase tracking-[0.15em] text-gold-warm mb-2 font-body font-medium;
-    }
-    .footer__nav a {
-      @apply text-[0.8rem] text-white/60 hover:text-gold-warm transition-all duration-200;
-    }
-    .footer__nav a:hover {
-      @apply translate-x-1;
-    }
-    .footer__contact p {
-      @apply text-[0.8rem] text-white/60 font-body;
-    }
-    .footer__copy {
-      @apply text-center border-t border-white/5 pt-[30px] text-[0.75rem] text-white/40 font-body;
-    }
-
-    /* Acciones Flotantes */
-    .floating-actions {
-      @apply fixed right-5 bottom-5 z-[90] flex flex-col gap-3.5;
-    }
-    .floating-actions__btn {
-      @apply w-14 h-14 rounded-full flex items-center justify-center bg-dark-main border border-gold-warm text-gold-warm shadow-[0_6px_20px_rgba(0,0,0,0.25)] transition-all duration-200 hover:bg-gold-warm hover:text-dark-main hover:-translate-y-[3px];
-    }
-    [data-theme="light"] .floating-actions__btn {
-      @apply bg-white hover:text-white hover:bg-gold-warm;
-    }
-    .floating-actions__btn svg {
-      @apply w-[26px] h-[26px] fill-current;
-    }
-
-    /* Estilos de las ventanas modales (Modal) */
-    .modal {
-      @apply fixed inset-0 z-[1000] backdrop-blur-[12px] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
-      background-color: rgb(var(--color-dark-main-rgb) / 0.85);
-    }
-    .modal.active {
-      @apply opacity-100 pointer-events-auto;
-    }
-    .modal__content {
-      @apply bg-dark-bg border border-gold-warm w-[90%] max-w-[450px] p-12 md:p-6 text-center scale-90 transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)];
-    }
-    .modal.active .modal__content {
-      @apply scale-100;
-    }
-    .modal__icon {
-      @apply w-16 h-16 rounded-full border border-gold-warm flex items-center justify-center mx-auto mb-6 text-gold-warm text-[2rem] font-display;
-    }
-    .modal__title {
-      @apply text-[1.8rem] text-white mb-3 font-display font-light;
-    }
-    .modal__text {
-      @apply text-[0.85rem] text-white/70 mb-[30px] leading-[1.6] font-body;
+      background-color: #8c6b16;
+      border: none;
     }
   </style>
 

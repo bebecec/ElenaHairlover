@@ -224,8 +224,8 @@ img {
     }
 
     .header__logo-img {
-      height: 55px;
-      max-height: 55px;
+      height: 61px;
+      max-height: 61px;
     }
   }
 }
@@ -247,8 +247,8 @@ img {
 }
 
 .header__logo-img {
-  height: 66px;
-  max-height: 66px;
+  height: 73px;
+  max-height: 73px;
   width: auto;
   object-fit: contain;
   display: block;

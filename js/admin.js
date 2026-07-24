@@ -1243,6 +1243,14 @@ function formatPrice(price) {
 document.addEventListener("DOMContentLoaded", () => {
   initDatabase();
   initVideoManagement();
+
+  const publishBtn = document.getElementById("publish-data-btn");
+  if (publishBtn) {
+    publishBtn.addEventListener("click", () => {
+      showToast("Datos publicados en la web exitosamente (simulado en modo local)", "success");
+      // Aquí se conectaría con la API o backend para actualizar la web pública
+    });
+  }
 });
 
 

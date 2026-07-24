@@ -338,9 +338,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = document.createElement("div");
         item.className = "service-item";
         item.innerHTML = `
-          <div>
+          <div class="service-item__info">
             <span class="service-item__name">${escapeHtml(s.name)}</span>
-            <span class="service-item__duration">${escapeHtml(s.duration)}</span>
+            ${s.duration ? `<span class="service-item__bullet">·</span><span class="service-item__duration">${escapeHtml(s.duration)}</span>` : ''}
           </div>
           <div class="service-item__dots"></div>
           <span class="service-item__price">${escapeHtml(formatPrice(s.price))}</span>

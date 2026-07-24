@@ -255,6 +255,161 @@
       background-color: #8c6b16;
       border: none;
     }
+
+    /* ─── CARTA DE SERVICIOS — DISEÑO EN LÍNEA HORIZONTAL (Servicio - Precio - Reserva) ─── */
+    .servicios {
+      background-color: #111111;
+    }
+    .servicios__tabs-content {
+      background-color: #1A1A1A;
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 16px 22px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      border-radius: 6px;
+      gap: 16px;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+    .service-item:hover {
+      background-color: rgba(201, 168, 76, 0.06);
+      border-color: rgba(201, 168, 76, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .service-item__info {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex-shrink: 1;
+    }
+
+    .service-item__name {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+
+    .service-item__bullet {
+      color: var(--color-gold-warm);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .service-item__duration {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+
+    .service-item__dots {
+      flex: 1;
+      border-bottom: 1px dotted rgba(201, 168, 76, 0.35);
+      margin: 0 16px;
+      min-width: 20px;
+      align-self: center;
+    }
+
+    .service-item__price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-gold-warm);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    .service-item__btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 8px 22px;
+      background: var(--color-gold-warm);
+      color: var(--color-dark-main);
+      border: 1px solid var(--color-gold-warm);
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .service-item__btn:hover {
+      background: transparent;
+      color: var(--color-gold-warm);
+    }
+
+    /* Sobrescrituras para tema claro */
+    [data-theme="light"] .servicios {
+      background-color: #FAF8F5;
+    }
+    [data-theme="light"] .servicios__tabs-content {
+      background-color: #FFFFFF;
+      border-color: rgba(197, 168, 128, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    [data-theme="light"] .service-item {
+      background-color: #FFFFFF;
+      border-color: rgba(197, 168, 128, 0.3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+    [data-theme="light"] .service-item:hover {
+      background-color: #FAF8F5;
+      border-color: rgba(201, 168, 76, 0.6);
+    }
+    [data-theme="light"] .service-item__name {
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .service-item__bullet {
+      color: #8C6B16;
+    }
+    [data-theme="light"] .service-item__duration {
+      color: #555555;
+    }
+    [data-theme="light"] .service-item__dots {
+      border-bottom-color: rgba(140, 107, 22, 0.35);
+    }
+    [data-theme="light"] .service-item__price {
+      color: #8C6B16;
+      font-weight: 700;
+    }
+    [data-theme="light"] .service-item__btn {
+      background: var(--color-gold-dark);
+      color: #FFFFFF;
+      border-color: var(--color-gold-dark);
+    }
+    [data-theme="light"] .service-item__btn:hover {
+      background: transparent;
+      color: var(--color-gold-dark);
+    }
   </style>
 
   <link rel="stylesheet" href="css/styles.css" />

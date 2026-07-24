@@ -316,6 +316,10 @@ a {
   gap: 16px;
 }
 
+.form-row-4 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .login-note {
   font-size: 0.7rem;
   color: rgba(255,255,255,0.4);
@@ -1224,7 +1228,7 @@ a {
     padding: 14px 16px;
     font-size: 0.72rem;
   }
-  .form-row {
+  .form-row, .form-row-4 {
     grid-template-columns: 1fr;
     gap: 0;
   }

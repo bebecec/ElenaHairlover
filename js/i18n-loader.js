@@ -23,6 +23,17 @@ const I18nLoader = {
 
   async loadTranslations(lang) {
     if (!this.supportedLangs.includes(lang)) lang = 'es';
+
+    // file:// protocol: fetch() is blocked by the browser for security.
+    // Use an inline minimal fallback so the page still renders correctly.
+    if (window.location.protocol === 'file:') {
+      console.warn('[i18n] Protocolo file:// detectado — usando traducciones inline. Para i18n completo usa un servidor local (npm run dev).');
+      this.translations = {};   // keep DOM text as-is (hardcoded Spanish)
+      this.currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+      return;
+    }
+
     try {
       const response = await fetch(`locales/${lang}.json`);
       if (!response.ok) throw new Error(`Translation file locales/${lang}.json not found`);

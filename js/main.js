@@ -202,3 +202,73 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', close);
     box.addEventListener('click', (e) => { if (e.target === box) close(); });
     document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  }
+  
+  initGalleryLightbox();
+  
+  // Renderizar servicios dinámicamente desde localStorage (si existe)
+  function renderPublicServices() {
+    const tabsContainer = document.getElementById("public-category-tabs");
+    const listContainer = document.getElementById("public-services-list");
+    if (!tabsContainer || !listContainer) return;
+    
+    const savedCategories = localStorage.getItem("elegance_categories");
+    const savedServices = localStorage.getItem("elegance_services");
+    
+    if (!savedCategories || !savedServices) return;
+    
+    const categories = JSON.parse(savedCategories);
+    const services = JSON.parse(savedServices);
+    
+    let currentCat = categories.length > 0 ? categories[0].id : null;
+    
+    function renderTabs() {
+      tabsContainer.innerHTML = "";
+      categories.forEach((cat, index) => {
+        const btn = document.createElement("button");
+        btn.className = `category-tab-btn ${cat.id === currentCat ? "active" : ""}`;
+        btn.textContent = cat.name;
+        
+        btn.addEventListener("click", () => {
+          document.querySelectorAll("#public-category-tabs .category-tab-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentCat = cat.id;
+          renderList();
+        });
+        
+        tabsContainer.appendChild(btn);
+      });
+    }
+    
+    function renderList() {
+      listContainer.innerHTML = "";
+      const filtered = services.filter(s => s.category === currentCat);
+      
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `<p style="text-align:center; padding: 20px;">No hay servicios en esta categoría.</p>`;
+        return;
+      }
+      
+      filtered.forEach(s => {
+        const item = document.createElement("div");
+        item.className = "service-item";
+        item.innerHTML = `
+          <div class="service-item__header">
+            <h4 class="service-item__name">${s.name}</h4>
+            <span class="service-item__price">${s.price}</span>
+          </div>
+          <div class="service-item__desc">${s.duration}</div>
+        `;
+        listContainer.appendChild(item);
+      });
+    }
+    
+    renderTabs();
+    renderList();
+  }
+  
+  renderPublicServices();
+
+});

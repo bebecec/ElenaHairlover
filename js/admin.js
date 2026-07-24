@@ -1,6 +1,6 @@
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
 // ELENA HAIRLOVER — Lógica del Panel de Administración Híbrido
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
 
 // Semilla inicial de datos para poblar el sistema la primera vez
 const initialServicesSeed = [
@@ -40,8 +40,7 @@ const initialServicesSeed = [
   { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
   { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
   { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
-  { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" }
 ];
 
 const initialSalonInfoSeed = {
@@ -57,8 +56,17 @@ const initialSalonInfoSeed = {
   hoursMon: ""
 };
 
+const initialCategoriesSeed = [
+  { id: "facial", name: "Estética Facial" },
+  { id: "corporal", name: "Estética Corporal" },
+  { id: "peluqueria", name: "Peluquería" },
+  { id: "depilacion", name: "Depilación" },
+  { id: "unas-mirada", name: "Cejas & Pestañas" }
+];
+
 // Variables de estado
 let services = [];
+let categories = [];
 let salonInfo = {};
 let galleryImages = [];
 let heroImages = [];
@@ -89,9 +97,80 @@ const serviceNameInput = document.getElementById("service-name");
 const serviceDurationInput = document.getElementById("service-duration");
 const servicePriceInput = document.getElementById("service-price");
 const serviceCategorySelect = document.getElementById("service-category");
+
+const categoryModal = document.getElementById("category-modal");
+const manageCategoriesBtn = document.getElementById("manage-categories-btn");
+const categoryModalCloseBtn = document.getElementById("category-modal-close-btn");
+const categoryForm = document.getElementById("category-form");
+const newCategoryNameInput = document.getElementById("new-category-name");
+const modalAddCategoryBtn = document.getElementById("modal-add-category-btn");
+let editingCategoryId = null;
 const modalCancelBtn = document.getElementById("modal-cancel-btn");
 
 const galleryGrid = document.getElementById("gallery-grid");
+const galleryUploadInput = document.getElementById("gallery-upload-input");
+const galleryDropzone = document.getElementById("gallery-dropzone");
+const imageEditFileInput = document.getElementById("image-edit-file-input");
+
+// Image Preview Modal
+const imagePreviewModal = document.getElementById("image-preview-modal");
+const imageModalClose = document.getElementById("image-modal-close");
+const imageModalCancel = document.getElementById("image-modal-cancel");
+const imageModalSave = document.getElementById("image-modal-save");
+const imageModalDelete = document.getElementById("image-modal-delete");
+const imagePreviewImg = document.getElementById("image-preview-img");
+const imagePreviewNameInput = document.getElementById("image-preview-name-input");
+const imagePreviewDescInput = document.getElementById("image-preview-desc-input");
+let tempImageSrc = null;
+
+// Hero
+const heroGrid = document.getElementById("hero-grid");
+const heroUploadInput = document.getElementById("hero-upload-input");
+const heroDropzone = document.getElementById("hero-dropzone");
+
+// Toast
+const toastContainer = document.getElementById("toast-container");
+
+// Storage
+const storageUsageBadge = document.getElementById("storage-usage-badge");
+
+// Confirm modal
+const confirmModal = document.getElementById("confirm-modal");
+const confirmModalTitle = document.getElementById("confirm-modal-title");
+const confirmModalText = document.getElementById("confirm-modal-text");
+const confirmModalAccept = document.getElementById("confirm-modal-accept");
+const confirmModalCancel = document.getElementById("confirm-modal-cancel");
+
+// Video Edit Modal
+const videoEditModal = document.getElementById("video-edit-modal");
+const videoEditForm = document.getElementById("video-edit-form");
+const videoEditSlotId = document.getElementById("video-edit-slot-id");
+const videoEditLabel = document.getElementById("video-edit-label");
+const videoEditDesc = document.getElementById("video-edit-desc");
+const videoEditSaveBtn = document.getElementById("video-edit-save-btn");
+const videoEditCancelBtn = document.getElementById("video-edit-cancel-btn");
+
+// Publish
+const publishDataBtn = document.getElementById("publish-data-btn");
+
+function updateStorageUsage() {
+  if (!storageUsageBadge) return;
+  try {
+    let total = 0;
+    for (let key in localStorage) {
+      if (localStorage.hasOwnProperty(key)) {
+        total += (localStorage[key].length + key.length) * 2; // UTF-16
+      }
+    }
+    const mb = (total / (1024 * 1024)).toFixed(2);
+    const maxMB = 5; // localStorage limit ~5MB
+    const pct = Math.min(100, (total / (maxMB * 1024 * 1024)) * 100).toFixed(0);
+    storageUsageBadge.textContent = `${mb} MB / ${maxMB} MB (${pct}%)`;
+    storageUsageBadge.title = `Espacio utilizado en localStorage`;
+  } catch(e) {
+    // Silently fail
+  }
+}
 
 function initDatabase() {
   updateStorageUsage(); // Cargar estado inicial del espacio de almacenamiento
@@ -120,10 +199,129 @@ function initDatabase() {
   }
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
 // CARGA DE DATOS
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+  function loadCategories() {
+    const savedCats = localStorage.getItem("elegance_categories");
+    if (savedCats) {
+      categories = JSON.parse(savedCats);
+    } else {
+      categories = [...initialCategoriesSeed];
+      localStorage.setItem("elegance_categories", JSON.stringify(categories));
+    }
+  }
+
+  function renderCategoryTabs() {
+    const tabsContainer = document.querySelector(".category-tabs");
+    if (!tabsContainer) return;
+    
+    tabsContainer.innerHTML = "";
+    categories.forEach((cat, index) => {
+      const btn = document.createElement("button");
+      btn.className = `category-tab-btn ${index === 0 && !currentCategory ? "active" : (cat.id === currentCategory ? "active" : "")}`;
+      btn.dataset.cat = cat.id;
+      btn.textContent = cat.name;
+      
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".category-tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCategory = cat.id;
+        renderServicesTable();
+      });
+      
+      tabsContainer.appendChild(btn);
+      
+      if (index === 0 && !currentCategory) {
+        currentCategory = cat.id;
+      }
+    });
+  }
+
+  function renderCategorySelect() {
+    const select = document.getElementById("service-category");
+    if (!select) return;
+    
+    select.innerHTML = "";
+    categories.forEach(cat => {
+      const option = document.createElement("option");
+      option.value = cat.id;
+      option.textContent = cat.name;
+      select.appendChild(option);
+    });
+  }
+
+  function renderCategoryManagerList() {
+    const list = document.getElementById("category-manager-list");
+    if (!list) return;
+    
+    list.innerHTML = "";
+    categories.forEach(cat => {
+      const div = document.createElement("div");
+      div.style.display = "flex";
+      div.style.justifyContent = "space-between";
+      div.style.alignItems = "center";
+      div.style.padding = "8px 0";
+      div.style.borderBottom = "1px solid var(--color-border)";
+      
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = cat.name;
+      
+      const actionsDiv = document.createElement("div");
+      actionsDiv.style.display = "flex";
+      actionsDiv.style.gap = "8px";
+      
+      const editBtn = document.createElement("button");
+      editBtn.className = "action-btn action-btn--edit";
+      editBtn.title = "Editar Categoría";
+      editBtn.innerHTML = `<svg style="width: 16px; height: 16px; fill: currentColor; pointer-events: none;" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`;
+      
+      editBtn.addEventListener("click", () => {
+        editingCategoryId = cat.id;
+        newCategoryNameInput.value = cat.name;
+        modalAddCategoryBtn.textContent = "Guardar Cambios";
+      });
+      
+      const delBtn = document.createElement("button");
+      delBtn.className = "action-btn action-btn--delete";
+      delBtn.title = "Eliminar Categoría";
+      delBtn.innerHTML = `<svg style="width: 16px; height: 16px; fill: currentColor; pointer-events: none;" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>`;
+      
+      delBtn.addEventListener("click", () => {
+        const hasServices = services.some(s => s.category === cat.id);
+        if (hasServices) {
+          showToast("No puedes eliminar esta categoría porque tiene servicios asociados.", "error");
+          return;
+        }
+        
+        categories = categories.filter(c => c.id !== cat.id);
+        localStorage.setItem("elegance_categories", JSON.stringify(categories));
+        renderCategoryTabs();
+        renderCategorySelect();
+        renderCategoryManagerList();
+        
+        if (currentCategory === cat.id && categories.length > 0) {
+          currentCategory = categories[0].id;
+          const firstTab = document.querySelector(".category-tab-btn");
+          if(firstTab) firstTab.classList.add("active");
+          renderServicesTable();
+        }
+        showToast("Categoría eliminada", "success");
+      });
+      
+      actionsDiv.appendChild(editBtn);
+      actionsDiv.appendChild(delBtn);
+      div.appendChild(nameSpan);
+      div.appendChild(actionsDiv);
+      list.appendChild(div);
+    });
+  }
+
 async function loadData() {
+  loadCategories();
+  renderCategoryTabs();
+  renderCategorySelect();
+  renderCategoryManagerList();
   servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-loading" style="text-align: center; padding: 32px;" data-i18n="states.loading">${window.I18nLoader ? window.I18nLoader.getText("states.loading") : "Cargando..."}</td></tr>`;
 
   if (window.useFirebase) {
@@ -169,12 +367,20 @@ async function loadData() {
   } else {
     // Modo LocalStorage
     const savedServices = localStorage.getItem("elegance_services");
-    if (savedServices) {
-      services = JSON.parse(savedServices);
-    } else {
-      services = [...initialServicesSeed];
-      localStorage.setItem("elegance_services", JSON.stringify(services));
-    }
+      if (savedServices) {
+        services = JSON.parse(savedServices);
+        
+        // Migración temporal para asegurarse de que todos los 37 servicios están cargados en peluquería
+        if (!services.some(s => s.name === "Add a Hair Cut to Any Colour Service")) {
+          // Eliminar los antiguos de peluquería y recargar los 37
+          services = services.filter(s => s.category !== "peluqueria");
+          services = [...initialServicesSeed, ...services];
+          localStorage.setItem("elegance_services", JSON.stringify(services));
+        }
+      } else {
+        services = [...initialServicesSeed];
+        localStorage.setItem("elegance_services", JSON.stringify(services));
+      }
 
     const savedInfo = localStorage.getItem("elegance_salon_info");
     if (savedInfo) {
@@ -287,6 +493,56 @@ newServiceBtn.addEventListener("click", () => {
   serviceForm.reset();
   serviceCategorySelect.value = currentCategory;
   serviceModal.style.display = "flex";
+});
+
+manageCategoriesBtn.addEventListener("click", () => {
+  categoryModal.style.display = "flex";
+});
+
+categoryModalCloseBtn.addEventListener("click", () => {
+  categoryModal.style.display = "none";
+  editingCategoryId = null;
+  categoryForm.reset();
+  modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "Añadir Categoría") : "Añadir Categoría";
+});
+
+categoryForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = newCategoryNameInput.value.trim();
+  if (!name) return;
+  
+  if (editingCategoryId) {
+    // Edit mode
+    const cat = categories.find(c => c.id === editingCategoryId);
+    if (cat) {
+      cat.name = name;
+      localStorage.setItem("elegance_categories", JSON.stringify(categories));
+      renderCategoryTabs();
+      renderCategorySelect();
+      renderCategoryManagerList();
+      showToast("Categoría actualizada", "success");
+    }
+    editingCategoryId = null;
+    modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "Añadir Categoría") : "Añadir Categoría";
+  } else {
+    // Add mode
+    const id = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-");
+    
+    if (categories.find(c => c.id === id)) {
+      showToast("Esta categoría ya existe.", "error");
+      return;
+    }
+    
+    categories.push({ id, name });
+    localStorage.setItem("elegance_categories", JSON.stringify(categories));
+    
+    renderCategoryTabs();
+    renderCategorySelect();
+    renderCategoryManagerList();
+    showToast("Categoría añadida", "success");
+  }
+  
+  categoryForm.reset();
 });
 
 function openEditModal(id) {

@@ -57,12 +57,15 @@
               <h3 data-i18n="admin.tab_items_title">Catálogo de Tratamientos</h3>
               <p data-i18n="admin.tab_items_desc">Gestiona los servicios, duraciones y precios de la web pública.</p>
             </div>
-            <button class="btn btn--gold-outline" id="new-service-btn" data-i18n="admin.btn_new">+ Nuevo Servicio</button>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn--secondary" id="manage-categories-btn" data-i18n="admin.btn_manage_categories">Gestionar Categorías</button>
+              <button class="btn btn--gold-outline" id="new-service-btn" data-i18n="admin.btn_new">+ Nuevo Servicio</button>
+            </div>
           </div>
 
           <!-- Pestañas de Categorías de Servicios -->
-          <div class="category-tabs">
-            <button class="category-tab-btn active" data-cat="peluqueria" data-i18n="services.tab_peluqueria">Servicios de Peluquería</button>
+          <div class="category-tabs" id="category-tabs">
+            <!-- Pestañas dinámicas (admin.js) -->
           </div>
 
           <!-- Listado de Servicios -->
@@ -395,6 +398,31 @@
   </div>
 
   <!-- MODAL PARA CREAR / EDITAR SERVICIO -->
+  <!-- MODAL DE CATEGORÍAS -->
+  <div class="modal-overlay" id="category-modal" style="display: none;">
+    <div class="modal-box" style="max-width: 500px;">
+      <h3 id="modal-category-title" data-i18n="admin.modal_category_title">Gestionar Categorías</h3>
+      
+      <div class="category-manager-list" id="category-manager-list" style="margin-bottom: 20px; max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 4px; padding: 10px;">
+        <!-- Lista dinámica de categorías -->
+      </div>
+
+      <form id="category-form" style="display: flex; gap: 10px; align-items: flex-end;">
+        <div class="form-group" style="flex-grow: 1; margin-bottom: 0;">
+          <label for="new-category-name" data-i18n="admin.category_name">Nombre de la categoría</label>
+          <input type="text" id="new-category-name" required placeholder="Ej. Masajes" />
+        </div>
+        <button type="submit" class="btn btn--primary" id="modal-add-category-btn" data-i18n="admin.add_category">Añadir Categoría</button>
+      </form>
+
+      <div class="modal-box__actions" style="margin-top: 20px;">
+        <div style="flex-grow: 1;"></div>
+        <button type="button" class="btn btn--secondary" id="category-modal-close-btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE SERVICIOS -->
   <div class="modal-overlay" id="service-modal" style="display: none;">
     <div class="modal-box">
       <h3 id="modal-service-title">Nuevo Servicio</h3>

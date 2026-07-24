@@ -45,7 +45,7 @@ const initialServicesSeed = [
 ];
 
 const initialSalonInfoSeed = {
-  phone: "089 450 1215",
+  phone: "",
   whatsapp: "0894501215",
   email: "info@elenahairlover.com",
   address: "Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61",
@@ -326,7 +326,7 @@ function renderServicesTable() {
 }
 
 function populateSalonInfoForm() {
-  document.getElementById("info-phone").value = salonInfo.phone || "089 450 1215";
+  document.getElementById("info-phone").value = salonInfo.phone || "";
   document.getElementById("info-whatsapp").value = salonInfo.whatsapp || "089 450 1215";
   document.getElementById("info-email").value = salonInfo.email || "";
   document.getElementById("info-address").value = salonInfo.address || "";

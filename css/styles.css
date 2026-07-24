@@ -27,10 +27,7 @@
   --color-text-muted:      #666666;
   --color-text-gold:       #C5A880;
 
-  /* ═══════ LIGHT MODE ═══════ */
-  --color-light-bg:        #FAF8F5;
-  --color-light-warm:      #F4EFE5;
-  --color-light-card:      #FFFFFF;
+
 
   /* ═══════ GRADIENTS ═══════ */
   --gold-grad-primary:     linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
@@ -73,8 +70,8 @@ html {
 }
 
 body {
-  background-color: var(--color-light-bg);
-  color: var(--color-text-dark);
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
   font-family: var(--font-body);
   line-height: 1.8;
   letter-spacing: 0.03em;
@@ -129,12 +126,12 @@ img {
   font-weight: 300;
   font-size: clamp(2rem, 4vw, 3rem);
   text-align: center;
-  color: var(--color-text-dark);
-  letter-spacing: 0.02em;
+  color: #c9a84c;
+  margin-bottom: 8px;
 }
 
 .section-title.light {
-  color: var(--color-text-light);
+  color: #c9a84c;
 }
 
 .section-divider {
@@ -873,7 +870,7 @@ img {
 }
 */
 
-/* ─── GALERÍA Y DECLARACIÓN DE MARCA [MIGRADO A TAILWIND] ───
+/* ─── GALERÍA Y DECLARACIÓN DE MARCA [MIGRADO A TAILWIND] ─── */
 .galeria {
   padding: var(--space-section) 0;
   background-color: var(--color-light-bg);
@@ -882,17 +879,16 @@ img {
 .galeria__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 60px;
+  gap: 4px;
+  margin-top: 40px;
 }
 
 .galeria__item {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--color-border-light);
-  aspect-ratio: 4 / 3;
-  height: auto;
-  cursor: zoom-in;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  background-color: #111;
 }
 
 .galeria__item.featured {
@@ -1702,73 +1698,7 @@ img {
   --color-border-dark: rgba(197, 168, 128, 0.4);
 }
 
-/* ── ARREGLO DE CONTRASTE EN TEMA CLARO ─────────────────────────────
-   La inversión de arriba pone --color-dark-main en blanco (para aclarar
-   fondos), pero varios textos usan ese mismo token para ser oscuros, con
-   lo que quedaban blancos sobre fondo claro (invisibles). Aquí forzamos
-   texto oscuro real en modo claro. Se usa el prefijo html[...] para ganar
-   en especificidad a los overrides internos. El modo oscuro no se toca. */
-html[data-theme="light"] .section-title,
-html[data-theme="light"] .service-item__name,
-html[data-theme="light"] .viaje__step-title,
-html[data-theme="light"] .marca-quote__text,
-html[data-theme="light"] .contacto__item h4,
-html[data-theme="light"] .contacto__horario-card h4 {
-  color: #1a1a1a;
-}
 
-html[data-theme="light"] .service-item__duration,
-html[data-theme="light"] .viaje__step-text,
-html[data-theme="light"] .contacto__item p,
-html[data-theme="light"] .contacto__horario-row span,
-html[data-theme="light"] .reserva__cta-text,
-html[data-theme="light"] .reserva__trust,
-html[data-theme="light"] .reserva__note,
-html[data-theme="light"] .footer p,
-html[data-theme="light"] .footer a {
-  color: rgba(26, 26, 26, 0.66);
-}
-
-/* Enlaces de contacto y números decorativos: mantener acento dorado legible */
-html[data-theme="light"] .contacto__item a {
-  color: var(--color-gold-warm);
-}
-
-html[data-theme="light"] .viaje__number {
-  color: rgba(197, 168, 128, 0.55);
-}
-
-/* Pestañas inactivas de servicios y botón "Reservar" de fila (quedaban blancos) */
-html[data-theme="light"] .tab-btn {
-  color: rgba(26, 26, 26, 0.6);
-}
-
-html[data-theme="light"] .service-item__btn {
-  color: var(--color-gold-warm);
-}
-
-/* Cabecera con scroll (fondo claro): el menú y el selector de idioma quedaban
-   blancos. Solo se corrige en estado .scrolled; arriba (sobre el hero oscuro)
-   el menú sigue en claro. */
-html[data-theme="light"] .header.scrolled .header__link {
-  color: rgba(26, 26, 26, 0.85);
-}
-
-html[data-theme="light"] .header.scrolled .header__link:hover {
-  color: #1a1a1a;
-}
-
-html[data-theme="light"] .header.scrolled .lang-switch__btn {
-  color: rgba(26, 26, 26, 0.55);
-}
-
-html[data-theme="light"] .header.scrolled .lang-switch__btn.is-active {
-  color: var(--color-gold-warm);
-}
-
-html[data-theme="light"] .header.scrolled .header__menu-btn span {
-  background: #1a1a1a;
-}
 
 /* [MIGRADO A TAILWIND]
 [data-theme="light"] .header {
@@ -2022,5 +1952,3 @@ a[href*="gettimely.com"].bg-gold-warm:hover {
   background: linear-gradient(90deg, transparent, #F3D798, #C9A84C, #9A782B, transparent) !important;
   height: 2px !important;
 }
-.theme-toggle-icon { color: var(--color-text-light) !important; border-color: var(--color-text-light) !important; }
-.theme-toggle-icon:hover { background-color: var(--color-text-light) !important; color: var(--color-dark-main) !important; }

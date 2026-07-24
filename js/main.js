@@ -7,6 +7,14 @@
 // administración (admin.js) mantiene su propia semilla y escribe en
 // localStorage / Firebase; esta web solo lee esos datos si existen.
 
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Header con scroll (Efecto Glassmorphism translúcido) ───
   const header = document.getElementById('header');
@@ -186,6 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
       box.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
+    
+    window.I18nLoader.init().then(() => {
+      console.log('Idioma cargado y aplicado.');
+      loadSalonInfo(); // Cargar la info de contacto desde el panel
+    });
+    
     function close() {
       box.classList.remove('is-open');
       document.body.style.overflow = '';
@@ -210,65 +224,131 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Renderizar servicios dinámicamente desde localStorage (si existe)
   function renderPublicServices() {
-    const tabsContainer = document.getElementById("public-category-tabs");
     const listContainer = document.getElementById("public-services-list");
-    if (!tabsContainer || !listContainer) return;
+    if (!listContainer) return;
     
-    const savedCategories = localStorage.getItem("elegance_categories");
     const savedServices = localStorage.getItem("elegance_services");
+    if (!savedServices) return;
     
-    if (!savedCategories || !savedServices) return;
-    
-    const categories = JSON.parse(savedCategories);
     const services = JSON.parse(savedServices);
-    
-    let currentCat = categories.length > 0 ? categories[0].id : null;
-    
-    function renderTabs() {
-      tabsContainer.innerHTML = "";
-      categories.forEach((cat, index) => {
-        const btn = document.createElement("button");
-        btn.className = `category-tab-btn ${cat.id === currentCat ? "active" : ""}`;
-        btn.textContent = cat.name;
-        
-        btn.addEventListener("click", () => {
-          document.querySelectorAll("#public-category-tabs .category-tab-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentCat = cat.id;
-          renderList();
-        });
-        
-        tabsContainer.appendChild(btn);
-      });
-    }
     
     function renderList() {
       listContainer.innerHTML = "";
-      const filtered = services.filter(s => s.category === currentCat);
       
-      if (filtered.length === 0) {
-        listContainer.innerHTML = `<p style="text-align:center; padding: 20px;">No hay servicios en esta categoría.</p>`;
+      if (services.length === 0) {
+        listContainer.innerHTML = `<p style="text-align:center; padding: 20px;">No hay servicios disponibles.</p>`;
         return;
       }
       
-      filtered.forEach(s => {
+      services.forEach(s => {
         const item = document.createElement("div");
         item.className = "service-item";
         item.innerHTML = `
-          <div class="service-item__header">
-            <h4 class="service-item__name">${s.name}</h4>
-            <span class="service-item__price">${s.price}</span>
-          </div>
-          <div class="service-item__desc">${s.duration}</div>
+          <h4 class="service-item__name">${s.name}</h4>
+          <div class="service-item__dots"></div>
+          <div class="service-item__desc" style="margin-right: 20px; align-self: center; white-space: nowrap;">${s.duration}</div>
+          <span class="service-item__price">${s.price}</span>
+          <a href="https://elenahairlover.gettimely.com" target="_blank" class="service-item__btn font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200" data-i18n="nav.book">Reservar Cita</a>
         `;
         listContainer.appendChild(item);
       });
     }
     
-    renderTabs();
     renderList();
   }
   
   renderPublicServices();
+
+  // ── RENDER PUBLIC GALLERY ──
+  function renderPublicGallery() {
+    const grid = document.getElementById("public-gallery-grid");
+    if (!grid) return;
+
+    let savedGallery = localStorage.getItem("elegance_gallery");
+    let galleryImages = [];
+
+    if (savedGallery) {
+      galleryImages = JSON.parse(savedGallery);
+    }
+
+    if (!savedGallery || galleryImages.length <= 2) {
+      // Seed if missing or only has the old 2 default images
+      const images = [
+        "insta_9.png", "insta_solo_1.1.png", "insta_solo_1.2.png", "insta_solo_1.3.png", 
+        "insta_solo_2.1.png", "insta_solo_2.2.png", "insta_solo_2.3.png", "insta_solo_3.1.png", 
+        "insta_solo_3.2.png", "insta_solo_3.3.png", "insta_solo_4.1.png", "insta_solo_4.2.png", 
+        "insta_solo_4.3.png", "insta_solo_5.1.png", "insta_solo_5.2.png", "insta_solo_5.3.png", 
+        "insta_solo_6.1.png", "insta_solo_6.2.png", "insta_solo_6.3.png", "insta_solo_7.1.png", 
+        "insta_solo_7.2.png", "insta_solo_7.3.png", "insta_solo_8.1.png", "insta_solo_8.2.png"
+      ];
+      galleryImages = images.map((img, i) => ({
+        id: "g_seed_" + i,
+        name: "Elena Hairlover",
+        desc: "Galería de resultados",
+        src: "img/Galeria_de_imagines/" + img,
+        addedAt: Date.now() - (i * 1000)
+      }));
+      localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
+    }
+
+    grid.innerHTML = "";
+    galleryImages.forEach((item, index) => {
+      const delay = (index % 6) * 0.1;
+      grid.innerHTML += `
+        <div class="galeria__item fade-in-up" style="animation-delay: ${delay}s">
+          <picture>
+            <source srcset="${item.src}" type="image/png" />
+            <img src="${item.src}" alt="${item.name}" class="galeria__img" loading="lazy" />
+          </picture>
+          <div class="galeria__overlay">
+            <svg class="galeria__overlay-icon" viewBox="0 0 24 24" width="32" height="32" fill="var(--color-text-light)">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <p class="galeria__overlay-desc" style="margin-top: 10px;">${item.name}</p>
+          </div>
+        </div>
+      `;
+    });
+  }
+  renderPublicGallery();
+
+  // ─── CARGA DE INFO DE CONTACTO ───
+  function loadSalonInfo() {
+    try {
+      const saved = localStorage.getItem("elegance_salon_info");
+      if (saved) {
+        const info = JSON.parse(saved);
+        
+        const addrEl = document.getElementById("public-info-address");
+        if (addrEl && info.address) addrEl.textContent = info.address;
+        
+        const phoneEl = document.getElementById("public-info-phone");
+        if (phoneEl && info.phone) {
+          phoneEl.textContent = info.phone;
+          phoneEl.href = `tel:${info.phone.replace(/\s+/g, '')}`;
+          // También actualizar el botón flotante si existe
+          const floatBtn = document.querySelector(".floating-actions__btn");
+          if (floatBtn) floatBtn.href = `tel:${info.phone.replace(/\s+/g, '')}`;
+        }
+        
+        const emailEl = document.getElementById("public-info-email");
+        if (emailEl && info.email) {
+          emailEl.textContent = info.email;
+          emailEl.href = `mailto:${info.email}`;
+        }
+        
+        const hoursEl = document.getElementById("public-info-hours");
+        if (hoursEl && info.hoursWeek && info.hoursSat) {
+          // Remover el data-i18n porque estamos usando datos dinámicos customizados
+          hoursEl.removeAttribute("data-i18n");
+          hoursEl.textContent = `Horario: Mar-Vie: ${info.hoursWeek} / Sáb: ${info.hoursSat}`;
+        }
+      }
+    } catch(err) {
+      console.error("Error loading salon info:", err);
+    }
+  }
+
+  loadSalonInfo(); // Cargar la info de contacto desde el panel
 
 });

@@ -37,7 +37,7 @@
     rel="stylesheet" />
 
   <!-- Preload recursos LCP -->
-  <link rel="preload" as="image" href="img/galeria1.webp" type="image/webp" />
+  <link rel="preload" as="image" href="img/Carusel_del_hero/insta_2.png" type="image/png" />
 
   <!-- Tailwind CSS v3 Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -119,23 +119,7 @@
       width: 100%;
     }
 
-    /* Sobrescrituras de tema claro para el Header */
-    [data-theme="light"] .header {
-      background-color: rgba(250, 248, 245, 0.92);
-      border-bottom: 1px solid var(--color-border-light);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-    }
-    [data-theme="light"] .header.scrolled {
-      background-color: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-    [data-theme="light"] .header__link {
-      color: var(--color-text-dark);
-      text-shadow: none;
-    }
-    [data-theme="light"] .header__link:hover {
-      color: var(--color-gold-warm);
-    }
+
 
     /* Botón del menú móvil y tablet (3 rallas doradas) */
     .header__menu-btn {
@@ -179,9 +163,7 @@
       background-color: var(--color-gold-warm);
     }
 
-    [data-theme="light"] .header__menu-btn span {
-      background-color: var(--color-gold-dark);
-    }
+
 
     /* Menú desplegable Móvil/Tablet Overlay */
     .header__mobile-nav {
@@ -206,12 +188,7 @@
       right: 0;
     }
 
-    [data-theme="light"] .header__mobile-nav {
-      background-color: rgba(250, 248, 245, 0.98);
-    }
-    [data-theme="light"] .header__mobile-nav a:not(.font-medium) {
-      color: #111111;
-    }
+
 
     /* Separadores y estilos activos del selector de idioma */
     .lang-switch__btn+.lang-switch__btn {
@@ -221,13 +198,7 @@
       color: var(--color-gold-warm);
       font-weight: 700;
     }
-    [data-theme="light"] .lang-switch__btn+.lang-switch__btn {
-      border-left: 1px solid rgba(34, 34, 34, 0.15);
-    }
-    [data-theme="light"] .lang-switch__btn.is-active {
-      color: var(--color-gold-dark);
-      font-weight: 700;
-    }
+
 
     /* Transición de opacidad de las diapositivas del Hero */
     .hero__slide {
@@ -260,9 +231,7 @@
       z-index: 3;
       background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 40%, rgba(0, 0, 0, 0.30) 100%);
     }
-    [data-theme="light"] .hero__bg-overlay {
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 40%, rgba(255, 255, 255, 0.30) 100%);
-    }
+
 
     /* Sombras de texto del Hero */
     .hero__title-sub {
@@ -272,16 +241,7 @@
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
     }
 
-    [data-theme="light"] .hero__title-sub {
-      color: #8c6b16;
-      border-color: rgba(140, 107, 22, 0.3);
-      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
-    }
-    [data-theme="light"] .hero__subtitle {
-      color: #111111;
-      font-weight: 500;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.9);
-    }
+
 
     /* Forma de píldora activa de los puntos del Hero */
     .hero__dot {
@@ -301,14 +261,7 @@
       background-color: var(--color-gold-warm);
       border: none;
     }
-    [data-theme="light"] .hero__dot {
-      background-color: rgba(0, 0, 0, 0.3);
-      border-color: rgba(0, 0, 0, 0.4);
-    }
-    [data-theme="light"] .hero__dot.is-active {
-      background-color: #8c6b16;
-      border: none;
-    }
+
 
     /* ─── CARTA DE SERVICIOS — DISEÑO EN LÍNEA HORIZONTAL (Servicio - Precio - Reserva) ─── */
     .servicios {
@@ -421,49 +374,6 @@
       color: var(--color-gold-warm);
     }
 
-    /* Sobrescrituras para tema claro */
-    [data-theme="light"] .servicios {
-      background-color: #FAF8F5;
-    }
-    [data-theme="light"] .servicios__tabs-content {
-      background-color: #FFFFFF;
-      border-color: rgba(197, 168, 128, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-    [data-theme="light"] .service-item {
-      background-color: #FFFFFF;
-      border-color: rgba(197, 168, 128, 0.3);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-    }
-    [data-theme="light"] .service-item:hover {
-      background-color: #FAF8F5;
-      border-color: rgba(201, 168, 76, 0.6);
-    }
-    [data-theme="light"] .service-item__name {
-      color: #1A1A1A;
-    }
-    [data-theme="light"] .service-item__bullet {
-      color: #8C6B16;
-    }
-    [data-theme="light"] .service-item__duration {
-      color: #555555;
-    }
-    [data-theme="light"] .service-item__dots {
-      border-bottom-color: rgba(140, 107, 22, 0.35);
-    }
-    [data-theme="light"] .service-item__price {
-      color: #8C6B16;
-      font-weight: 700;
-    }
-    [data-theme="light"] .service-item__btn {
-      background: var(--color-gold-dark);
-      color: #FFFFFF;
-      border-color: var(--color-gold-dark);
-    }
-    [data-theme="light"] .service-item__btn:hover {
-      background: transparent;
-      color: var(--color-gold-dark);
-    }
 
     /* ─── BOTONES FLOTANTES DE CONTACTO RÁPIDO (ELEGANCE GOLD) ─── */
     .floating-actions {
@@ -506,9 +416,7 @@
       fill: currentColor;
     }
 
-    [data-theme="light"] .floating-actions__btn {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.6);
-    }
+
 
     /* ─── AJUSTE RESPONSIVO BOTÓN RESERVAR COMPACTO Y CENTRADO (MÓVIL & TABLET) ─── */
     @media (max-width: 768px) {
@@ -557,6 +465,8 @@
   </style>
 
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin-public.css">
+  <link rel="stylesheet" href="css/footer-modern.css">
   <link rel="stylesheet" href="css/animations.css" />
 
   <!-- JSON-LD Datos Estructurados -->
@@ -566,7 +476,7 @@
     "@type": ["BeautySalon", "HairSalon"],
     "name": "Elena Hairlover",
     "url": "https://www.elenahairlover.com/",
-    "image": "https://www.elenahairlover.com/img/entrada.png",
+    "image": "https://www.elenahairlover.com/img/Carusel_del_hero/insta_1.png",
     "logo": "https://www.elenahairlover.com/img/Logo_Elegance_Vectorial.svg",
     "email": "info@elenahairlover.com",
     "telephone": "+353 89 450 1215",
@@ -676,14 +586,14 @@
              y los puntos se ajustan solos. -->
         <div class="hero__slide is-active">
           <picture>
-            <source srcset="img/galeria1.webp" type="image/webp" />
-            <img class="block w-full h-full object-cover hero__slide-img" src="img/galeria1.png" alt="" aria-hidden="true" fetchpriority="high" />
+            <source srcset="img/Carusel_del_hero/insta_2.png" type="image/png" />
+            <img class="block w-full h-full object-cover hero__slide-img" src="img/Carusel_del_hero/insta_2.png" alt="" aria-hidden="true" />
           </picture>
         </div>
         <div class="hero__slide">
           <picture>
-            <source srcset="img/entrada.webp" type="image/webp" />
-            <img class="block w-full h-full object-cover hero__slide-img" src="img/entrada.png" alt="" aria-hidden="true" loading="lazy" />
+            <source srcset="img/Carusel_del_hero/insta_1.png" type="image/png" />
+            <img class="block w-full h-full object-cover hero__slide-img" src="img/Carusel_del_hero/insta_1.png" alt="" aria-hidden="true" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -722,10 +632,7 @@
       <h2 class="section-title" data-i18n="services.title">Servicios & Tratamientos</h2>
       <div class="section-divider"></div>
 
-        <!-- Pestañas de categorías dinámicas -->
-        <div class="category-tabs" id="public-category-tabs" style="display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px;">
-          <!-- Se renderizan vía main.js -->
-        </div>
+
 
         <div class="servicios__content fade-in-up">
           <div class="services-list" id="public-services-list">
@@ -782,32 +689,8 @@
       <h2 class="section-title" data-i18n="gallery.title">El Salón & Resultados</h2>
       <div class="section-divider"></div>
 
-      <div class="galeria__grid">
-        <!-- Item 1: Entrada Principal Featured -->
-        <div class="galeria__item featured fade-in-up">
-          <picture>
-            <source srcset="img/entrada.webp" type="image/webp" />
-            <img src="img/entrada.png" alt="Entrada del salón Elena Hairlover en Elena Hairlover"
-              class="galeria__img" width="1200" height="900" loading="lazy" />
-          </picture>
-          <div class="galeria__overlay">
-            <h3 class="galeria__overlay-title" data-i18n="gallery.item1_title">Nuestro Salón</h3>
-            <p class="galeria__overlay-desc" data-i18n="gallery.item1_desc">Un espacio de alta estética y confort — Un espacio de alta estética y confort</p>
-          </div>
-        </div>
-
-        <!-- Item 2: Peluquería en Acción -->
-        <div class="galeria__item fade-in-up" style="animation-delay: 0.15s">
-          <picture>
-            <source srcset="img/galeria1.webp" type="image/webp" />
-            <img src="img/galeria1.png" alt="Servicios de peluquería en acción en Elena Hairlover"
-              class="galeria__img" width="1200" height="900" loading="lazy" />
-          </picture>
-          <div class="galeria__overlay">
-            <h3 class="galeria__overlay-title" data-i18n="gallery.item2_title">Estilismo en Acción</h3>
-            <p class="galeria__overlay-desc" data-i18n="gallery.item2_desc">Cortes, color y peinados personalizados por nuestras estilistas</p>
-          </div>
-        </div>
+      <div class="galeria__grid" id="public-gallery-grid">
+        <!-- JS rendered items here -->
       </div>
     </div>
   </section>
@@ -869,42 +752,6 @@
             <span data-i18n="contact.status_closed">Cerrado</span>
           </div>
         </div>
-
-        <!-- Mapa Derecha (Columna 3) -->
-        <div class="contacto__map-container fade-in-up" style="animation-delay: 0.3s">
-          <iframe class="contacto__map"
-            src="https://maps.google.com/maps?q=Elena%20Hairlover,%20Coolmine%20Business%20Park,%20Dublin&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <a href="https://www.google.com/maps?q=Elena+Hairlover,+Innovation+House,+Porters+Road,+Coolmine+Business+Park,+Dublin"
-            target="_blank" rel="noopener" class="btn btn--gold-outline btn--full contacto__map-btn"
-            data-i18n="contact.map_btn">Cómo llegar en Google Maps</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-  <!-- RESERVA — Portal Online                     -->
-  
-  <section class="reserva" id="reserva">
-    <div class="container">
-      <span class="section-label" data-i18n="reserve.label">Reserva Online al Instante</span>
-      <h2 class="section-title light" data-i18n="reserve.title">Reserva tu Cita</h2>
-      <div class="section-divider"></div>
-
-      <div class="reserva__form-box reserva__form-box--cta fade-in-up">
-        <h3 class="reserva__cta-title" data-i18n="reserve.cta_title">Plataforma de Reserva Directa</h3>
-        <p class="reserva__cta-text" data-i18n="reserve.cta_text">
-          Elige tus tratamientos favoritos de peluquería, estética avanzada, manicura o masajes, selecciona tu estilista
-          o esteticista preferida y reserva el día y hora que mejor te convenga. Todo de forma inmediata y sin esperas a
-          través de nuestro portal oficial.
-        </p>
-        <a href="https://elenahairlover.gettimely.com" target="_blank" rel="noopener"
-          class="btn btn--primary btn--full reserva__cta-btn" data-i18n="reserve.cta_btn">
-          Reservar Cita Online
-        </a>
-        <p class="reserva__trust" data-i18n="reserve.trust">✓ Sin esperas &nbsp;·&nbsp; ✓ Confirmación inmediata &nbsp;·&nbsp; ✓ 100&nbsp;% online</p>
-        <p class="reserva__note" data-i18n="reserve.note">Plataforma externa segura gestionada por Timely</p>
       </div>
     </div>
   </section>
@@ -912,31 +759,49 @@
   
   <!-- FOOTER                                      -->
   
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <img src="img/logo.png" alt="Universal Brand" class="footer__logo-img" />
-        <p class="footer__desc" data-i18n="footer.desc">Peluquería y Estilismo Exclusivo en Dublin. Tu belleza, estilo y bienestar son nuestra
-          dedicación exclusiva.</p>
+  <footer class="footer-modern">
+    <div class="container footer-modern__inner">
+      <div class="footer-modern__top">
+        <div class="footer-modern__brand">
+          <h2 class="footer-modern__title">ELENA HAIRLOVER</h2>
+          <p class="footer-modern__subtitle" data-i18n="footer.desc">Peluquería y Estilismo Exclusivo en Dublin.<br>Tu belleza, estilo y bienestar son nuestra dedicación exclusiva.</p>
+        </div>
+        <div class="footer-modern__links">
+          <div class="footer-modern__col">
+            <h4 data-i18n="footer.nav_title">Explorar</h4>
+            <a href="#inicio" data-i18n="nav.home">Inicio</a>
+            <a href="#servicios" data-i18n="nav.services">Servicios</a>
+            <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
+            <a href="#galeria" data-i18n="nav.gallery">Galería</a>
+          </div>
+          <div class="footer-modern__col">
+            <h4 data-i18n="footer.support_title">Contacto</h4>
+            <a id="public-info-phone" href="tel:+353894501215">089 450 1215</a>
+            <a id="public-info-email" href="mailto:info@elenahairlover.com">info@elenahairlover.com</a>
+            <p id="public-info-address" style="margin-top: 10px; margin-bottom: 5px;">Innovation House, Porters Road, Dublin 15</p>
+            <a href="https://maps.app.goo.gl/HYtCimQ6ixrw2vpq5" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; color: var(--color-gold-warm); font-weight: 500;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              Cómo llegar
+            </a>
+          </div>
+          <div class="footer-modern__col" style="min-width: 250px;">
+            <h4>Ubicación</h4>
+            <iframe class="contacto__map" src="https://maps.google.com/maps?q=Elena%20Hairlover,%20Coolmine%20Business%20Park,%20Dublin&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="height: 120px; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;"></iframe>
+          </div>
+          <div class="footer-modern__col">
+            <h4>Social</h4>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+          </div>
+        </div>
       </div>
-      <div class="footer__nav">
-        <h4 data-i18n="footer.nav_title">Navegación</h4>
-        <a href="#inicio" data-i18n="nav.home">Inicio</a>
-        <a href="#servicios" data-i18n="nav.services">Servicios</a>
-        <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
-        <a href="#galeria" data-i18n="nav.gallery">Galería</a>
-        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      <div class="footer-modern__bottom">
+        <p data-i18n="footer.copyright">&copy; 2026 Elena Hairlover. Todos los derechos reservados.</p>
+        <a href="#inicio" class="footer-modern__scroll-top">Back to top ↑</a>
       </div>
-      <div class="footer__contact">
-        <h4 data-i18n="footer.support_title">Ubicación & Soporte</h4>
-        <p>Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61</p>
-        <p><span data-i18n="contact.phone_label">Teléfono:</span> <a href="tel:+353894501215">089 450 1215</a></p>
-        <p><span data-i18n="contact.email_label">Email:</span> <a href="mailto:info@elenahairlover.com">info@elenahairlover.com</a></p>
-        <p class="footer__hours" data-i18n="footer.hours_line">Horario: Mar-Vie: 9h-19h / Sáb: 8h-15h</p>
-      </div>
-    </div>
-    <div class="footer__copy">
-      <p data-i18n="footer.copyright">&copy; 2026 Elena Hairlover. Todos los derechos reservados. Dublin, Ireland.</p>
     </div>
   </footer>
 
@@ -961,24 +826,6 @@
         <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.4a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/>
       </svg>
     </a>
-    <a href="https://www.facebook.com/elena_hairlover" target="_blank" rel="noopener"
-      class="floating-actions__btn" aria-label="Síguenos en Facebook">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/>
-      </svg>
-    </a>
-  </div>
-
-  
-  <!-- CUSTOM MODAL — Notificación Elegante         -->
-  
-  <div class="modal" id="modal-success" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal__content">
-      <div class="modal__icon" aria-hidden="true">✓</div>
-      <h3 class="modal__title" id="modal-title" data-i18n="modal.title">¡Reserva Solicitada!</h3>
-      <p class="modal__text" id="modal-text" data-i18n="modal.text">Tu solicitud ha sido recibida con éxito. Nos pondremos en contacto contigo en menos de 2 horas.</p>
-      <button class="btn btn--gold-outline" id="modal-close" data-i18n="modal.close">Cerrar Ventana</button>
-    </div>
   </div>
 
   <!-- Configuración primero, para conocer si Firebase está activo -->

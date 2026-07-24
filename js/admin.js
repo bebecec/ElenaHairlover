@@ -648,13 +648,23 @@ salonInfoForm.addEventListener("submit", async (e) => {
 
 function loadGallery() {
   const saved = localStorage.getItem("elegance_gallery");
+  let needsSeed = true;
+  
   if (saved) {
     galleryImages = JSON.parse(saved);
-  } else {
+    // If we find the old broken images, re-seed
+    if (galleryImages.some(img => img.src === "img/entrada.png" || img.src === "img/galeria1.png")) {
+      needsSeed = true;
+    } else {
+      needsSeed = false;
+    }
+  } 
+  
+  if (needsSeed) {
     // Pre-cargar imágenes existentes del proyecto con descripciones por defecto
     galleryImages = [
-      { id: "g_entrada", name: "Entrada del Salón", desc: "Un espacio de alta estética y confort — Un espacio de alta estética y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
-      { id: "g_galeria1", name: "Interior — Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
+      { id: "g_insta1", name: "Estilo", desc: "Trabajos de color y estilo", src: "img/Galeria_de_imagines/insta_solo_1.1.png", addedAt: Date.now() - 3000 },
+      { id: "g_insta2", name: "Color", desc: "Resultados espectaculares", src: "img/Galeria_de_imagines/insta_solo_1.2.png", addedAt: Date.now() - 2000 }
     ];
     localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
   }
@@ -898,16 +908,26 @@ if (imageModalSave) {
 
 function loadHero() {
   const saved = localStorage.getItem("elegance_hero");
+  let needsSeed = true;
+  
   if (saved) {
     heroImages = JSON.parse(saved);
-  } else {
+    if (heroImages.some(img => img.src === "img/entrada.png" || img.src === "img/galeria1.png")) {
+      needsSeed = true;
+    } else {
+      needsSeed = false;
+    }
+  } 
+  
+  if (needsSeed) {
     // Semilla con las 2 fotos que ya están en el carrusel estático
     heroImages = [
-      { id: "h_galeria1", name: "Interior del salón", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
-      { id: "h_entrada", name: "Entrada del salón", src: "img/entrada.png", addedAt: Date.now() - 1000 }
+      { id: "h_insta1", name: "Estilo", src: "img/Carusel_del_hero/insta_1.png", addedAt: Date.now() - 2000 },
+      { id: "h_insta2", name: "Color", src: "img/Carusel_del_hero/insta_2.png", addedAt: Date.now() - 1000 }
     ];
     saveHero();
   }
+
   renderHero();
 }
 

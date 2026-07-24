@@ -40,14 +40,7 @@
   --transition-luxury:     all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-[data-theme="light"] {
-  --color-dark-main:       #FAF8F5; /* Fondo principal claro */
-  --color-dark-bg:         #F4EFE5; /* Fondo secundario claro */
-  --color-dark-card:       #FFFFFF; /* Fondo tarjetas claro */
-  --color-text-light:      #222222; /* Texto oscuro */
-  --color-text-muted:      #666666; /* Texto muteado oscuro */
-  --color-border-dark:     rgba(197, 168, 128, 0.4);
-}
+
 
 /* RESET */
 *, *::before, *::after {
@@ -1310,5 +1303,3 @@ a {
   margin-left: 8px;
 }
 
-.theme-toggle-icon { color: var(--color-text-light) !important; border-color: var(--color-text-light) !important; }
-.theme-toggle-icon:hover { background-color: var(--color-text-light) !important; color: var(--color-dark-main) !important; }

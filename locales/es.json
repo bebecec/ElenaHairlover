@@ -1,11 +1,4 @@
 {
-  "admin": {
-    "dashboard": "Panel de Administración | Universal",
-    "tab_items": "Gestión de Ítems",
-    "tab_hero": "Carrusel del Hero",
-    "tab_gallery": "Galería de Imágenes",
-    "tab_settings": "Configuración"
-  },
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Inicio",
@@ -85,10 +78,14 @@
   "admin": {
     "dashboard": "Panel de Administración",
     "tab_items": "Gestión de Servicios",
+    "tab_items_title": "Catálogo de Tratamientos",
+    "tab_items_desc": "Gestiona los servicios, duraciones y precios de la web pública.",
     "tab_hero": "Carrusel del Hero",
     "tab_gallery": "Galería de Imágenes",
     "tab_settings": "Configuración",
     "btn_new": "+ Nuevo Servicio",
+    "btn_edit": "Editar",
+    "btn_delete": "Eliminar",
     "table_name": "Nombre",
     "table_detail": "Detalle / Duración",
     "table_price": "Precio",

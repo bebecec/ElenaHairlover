@@ -54,15 +54,15 @@
         <section class="admin-section active" id="sec-servicios">
           <div class="admin-section__header">
             <div>
-              <h3>Catálogo de Tratamientos</h3>
-              <p>Gestiona los servicios, duraciones y precios de la web pública.</p>
+              <h3 data-i18n="admin.tab_items_title">Catálogo de Tratamientos</h3>
+              <p data-i18n="admin.tab_items_desc">Gestiona los servicios, duraciones y precios de la web pública.</p>
             </div>
-            <button class="btn btn--gold-outline" id="new-service-btn">+ Nuevo Servicio</button>
+            <button class="btn btn--gold-outline" id="new-service-btn" data-i18n="admin.btn_new">+ Nuevo Servicio</button>
           </div>
 
           <!-- Pestañas de Categorías de Servicios -->
           <div class="category-tabs">
-            <button class="category-tab-btn active" data-cat="peluqueria">Servicios de Peluquería</button>
+            <button class="category-tab-btn active" data-cat="peluqueria" data-i18n="services.tab_peluqueria">Servicios de Peluquería</button>
           </div>
 
           <!-- Listado de Servicios -->
@@ -70,10 +70,10 @@
             <table class="services-table">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Detalle / Duración</th>
-                  <th>Precio (€)</th>
-                  <th style="text-align: right;">Acciones</th>
+                  <th data-i18n="admin.table_name">Nombre</th>
+                  <th data-i18n="admin.table_detail">Detalle / Duración</th>
+                  <th data-i18n="admin.table_price">Precio (€)</th>
+                  <th style="text-align: right;" data-i18n="admin.table_actions">Acciones</th>
                 </tr>
               </thead>
               <tbody id="services-tbody">

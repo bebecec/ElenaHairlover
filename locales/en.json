@@ -1,11 +1,4 @@
 {
-  "admin": {
-    "dashboard": "Admin Dashboard | Universal",
-    "tab_items": "Item Management",
-    "tab_hero": "Hero Carousel",
-    "tab_gallery": "Image Gallery",
-    "tab_settings": "Settings"
-  },
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Home",
@@ -85,10 +78,14 @@
   "admin": {
     "dashboard": "Admin Dashboard",
     "tab_items": "Services Management",
+    "tab_items_title": "Treatments Catalog",
+    "tab_items_desc": "Manage the services, durations, and prices of the public website.",
     "tab_hero": "Hero Carousel",
     "tab_gallery": "Image Gallery",
     "tab_settings": "Settings",
     "btn_new": "+ New Service",
+    "btn_edit": "Edit",
+    "btn_delete": "Delete",
     "table_name": "Name",
     "table_detail": "Detail / Duration",
     "table_price": "Price",

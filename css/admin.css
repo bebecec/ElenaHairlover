@@ -1308,3 +1308,6 @@ a {
 .video-edit-info-btn {
   margin-left: 8px;
 }
+
+.theme-toggle-icon { color: var(--color-text-light) !important; border-color: var(--color-text-light) !important; }
+.theme-toggle-icon:hover { background-color: var(--color-text-light) !important; color: var(--color-dark-main) !important; }

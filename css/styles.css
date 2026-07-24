@@ -2022,3 +2022,5 @@ a[href*="gettimely.com"].bg-gold-warm:hover {
   background: linear-gradient(90deg, transparent, #F3D798, #C9A84C, #9A782B, transparent) !important;
   height: 2px !important;
 }
+.theme-toggle-icon { color: var(--color-text-light) !important; border-color: var(--color-text-light) !important; }
+.theme-toggle-icon:hover { background-color: var(--color-text-light) !important; color: var(--color-dark-main) !important; }

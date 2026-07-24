@@ -628,8 +628,7 @@
         <a href="#galeria" class="header__link" data-i18n="nav.gallery">Galería</a>
         <a href="#contacto" class="header__link" data-i18n="nav.contact">Contacto</a>
         
-        <!-- ELEGANCE UX — selector de tema -->
-        <button class="border bg-transparent px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] transition-colors duration-200 theme-toggle-icon" id="main-theme-toggle" title="Alternar Modo Claro/Oscuro" aria-label="Alternar modo claro u oscuro"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg></button>
+        <!-- ELEGANCE UX — selector de tema eliminado (sólo modo oscuro) -->
         
         <!-- ELEGANCE UX — selector de idioma ES / EN -->
         <div class="flex items-center gap-1" role="group" aria-label="Selector de idioma">
@@ -649,9 +648,8 @@
 
     <!-- Mobile Nav Overlay -->
     <nav class="fixed top-0 -right-full w-full h-screen bg-dark-main z-[105] flex flex-col justify-center items-center gap-7 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__mobile-nav" id="mobile-nav">
-      <!-- ELEGANCE UX v1 — selector de tema y de idioma (fila superior en móvil) -->
+      <!-- ELEGANCE UX v1 — selector de idioma (fila superior en móvil) -->
       <div class="flex gap-2 justify-center mb-6">
-        <button class="border bg-transparent px-3 py-1.5 text-[0.7rem] rounded flex items-center justify-center min-h-[32px] transition-colors duration-200 theme-toggle-icon" id="mobile-theme-toggle" title="Alternar Modo" aria-label="Alternar modo claro u oscuro"></button>
         <div class="flex justify-center gap-1.5" role="group" aria-label="Selector de idioma" style="margin-bottom: 0;">
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>

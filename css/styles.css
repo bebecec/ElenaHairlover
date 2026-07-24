@@ -1665,16 +1665,19 @@ img {
   }
 
   .service-item__price {
-    align-self: flex-start;
-    font-size: 1.1rem;
-    margin-top: 4px;
+    align-self: center !important;
+    font-size: 1.25rem !important;
+    margin: 4px auto 0 auto !important;
+    text-align: center !important;
   }
 
   .service-item__btn {
-    margin-left: 0;
-    margin-top: 8px;
-    align-self: stretch;
-    text-align: center;
+    margin: 8px auto 0 auto !important;
+    align-self: center !important;
+    width: auto !important;
+    min-width: 140px !important;
+    max-width: 180px !important;
+    text-align: center !important;
   }
 }
 
@@ -1927,7 +1930,25 @@ a[href*="gettimely.com"].bg-gold-warm:hover {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin-left: 12px !important;
+}
+
+@media (min-width: 769px) {
+  .service-item__btn {
+    margin-left: 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-item__btn {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    align-self: center !important;
+    width: auto !important;
+    min-width: 150px !important;
+    max-width: 180px !important;
+  }
 }
 
 /* 3. Ghost / Outline Buttons with Metallic Gold Border */

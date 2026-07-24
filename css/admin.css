@@ -373,7 +373,7 @@ a {
 }
 
 .admin-header__logo {
-  height: 121px;
+  height: 96px;
   width: auto;
 }
 
@@ -1203,7 +1203,7 @@ a {
     gap: 10px 12px;
   }
   .admin-header__logo {
-    height: 60px; /* el logo de 121px desbordaba en móvil */
+    height: 48px; /* Reducido 20% */
   }
   .admin-header__actions {
     width: 100%;

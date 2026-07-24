@@ -52,7 +52,9 @@ const initialSalonInfoSeed = {
   instagram: "elena_hairlover",
   facebook: "",
   hoursWeek: "09:00h – 19:00h",
-  hoursSat: "08:00h – 15:00h"
+  hoursSat: "08:00h – 15:00h",
+  hoursSun: "",
+  hoursMon: ""
 };
 
 // Variables de estado
@@ -334,6 +336,8 @@ function populateSalonInfoForm() {
   document.getElementById("info-facebook").value = salonInfo.facebook || "";
   document.getElementById("info-hours-week").value = salonInfo.hoursWeek || "";
   document.getElementById("info-hours-sat").value = salonInfo.hoursSat || "";
+  document.getElementById("info-hours-sun").value = salonInfo.hoursSun || "";
+  document.getElementById("info-hours-mon").value = salonInfo.hoursMon || "";
 }
 
 async function deleteServiceItem(id) {
@@ -444,8 +448,10 @@ salonInfoForm.addEventListener("submit", async (e) => {
   const facebook = document.getElementById("info-facebook").value.trim();
   const hoursWeek = document.getElementById("info-hours-week").value.trim();
   const hoursSat = document.getElementById("info-hours-sat").value.trim();
+  const hoursSun = document.getElementById("info-hours-sun").value.trim();
+  const hoursMon = document.getElementById("info-hours-mon").value.trim();
 
-  const data = { phone, whatsapp, email, address, instagram, facebook, hoursWeek, hoursSat };
+  const data = { phone, whatsapp, email, address, instagram, facebook, hoursWeek, hoursSat, hoursSun, hoursMon };
 
   if (window.useFirebase) {
     const { setDoc, doc } = window.FirebaseLib;

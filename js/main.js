@@ -399,52 +399,92 @@ document.addEventListener('DOMContentLoaded', () => {
     // Teléfono
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
-      const displayFormatted = info.phone || "089 450 1215";
-      let cleanDigits = displayFormatted.replace(/\D/g, '');
-      if (cleanDigits.startsWith('0')) cleanDigits = cleanDigits.substring(1);
-      if (!cleanDigits.startsWith('353')) cleanDigits = '353' + cleanDigits;
-      link.href = `tel:+${cleanDigits}`;
-      if (!link.classList.contains('floating-actions__btn')) {
-        link.textContent = displayFormatted;
+      if (!info.phone) {
+        if (link.parentElement && link.parentElement.tagName === 'P') link.parentElement.style.display = 'none';
+        else link.style.display = 'none';
+      } else {
+        const displayFormatted = info.phone;
+        let cleanDigits = displayFormatted.replace(/\D/g, '');
+        if (cleanDigits.startsWith('0')) cleanDigits = cleanDigits.substring(1);
+        if (!cleanDigits.startsWith('353')) cleanDigits = '353' + cleanDigits;
+        link.href = `tel:+${cleanDigits}`;
+        if (!link.classList.contains('floating-actions__btn')) {
+          link.textContent = displayFormatted;
+        }
+        if (link.parentElement && link.parentElement.tagName === 'P') link.parentElement.style.display = '';
+        link.style.display = '';
       }
     });
 
-    // WhatsApp (botón flotante) — normalizado a wa.me/353…
-    let wa = (info.whatsapp || "0894501215").replace(/\D/g, '');
-    if (wa.startsWith('0')) wa = wa.substring(1);
-    if (!wa.startsWith('353')) wa = '353' + wa;
+    // WhatsApp (botón flotante)
     document.querySelectorAll('[data-whatsapp]').forEach(link => {
-      link.href = 'https://wa.me/' + wa;
+      if (!info.whatsapp) {
+        link.style.display = 'none';
+      } else {
+        let wa = info.whatsapp.replace(/\D/g, '');
+        if (wa.startsWith('0')) wa = wa.substring(1);
+        if (!wa.startsWith('353')) wa = '353' + wa;
+        link.href = 'https://wa.me/' + wa;
+        link.style.display = '';
+      }
     });
 
     // Email
     const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
     emailLinks.forEach(link => {
-      const email = info.email || "info@elenahairlover.com";
-      link.textContent = email;
-      link.href = `mailto:${email}`;
+      if (!info.email) {
+        if (link.parentElement && link.parentElement.tagName === 'P') link.parentElement.style.display = 'none';
+        else link.style.display = 'none';
+      } else {
+        link.textContent = info.email;
+        link.href = `mailto:${info.email}`;
+        if (link.parentElement && link.parentElement.tagName === 'P') link.parentElement.style.display = '';
+        link.style.display = '';
+      }
     });
 
     // Redes Sociales
     const instagramLinks = document.querySelectorAll('a[href*="instagram.com"]');
     instagramLinks.forEach(link => {
-      const ig = info.instagram || "elena_hairlover";
-      const cleanIg = ig.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/\/$/, '');
-      link.href = `https://www.instagram.com/${cleanIg}/`;
+      if (!info.instagram) {
+        link.style.display = 'none';
+      } else {
+        const cleanIg = info.instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/\/$/, '');
+        link.href = `https://www.instagram.com/${cleanIg}/`;
+        link.style.display = '';
+      }
     });
 
     const facebookLinks = document.querySelectorAll('a[href*="facebook.com"]');
     facebookLinks.forEach(link => {
-      link.href = info.facebook || "https://www.facebook.com/elena_hairlover";
+      if (!info.facebook) {
+        link.style.display = 'none';
+      } else {
+        link.href = info.facebook;
+        link.style.display = '';
+      }
     });
 
     // Horarios
     const horarioCard = document.querySelector('.contacto__horario-card');
     if (horarioCard) {
       const rows = horarioCard.querySelectorAll('.contacto__horario-row');
-      if (rows.length >= 2) {
-        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h – 19:00h";
-        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h – 15:00h";
+      if (rows.length >= 4) {
+        // Martes a Viernes
+        if (!info.hoursWeek) rows[0].style.display = 'none';
+        else { rows[0].style.display = ''; rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek; }
+        
+        // Sábados
+        if (!info.hoursSat) rows[1].style.display = 'none';
+        else { rows[1].style.display = ''; rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat; }
+        
+        // Domingo
+        if (!info.hoursSun) rows[2].style.display = 'none';
+        else { rows[2].style.display = ''; rows[2].querySelector('span:nth-child(2)').textContent = info.hoursSun; }
+        
+        // Lunes
+        if (!info.hoursMon) rows[3].style.display = 'none';
+        else { rows[3].style.display = ''; rows[3].querySelector('span:nth-child(2)').textContent = info.hoursMon; }
       }
     }
   }

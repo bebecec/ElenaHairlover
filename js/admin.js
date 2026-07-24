@@ -1,58 +1,58 @@
-﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// ELEGANCE BY STOICA â€” LÃ³gica del Panel de AdministraciÃ³n HÃ­brido
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ELENA HAIRLOVER — Lógica del Panel de Administración Híbrido
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 // Semilla inicial de datos para poblar el sistema la primera vez
 const initialServicesSeed = [
-  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "€55", category: "peluqueria" },
-  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "€60", category: "peluqueria" },
-  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "€65", category: "peluqueria" },
-  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "€25", category: "peluqueria" },
-  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "€28", category: "peluqueria" },
-  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "€30", category: "peluqueria" },
-  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "€35", category: "peluqueria" },
-  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "€38", category: "peluqueria" },
-  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "€40", category: "peluqueria" },
-  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "€40", category: "peluqueria" },
-  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "€45", category: "peluqueria" },
-  { id: "p12", name: "Dry cut", duration: "30 mins", price: "€30", category: "peluqueria" },
-  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "€120", category: "peluqueria" },
-  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "€130", category: "peluqueria" },
-  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "€140", category: "peluqueria" },
-  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "€70", category: "peluqueria" },
-  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "€75", category: "peluqueria" },
-  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "€80", category: "peluqueria" },
-  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "€80", category: "peluqueria" },
-  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "€85", category: "peluqueria" },
-  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "€95", category: "peluqueria" },
-  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "€120", category: "peluqueria" },
-  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "€130", category: "peluqueria" },
-  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "€135", category: "peluqueria" },
-  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "€145", category: "peluqueria" },
-  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "€155", category: "peluqueria" },
-  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "€165", category: "peluqueria" },
-  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "€125", category: "peluqueria" },
-  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "€130", category: "peluqueria" },
-  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "€135", category: "peluqueria" },
-  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "€145", category: "peluqueria" },
-  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "€155", category: "peluqueria" },
-  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "€165", category: "peluqueria" },
-  { id: "p34", name: "Upstyle", duration: "1 hour", price: "€60", category: "peluqueria" },
-  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "€25", category: "peluqueria" },
-  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "€20", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "€20", category: "peluqueria" },
+  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €", category: "peluqueria" },
+  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €", category: "peluqueria" },
+  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "65 €", category: "peluqueria" },
+  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €", category: "peluqueria" },
+  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €", category: "peluqueria" },
+  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €", category: "peluqueria" },
+  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 €", category: "peluqueria" },
+  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 €", category: "peluqueria" },
+  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 €", category: "peluqueria" },
+  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 €", category: "peluqueria" },
+  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 €", category: "peluqueria" },
+  { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 €", category: "peluqueria" },
+  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
+  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
+  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 €", category: "peluqueria" },
+  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 €", category: "peluqueria" },
+  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 €", category: "peluqueria" },
+  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 €", category: "peluqueria" },
+  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 €", category: "peluqueria" },
+  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 €", category: "peluqueria" },
+  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 €", category: "peluqueria" },
+  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
+  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
+  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
+  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
+  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "155 €", category: "peluqueria" },
+  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
+  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "125 €", category: "peluqueria" },
+  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "130 €", category: "peluqueria" },
+  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
+  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
+  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 €", category: "peluqueria" },
+  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
+  { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
+  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
+  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
   { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
 const initialSalonInfoSeed = {
-  phone: "872 03 24 92",
-  whatsapp: "648 15 87 17",
-  email: "salonfashiongirona@yahoo.com",
+  phone: "089 450 1215",
+  whatsapp: "0894501215",
+  email: "info@elenahairlover.com",
   address: "Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61",
-  instagram: "https://www.instagram.com/elegancebystoica/?hl=es",
-  facebook: "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/",
-  hoursWeek: "09:00h â€“ 19:00h",
-  hoursSat: "08:00h â€“ 15:00h"
+  instagram: "elena_hairlover",
+  facebook: "",
+  hoursWeek: "09:00h – 19:00h",
+  hoursSat: "08:00h – 15:00h"
 };
 
 // Variables de estado
@@ -60,7 +60,7 @@ let services = [];
 let salonInfo = {};
 let galleryImages = [];
 let heroImages = [];
-let currentCategory = "facial";
+let currentCategory = "peluqueria";
 let activeSection = "servicios";
 let firebaseApp, auth, db;
 let previewingImageId = null;
@@ -91,13 +91,18 @@ const modalCancelBtn = document.getElementById("modal-cancel-btn");
 
 const galleryGrid = document.getElementById("gallery-grid");
 
-// â”€â”€â”€ Theme Toggle Logic â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Theme Toggle Logic ──────────────────────────────────────────────
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 if (themeToggleBtn) {
+  const sunSVG = '<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" style="margin-right: 4px;"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg> Modo';
+  const moonSVG = '<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" style="margin-right: 4px;"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg> Modo';
+
   const currentTheme = localStorage.getItem("elegance_admin_theme") || "dark";
   if (currentTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
-    themeToggleBtn.textContent = "ðŸŒ™ Modo";
+    themeToggleBtn.innerHTML = moonSVG;
+  } else {
+    themeToggleBtn.innerHTML = sunSVG;
   }
   
   themeToggleBtn.addEventListener("click", () => {
@@ -105,11 +110,11 @@ if (themeToggleBtn) {
     if (isLight) {
       document.documentElement.removeAttribute("data-theme");
       localStorage.setItem("elegance_admin_theme", "dark");
-      themeToggleBtn.textContent = "â˜€ï¸ Modo";
+      themeToggleBtn.innerHTML = sunSVG;
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("elegance_admin_theme", "light");
-      themeToggleBtn.textContent = "ðŸŒ™ Modo";
+      themeToggleBtn.innerHTML = moonSVG;
     }
   });
 }
@@ -126,13 +131,13 @@ const imageModalClose = document.getElementById("image-modal-close");
 const imageModalCancel = document.getElementById("image-modal-cancel");
 const imageModalDelete = document.getElementById("image-modal-delete");
 
-// Nuevos elementos para ediciÃ³n de imÃ¡genes
+// Nuevos elementos para edición de imágenes
 const imagePreviewNameInput = document.getElementById("image-preview-name-input");
 const imagePreviewDescInput = document.getElementById("image-preview-desc-input");
 const imageModalSave = document.getElementById("image-modal-save");
 const imageEditFileInput = document.getElementById("image-edit-file-input");
 
-// Elementos para ediciÃ³n de vÃ­deos
+// Elementos para edición de vídeos
 const videoEditModal = document.getElementById("video-edit-modal");
 const videoEditForm = document.getElementById("video-edit-form");
 const videoEditSlotIdInput = document.getElementById("video-edit-slot-id");
@@ -179,7 +184,7 @@ function updateStorageUsage() {
 }
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// INICIALIZACIÃ“N â€” Sin login en modo local
+// INICIALIZACIÃ“N — Sin login en modo local
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function initDatabase() {
   updateStorageUsage(); // Cargar estado inicial del espacio de almacenamiento
@@ -192,7 +197,7 @@ function initDatabase() {
     auth = getAuth(firebaseApp);
     db = getFirestore(firebaseApp);
 
-    // En Firebase, sÃ­ se requiere autenticaciÃ³n (ver implementaciÃ³n Firebase separada)
+    // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
     onAuthStateChanged(auth, (user) => {
       if (user) {
         adminUserEmail.textContent = user.email;
@@ -298,7 +303,7 @@ function renderServicesTable() {
     tr.innerHTML = `
       <td class="service-name-cell">${escapeHtml(service.name)}</td>
       <td class="service-desc-cell">${escapeHtml(service.duration)}</td>
-      <td class="service-price-cell">${escapeHtml(service.price)}</td>
+      <td class="service-price-cell">${escapeHtml(formatPrice(service.price))}</td>
       <td style="text-align: right; white-space: nowrap;">
         <button class="action-btn action-btn--edit" data-id="${service.id}">Editar</button>
         <button class="action-btn action-btn--delete" data-id="${service.id}">Eliminar</button>
@@ -321,11 +326,11 @@ function renderServicesTable() {
 }
 
 function populateSalonInfoForm() {
-  document.getElementById("info-phone").value = salonInfo.phone || "";
-  document.getElementById("info-whatsapp").value = salonInfo.whatsapp || "648 15 87 17";
+  document.getElementById("info-phone").value = salonInfo.phone || "089 450 1215";
+  document.getElementById("info-whatsapp").value = salonInfo.whatsapp || "089 450 1215";
   document.getElementById("info-email").value = salonInfo.email || "";
   document.getElementById("info-address").value = salonInfo.address || "";
-  document.getElementById("info-instagram").value = salonInfo.instagram || "";
+  document.getElementById("info-instagram").value = salonInfo.instagram || "elena_hairlover";
   document.getElementById("info-facebook").value = salonInfo.facebook || "";
   document.getElementById("info-hours-week").value = salonInfo.hoursWeek || "";
   document.getElementById("info-hours-sat").value = salonInfo.hoursSat || "";
@@ -335,7 +340,7 @@ async function deleteServiceItem(id) {
   const service = services.find(s => s.id === id);
   if (!service) return;
 
-  const ok = await showConfirm(`Â¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acciÃ³n no se puede deshacer.`, { title: "Eliminar servicio" });
+  const ok = await showConfirm(`Â¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acción no se puede deshacer.`, { title: "Eliminar servicio" });
   if (!ok) return;
 
   if (window.useFirebase) {
@@ -389,7 +394,8 @@ serviceForm.addEventListener("submit", async (e) => {
   const id = serviceIdInput.value;
   const name = serviceNameInput.value.trim();
   const duration = serviceDurationInput.value.trim();
-  const price = servicePriceInput.value.trim();
+  const rawPrice = servicePriceInput.value.trim();
+  const price = formatPrice(rawPrice);
   const category = serviceCategorySelect.value;
 
   if (window.useFirebase) {
@@ -403,7 +409,7 @@ serviceForm.addEventListener("submit", async (e) => {
       } else {
         const docRef = await addDoc(collection(db, "servicios"), { name, duration, price, category });
         services.push({ id: docRef.id, name, duration, price, category });
-        showToast("Servicio aÃ±adido a Firebase", "success");
+        showToast("Servicio añadido a Firebase", "success");
       }
       serviceModal.style.display = "none";
       renderServicesTable();
@@ -418,7 +424,7 @@ serviceForm.addEventListener("submit", async (e) => {
     } else {
       const newId = "local_" + Date.now();
       services.push({ id: newId, name, duration, price, category });
-      showToast("Servicio aÃ±adido", "success");
+      showToast("Servicio añadido", "success");
     }
     localStorage.setItem("elegance_services", JSON.stringify(services));
     updateStorageUsage();
@@ -447,20 +453,20 @@ salonInfoForm.addEventListener("submit", async (e) => {
       const docId = salonInfo.docId;
       await setDoc(doc(db, "salon_info", docId), data);
       salonInfo = { ...data, docId };
-      showToast("InformaciÃ³n del salÃ³n guardada en Firebase", "success");
+      showToast("Información del salón guardada en Firebase", "success");
     } catch (error) {
-      showToast("Error al guardar informaciÃ³n: " + error.message, "error");
+      showToast("Error al guardar información: " + error.message, "error");
     }
   } else {
     salonInfo = { ...data };
     localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     updateStorageUsage();
-    showToast("InformaciÃ³n del salÃ³n guardada", "success");
+    showToast("Información del salón guardada", "success");
   }
 });
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// GESTIÃ“N DE GALERÃA
+// GESTIÃ“N DE GALERÍA
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 function loadGallery() {
@@ -468,10 +474,10 @@ function loadGallery() {
   if (saved) {
     galleryImages = JSON.parse(saved);
   } else {
-    // Pre-cargar imÃ¡genes existentes del proyecto con descripciones por defecto
+    // Pre-cargar imágenes existentes del proyecto con descripciones por defecto
     galleryImages = [
-      { id: "g_entrada", name: "Entrada del SalÃ³n", desc: "Ubicado en Girona â€” Un espacio de alta estÃ©tica y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
-      { id: "g_galeria1", name: "Interior â€” Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
+      { id: "g_entrada", name: "Entrada del Salón", desc: "Un espacio de alta estética y confort — Un espacio de alta estética y confort", src: "img/entrada.png", addedAt: Date.now() - 3000 },
+      { id: "g_galeria1", name: "Interior — Vista Principal", desc: "Cortes, color y peinados personalizados por nuestras estilistas", src: "img/galeria1.png", addedAt: Date.now() - 2000 }
     ];
     localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
   }
@@ -484,7 +490,7 @@ function saveGallery() {
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar en la galerÃ­a. Sube fotos mÃ¡s ligeras.", "error");
+    showToast("No hay espacio para guardar en la galería. Sube fotos más ligeras.", "error");
     return false;
   }
 }
@@ -526,13 +532,13 @@ function renderGallery() {
     galleryGrid.appendChild(card);
   });
 
-  // AÃ±adir botÃ³n "+" al final del grid
+  // Añadir botón "+" al final del grid
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "gallery-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>AÃ±adir imagen</span>
+    <span>Añadir imagen</span>
   `;
   galleryGrid.appendChild(addCard);
 }
@@ -557,12 +563,12 @@ function openImagePreview(id) {
 async function deleteGalleryImage(id) {
   const img = galleryImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`Â¿Eliminar la imagen "${img.name}" de la galerÃ­a?`, { title: "Eliminar imagen" });
+  const ok = await showConfirm(`Â¿Eliminar la imagen "${img.name}" de la galería?`, { title: "Eliminar imagen" });
   if (!ok) return;
   galleryImages = galleryImages.filter(i => i.id !== id);
   saveGallery();
   renderGallery();
-  showToast("Imagen eliminada de la galerÃ­a", "success");
+  showToast("Imagen eliminada de la galería", "success");
 }
 
 // Input de subida de archivos
@@ -577,7 +583,7 @@ if (imageEditFileInput) {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
-        showToast("Por favor, selecciona una imagen vÃ¡lida", "error");
+        showToast("Por favor, selecciona una imagen válida", "error");
         return;
       }
       try {
@@ -601,7 +607,7 @@ async function handleFileUpload(files) {
 
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
+      showToast(`"${file.name}" no es una imagen válida`, "error");
       continue;
     }
     try {
@@ -622,9 +628,9 @@ async function handleFileUpload(files) {
   if (count > 0) {
     if (saveGallery()) {
       renderGallery();
-      showToast(`${count} imagen${count > 1 ? "es" : ""} aÃ±adida${count > 1 ? "s" : ""} a la galerÃ­a`, "success");
+      showToast(`${count} imagen${count > 1 ? "es" : ""} añadida${count > 1 ? "s" : ""} a la galería`, "success");
     } else {
-      // Revertir agregados si excediÃ³ cuota
+      // Revertir agregados si excedió cuota
       galleryImages.splice(galleryImages.length - count, count);
       renderGallery();
     }
@@ -647,7 +653,7 @@ galleryDropzone.addEventListener("drop", (e) => {
   handleFileUpload(e.dataTransfer.files);
 });
 
-// TambiÃ©n drag & drop sobre el grid completo (cuando hay imÃ¡genes)
+// También drag & drop sobre el grid completo (cuando hay imágenes)
 galleryGrid.addEventListener("dragover", (e) => {
   e.preventDefault();
   galleryGrid.classList.add("dragover-active");
@@ -718,10 +724,10 @@ function loadHero() {
   if (saved) {
     heroImages = JSON.parse(saved);
   } else {
-    // Semilla con las 2 fotos que ya estÃ¡n en el carrusel estÃ¡tico
+    // Semilla con las 2 fotos que ya están en el carrusel estático
     heroImages = [
-      { id: "h_galeria1", name: "Interior del salÃ³n", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
-      { id: "h_entrada", name: "Entrada del salÃ³n", src: "img/entrada.png", addedAt: Date.now() - 1000 }
+      { id: "h_galeria1", name: "Interior del salón", src: "img/galeria1.png", addedAt: Date.now() - 2000 },
+      { id: "h_entrada", name: "Entrada del salón", src: "img/entrada.png", addedAt: Date.now() - 1000 }
     ];
     saveHero();
   }
@@ -734,7 +740,7 @@ function saveHero() {
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar tantas fotos. Sube menos o mÃ¡s ligeras.", "error");
+    showToast("No hay espacio para guardar tantas fotos. Sube menos o más ligeras.", "error");
     return false;
   }
 }
@@ -753,13 +759,13 @@ function renderHero() {
     const card = document.createElement("div");
     card.className = "gallery-card";
     card.dataset.id = img.id;
-    const orderBadge = index === 0 ? '<span class="gallery-card__order">1Âª Â· Portada</span>' : `<span class="gallery-card__order">${index + 1}Âª</span>`;
+    const orderBadge = index === 0 ? '<span class="gallery-card__order">1Âª · Portada</span>' : `<span class="gallery-card__order">${index + 1}Âª</span>`;
     card.innerHTML = `
       <div class="gallery-card__img-wrap">
         <img src="${img.src}" alt="${escapeHtml(img.name)}" loading="lazy" />
         <div class="gallery-card__overlay">
           <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>â—€</button>
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover despuÃ©s" ${index === heroImages.length - 1 ? "disabled" : ""}>â–¶</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover después" ${index === heroImages.length - 1 ? "disabled" : ""}>â–¶</button>
           <button class="gallery-btn gallery-btn--delete" data-id="${img.id}" title="Eliminar foto">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
           </button>
@@ -779,13 +785,13 @@ function renderHero() {
     heroGrid.appendChild(card);
   });
 
-  // Tarjeta "+" para aÃ±adir
+  // Tarjeta "+" para añadir
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "hero-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>AÃ±adir foto</span>
+    <span>Añadir foto</span>
   `;
   heroGrid.appendChild(addCard);
 }
@@ -810,7 +816,7 @@ async function deleteHeroImage(id) {
   showToast("Foto quitada del carrusel", "success");
 }
 
-// Redimensiona una imagen a un ancho mÃ¡ximo y la devuelve como dataURL (JPEG)
+// Redimensiona una imagen a un ancho máximo y la devuelve como dataURL (JPEG)
 function resizeImageFile(file, maxWidth, quality) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -838,7 +844,7 @@ async function handleHeroUpload(files) {
   let added = 0;
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
+      showToast(`"${file.name}" no es una imagen válida`, "error");
       continue;
     }
     try {
@@ -857,9 +863,9 @@ async function handleHeroUpload(files) {
   if (added > 0) {
     if (saveHero()) {
       renderHero();
-      showToast(`${added} foto${added > 1 ? "s" : ""} aÃ±adida${added > 1 ? "s" : ""} al carrusel`, "success");
+      showToast(`${added} foto${added > 1 ? "s" : ""} añadida${added > 1 ? "s" : ""} al carrusel`, "success");
     } else {
-      // Revertir las aÃ±adidas si no se pudo guardar (cuota)
+      // Revertir las añadidas si no se pudo guardar (cuota)
       heroImages.splice(heroImages.length - added, added);
       renderHero();
     }
@@ -949,9 +955,9 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-// DiÃ¡logo de confirmaciÃ³n on-brand (sustituye a window.confirm).
+// Diálogo de confirmación on-brand (sustituye a window.confirm).
 // Devuelve una promesa que resuelve true si se acepta, false si se cancela.
-function showConfirm(message, { title = "Confirmar acciÃ³n", acceptText = "Eliminar" } = {}) {
+function showConfirm(message, { title = "Confirmar acción", acceptText = "Eliminar" } = {}) {
   return new Promise((resolve) => {
     const overlay = document.getElementById("confirm-modal");
     const titleEl = document.getElementById("confirm-modal-title");
@@ -1009,18 +1015,18 @@ function showToast(message, type = "success") {
 }
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// GESTIÃ“N DE VÃDEOS Y METADATOS
+// GESTIÃ“N DE VÍDEOS Y METADATOS
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 const videoSlotIds = ['hero', 'clip-facial', 'clip-peluqueria', 'clip-corporal', 'clip-unas'];
 const videoObjectURLs = {};
 
 const defaultVideosMetadata = {
-  'hero': { label: 'Hero Principal', desc: 'VÃ­deo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
-  'clip-facial': { label: 'EstÃ©tica Facial', desc: 'Clip de tratamientos faciales' },
-  'clip-peluqueria': { label: 'PeluquerÃ­a', desc: 'Clip de servicios de peluquerÃ­a' },
-  'clip-corporal': { label: 'EstÃ©tica Corporal', desc: 'Clip de tratamientos corporales' },
-  'clip-unas': { label: 'Cejas & PestaÃ±as', desc: 'Clip de cejas y pestaÃ±as' }
+  'hero': { label: 'Hero Principal', desc: 'Vídeo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
+  'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
+  'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
+  'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
+  'clip-unas': { label: 'Cejas & Pestañas', desc: 'Clip de cejas y pestañas' }
 };
 
 let videosMetadata = {};
@@ -1041,7 +1047,7 @@ async function loadVideosMetadata() {
         }
       });
     } catch (err) {
-      console.error("Error al cargar metadatos de vÃ­deo de Firebase:", err);
+      console.error("Error al cargar metadatos de vídeo de Firebase:", err);
       videosMetadata = { ...defaultVideosMetadata };
     }
   } else {
@@ -1077,14 +1083,14 @@ async function saveVideoMetadata(slotId, label, desc) {
     const { setDoc, doc } = window.FirebaseLib;
     try {
       await setDoc(doc(db, "videos_metadata", slotId), { label, desc });
-      showToast("InformaciÃ³n del vÃ­deo guardada en Firebase", "success");
+      showToast("Información del vídeo guardada en Firebase", "success");
     } catch (err) {
       showToast("Error al guardar en Firebase: " + err.message, "error");
     }
   } else {
     localStorage.setItem("elegance_videos_metadata", JSON.stringify(videosMetadata));
     updateStorageUsage();
-    showToast("InformaciÃ³n del vÃ­deo guardada", "success");
+    showToast("Información del vídeo guardada", "success");
   }
   applyVideosMetadata();
 }
@@ -1110,7 +1116,7 @@ function initVideoManagement() {
     }
   });
 
-  // Listener para botones de ediciÃ³n
+  // Listener para botones de edición
   document.querySelectorAll(".video-edit-info-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const slotId = e.target.getAttribute("data-slot");
@@ -1181,11 +1187,11 @@ function loadVideoSlot(slotId, file) {
   const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
   const sizeOk = file.size < 5 * 1024 * 1024;
   if (metatext) {
-    metatext.textContent = `${file.name} Â· ${sizeMB} MB${!sizeOk ? ' âš ï¸ Comprime con HandBrake' : ' âœ“ TamaÃ±o correcto'}`;
+    metatext.textContent = `${file.name} · ${sizeMB} MB${!sizeOk ? ' âš ï¸ Comprime con HandBrake' : ' âœ“ Tamaño correcto'}`;
     metatext.style.color = sizeOk ? '#2ecc71' : '#e74c3c';
   }
 
-  showToast(`VÃ­deo "${file.name}" cargado en preview`, 'success');
+  showToast(`Vídeo "${file.name}" cargado en preview`, 'success');
 }
 
 function clearVideoSlot(slotId) {
@@ -1213,10 +1219,31 @@ function clearVideoSlot(slotId) {
   showToast('Preview eliminado', 'success');
 }
 
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function formatPrice(price) {
+  if (!price) return "";
+  let p = String(price).trim();
+  if (p.toLowerCase().includes("gratis") || p.toLowerCase().includes("free")) {
+    return p;
+  }
+  p = p.replace(/€/g, "").trim();
+  return `${p} €`;
+}
+
 // Inicializar al cargar
 document.addEventListener("DOMContentLoaded", () => {
   initDatabase();
   initVideoManagement();
 });
+
 
 

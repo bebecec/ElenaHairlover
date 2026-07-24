@@ -1,4 +1,4 @@
-// Configuración de Firebase para Elegance by Stoica
+// Configuración de Firebase para Elena Hairlover
 // Si no configuras tu proyecto de Firebase, el sistema utilizará localStorage de forma automática
 // para que puedas probar todo el panel de administración de inmediato.
 const firebaseConfig = {

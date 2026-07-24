@@ -1,4 +1,11 @@
 {
+  "admin": {
+    "dashboard": "Panel de Administración | Universal",
+    "tab_items": "Gestión de Ítems",
+    "tab_hero": "Carrusel del Hero",
+    "tab_gallery": "Galería de Imágenes",
+    "tab_settings": "Configuración"
+  },
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Inicio",
@@ -19,52 +26,71 @@
   },
   "services": {
     "label": "Nuestra Carta de Precios",
-    "title": "Servicios & Tratamientos",
-    "tab_facial": "Estética Facial",
-    "tab_corporal": "Estética Corporal",
+    "title": "Servicios de Peluquería",
     "tab_peluqueria": "Peluquería",
-    "tab_depilacion": "Depilación",
-    "tab_unas": "Cejas & Pestañas"
+    "btn_reserve": "Reservar",
+    "badge_free": "Gratis"
   },
   "experience": {
-    "title": "Tu Experiencia Elegance",
+    "label": "El Proceso",
+    "title": "Tu Experiencia Elena Hairlover",
     "step1_title": "Consulta Inicial",
-    "step1_desc": "Evaluación personalizada de tus necesidades.",
+    "step1_text": "Evaluamos detalladamente la salud y necesidades de tu cabello en una cita de diagnóstico.",
     "step2_title": "Plan Personalizado",
-    "step2_desc": "Diseñamos un plan exclusivo para ti.",
+    "step2_text": "Diseñamos un protocolo a medida combinando estilismo, colorimetría y tratamientos de reparación.",
     "step3_title": "Tratamiento Premium",
-    "step3_desc": "Aplicación de técnicas avanzadas.",
+    "step3_text": "Disfruta de tu sesión en un ambiente exclusivo con productos de alta gama (Olaplex, K18).",
     "step4_title": "Cuidado Continuo",
-    "step4_desc": "Seguimiento para resultados duraderos."
+    "step4_text": "Te entregamos recomendaciones para mantener la salud, brillo y color de tu cabello en casa."
   },
   "gallery": {
+    "label": "Resultados",
     "title": "El Salón & Resultados",
     "item1_title": "Nuestro Salón",
+    "item1_desc": "Un espacio exclusivo de alta estética capilar y confort",
     "item2_title": "Estilismo en Acción",
-    "item3_title": "Resultados Únicos",
-    "item4_title": "Relax Total"
+    "item2_desc": "Cortes, color, balayage y peinados personalizados por Elena Hairlover"
+  },
+  "marca": {
+    "quote": "“La elegancia no es darse a notar, sino ser recordada.”"
   },
   "contact": {
+    "label": "Contacto & Dirección",
     "title": "Visítanos",
     "loc_title": "Ubicación",
     "contact_title": "Medios de Contacto",
+    "email_label": "Email:",
+    "phone_label": "Teléfono:",
     "hours_title": "Horario del Salón",
-    "desc": "Estamos ubicados en el corazón de la ciudad."
+    "day_tuefri": "Martes a Viernes",
+    "day_sat": "Sábados",
+    "day_sunmon": "Lunes y Domingo",
+    "status_closed": "Cerrado",
+    "map_btn": "Cómo llegar en Google Maps"
   },
   "reserve": {
+    "label": "Reserva Online al Instante",
     "title": "Reserva tu Cita",
     "cta_title": "Plataforma de Reserva Directa",
+    "cta_text": "Elige tus tratamientos de peluquería, corte, color, balayage o alisado, y reserva el día y hora que mejor te convenga de forma inmediata a través de nuestro portal oficial.",
+    "cta_btn": "Reservar Cita Online",
+    "trust": "✓ Sin esperas · ✓ Confirmación inmediata · ✓ 100 % online",
     "note": "Plataforma externa segura gestionada por Timely"
+  },
+  "modal": {
+    "title": "¡Reserva Solicitada!",
+    "text": "Tu solicitud ha sido recibida con éxito. Nos pondremos en contacto contigo en menos de 2 horas.",
+    "close": "Cerrar Ventana"
   },
   "admin": {
     "dashboard": "Panel de Administración",
     "tab_items": "Gestión de Servicios",
-    "tab_hero": "Carrusel",
-    "tab_gallery": "Galería",
+    "tab_hero": "Carrusel del Hero",
+    "tab_gallery": "Galería de Imágenes",
     "tab_settings": "Configuración",
     "btn_new": "+ Nuevo Servicio",
     "table_name": "Nombre",
-    "table_detail": "Detalle",
+    "table_detail": "Detalle / Duración",
     "table_price": "Precio",
     "table_actions": "Acciones"
   },
@@ -77,7 +103,6 @@
     "desc": "Hair Stylist ✨ Colour • Balayage • Blondes • Cuts 📍 Blanchardstown • Coolmine",
     "nav_title": "Navegación",
     "support_title": "Ubicación & Soporte",
-    "legal_title": "Legal",
     "hours_line": "Book online: elenahairlover.gettimely.com",
     "copyright": "© 2026 Elena Hairlover. Todos los derechos reservados."
   }

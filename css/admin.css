@@ -1,33 +1,52 @@
 /* ═══════════════════════════════════════════════════════════
-   ELEGANCE BY STOICA — Estilos del Panel de Administración
+   ELENA HAIRLOVER — Estilos del Panel de Administración
    Paleta:  Carbón #111111 · Oro Champán #C5A880 · Oro Vivo #D4AF37
             Fondo Tarjeta #1F1F1F · Texto Suave #E0E0E0
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  --color-dark-main:   #111111; /* Carbón profundo */
-  --color-dark-bg:     #171717; /* Fondo secundario oscuro */
-  --color-dark-card:   #1f1f1f; /* Tarjetas en modo oscuro */
-  --color-gold-warm:   #c5a880; /* Oro champán */
-  --color-gold-bright: #d4af37; /* Oro brillante */
-  --color-text-light:  #ffffff;
-  --color-text-muted:  #a0a0a0;
-  --color-border-dark:  rgba(197, 168, 128, 0.15);
-  --color-border-light: rgba(197, 168, 128, 0.3);
-  --color-red:         #e74c3c;
-  --color-green:       #2ecc71;
-  --font-display:      'Cormorant Garamond', serif;
-  --font-body:         'Montserrat', sans-serif;
-  --transition-luxury: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  /* ═══════ GOLD PALETTE ═══════ */
+  --color-gold-warm:       #C9A84C;
+  --color-gold-bright:     #D4AF37;
+  --color-gold-dark:       #B8962E;
+  --color-gold-light:      #F5EDD0;
+  --color-gold-warm-rgb:   201 168 76;
+
+  /* ═══════ DARK PALETTE ═══════ */
+  --color-dark-main:       #111111;
+  --color-dark-bg:         #171717;
+  --color-dark-card:       #1F1F1F;
+
+  /* ═══════ TEXT ═══════ */
+  --color-text-light:      #FFFFFF;
+  --color-text-muted:      #a0a0a0;
+  --color-text-gold:       #C5A880;
+
+  /* ═══════ UTILITY ═══════ */
+  --color-red:             #e74c3c;
+  --color-green:           #2ecc71;
+
+  /* ═══════ GRADIENTS ═══════ */
+  --gold-grad-primary:     linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
+  --gold-grad-hover:       linear-gradient(135deg, #F7E0AA 0%, #DBB95D 50%, #AD8A38 100%);
+  
+  /* ═══════ BORDERS ═══════ */
+  --color-border-dark:     rgba(197, 168, 128, 0.15);
+  --color-border-light:    rgba(197, 168, 128, 0.3);
+
+  /* ═══════ TYPOGRAPHY & TRANSITIONS ═══════ */
+  --font-display:          'Cormorant Garamond', Georgia, serif;
+  --font-body:             'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --transition-luxury:     all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 [data-theme="light"] {
-  --color-dark-main:   #f4efe5; /* Fondo principal claro */
-  --color-dark-bg:     #ffffff; /* Fondo secundario claro */
-  --color-dark-card:   #faf8f5; /* Fondo tarjetas claro */
-  --color-text-light:  #222222; /* Texto oscuro */
-  --color-text-muted:  #666666; /* Texto muteado oscuro */
-  --color-border-dark: rgba(197, 168, 128, 0.4);
+  --color-dark-main:       #FAF8F5; /* Fondo principal claro */
+  --color-dark-bg:         #F4EFE5; /* Fondo secundario claro */
+  --color-dark-card:       #FFFFFF; /* Fondo tarjetas claro */
+  --color-text-light:      #222222; /* Texto oscuro */
+  --color-text-muted:      #666666; /* Texto muteado oscuro */
+  --color-border-dark:     rgba(197, 168, 128, 0.4);
 }
 
 /* RESET */

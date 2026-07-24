@@ -1,10 +1,10 @@
-﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ELEGANCE BY STOICA â€” Controladores JavaScript DinÃ¡micos
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   ELENA HAIRLOVER — Controladores JavaScript Dinámicos
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-// Nota: el catÃ¡logo de servicios y los datos de contacto viven en el HTML
-// estÃ¡tico de index.html (fuente de verdad, mejor para SEO). El panel de
-// administraciÃ³n (admin.js) mantiene su propia semilla y escribe en
+// Nota: el catálogo de servicios y los datos de contacto viven en el HTML
+// estático de index.html (fuente de verdad, mejor para SEO). El panel de
+// administración (admin.js) mantiene su propia semilla y escribe en
 // localStorage / Firebase; esta web solo lee esos datos si existen.
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   toggleButtons.forEach(btn => {
     if (!btn) return;
-    btn.textContent = savedTheme === "light" ? "ðŸŒ™" : "â˜€ï¸";
+    const sunSVG = '<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>';
+    const moonSVG = '<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>';
+    
+    btn.innerHTML = savedTheme === "light" ? moonSVG : sunSVG;
     
     btn.addEventListener("click", () => {
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
@@ -33,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       toggleButtons.forEach(b => {
-        if(b) b.textContent = newTheme === "light" ? "ðŸŒ™" : "â˜€ï¸";
+        if(b) b.innerHTML = newTheme === "light" ? moonSVG : sunSVG;
       });
     });
   });
 
-  // â”€â”€â”€ Header con scroll (Efecto Glassmorphism translÃºcido) â”€â”€
+  // ─── Header con scroll (Efecto Glassmorphism translúcido) ───
   const header = document.getElementById('header');
   if (header) {
     const checkScroll = () => {
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkScroll();
   }
 
-  // â”€â”€â”€ MenÃº mÃ³vil â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // â”€â”€â”€ Menú móvil â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const menuBtn = document.getElementById('menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
@@ -72,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ PestaÃ±as de Servicios (Carta interactiva) â”€â”€â”€â”€â”€â”€â”€
+  // â”€â”€â”€ Pestañas de Servicios (Carta interactiva) â”€â”€â”€â”€â”€â”€â”€
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -98,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.querySelector('.hero__carousel');
     if (!carousel) return;
 
-    // Si el panel de administraciÃ³n guardÃ³ fotos del hero, reconstruimos los
-    // slides desde localStorage. Si no, se conservan los slides estÃ¡ticos.
+    // Si el panel de administración guardó fotos del hero, reconstruimos los
+    // slides desde localStorage. Si no, se conservan los slides estáticos.
     try {
       const savedHero = localStorage.getItem('elegance_hero');
       if (savedHero) {
@@ -123,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = carousel.querySelector('.hero__arrow--next');
     if (slides.length === 0) return;
 
-    // Con una sola foto no hace falta navegaciÃ³n ni autoplay
+    // Con una sola foto no hace falta navegación ni autoplay
     if (slides.length < 2) {
       [dotsWrap, prevBtn, nextBtn].forEach(el => el && (el.style.display = 'none'));
       return;
@@ -173,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
 
-    // Swipe tÃ¡ctil
+    // Swipe táctil
     let touchStartX = 0;
     carousel.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
@@ -187,9 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initHeroCarousel();
 
-  // â”€â”€â”€ Lightbox de galerÃ­a (ELEGANCE UX v1) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // Visor a pantalla completa. Usa delegaciÃ³n en .galeria__grid para que
-  // funcione tambiÃ©n con las imÃ¡genes inyectadas dinÃ¡micamente.
+  // â”€â”€â”€ Lightbox de galería (ELEGANCE UX v1) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Visor a pantalla completa. Usa delegación en .galeria__grid para que
+  // funcione también con las imágenes inyectadas dinámicamente.
   function initGalleryLightbox() {
     const grid = document.querySelector('.galeria__grid');
     if (!grid) return;
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initGalleryLightbox();
 
-  // â”€â”€â”€ CARGA DINÃMICA DE TRATAMIENTOS Y CONFIGURACIÃ“N â”€â”€â”€â”€â”€â”€
+  // â”€â”€â”€ CARGA DINÁMICA DE TRATAMIENTOS Y CONFIGURACIÃ“N â”€â”€â”€â”€â”€â”€
   async function initDynamicContent() {
     let services = [];
     let salonInfo = {};
@@ -255,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
           services.push({ id: doc.id, ...doc.data() });
         });
 
-        // InformaciÃ³n General
+        // Información General
         const iSnap = await getDocs(collection(db, "salon_info"));
         if (!iSnap.empty) {
           salonInfo = iSnap.docs[0].data();
@@ -265,9 +268,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // El HTML estÃ¡tico ya contiene el catÃ¡logo completo (mejor para SEO y sin
-    // parpadeo). Solo re-renderizamos dinÃ¡micamente si hay datos REALES:
-    // de Firebase, o ediciones guardadas por el panel de administraciÃ³n en
+    // El HTML estático ya contiene el catálogo completo (mejor para SEO y sin
+    // parpadeo). Solo re-renderizamos dinámicamente si hay datos REALES:
+    // de Firebase, o ediciones guardadas por el panel de administración en
     // localStorage. Si no hay nada, conservamos el HTML tal cual.
     if (services.length === 0) {
       const savedServices = localStorage.getItem("elegance_services");
@@ -276,60 +279,93 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Fallback con el catálogo de peluquería
+    const hairServices = (services.length > 0)
+      ? services.filter(s => !s.category || s.category === "peluqueria")
+      : [
+          { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €" },
+          { id: "p2", name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €" },
+          { id: "p3", name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 €" },
+          { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €" },
+          { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €" },
+          { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €" },
+          { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 €" },
+          { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 €" },
+          { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 €" },
+          { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 €" },
+          { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 €" },
+          { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 €" },
+          { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 €" },
+          { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 €" },
+          { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 €" },
+          { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 €" },
+          { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 €" },
+          { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 €" },
+          { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 €" },
+          { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 €" },
+          { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 €" },
+          { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 €" },
+          { id: "p23", name: "Colour and Partial Highlights - Medium", duration: "2 hours, 30 mins", price: "130 €" },
+          { id: "p24", name: "Colour and Partial Highlights - Long", duration: "3 hours", price: "135 €" },
+          { id: "p25", name: "Full Head Highlights - Short", duration: "3 hours", price: "145 €" },
+          { id: "p26", name: "Full Head Highlights - Medium", duration: "3 hours, 30 mins", price: "155 €" },
+          { id: "p27", name: "Full Head Highlights - Long", duration: "3 hours, 30 mins", price: "165 €" },
+          { id: "p28", name: "Half Head Highlights - Short", duration: "2 hours, 30 mins", price: "125 €" },
+          { id: "p29", name: "Half Head Highlights - Medium", duration: "2 hours, 45 mins", price: "130 €" },
+          { id: "p30", name: "Half Head Highlights - Long", duration: "3 hours", price: "135 €" },
+          { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 €" },
+          { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 €" },
+          { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 €" },
+          { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €" },
+          { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €" },
+          { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €" },
+          { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €" },
+          { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis" }
+        ];
+
     const savedInfo = localStorage.getItem("elegance_salon_info");
     if (!salonInfo.phone && savedInfo) {
       salonInfo = JSON.parse(savedInfo);
     }
 
-    // Renderizar Servicios solo si hay datos dinÃ¡micos; si no, se conserva el
-    // HTML estÃ¡tico ya presente en la pÃ¡gina.
-    if (services.length > 0) {
-      const categories = ["facial", "corporal", "peluqueria", "depilacion", "unas-mirada"];
-      categories.forEach(cat => {
-        const panel = document.getElementById(cat);
-        if (panel) {
-          const listContainer = panel.querySelector(".services-list");
-          if (listContainer) {
-            listContainer.innerHTML = ""; // Limpiar
-
-            const catServices = services.filter(s => s.category === cat);
-            if (catServices.length === 0) {
-              listContainer.innerHTML = `<p style="grid-column: span 2; text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">PrÃ³ximamente nuevos servicios.</p>`;
-              return;
-            }
-
-            catServices.forEach(s => {
-              const item = document.createElement("div");
-              item.className = "service-item";
-              item.innerHTML = `
-                <div>
-                  <span class="service-item__name">${escapeHtml(s.name)}</span>
-                  <span class="service-item__duration">${escapeHtml(s.duration)}</span>
-                </div>
-                <div class="service-item__dots"></div>
-                <span class="service-item__price">${escapeHtml(s.price)}</span>
-                <a href="https://elenahairlover.gettimely.com" target="_blank" class="service-item__btn" data-service="${escapeHtml(s.name)}">Reservar</a>
-              `;
-              listContainer.appendChild(item);
-            });
-          }
-        }
+    const listContainer = document.getElementById("services-peluqueria");
+    if (listContainer) {
+      listContainer.innerHTML = "";
+      const currentLang = (window.I18nLoader && window.I18nLoader.currentLang) || "es";
+      const reserveText = (currentLang === "en") ? "Book" : "Reservar";
+      
+      hairServices.forEach(s => {
+        const item = document.createElement("div");
+        item.className = "service-item";
+        item.innerHTML = `
+          <div>
+            <span class="service-item__name">${escapeHtml(s.name)}</span>
+            <span class="service-item__duration">${escapeHtml(s.duration)}</span>
+          </div>
+          <div class="service-item__dots"></div>
+          <span class="service-item__price">${escapeHtml(formatPrice(s.price))}</span>
+          <a href="https://elenahairlover.gettimely.com" target="_blank" class="service-item__btn" data-i18n="services.btn_reserve" data-service="${escapeHtml(s.name)}">${reserveText}</a>
+        `;
+        listContainer.appendChild(item);
       });
+      if (window.I18nLoader && typeof window.I18nLoader.applyTranslations === "function") {
+        window.I18nLoader.applyTranslations();
+      }
     }
 
-    // Inyectar datos del salÃ³n solo si el panel los ha personalizado
+    // Inyectar datos del salón solo si el panel los ha personalizado
     if (salonInfo && salonInfo.phone) {
       updateSalonContactInfo(salonInfo);
     }
 
-    // Cargar galerÃ­a dinÃ¡micamente (solo si hay imÃ¡genes guardadas)
+    // Cargar galería dinámicamente (solo si hay imágenes guardadas)
     await loadDynamicGallery();
   }
 
   async function loadDynamicGallery() {
-    // Solo sustituimos la galerÃ­a estÃ¡tica si el panel de administraciÃ³n ha
-    // guardado imÃ¡genes propias. Si no, conservamos el HTML (mejor SEO, sin
-    // parpadeo y sin riesgo de referenciar imÃ¡genes inexistentes).
+    // Solo sustituimos la galería estática si el panel de administración ha
+    // guardado imágenes propias. Si no, conservamos el HTML (mejor SEO, sin
+    // parpadeo y sin riesgo de referenciar imágenes inexistentes).
     const saved = localStorage.getItem("elegance_gallery");
     if (!saved) return;
 
@@ -360,20 +396,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateSalonContactInfo(info) {
-    // TelÃ©fono
+    // Teléfono
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
-      const displayFormatted = info.phone || "872 03 24 92";
-      link.href = `tel:+34${displayFormatted.replace(/\s+/g, '')}`;
-      // El botÃ³n flotante conserva su icono SVG; solo se actualiza su enlace.
+      const displayFormatted = info.phone || "089 450 1215";
+      let cleanDigits = displayFormatted.replace(/\D/g, '');
+      if (cleanDigits.startsWith('0')) cleanDigits = cleanDigits.substring(1);
+      if (!cleanDigits.startsWith('353')) cleanDigits = '353' + cleanDigits;
+      link.href = `tel:+${cleanDigits}`;
       if (!link.classList.contains('floating-actions__btn')) {
         link.textContent = displayFormatted;
       }
     });
 
-    // WhatsApp (botÃ³n flotante) â€” nÃºmero propio, normalizado a wa.me/34â€¦
-    let wa = (info.whatsapp || "648158717").replace(/\D/g, '');
-    if (!wa.startsWith('34')) wa = '34' + wa;
+    // WhatsApp (botón flotante) — normalizado a wa.me/353…
+    let wa = (info.whatsapp || "0894501215").replace(/\D/g, '');
+    if (wa.startsWith('0')) wa = wa.substring(1);
+    if (!wa.startsWith('353')) wa = '353' + wa;
     document.querySelectorAll('[data-whatsapp]').forEach(link => {
       link.href = 'https://wa.me/' + wa;
     });
@@ -381,29 +420,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Email
     const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
     emailLinks.forEach(link => {
-      const email = info.email || "salonfashiongirona@yahoo.com";
+      const email = info.email || "info@elenahairlover.com";
       link.textContent = email;
       link.href = `mailto:${email}`;
-    });
-
-    // DirecciÃ³n
-    const addressElements = document.querySelectorAll('.contacto__item p, .footer__contact p');
-    addressElements.forEach(el => {
-      if (el.textContent.includes("Jaume I") || el.textContent.includes("Girona, EspaÃ±a")) {
-        const address = info.address || "Unit E, Roselawn Shopping Centre\nRoselawn Rd, Sheepmoor\nDublin 15\nD15 NP60, Irlanda";
-        el.innerHTML = address.replace(/\n/g, '<br>');
-      }
     });
 
     // Redes Sociales
     const instagramLinks = document.querySelectorAll('a[href*="instagram.com"]');
     instagramLinks.forEach(link => {
-      link.href = info.instagram || "https://www.instagram.com/elegancebystoica/?hl=es";
+      const ig = info.instagram || "elena_hairlover";
+      const cleanIg = ig.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/\/$/, '');
+      link.href = `https://www.instagram.com/${cleanIg}/`;
     });
 
     const facebookLinks = document.querySelectorAll('a[href*="facebook.com"]');
     facebookLinks.forEach(link => {
-      link.href = info.facebook || "https://www.facebook.com/p/Elegance-by-Stoica-100063673163183/";
+      link.href = info.facebook || "https://www.facebook.com/elena_hairlover";
     });
 
     // Horarios
@@ -411,8 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (horarioCard) {
       const rows = horarioCard.querySelectorAll('.contacto__horario-row');
       if (rows.length >= 2) {
-        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h â€“ 19:00h";
-        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h â€“ 15:00h";
+        rows[0].querySelector('span:nth-child(2)').textContent = info.hoursWeek || "09:00h – 19:00h";
+        rows[1].querySelector('span:nth-child(2)').textContent = info.hoursSat || "08:00h – 15:00h";
       }
     }
   }
@@ -427,13 +459,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, "&#039;");
   }
 
+  function formatPrice(price) {
+    if (!price) return "";
+    let p = String(price).trim();
+    if (p.toLowerCase().includes("gratis") || p.toLowerCase().includes("free")) {
+      return p;
+    }
+    p = p.replace(/€/g, "").trim();
+    return `${p} €`;
+  }
 
 
-  // Inicializar carga dinÃ¡mica
+
+  // Inicializar carga dinámica
   // Esperamos 100ms para asegurar que Firebase CDN y config.js terminen de registrarse
   setTimeout(() => {
     initDynamicContent();
   }, 100);
 
+  // Escuchar cambios en localStorage (para actualizar al editar en admin.html en otra pestaña)
+  window.addEventListener("storage", (e) => {
+    if (e.key === "elegance_services" || e.key === "elegance_salon_info" || e.key === "elegance_gallery") {
+      initDynamicContent();
+    }
+  });
 });
 

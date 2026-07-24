@@ -5,8 +5,9 @@ Este es un Template Universal de base para aplicaciones web con un frontend (`in
 
 **Progreso Actual:**
 - Inicialización del Protocolo Walter LITE.
-- Refactorización de frontend y admin (En progreso).
-- Implementación de motor i18n Zero-Hardcoding (Pendiente).
+- Refactorización e implementación completa del motor i18n Zero-Hardcoding (EN / ES bilingüe).
+- Sincronización de `locales/es.json` y `locales/en.json`.
+- Selector de idiomas interactivo (ES / EN) en barra desktop y menú móvil.
 
 **Bloqueos/Dependencias:**
 - Ninguno actualmente.

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   ELEGANCE BY STOICA — Sistema de Diseño de Lujo Sensorial
+   ELENA HAIRLOVER — Sistema de Diseño de Lujo Sensorial
    Paleta:  Carbón #111111 · Oro Champán #C5A880 · Oro Vivo #D4AF37
             Blanco Perla #FAF8F5 · Champán Suave #F4EFE5
    Fuentes: Cormorant Garamond (display) · Montserrat (body)
@@ -7,55 +7,55 @@
 
 /* ─── VARIABLES & CONFIGURACIÓN ────────────────────────── */
 :root {
-  --color-dark-main: #111111;
-  --color-dark-main-rgb: 17 17 17;
-  /* Carbón profundo */
-  --color-dark-bg: #171717;
-  /* Fondo secundario oscuro */
-  --color-dark-card: #1f1f1f;
-  /* Tarjetas en modo oscuro */
-  --color-gold-warm: #c5a880;
-  --color-gold-warm-rgb: 197 168 128;
-  /* Oro champán refinado */
-  --color-gold-bright: #d4af37;
-  /* Oro brillante para acentos */
-  --color-light-bg: #faf8f5;
-  /* Blanco crema perla */
-  --color-light-warm: #f4efe5;
-  /* Champán suave */
-  --color-light-card: #ffffff;
-  /* Tarjetas en modo claro */
+  /* ═══════ GOLD PALETTE ═══════ */
+  --color-gold-warm:       #C9A84C;
+  --color-gold-bright:     #D4AF37;
+  --color-gold-dark:       #B8962E;
+  --color-gold-light:      #F5EDD0;
+  --color-gold-warm-rgb:   201 168 76;
 
-  --color-text-dark: #222222;
-  --color-text-muted: #666666;
-  --color-text-light: #ffffff;
-  --color-text-gold: #c5a880;
+  /* ═══════ DARK PALETTE ═══════ */
+  --color-dark-main:       #111111;
+  --color-dark-main-rgb:   17 17 17;
+  --color-dark-bg:         #171717;
+  --color-dark-card:       #1F1F1F;
+  --color-dark:            #1A1A1A;
 
-  --color-border-light: rgba(197, 168, 128, 0.25);
-  --color-border-dark: rgba(197, 168, 128, 0.15);
+  /* ═══════ TEXT ═══════ */
+  --color-text-light:      #FFFFFF;
+  --color-text-dark:       #222222;
+  --color-text-muted:      #666666;
+  --color-text-gold:       #C5A880;
 
-  /* ELEGANCE AUDIT v1 — paleta aprobada para correcciones del hero */
-  --color-dark: #1A1A1A;
-  /* Fondo oscuro / texto sobre dorado */
-  --color-gold: #C9A84C;
-  /* Dorado principal — solo CTA primario hero */
-  --color-gold-light: #F5EDD0;
-  /* Crema dorada — H1 del hero */
-  --color-gold-dark: #B8962E;
-  /* Hover CTA primario */
-  --color-btn-ghost: rgba(201, 168, 76, 0.15);
-  /* Fondo botón secundario */
+  /* ═══════ LIGHT MODE ═══════ */
+  --color-light-bg:        #FAF8F5;
+  --color-light-warm:      #F4EFE5;
+  --color-light-card:      #FFFFFF;
+
+  /* ═══════ GRADIENTS ═══════ */
+  --gold-grad-primary:     linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
+  --gold-grad-hover:       linear-gradient(135deg, #F7E0AA 0%, #DBB95D 50%, #AD8A38 100%);
+  --gold-grad-text:        linear-gradient(135deg, #F7E0AA 0%, #C9A84C 50%, #E2BE6E 100%);
+  --gold-grad-border:      linear-gradient(135deg, #F3D798, #C9A84C, #9A782B);
+
+  /* ═══════ BORDERS ═══════ */
+  --color-border-light:    rgba(197, 168, 128, 0.25);
+  --color-border-dark:     rgba(197, 168, 128, 0.15);
+
+  /* ═══════ BUTTON GHOST ═══════ */
+  --color-btn-ghost:       rgba(201, 168, 76, 0.15);
   --color-btn-ghost-hover: rgba(201, 168, 76, 0.28);
-  --color-btn-ghost-border: #C9A84C;
+  --color-btn-ghost-border:#C9A84C;
 
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body: 'Montserrat', sans-serif;
+  /* ═══════ TYPOGRAPHY ═══════ */
+  --font-display:          'Cormorant Garamond', Georgia, serif;
+  --font-body:             'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
-  --transition-luxury: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-fast: all 0.2s ease;
-
-  --space-section: 120px;
-  --space-section-mob: 80px;
+  /* ═══════ TRANSITIONS & LAYOUT ═══════ */
+  --transition-luxury:     all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast:       all 0.2s ease;
+  --space-section:         120px;
+  --space-section-mob:     80px;
 }
 
 /* ─── RESET & BASE ─────────────────────────────────────── */
@@ -220,11 +220,12 @@ img {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
     .header__inner {
-      height: 76px;
+      height: 70px;
     }
 
     .header__logo-img {
-      height: 98px;
+      height: 50px;
+      max-height: 50px;
     }
   }
 }
@@ -246,8 +247,10 @@ img {
 }
 
 .header__logo-img {
-  height: 111px;
+  height: 60px;
+  max-height: 60px;
   width: auto;
+  object-fit: contain;
   display: block;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
   transition: var(--transition-luxury);
@@ -1490,8 +1493,10 @@ img {
 }
 
 .footer__logo-img {
-  height: 90px;
+  height: 60px;
+  max-height: 60px;
   width: auto;
+  object-fit: contain;
   align-self: flex-start;
 }
 
@@ -1872,3 +1877,127 @@ html[data-theme="light"] .header.scrolled .header__menu-btn span {
   color: var(--color-text-dark);
 }
 */
+
+/* ==========================================================================
+   ELEGANCE LUXURY METALLIC GOLD GRADIENT SYSTEM
+   Matching the Elena Hairlover Emblem Metallic Gold Palette
+   ========================================================================== */
+
+:root {
+  --gold-grad-primary: linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
+  --gold-grad-hover: linear-gradient(135deg, #F7E0AA 0%, #DBB95D 50%, #AD8A38 100%);
+  --gold-grad-text: linear-gradient(135deg, #F7E0AA 0%, #C9A84C 50%, #E2BE6E 100%);
+  --gold-grad-border: linear-gradient(135deg, #F3D798, #C9A84C, #9A782B);
+}
+
+/* 1. Primary Gold Gradient Buttons */
+.header__cta,
+#hero-cta,
+.reserva__cta-btn,
+.btn-gold,
+.service-item__btn,
+a[href*="gettimely.com"].bg-gold-warm {
+  background: var(--gold-grad-primary) !important;
+  color: #111111 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.header__cta:hover,
+#hero-cta:hover,
+.reserva__cta-btn:hover,
+.btn-gold:hover,
+.service-item__btn:hover,
+a[href*="gettimely.com"].bg-gold-warm:hover {
+  background: var(--gold-grad-hover) !important;
+  color: #000000 !important;
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.65) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 2. Service Item Buttons Specific Styling */
+.service-item__btn {
+  padding: 7px 18px !important;
+  border-radius: 4px !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 12px !important;
+}
+
+/* 3. Ghost / Outline Buttons with Metallic Gold Border */
+.btn-ghost,
+.contacto__map-btn,
+#hero-explore-btn {
+  border: 1.5px solid transparent !important;
+  background-image: linear-gradient(#111, #111), var(--gold-grad-border) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  color: #F3D798 !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-ghost:hover,
+.contacto__map-btn:hover,
+#hero-explore-btn:hover {
+  background: var(--gold-grad-primary) !important;
+  color: #111111 !important;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.45) !important;
+}
+
+/* 4. Section Headings & Key Accent Text with Metallic Gold Gradient Text Fill */
+.gold-gradient-text,
+.reserva__cta-title,
+.contacto__horario-card h4,
+.section__title-main {
+  background: var(--gold-grad-text) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* 5. Floating Action Buttons (WhatsApp, Instagram, Phone) */
+.floating-actions__btn {
+  background: var(--gold-grad-primary) !important;
+  color: #111111 !important;
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.floating-actions__btn:hover {
+  background: var(--gold-grad-hover) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.65) !important;
+}
+
+.floating-actions__btn svg {
+  fill: #111111 !important;
+}
+
+/* 6. Section Badges, Pills & Active Language Buttons */
+.section__subtitle,
+.contacto__social-badge,
+.marca__badge {
+  border: 1px solid #C9A84C !important;
+  background: rgba(201, 168, 76, 0.1) !important;
+  color: #F3D798 !important;
+  letter-spacing: 0.15em !important;
+}
+
+.lang-switch__btn.is-active {
+  color: #F3D798 !important;
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.6) !important;
+}
+
+/* 7. Decorative Gold Lines & Dots */
+.decorative-line,
+.gold-line {
+  background: linear-gradient(90deg, transparent, #F3D798, #C9A84C, #9A782B, transparent) !important;
+  height: 2px !important;
+}

@@ -1,8 +1,8 @@
 {
-  "name": "elegance-by-stoica",
+  "name": "elena-hairlover",
   "version": "1.0.0",
   "private": true,
-  "description": "Sitio estático de Elegance by Stoica (HTML + vanilla JS + Firebase por CDN). El tooling solo cubre preview local y despliegue a Firebase Hosting.",
+  "description": "Sitio estático de Elena Hairlover (HTML + vanilla JS + Firebase por CDN). El tooling solo cubre preview local y despliegue a Firebase Hosting.",
   "scripts": {
     "dev": "serve -l 5050 .",
     "deploy": "firebase deploy --only hosting",

@@ -5,13 +5,13 @@
 ## BACKLOG
 
 ### Pendiente (TODO)
-- [ ] Implementar motor i18n (Zero-Hardcoding).
 - [ ] Refactorizar `index.html` (limpieza de negocio específico).
 - [ ] Refactorizar `admin.html` (limpieza y estados UI).
 - [ ] Desacoplar CSS/JS.
 
 ### En Progreso (DOING)
-- [x] Generar estructura LITE de Walter Protocol.
+- [ ] Refactorización modular.
 
 ### Terminado (DONE)
-- (Ninguno)
+- [x] Generar estructura LITE de Walter Protocol.
+- [x] Implementar motor i18n Zero-Hardcoding (EN / ES bilingüe).

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   ELEGANCE BY STOICA — Utilidades compartidas del Salón
+   ELENA HAIRLOVER — Utilidades compartidas del Salón
    Lógica pura reutilizada por el panel (admin.js) y la web (main.js).
    Sin dependencias. Se expone en window.SalonUtils.
    ═══════════════════════════════════════════════════════════ */

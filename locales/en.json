@@ -1,4 +1,11 @@
 {
+  "admin": {
+    "dashboard": "Admin Dashboard | Universal",
+    "tab_items": "Item Management",
+    "tab_hero": "Hero Carousel",
+    "tab_gallery": "Image Gallery",
+    "tab_settings": "Settings"
+  },
   "nav": {
     "brand": "EH | Elena Hairlover",
     "home": "Home",
@@ -19,52 +26,71 @@
   },
   "services": {
     "label": "Our Price List",
-    "title": "Services & Treatments",
-    "tab_facial": "Facial Aesthetics",
-    "tab_corporal": "Body Aesthetics",
+    "title": "Hair Salon Services",
     "tab_peluqueria": "Hair Salon",
-    "tab_depilacion": "Hair Removal",
-    "tab_unas": "Brows & Lashes"
+    "btn_reserve": "Book",
+    "badge_free": "Free"
   },
   "experience": {
-    "title": "Your Elegance Experience",
+    "label": "The Process",
+    "title": "Your Elena Hairlover Experience",
     "step1_title": "Initial Consultation",
-    "step1_desc": "Personalized assessment of your needs.",
+    "step1_text": "We assess the health and needs of your hair in detail during a diagnostic consultation.",
     "step2_title": "Personalized Plan",
-    "step2_desc": "We design an exclusive plan for you.",
+    "step2_text": "We design a custom protocol combining styling, coloristry, and repair treatments for you.",
     "step3_title": "Premium Treatment",
-    "step3_desc": "Application of advanced techniques.",
+    "step3_text": "Enjoy your session in an exclusive atmosphere with high-end products (Olaplex, K18).",
     "step4_title": "Continuous Care",
-    "step4_desc": "Follow-up for long-lasting results."
+    "step4_text": "We provide you with recommendations to maintain the health, shine, and color of your hair at home."
   },
   "gallery": {
+    "label": "Results",
     "title": "Salon & Results",
     "item1_title": "Our Salon",
+    "item1_desc": "An exclusive space of high hair aesthetics and comfort",
     "item2_title": "Styling in Action",
-    "item3_title": "Unique Results",
-    "item4_title": "Total Relax"
+    "item2_desc": "Cuts, color, balayage, and custom styling by Elena Hairlover"
+  },
+  "marca": {
+    "quote": "“Elegance is not about being noticed, it's about being remembered.”"
   },
   "contact": {
+    "label": "Contact & Location",
     "title": "Visit Us",
     "loc_title": "Location",
     "contact_title": "Contact Methods",
+    "email_label": "Email:",
+    "phone_label": "Phone:",
     "hours_title": "Salon Hours",
-    "desc": "We are located in the heart of the city."
+    "day_tuefri": "Tuesday to Friday",
+    "day_sat": "Saturdays",
+    "day_sunmon": "Monday & Sunday",
+    "status_closed": "Closed",
+    "map_btn": "Get Directions on Google Maps"
   },
   "reserve": {
+    "label": "Instant Online Booking",
     "title": "Book your Appointment",
     "cta_title": "Direct Booking Platform",
+    "cta_text": "Choose your hair styling, cut, color, balayage, or smoothing treatments, and book the day and time that suits you best instantly through our official portal.",
+    "cta_btn": "Book Online",
+    "trust": "✓ No waiting · ✓ Instant confirmation · ✓ 100% online",
     "note": "Secure external platform managed by Timely"
+  },
+  "modal": {
+    "title": "Booking Requested!",
+    "text": "Your request has been successfully received. We will contact you within 2 hours.",
+    "close": "Close Window"
   },
   "admin": {
     "dashboard": "Admin Dashboard",
     "tab_items": "Services Management",
-    "tab_hero": "Carousel",
-    "tab_gallery": "Gallery",
+    "tab_hero": "Hero Carousel",
+    "tab_gallery": "Image Gallery",
     "tab_settings": "Settings",
     "btn_new": "+ New Service",
     "table_name": "Name",
-    "table_detail": "Detail",
+    "table_detail": "Detail / Duration",
     "table_price": "Price",
     "table_actions": "Actions"
   },
@@ -77,7 +103,6 @@
     "desc": "Hair Stylist ✨ Colour • Balayage • Blondes • Cuts 📍 Blanchardstown • Coolmine",
     "nav_title": "Navigation",
     "support_title": "Location & Support",
-    "legal_title": "Legal",
     "hours_line": "Book online: elenahairlover.gettimely.com",
     "copyright": "© 2026 Elena Hairlover. All rights reserved."
   }

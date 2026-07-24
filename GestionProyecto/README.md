@@ -1,6 +1,6 @@
-# Elegance by Stoica — Sitio Web Premium
+# Elena Hairlover — Sitio Web Premium
 
-Sitio web estático premium para el salón de peluquería y estética avanzada **Elegance by Stoica** en Girona.
+Sitio web estático premium para el salón de peluquería y estética avanzada **Elena Hairlover** en Elena Hairlover.
 
 **Fecha de Configuración**: 2026-06-27 13:36
 **Esquema de Control**: MODO LITE de Walter (`.agents/`)
@@ -12,10 +12,10 @@ Sitio web estático premium para el salón de peluquería y estética avanzada *
 - **Backend/Panel**: Panel de administración dinámico híbrido (`admin.html`) que consume Firebase Firestore por CDN, cayendo automáticamente en `localStorage` si no hay credenciales configuradas.
 
 ## 📂 Estructura de Control (MODO LITE)
-Las reglas y el estado operativo se gestionan dentro de la carpeta [.agents/](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/):
-- [WALTER_PROTOCOL_v1.2.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/WALTER_PROTOCOL_v1.2.md) — Protocolo maestro operativo de arranque.
-- [ESTADO_ACTUAL__CURRENT_STATE.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/ESTADO_ACTUAL__CURRENT_STATE.md) — Estado actual de la sesión de desarrollo.
-- [MASTER_TRACKER.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElegansBYStoica/.agents/MASTER_TRACKER.md) — Manifiesto y Backlog unificado.
+Las reglas y el estado operativo se gestionan dentro de la carpeta [.agents/](file:///c:/_0__________IA_____________/AntygralitiProject/ElenaHairlover/.agents/):
+- [WALTER_PROTOCOL_v1.2.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElenaHairlover/.agents/WALTER_PROTOCOL_v1.2.md) — Protocolo maestro operativo de arranque.
+- [ESTADO_ACTUAL__CURRENT_STATE.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElenaHairlover/.agents/ESTADO_ACTUAL__CURRENT_STATE.md) — Estado actual de la sesión de desarrollo.
+- [MASTER_TRACKER.md](file:///c:/_0__________IA_____________/AntygralitiProject/ElenaHairlover/.agents/MASTER_TRACKER.md) — Manifiesto y Backlog unificado.
 
 ## 🚀 Comandos del Proyecto
 Para trabajar en este proyecto, necesitas instalar las dependencias con `npm install` y ejecutar:

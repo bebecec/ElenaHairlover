@@ -51,8 +51,8 @@ const initialSalonInfoSeed = {
   address: "Innovation House, Porters Road, Coolmine Business Park, Dublin 15, Blanchardstown, D15 VW61",
   instagram: "elena_hairlover",
   facebook: "",
-  hoursWeek: "09:00h – 19:00h",
-  hoursSat: "08:00h – 15:00h",
+  hoursWeek: "09:00h - 19:00h",
+  hoursSat: "08:00h - 15:00h",
   hoursSun: "",
   hoursMon: ""
 };
@@ -274,6 +274,12 @@ async function loadData() {
     const savedInfo = localStorage.getItem("elegance_salon_info");
     if (savedInfo) {
       salonInfo = JSON.parse(savedInfo);
+      // Limpiar caracteres corruptos guardados en localStorage
+      const cleanText = (txt) => (txt || "").replace(/â€“/g, '-').replace(/–/g, '-').replace(/\?"/g, '-').replace(/\?"/g, '-');
+      if (salonInfo.hoursWeek) salonInfo.hoursWeek = cleanText(salonInfo.hoursWeek);
+      if (salonInfo.hoursSat) salonInfo.hoursSat = cleanText(salonInfo.hoursSat);
+      if (salonInfo.hoursSun) salonInfo.hoursSun = cleanText(salonInfo.hoursSun);
+      if (salonInfo.hoursMon) salonInfo.hoursMon = cleanText(salonInfo.hoursMon);
     } else {
       salonInfo = { ...initialSalonInfoSeed };
       localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));

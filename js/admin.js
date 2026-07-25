@@ -1437,9 +1437,59 @@ function formatPrice(price) {
 }
 
 // Inicializar al cargar
+// ============================================================================
+// AUTHENTICATION LOGIC (LOCAL MOCK)
+// ============================================================================
+
+function checkAuthStatus() {
+  const isLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
+  const loginOverlay = document.getElementById("login-overlay");
+  const adminDashboard = document.getElementById("admin-dashboard");
+  
+  if (isLoggedIn) {
+    if(loginOverlay) loginOverlay.style.display = "none";
+    if(adminDashboard) adminDashboard.style.display = "block";
+    initDatabase();
+    initVideoManagement();
+  } else {
+    if(loginOverlay) loginOverlay.style.display = "flex";
+    if(adminDashboard) adminDashboard.style.display = "none";
+  }
+}
+
+function initAuth() {
+  const loginForm = document.getElementById("login-form");
+  const loginError = document.getElementById("login-error");
+  const btnLogout = document.getElementById("btn-logout");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      if (email === "admin@salon.com" && password === "123456") {
+        localStorage.setItem("isAdminLoggedIn", "true");
+        loginError.style.display = "none";
+        checkAuthStatus();
+      } else {
+        loginError.textContent = "Credenciales incorrectas (Usa: admin@salon.com / 123456)";
+        loginError.style.display = "block";
+      }
+    });
+  }
+
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      localStorage.removeItem("isAdminLoggedIn");
+      window.location.href = "index.html";
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  initDatabase();
-  initVideoManagement();
+  initAuth();
+  checkAuthStatus();
 
   const publishBtn = document.getElementById("publish-data-btn");
   if (publishBtn) {

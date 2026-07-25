@@ -18,8 +18,28 @@
 
 <body>
 
+  <!-- Login Overlay -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-modal">
+      <img src="img/logo.png" alt="Logo" class="login-logo" />
+      <h2 style="margin-bottom: 20px; color: var(--color-gold-warm);">Acceso Administrativo</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Correo Electrónico</label>
+          <input type="email" id="login-email" placeholder="admin@salon.com" required />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" placeholder="••••••" required />
+        </div>
+        <div id="login-error" style="color: #ff4444; font-size: 0.9rem; margin-bottom: 15px; display: none;"></div>
+        <button type="submit" class="btn btn--gold" style="width: 100%;">Entrar</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Panel de Control Principal -->
-  <div class="admin-dashboard" id="admin-dashboard">
+  <div class="admin-dashboard" id="admin-dashboard" style="display: none;">
 
     <!-- Barra Superior -->
     <header class="admin-header">
@@ -35,6 +55,7 @@
             <button type="button" class="btn btn--gold-outline lang-switch__btn" data-lang="en" style="padding: 4px 8px; font-size: 0.7rem;">EN</button>
           </div>
           <span class="user-email" id="admin-user-email">Administrador Local</span>
+          <button id="btn-logout" class="btn btn--gold-outline" style="margin-left: 10px; padding: 4px 12px; font-size: 0.8rem;">Salir</button>
         </div>
       </div>
     </header>

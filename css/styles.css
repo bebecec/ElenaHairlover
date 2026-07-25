@@ -1161,8 +1161,10 @@ img {
 
 .contacto__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 900px;
+  margin: 60px auto 0;
   margin-top: 60px;
 }
 
@@ -1951,4 +1953,9 @@ a[href*="gettimely.com"].bg-gold-warm:hover {
 .gold-line {
   background: linear-gradient(90deg, transparent, #F3D798, #C9A84C, #9A782B, transparent) !important;
   height: 2px !important;
+}
+
+.testimonio__card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold-warm) !important;
 }

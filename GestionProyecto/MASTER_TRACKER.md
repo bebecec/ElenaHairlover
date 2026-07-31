@@ -1,11 +1,11 @@
 # MASTER TRACKER
 
-**Objetivo:** Crear un Template Universal agnóstico con panel de administración basado en el protocolo Walter.
+**Objetivo:** Crear un Sitio Web Premium altamente personalizado y exclusivo para el salón de belleza Elena Hairlover.
 
 ## BACKLOG
 
 ### Pendiente (TODO)
-- [ ] Refactorizar `index.html` (limpieza de negocio específico).
+- [ ] Desarrollar funcionalidad de Reservas Online (con Base de Datos propia y gestión en el Panel de Administración).
 - [ ] Refactorizar `admin.html` (limpieza y estados UI).
 - [ ] Desacoplar CSS/JS.
 

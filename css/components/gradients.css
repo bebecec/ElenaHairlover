@@ -1,0 +1,10 @@
+/* ═══════ GRADIENTS ═══════ */
+  --gold-grad-primary:     linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
+  --gold-grad-hover:       linear-gradient(135deg, #F7E0AA 0%, #DBB95D 50%, #AD8A38 100%);
+  --gold-grad-text:        linear-gradient(135deg, #F7E0AA 0%, #C9A84C 50%, #E2BE6E 100%);
+  --gold-grad-border:      linear-gradient(135deg, #F3D798, #C9A84C, #9A782B);
+
+/* ═══════ GRADIENTS ═══════ */
+  --gold-grad-primary:     linear-gradient(135deg, #F3D798 0%, #C9A84C 50%, #9A782B 100%);
+  --gold-grad-hover:       linear-gradient(135deg, #F7E0AA 0%, #DBB95D 50%, #AD8A38 100%);
+

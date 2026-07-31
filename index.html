@@ -11,10 +11,10 @@
   <meta name="theme-color" content="#111111" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Favicon -->
+  <!-- ES: Favicon | EN: Favicon -->
   <link rel="icon" href="data:," type="image/x-icon" />
 
-  <!-- Open Graph (Facebook / WhatsApp / LinkedIn) -->
+  <!-- ES: Open Graph (Facebook / WhatsApp / LinkedIn) | EN: Open Graph (Facebook / WhatsApp / LinkedIn) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Universal Template" />
   <meta property="og:title" content="Universal Template" />
@@ -23,23 +23,23 @@
   <meta property="og:url" content="https://example.com/" />
   <meta property="og:locale" content="es_ES" />
 
-  <!-- Twitter Card -->
+  <!-- ES: Tarjeta de Twitter | EN: Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Universal Template" />
   <meta name="twitter:description"
     content="Universal template description." />
 
-  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <!-- ES: Fuentes de Google | EN: Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap"
     rel="stylesheet" />
 
-  <!-- Preload recursos LCP -->
+  <!-- ES: Precargar recursos LCP | EN: Preload LCP Resources -->
   <link rel="preload" as="image" href="img/Carusel_del_hero/insta_2.png" type="image/png" />
 
-  <!-- Tailwind CSS v3 Play CDN -->
+  <!-- ES: Tailwind CSS v3 Play CDN | EN: Tailwind CSS v3 Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -473,12 +473,11 @@
     }
   </style>
 
-  <link rel="stylesheet" href="css/styles.css" />
-
+  <link rel="stylesheet" href="css/styles-modular.css" />
   <link rel="stylesheet" href="css/footer-modern.css">
   <link rel="stylesheet" href="css/animations.css" />
 
-  <!-- JSON-LD Datos Estructurados -->
+  <!-- ES: JSON-LD Datos Estructurados | EN: JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -529,7 +528,7 @@
 <body>
 
   
-  <!-- HEADER — Navegación Fija con Filtro Frosted -->
+  <!-- ES: HEADER — Navegación Fija con Filtro Frosted | EN: HEADER — Navegación Fija con Filtro Frosted -->
   
   <header class="fixed top-0 left-0 w-full z-[100] transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header" id="header">
     <div class="max-w-[1200px] mx-auto px-8 md:px-5 h-[90px] flex items-center justify-between transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__inner">
@@ -539,7 +538,7 @@
         </a>
       </div>
 
-      <!-- Desktop Nav -->
+      <!-- ES: Navegación de Escritorio | EN: Desktop Navigation -->
       <nav class="hidden lg:flex items-center gap-9" id="nav-desktop">
         <a href="#inicio" class="header__link" data-i18n="nav.home">Inicio</a>
         <a href="#servicios" class="header__link" data-i18n="nav.services">Servicios</a>
@@ -547,9 +546,9 @@
         <a href="#galeria" class="header__link" data-i18n="nav.gallery">Galería</a>
         <a href="#contacto" class="header__link" data-i18n="nav.contact">Contacto</a>
         
-        <!-- ELEGANCE UX — selector de tema eliminado (sólo modo oscuro) -->
+        <!-- ES: ELEGANCE UX — selector de tema eliminado (sólo modo oscuro) | EN: ELEGANCE UX — selector de tema eliminado (sólo modo oscuro) -->
         
-        <!-- ELEGANCE UX — selector de idioma ES / EN -->
+        <!-- ES: ELEGANCE UX — selector de idioma ES / EN | EN: ELEGANCE UX — selector de idioma ES / EN -->
         <div class="flex items-center gap-1" role="group" aria-label="Selector de idioma">
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
@@ -558,16 +557,16 @@
           data-i18n="nav.book">Reservar Cita</a>
       </nav>
 
-      <!-- Mobile Menu Button (3 rallas doradas en móvil y tablet) -->
+      <!-- ES: Botón menú móvil | EN: Mobile Menu Button -->
       <button class="flex lg:hidden header__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-controls="mobile-nav"
         aria-expanded="false" data-i18n-attr="aria-label:nav.menu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
-    <!-- Mobile Nav Overlay -->
+    <!-- ES: Menú superpuesto móvil | EN: Mobile Nav Overlay -->
     <nav class="fixed top-0 -right-full w-full h-screen bg-dark-main z-[105] flex flex-col justify-center items-center gap-7 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.22,1)] header__mobile-nav" id="mobile-nav">
-      <!-- ELEGANCE UX v1 — selector de idioma (fila superior en móvil) -->
+      <!-- ES: ELEGANCE UX v1 — selector de idioma (fila superior en móvil) | EN: ELEGANCE UX v1 — selector de idioma (fila superior en móvil) -->
       <div class="flex gap-2 justify-center mb-6">
         <div class="flex justify-center gap-1.5" role="group" aria-label="Selector de idioma" style="margin-bottom: 0;">
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.85rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-2.5 py-1.5 transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
@@ -585,12 +584,14 @@
   </header>
 
   
-  <!-- HERO — Estilo Lujo con Foto Real y Brillo -->
+  <!-- ES: HERO — Estilo Lujo con Foto Real y Brillo | EN: HERO — Estilo Lujo con Foto Real y Brillo -->
   
   <section class="relative min-h-screen overflow-hidden flex items-center justify-center text-center text-white hero" id="inicio">
     <div class="absolute inset-0 overflow-hidden hero__carousel" data-autoplay="15000">
       <div class="absolute inset-0 hero__slides">
-        <!-- Para añadir más fotos (hasta 5-6): duplicar un bloque .hero__slide
+        <!-- ES: Para añadir más fotos (hasta 5-6): duplicar un bloque .hero__slide
+             con su imagen en img/ (y, si puede ser, su versión .webp). Las flechas
+             y los puntos se ajustan solos. | EN: Para añadir más fotos (hasta 5-6): duplicar un bloque .hero__slide
              con su imagen en img/ (y, si puede ser, su versión .webp). Las flechas
              y los puntos se ajustan solos. -->
         <div class="hero__slide is-active">
@@ -625,7 +626,7 @@
         </div>
       </div>
 
-      <!-- Zonas de navegación lateral transparentes (ELEGANCE UX v2) -->
+      <!-- ES: Zonas de navegación transparentes | EN: Transparent Navigation Zones -->
       <div class="absolute top-0 left-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--prev" role="button" aria-label="Foto anterior" data-i18n-attr="aria-label:hero.prev"></div>
       <div class="absolute top-0 right-0 h-full w-[15%] z-[10] cursor-pointer hero__arrow hero__arrow--next" role="button" aria-label="Foto siguiente" data-i18n-attr="aria-label:hero.next"></div>
       <div class="absolute bottom-[18px] left-1/2 -translate-x-1/2 z-[5] flex gap-2.5 hero__dots" role="tablist" aria-label="Selector de fotos del salón"></div>
@@ -633,7 +634,7 @@
   </section>
 
   
-  <!-- SERVICIOS — Carta de Servicios Interactiva  -->
+  <!-- ES: SERVICIOS — Carta de Servicios Interactiva | EN: SERVICIOS — Carta de Servicios Interactiva -->
   
   <section class="servicios" id="servicios">
     <div class="container">
@@ -645,65 +646,29 @@
 
         <div class="servicios__content fade-in-up">
           <div class="services-list" id="public-services-list">
-            <!-- Se renderizan vía main.js -->
+            <!-- ES: Se renderizan vía main.js | EN: Rendered via main.js -->
           </div>
         </div>
     </div>
   </section>
 
   
-  <!-- TU EXPERIENCIA — Timeline Lujosa           -->
+  <!-- ES: TU EXPERIENCIA — Timeline Lujosa | EN: TU EXPERIENCIA — Timeline Lujosa -->
   
   <section class="testimonios" id="experiencia" style="background: #0f0f0f; padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
     <div class="container">
-      <span class="section-label" style="text-align: center; display: block; margin-bottom: 10px;">Experiencias Reales</span>
-      <h2 class="section-title light" style="margin-bottom: 20px;">Lo que dicen nuestros clientes</h2>
+      <span class="section-label" style="text-align: center; display: block; margin-bottom: 10px;" data-i18n="experience.testimonials_label">Experiencias Reales</span>
+      <h2 class="section-title light" style="margin-bottom: 20px;" data-i18n="experience.testimonials_title">Lo que dicen nuestros clientes</h2>
       <div class="section-divider" style="margin: 0 auto 60px;"></div>
 
-      <div class="testimonios__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        
-        <div class="testimonio__card fade-in-up" style="background: rgba(255,255,255,0.02); padding: 40px; border: 1px solid rgba(201,168,76,0.15); transition: transform 0.3s ease, border-color 0.3s ease;">
-          <div class="testimonio__stars" style="color: var(--color-gold-warm); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px;">★★★★★</div>
-          <p class="testimonio__text" style="color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">"El trato es increíble. Me hicieron un balayage perfecto y mi cabello nunca ha estado tan sano. ¡Totalmente recomendado!"</p>
-          <div class="testimonio__author" style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-            <div class="testimonio__avatar" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold-warm), #8f722a); color: #111; display: flex; align-items: center; justify-content: center; font-weight: 500; font-family: var(--font-display); font-size: 1.2rem;">M</div>
-            <div>
-              <h4 style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 2px; font-weight: 600; letter-spacing: 0.05em;">María López</h4>
-              <span style="color: var(--color-gold-warm); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Color & Balayage</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonio__card fade-in-up" style="background: rgba(255,255,255,0.02); padding: 40px; border: 1px solid rgba(201,168,76,0.15); transition: transform 0.3s ease, border-color 0.3s ease; animation-delay: 0.1s;">
-          <div class="testimonio__stars" style="color: var(--color-gold-warm); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px;">★★★★★</div>
-          <p class="testimonio__text" style="color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">"Llevo años buscando una estilista en Dublín que entienda mi cabello. Elena es una artista absoluta, el resultado superó mis expectativas."</p>
-          <div class="testimonio__author" style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-            <div class="testimonio__avatar" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold-warm), #8f722a); color: #111; display: flex; align-items: center; justify-content: center; font-weight: 500; font-family: var(--font-display); font-size: 1.2rem;">C</div>
-            <div>
-              <h4 style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 2px; font-weight: 600; letter-spacing: 0.05em;">Carmen R.</h4>
-              <span style="color: var(--color-gold-warm); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Corte & Estilo</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonio__card fade-in-up" style="background: rgba(255,255,255,0.02); padding: 40px; border: 1px solid rgba(201,168,76,0.15); transition: transform 0.3s ease, border-color 0.3s ease; animation-delay: 0.2s;">
-          <div class="testimonio__stars" style="color: var(--color-gold-warm); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px;">★★★★★</div>
-          <p class="testimonio__text" style="color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">"El ambiente del salón es un lujo. Me sentí relajada desde el minuto uno. Productos de la más alta calidad y un servicio top."</p>
-          <div class="testimonio__author" style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-            <div class="testimonio__avatar" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold-warm), #8f722a); color: #111; display: flex; align-items: center; justify-content: center; font-weight: 500; font-family: var(--font-display); font-size: 1.2rem;">S</div>
-            <div>
-              <h4 style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 2px; font-weight: 600; letter-spacing: 0.05em;">Sara V.</h4>
-              <span style="color: var(--color-gold-warm); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Tratamiento Olaplex</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="testimonios__grid" id="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <!-- ES: Testimonials will be injected here by JS from Google | EN: Testimonials will be injected here by JS from Google -->
       </div>
     </div>
   </section>
 
   
-  <!-- GALERÍA — Fotos Reales                     -->
+  <!-- ES: GALERÍA — Fotos Reales | EN: GALERÍA — Fotos Reales -->
   
   <section class="galeria" id="galeria">
     <div class="container">
@@ -712,7 +677,7 @@
       <div class="section-divider"></div>
 
       <div class="galeria__grid" id="public-gallery-grid">
-        <!-- JS rendered items here -->
+        <!-- ES: Elementos renderizados por JS aquí | EN: JS rendered items here -->
       </div>
     </div>
   </section>
@@ -720,7 +685,7 @@
 
 
   
-  <!-- HORARIOS Y CONTACTO REAL                    -->
+  <!-- ES: Horarios y Contacto | EN: Hours & Contact -->
   
   <section class="contacto" id="contacto">
     <div class="container">
@@ -730,7 +695,7 @@
 
       <div class="contacto__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; max-width: 900px; margin: 60px auto 0;">
         
-        <!-- Tarjeta Izquierda (Info) -->
+        <!-- ES: Tarjeta Izquierda (Info) | EN: Left Card (Info) -->
         <div class="contacto__info fade-in-up" style="background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid rgba(201,168,76,0.2); border-radius: 8px;">
           <div class="contacto__item" style="margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
@@ -750,7 +715,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta Derecha (Horarios) -->
+        <!-- ES: Tarjeta Derecha (Horarios) | EN: Right Card (Hours) -->
         <div class="contacto__horario-card fade-in-up" style="background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; animation-delay: 0.1s;">
           <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px;">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--color-gold-warm)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
@@ -782,7 +747,7 @@
   </section>
 
   
-  <!-- FOOTER                                      -->
+  <!-- ES: Pie de página | EN: Footer -->
   
   <footer class="footer-modern">
     <div class="container footer-modern__inner">
@@ -792,7 +757,7 @@
 
         </div>
         
-        <!-- Contact Block -->
+        <!-- ES: Bloque de Contacto | EN: Contact Block -->
         <div class="footer-modern__col">
           <h4 data-i18n="footer.support_title">Ubicación & Soporte</h4>
           <a id="public-info-phone" href="tel:+353894501215" style="display: flex; align-items: center; gap: 8px;">
@@ -821,7 +786,7 @@
           </div>
         </div>
         
-        <!-- Map Block -->
+        <!-- ES: Bloque de Mapa | EN: Map Block -->
         <div class="footer-modern__col">
           <h4>Ubicación</h4>
           <iframe class="contacto__map" src="https://maps.google.com/maps?q=Elena%20Hairlover,%20Coolmine%20Business%20Park,%20Dublin&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -837,7 +802,7 @@
   </footer>
 
   
-  <!-- BOTONES FLOTANTES — Contacto rápido          -->
+  <!-- ES: BOTONES FLOTANTES — Contacto rápido | EN: BOTONES FLOTANTES — Contacto rápido -->
   
   <div class="floating-actions">
     <a href="tel:+353894501215" class="floating-actions__btn" aria-label="Llamar al salón">
@@ -859,10 +824,10 @@
     </a>
   </div>
 
-  <!-- Configuración primero, para conocer si Firebase está activo -->
+  <!-- ES: Configuración Firebase | EN: Firebase Configuration -->
   <script src="js/config.js"></script>
 
-  <!-- Firebase (v10) solo se descarga si hay credenciales reales configuradas -->
+  <!-- ES: Firebase descarga condicional | EN: Firebase Conditional Download -->
   <script type="module">
     if (window.useFirebase) {
       const [{ initializeApp }, { getFirestore, collection, getDocs }] = await Promise.all([
@@ -873,7 +838,7 @@
     }
   </script>
 
-  <!-- ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) -->
+  <!-- ES: ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) | EN: ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) -->
   <script src="js/i18n-loader.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>

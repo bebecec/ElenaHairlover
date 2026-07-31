@@ -1,0 +1,7 @@
+/* SALON INFO FORM */
+.salon-info-form {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-border-dark);
+  padding: 40px;
+}
+

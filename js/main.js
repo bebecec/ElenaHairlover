@@ -352,3 +352,57 @@ document.addEventListener('DOMContentLoaded', () => {
   loadSalonInfo(); // Cargar la info de contacto desde el panel
 
 });
+
+
+// --- GOOGLE REVIEWS LOGIC ---
+function renderPublicReviews() {
+  const grid = document.getElementById("reviews-grid");
+  if (!grid) return;
+  
+  const stored = localStorage.getItem("elegance_google_reviews");
+  let reviews = [];
+  if (stored) {
+    try { reviews = JSON.parse(stored); } catch(e){}
+  }
+  
+  // Filter active reviews
+  const activeReviews = reviews.filter(r => r.active);
+  
+  grid.innerHTML = "";
+  
+  if (activeReviews.length === 0) {
+    // Render fallback if empty
+    grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: rgba(255,255,255,0.5); padding: 40px;">No hay testimonios disponibles en este momento.</div>';
+    return;
+  }
+  
+  activeReviews.forEach((rev, index) => {
+    const delay = index * 0.1;
+    const initial = rev.author ? rev.author.charAt(0) : "A";
+    const photoHtml = rev.photo 
+      ? `<img src="${rev.photo}" style="width: 100%; height: 100%; object-fit: cover;">`
+      : initial;
+      
+    const stars = "★".repeat(rev.rating) + "☆".repeat(5 - rev.rating);
+    
+    // We create the card
+    const card = document.createElement("div");
+    card.className = "testimonio__card fade-in-up";
+    card.style.cssText = `background: rgba(255,255,255,0.02); padding: 40px; border: 1px solid rgba(201,168,76,0.15); transition: transform 0.3s ease, border-color 0.3s ease; animation-delay: ${delay}s;`;
+    
+    card.innerHTML = `
+      <div class="testimonio__stars" style="color: var(--color-gold-warm); font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px;">${stars}</div>
+      <p class="testimonio__text" style="color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.8; margin-bottom: 30px; font-size: 0.95rem;">"${rev.text}"</p>
+      <div class="testimonio__author" style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+        <div class="testimonio__avatar" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold-warm), #8f722a); color: #111; display: flex; align-items: center; justify-content: center; font-weight: 500; font-family: var(--font-display); font-size: 1.2rem; overflow: hidden;">
+          ${photoHtml}
+        </div>
+        <div>
+          <h4 style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 2px; font-weight: 600; letter-spacing: 0.05em;">${rev.author}</h4>
+          <span style="color: var(--color-gold-warm); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Cliente Google</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}

@@ -5,6 +5,9 @@ Sitio web estático premium para el salón de peluquería y estética avanzada *
 **Última actualización**: 2026-07-24
 **Esquema de Control**: Carpeta `GestionProyecto/`
 
+> [!IMPORTANT]
+> **NORMA ESTRICTA**: Todas las conversaciones con la IA y nueva documentación deben realizarse estrictamente en **Español**.
+
 ---
 
 ## 🛠️ Stack Tecnológico
@@ -24,7 +27,7 @@ Sitio web estático premium para el salón de peluquería y estética avanzada *
 ## 📂 Estructura del Proyecto
 
 ```
-Templade-salon bellesa/
+Elena Hairlover/
 ├── index.html              ← Web pública principal
 ├── admin.html              ← Panel de administración
 ├── package.json            ← Scripts npm (dev, deploy, emulators)
@@ -117,7 +120,7 @@ npm run emulators
 - **Efectos**: Glassmorphism en header, animaciones fade-in-up, transiciones suaves cubic-bezier
 - **Logo**: `img/logo.png` — con drop-shadow y tamaño escalado en la página principal
 
-Ver detalles completos en [BRAND_COLOR_DNA.md](file:///c:/0.----IA---PROYECT/_AntygralitiProject/TEMPLADE%C3%A7_salo/Templade-salon%20bellesa/GestionProyecto/BRAND_COLOR_DNA.md).
+Ver detalles completos en [BRAND_COLOR_DNA.md](BRAND_COLOR_DNA.md).
 
 ---
 

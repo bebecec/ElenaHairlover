@@ -6,19 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="admin.dashboard">Panel de Administración | Universal</title>
 
-  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <!-- ES: Fuentes de Google | EN: Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/admin-modular.css" />
 </head>
 
 <body>
 
-  <!-- Login Overlay -->
+  <!-- ES: Login Overlay | EN: Login Overlay -->
   <div class="login-overlay" id="login-overlay">
     <div class="login-modal">
       <img src="img/logo.png" alt="Logo" class="login-logo" />
@@ -38,10 +38,10 @@
     </div>
   </div>
 
-  <!-- Panel de Control Principal -->
+  <!-- ES: Panel de Control Principal | EN: Main Control Panel -->
   <div class="admin-dashboard" id="admin-dashboard" style="display: none;">
 
-    <!-- Barra Superior -->
+    <!-- ES: Barra Superior | EN: Top Bar -->
     <header class="admin-header">
       <div class="admin-header__inner">
         <div class="admin-header__brand">
@@ -63,15 +63,16 @@
     <main class="admin-main">
       <div class="admin-container">
 
-        <!-- Pestañas de Secciones -->
+        <!-- ES: Pestañas de Secciones | EN: Section Tabs -->
         <div class="admin-nav-tabs">
           <button class="admin-tab-btn active" data-section="servicios" data-i18n="admin.tab_items">Gestión de Ítems</button>
           <button class="admin-tab-btn" data-section="hero" data-i18n="admin.tab_hero">Carrusel del Hero</button>
           <button class="admin-tab-btn" data-section="galeria" data-i18n="admin.tab_gallery">Galería de Imágenes</button>
+          <button class="admin-tab-btn" data-section="reviews">Reseñas (Google)</button>
           <button class="admin-tab-btn" data-section="informacion" data-i18n="admin.tab_settings">Configuración</button>
         </div>
 
-        <!-- SECCIÓN 1: GESTIÓN DE SERVICIOS -->
+        <!-- ES: SECCIÓN 1: GESTIÓN DE SERVICIOS | EN: SECTION 1: SERVICES MANAGEMENT -->
         <section class="admin-section active" id="sec-servicios">
           <div class="admin-section__header">
             <div>
@@ -84,12 +85,12 @@
             </div>
           </div>
 
-          <!-- Pestañas de Categorías de Servicios -->
+          <!-- ES: Pestañas de Categorías de Servicios | EN: Service Category Tabs -->
           <div class="category-tabs" id="category-tabs">
-            <!-- Pestañas dinámicas (admin.js) -->
+            <!-- ES: Pestañas dinámicas (admin.js) | EN: Dynamic Tabs (admin.js) -->
           </div>
 
-          <!-- Listado de Servicios -->
+          <!-- ES: Listado de Servicios | EN: Services List -->
           <div class="services-table-wrapper">
             <table class="services-table">
               <thead>
@@ -101,13 +102,13 @@
                 </tr>
               </thead>
               <tbody id="services-tbody">
-                <!-- Se poblará dinámicamente -->
+                <!-- ES: Se poblará dinámicamente | EN: Populated dynamically -->
               </tbody>
             </table>
           </div>
         </section>
 
-        <!-- SECCIÓN: CARRUSEL DEL HERO -->
+        <!-- ES: SECCIÓN: CARRUSEL DEL HERO | EN: SECTION: HERO CAROUSEL -->
         <section class="admin-section" id="sec-hero">
           <div class="admin-section__header">
             <div>
@@ -121,20 +122,20 @@
             <input type="file" id="hero-upload-input" accept="image/*" multiple style="display:none;" />
           </div>
 
-          <!-- Drop Zone -->
+          <!-- ES: Drop Zone | EN: Drop Zone -->
           <div class="gallery-dropzone" id="hero-dropzone">
             <div class="gallery-dropzone__icon">ðŸ–¼ï¸</div>
             <p class="gallery-dropzone__text">Arrastra fotos aquí o haz clic en <strong>"Subir Fotos del Hero"</strong></p>
             <p class="gallery-dropzone__sub">Recomendado: horizontal (16:9) · Se guardan localmente</p>
           </div>
 
-          <!-- Grid de imágenes del hero -->
+          <!-- ES: Grid de imágenes del hero | EN: Hero Image Grid -->
           <div class="gallery-grid" id="hero-grid">
-            <!-- Se poblará dinámicamente -->
+            <!-- ES: Se poblará dinámicamente | EN: Populated dynamically -->
           </div>
         </section>
 
-        <!-- SECCIÓN 2: GALERÍA DE IMÁGENES -->
+        <!-- ES: SECCIÓN 2: GALERÍA DE IMÁGENES | EN: SECTION 2: IMAGE GALLERY -->
         <section class="admin-section" id="sec-galeria">
           <div class="admin-section__header">
             <div>
@@ -148,20 +149,20 @@
             <input type="file" id="gallery-upload-input" accept="image/*" multiple style="display:none;" />
           </div>
 
-          <!-- Drop Zone -->
+          <!-- ES: Drop Zone | EN: Drop Zone -->
           <div class="gallery-dropzone" id="gallery-dropzone">
             <div class="gallery-dropzone__icon">ðŸ–¼ï¸</div>
             <p class="gallery-dropzone__text">Arrastra imágenes aquí o haz clic en <strong>"Subir Imágenes"</strong></p>
             <p class="gallery-dropzone__sub">Formatos: JPG, PNG, WEBP · Las imágenes se guardan localmente</p>
           </div>
 
-          <!-- Grid de imágenes -->
+          <!-- ES: Grid de imágenes | EN: Image Grid -->
           <div class="gallery-grid" id="gallery-grid">
-            <!-- Se poblará dinámicamente -->
+            <!-- ES: Se poblará dinámicamente | EN: Populated dynamically -->
           </div>
         </section>
 
-        <!-- SECCIÓN 3: GESTIÓN DE VÍDEOS -->
+        <!-- ES: SECCIÓN 3: GESTIÓN DE VÍDEOS | EN: SECTION 3: VIDEO MANAGEMENT -->
         <section class="admin-section" id="sec-videos">
           <div class="admin-section__header">
             <div>
@@ -172,7 +173,7 @@
             </div>
           </div>
 
-          <!-- Banner informativo -->
+          <!-- ES: Banner informativo | EN: Information Banner -->
           <div class="video-info-banner">
             <span class="video-info-banner__icon">ℹ️</span>
             <div>Los vídeos se previsualizan aquí desde tu dispositivo usando memoria temporal. Para activarlos en la
@@ -180,7 +181,7 @@
               indicado en cada tarjeta.</div>
           </div>
 
-          <!-- Hero Slot -->
+          <!-- ES: Hero Slot | EN: Hero Slot -->
           <div class="video-slots-label">Vídeo del Hero — Portada principal (horizontal 16:9)</div>
           <div class="video-slot-hero-wrap">
             <div class="video-slot-card video-slot-card--hero">
@@ -214,11 +215,11 @@
             </div>
           </div>
 
-          <!-- Clips Grid -->
+          <!-- ES: Clips Grid | EN: Clips Grid -->
           <div class="video-slots-label" style="margin-top:44px;">Clips — Sección "En Acción" (vertical 9:16)</div>
           <div class="video-slots-grid">
 
-            <!-- Facial -->
+            <!-- ES: Facial | EN: Facial -->
             <div class="video-slot-card">
               <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
                 <div class="video-slot__placeholder" id="placeholder-clip-facial">
@@ -248,7 +249,7 @@
               </div>
             </div>
 
-            <!-- Peluquería -->
+            <!-- ES: Peluquería | EN: Hair Salon -->
             <div class="video-slot-card">
               <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
                 <div class="video-slot__placeholder" id="placeholder-clip-peluqueria">
@@ -279,7 +280,7 @@
               </div>
             </div>
 
-            <!-- Corporal -->
+            <!-- ES: Corporal | EN: Body -->
             <div class="video-slot-card">
               <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
                 <div class="video-slot__placeholder" id="placeholder-clip-corporal">
@@ -309,7 +310,7 @@
               </div>
             </div>
 
-            <!-- Uñas & Mirada -->
+            <!-- ES: Uñas & Mirada | EN: Nails & Eyes -->
             <div class="video-slot-card">
               <div class="video-slot__preview-wrap" style="aspect-ratio: 9/16;">
                 <div class="video-slot__placeholder" id="placeholder-clip-unas">
@@ -342,7 +343,7 @@
           </div>
         </section>
 
-        <!-- SECCIÓN 4: INFORMACIÓN GENERAL -->
+        <!-- ES: SECCIÓN 4: INFORMACIÓN GENERAL | EN: SECTION 4: GENERAL INFORMATION -->
         <section class="admin-section" id="sec-informacion">
           <div class="admin-section__header">
             <div>
@@ -418,14 +419,14 @@
     </main>
   </div>
 
-  <!-- MODAL PARA CREAR / EDITAR SERVICIO -->
-  <!-- MODAL DE CATEGORÍAS -->
+  <!-- ES: MODAL PARA CREAR / EDITAR SERVICIO | EN: MODAL TO CREATE / EDIT SERVICE -->
+  <!-- ES: MODAL DE CATEGORÍAS | EN: CATEGORIES MODAL -->
   <div class="modal-overlay" id="category-modal" style="display: none;">
     <div class="modal-box" style="max-width: 500px;">
       <h3 id="modal-category-title" data-i18n="admin.modal_category_title">Gestionar Categorías</h3>
       
       <div class="category-manager-list" id="category-manager-list" style="margin-bottom: 20px; max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 4px; padding: 10px;">
-        <!-- Lista dinámica de categorías -->
+        <!-- ES: Lista dinámica de categorías | EN: Dynamic Category List -->
       </div>
 
       <form id="category-form" style="display: flex; gap: 10px; align-items: flex-end;">
@@ -443,7 +444,7 @@
     </div>
   </div>
 
-  <!-- MODAL DE SERVICIOS -->
+  <!-- ES: MODAL DE SERVICIOS | EN: SERVICES MODAL -->
   <div class="modal-overlay" id="service-modal" style="display: none;">
     <div class="modal-box">
       <h3 id="modal-service-title">Nuevo Servicio</h3>
@@ -486,7 +487,7 @@
     </div>
   </div>
 
-  <!-- MODAL DE CONFIRMACIÓN GENÉRICO (on-brand, sustituye a confirm()) -->
+  <!-- ES: MODAL DE CONFIRMACIÓN GENÉRICO (on-brand, sustituye a confirm()) | EN: GENERIC CONFIRMATION MODAL (on-brand, replaces confirm()) -->
   <div class="modal-overlay" id="confirm-modal" style="display: none;">
     <div class="modal-box modal-box--confirm">
       <h3 id="confirm-modal-title">Confirmar acción</h3>
@@ -498,7 +499,7 @@
     </div>
   </div>
 
-  <!-- MODAL PARA VER Y EDITAR IMAGEN A TAMAÑO COMPLETO -->
+  <!-- ES: MODAL PARA VER Y EDITAR IMAGEN A TAMAÑO COMPLETO | EN: MODAL TO VIEW AND EDIT FULL SIZE IMAGE -->
   <div class="modal-overlay" id="image-preview-modal" style="display: none;">
     <div class="modal-box modal-box--image">
       <button class="modal-close-btn" id="image-modal-close">✕</button>
@@ -530,7 +531,7 @@
     </div>
   </div>
 
-  <!-- MODAL PARA EDITAR VÍDEO -->
+  <!-- ES: MODAL PARA EDITAR VÍDEO | EN: MODAL TO EDIT VIDEO -->
   <div class="modal-overlay" id="video-edit-modal" style="display: none;">
     <div class="modal-box">
       <h3 id="modal-video-title">Editar Información del Vídeo</h3>
@@ -555,10 +556,10 @@
     </div>
   </div>
 
-  <!-- TOAST NOTIFICATIONS -->
+  <!-- ES: TOAST NOTIFICATIONS | EN: TOAST NOTIFICATIONS -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Firebase Scripts (v10) de CDN -->
+  <!-- ES: Firebase Scripts (v10) de CDN | EN: CDN Firebase Scripts (v10) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -570,10 +571,18 @@
     };
   </script>
 
-  <!-- Lógica e Inicialización del Panel -->
+  <!-- ES: Lógica e Inicialización del Panel | EN: Panel Logic & Initialization -->
   <script src="js/config.js"></script>
   <script src="js/i18n-loader.js"></script>
   <script src="js/admin.js"></script>
+  <script type="module">
+    import { loadReviewsState, initReviewsEvents, renderReviewsTable } from './js/admin/admin-reviews.js';
+    document.addEventListener("DOMContentLoaded", () => {
+      loadReviewsState();
+      initReviewsEvents();
+      renderReviewsTable();
+    });
+  </script>
 </body>
 
 </html>

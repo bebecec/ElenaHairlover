@@ -1,4 +1,4 @@
-// i18n-loader.js — Motor de Internacionalización Zero-Hardcoding (EN / ES)
+// ES: i18n-loader.js — Motor de Internacionalización Zero-Hardcoding | EN: i18n-loader.js — Zero-Hardcoding Internationalization Engine
 const I18nLoader = {
   currentLang: 'es',
   supportedLangs: ['es', 'en'],
@@ -24,11 +24,11 @@ const I18nLoader = {
   async loadTranslations(lang) {
     if (!this.supportedLangs.includes(lang)) lang = 'es';
 
-    // file:// protocol: fetch() is blocked by the browser for security.
-    // Use an inline minimal fallback so the page still renders correctly.
+    // ES: Protocolo file://: fetch() está bloqueado por el navegador por seguridad | EN: file:// protocol: fetch() is blocked by the browser for security
+    // ES: Usar una alternativa mínima en línea para que la página se renderice correctamente | EN: Use an inline minimal fallback so the page still renders correctly
     if (window.location.protocol === 'file:') {
       console.warn('[i18n] Protocolo file:// detectado — usando traducciones inline. Para i18n completo usa un servidor local (npm run dev).');
-      this.translations = {};   // keep DOM text as-is (hardcoded Spanish)
+      this.translations = {};   // ES: mantener el texto DOM tal cual (español) | EN: keep DOM text as-is (hardcoded Spanish)
       this.currentLang = lang;
       document.documentElement.setAttribute('lang', lang);
       return;
@@ -59,7 +59,7 @@ const I18nLoader = {
   },
 
   translateDOM() {
-    // 1. Elementos con data-i18n
+    // ES: 1. Elementos con data-i18n | EN: 1. Elements with data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -73,7 +73,7 @@ const I18nLoader = {
       }
     });
 
-    // 2. Atributos traducibles con data-i18n-attr="attr:key,attr2:key2"
+    // ES: 2. Atributos traducibles con data-i18n-attr | EN: 2. Translatable attributes with data-i18n-attr
     const attrElements = document.querySelectorAll('[data-i18n-attr]');
     attrElements.forEach(el => {
       const attrSpecs = el.getAttribute('data-i18n-attr').split(',');
@@ -90,7 +90,7 @@ const I18nLoader = {
       });
     });
 
-    // 3. Botones de cambio de idioma (.lang-switch__btn)
+    // ES: 3. Botones de cambio de idioma (.lang-switch__btn) | EN: 3. Language switch buttons (.lang-switch__btn)
     const switchBtns = document.querySelectorAll('.lang-switch__btn');
     switchBtns.forEach(btn => {
       const btnLang = btn.getAttribute('data-lang');
@@ -99,7 +99,7 @@ const I18nLoader = {
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // Evento personalizado por si otros scripts escuchan cambios de idioma
+    // ES: Evento personalizado para cambios de idioma | EN: Custom event for language changes
     window.dispatchEvent(new CustomEvent('i18nLanguageChanged', { detail: { lang: this.currentLang } }));
   },
 

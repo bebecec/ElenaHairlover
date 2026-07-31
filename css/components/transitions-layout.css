@@ -1,0 +1,7 @@
+/* ═══════ TRANSITIONS & LAYOUT ═══════ */
+  --transition-luxury:     all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast:       all 0.2s ease;
+  --space-section:         120px;
+  --space-section-mob:     80px;
+}
+

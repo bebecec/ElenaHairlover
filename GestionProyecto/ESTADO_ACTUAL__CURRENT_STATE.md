@@ -1,7 +1,7 @@
 # ESTADO ACTUAL · CURRENT STATE
 
 **Contexto General:**
-Este es un Template Universal de base para aplicaciones web con un frontend (`index.html`) y un panel de administración (`admin.html`). Se encuentra en proceso de refactorización desde un template de salón de belleza para convertirse en agnóstico.
+Sitio web premium altamente personalizado para el salón de belleza "Elena Hairlover", que incluye un frontend (`index.html`) y un panel de administración (`admin.html`). El objetivo actual es ampliar sus capacidades, afianzar la marca y añadir nuevas funcionalidades (como reservas online).
 
 **Progreso Actual:**
 - Inicialización del Protocolo Walter LITE.

@@ -40,7 +40,8 @@ const initialServicesSeed = [
   { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
   { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
   { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" }
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
+  { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
 const initialSalonInfoSeed = {
@@ -383,9 +384,9 @@ async function loadData() {
         const oldProjectCategories = ["facial", "corporal", "depilacion", "unas-mirada"];
         services = services.filter(s => !oldProjectCategories.includes(s.category));
         
-        // Migración temporal para asegurarse de que todos los 37 servicios están cargados en peluquería
-        if (!services.some(s => s.name === "Add a Hair Cut to Any Colour Service")) {
-          // Eliminar los antiguos de peluquería y recargar los 37
+        // Migración temporal para asegurarse de que todos los 38 servicios están cargados en peluquería
+        if (!services.some(s => s.name === "Consultation")) {
+          // Eliminar los antiguos de peluquería y recargar los 38
           services = services.filter(s => s.category !== "peluqueria");
           services = [...initialServicesSeed, ...services];
         }

@@ -55,7 +55,8 @@ export const initialServicesSeed = [
   { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
   { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
   { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" }
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
+  { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
 export const initialSalonInfoSeed = {

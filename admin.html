@@ -407,17 +407,62 @@
                 <input type="text" id="info-hours-mon" value="" />
               </div>
             </div>
+  
+              <div style="display: flex; gap: 16px; align-items: center; margin-top: 16px;">
+                <button type="submit" class="btn btn--primary">Actualizar Datos</button>
+                <button type="button" class="btn btn--gold-outline" id="publish-data-btn">Publicar Datos</button>
+              </div>
+            </form>
+          </section>
 
-            <div style="display: flex; gap: 16px; align-items: center; margin-top: 16px;">
-              <button type="submit" class="btn btn--primary">Actualizar Datos</button>
-              <button type="button" class="btn btn--gold-outline" id="publish-data-btn">Publicar Datos</button>
+          <!-- ES: SECCIÓN 5: RESEÑAS DE GOOGLE | EN: SECTION 5: GOOGLE REVIEWS -->
+          <section class="admin-section" id="sec-reviews">
+            <div class="admin-section__header">
+              <div>
+                <h3>Sincronización de Reseñas de Google</h3>
+                <p>Conecta tu panel con Google Places para descargar testimonios reales de tus clientes.</p>
+              </div>
             </div>
-          </form>
-        </section>
 
-      </div>
-    </main>
-  </div>
+            <div style="background: var(--color-dark-card); padding: 30px; border: 1px solid var(--color-border); border-radius: 4px;">
+              <div class="form-group" style="margin-bottom: 15px;">
+                <label for="google-api-key" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">Google Places API Key</label>
+                <input type="password" id="google-api-key" placeholder="AIzaSyB..." style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff;" />
+              </div>
+              
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="google-place-id" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">Place ID (Google Maps)</label>
+                <input type="text" id="google-place-id" placeholder="ChIJN1t_tDeuEmsRUsoyG83frY4" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff;" />
+              </div>
+              
+              <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+                <button id="save-google-config-btn" class="btn btn--primary" type="button">Guardar Configuración</button>
+                <button id="sync-reviews-btn" class="btn btn--gold-outline" type="button">Sincronizar Reseñas</button>
+              </div>
+              
+              <h4 style="color: var(--color-text-light); margin-bottom: 15px;">Reseñas Guardadas</h4>
+              <div style="overflow-x:auto;">
+                <table class="services-table" style="width: 100%; border-collapse: collapse;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid var(--color-border); text-align: left;">
+                      <th style="padding: 10px;">Autor</th>
+                      <th style="padding: 10px;">Comentario</th>
+                      <th style="padding: 10px;">Puntuación</th>
+                      <th style="padding: 10px;">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="reviews-table-body">
+                    <tr><td colspan="4" style="text-align:center; padding: 20px; color: var(--color-text-muted);">No hay reseñas sincronizadas. Pulsa Sincronizar.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+
 
   <!-- ES: MODAL PARA CREAR / EDITAR SERVICIO | EN: MODAL TO CREATE / EDIT SERVICE -->
   <!-- ES: MODAL DE CATEGORÍAS | EN: CATEGORIES MODAL -->

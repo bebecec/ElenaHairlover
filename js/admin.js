@@ -161,8 +161,16 @@ function updateStorageUsage() {
     const mb = (total / (1024 * 1024)).toFixed(2);
     const maxMB = 5; // localStorage limit ~5MB
     const pct = Math.min(100, (total / (maxMB * 1024 * 1024)) * 100).toFixed(0);
-    storageUsageBadge.textContent = `${mb} MB / ${maxMB} MB (${pct}%)`;
+    storageUsageBadge.textContent = `Memoria: ${mb} MB / ${maxMB} MB (${pct}%)`;
     storageUsageBadge.title = `Espacio utilizado en localStorage`;
+    
+    if (pct < 70) {
+      storageUsageBadge.className = "badge storage-ok";
+    } else if (pct < 90) {
+      storageUsageBadge.className = "badge storage-warning";
+    } else {
+      storageUsageBadge.className = "badge storage-danger";
+    }
   } catch(e) {
     // Silently fail
   }

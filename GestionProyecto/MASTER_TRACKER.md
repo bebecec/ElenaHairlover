@@ -8,6 +8,7 @@
 - [ ] Desarrollar funcionalidad de Reservas Online (con Base de Datos propia y gestión en el Panel de Administración).
 - [ ] Refactorizar `admin.html` (limpieza y estados UI).
 - [ ] Desacoplar CSS/JS.
+- [ ] Configurar Firebase real y desplegar en Vercel (conectar repositorio de GitHub y activar `useFirebase` en `js/config.js`).
 
 ### En Progreso (DOING)
 - [ ] Refactorización modular.

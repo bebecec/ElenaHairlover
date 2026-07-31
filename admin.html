@@ -55,7 +55,7 @@
             <button type="button" class="btn btn--gold-outline lang-switch__btn" data-lang="en" style="padding: 4px 8px; font-size: 0.7rem;">EN</button>
           </div>
           <span class="user-email" id="admin-user-email">Administrador Local</span>
-          <button id="btn-logout" class="btn btn--gold-outline" style="margin-left: 10px; padding: 4px 12px; font-size: 0.8rem;">Salir</button>
+          <button id="btn-logout" class="btn btn--gold-outline" style="margin-left: 10px; padding: 4px 12px; font-size: 0.8rem;" data-i18n="admin.btn_logout">Salir</button>
         </div>
       </div>
     </header>
@@ -68,7 +68,7 @@
           <button class="admin-tab-btn active" data-section="servicios" data-i18n="admin.tab_items">Gestión de Ítems</button>
           <button class="admin-tab-btn" data-section="hero" data-i18n="admin.tab_hero">Carrusel del Hero</button>
           <button class="admin-tab-btn" data-section="galeria" data-i18n="admin.tab_gallery">Galería de Imágenes</button>
-          <button class="admin-tab-btn" data-section="reviews">Reseñas (Google)</button>
+          <button class="admin-tab-btn" data-section="reviews" data-i18n="admin.tab_reviews">Reseñas (Google)</button>
           <button class="admin-tab-btn" data-section="informacion" data-i18n="admin.tab_settings">Configuración</button>
         </div>
 
@@ -417,57 +417,74 @@
             <!-- ES: Configuración de Agenda de Citas | EN: Booking Agenda Configuration -->
             <div class="admin-section__header" style="margin-top: 50px; border-top: 1px solid var(--color-border); padding-top: 30px;">
               <div>
-                <h3>📅 Agenda de Citas — Enlace de Reservas</h3>
-                <p>Elige qué sistema de reservas usan los botones "Reserva Cita" de tu web pública. Puedes usar una agenda externa (Timely, Calendly, etc.) o la agenda interna integrada.</p>
+                <h3 data-i18n="admin.agenda_title">📅 Agenda de Citas — Enlace de Reservas</h3>
+                <p data-i18n="admin.agenda_desc">Elige qué sistema de reservas usan los botones "Reserva Cita" de tu web pública. Puedes usar una agenda externa (Timely, Calendly, etc.) o la agenda interna integrada.</p>
               </div>
             </div>
 
-            <div style="background: var(--color-dark-card); padding: 30px; border: 1px solid var(--color-border); border-radius: 4px; margin-top: 20px;">
+            <div class="agenda-config-panel">
               
               <!-- ES: Selector de tipo de agenda | EN: Agenda type selector -->
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="color: var(--color-gold-warm); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 10px;">Tipo de Agenda</label>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 6px; transition: all 0.2s;" id="label-agenda-external">
-                    <input type="radio" name="agenda-type" value="external" id="agenda-type-external" checked style="accent-color: var(--color-gold-warm);" />
-                    <div>
-                      <strong style="color: #fff; font-size: 0.85rem;">🌐 Agenda Externa</strong>
-                      <small style="display: block; color: var(--color-text-muted); font-size: 0.72rem;">Timely, Calendly, Fresha, etc.</small>
+              <div class="agenda-config-panel__group">
+                <span class="agenda-config-panel__label" data-i18n="admin.agenda_type">Tipo de Agenda</span>
+                <div class="agenda-type-grid">
+                  <label class="agenda-type-option" id="label-agenda-external">
+                    <input type="radio" name="agenda-type" value="external" id="agenda-type-external" checked />
+                    <span class="agenda-type-option__indicator" aria-hidden="true"></span>
+                    <div class="agenda-type-option__copy">
+                      <strong data-i18n="admin.agenda_external">🌐 Agenda Externa</strong>
+                      <small data-i18n="admin.agenda_external_desc">Timely, Calendly, Fresha, etc.</small>
                     </div>
                   </label>
-                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 6px; transition: all 0.2s;" id="label-agenda-internal">
-                    <input type="radio" name="agenda-type" value="internal" id="agenda-type-internal" style="accent-color: var(--color-gold-warm);" />
-                    <div>
-                      <strong style="color: #fff; font-size: 0.85rem;">🏠 Agenda Interna</strong>
-                      <small style="display: block; color: var(--color-text-muted); font-size: 0.72rem;">Tu propia app de reservas integrada</small>
+                  <label class="agenda-type-option" id="label-agenda-internal">
+                    <input type="radio" name="agenda-type" value="internal" id="agenda-type-internal" />
+                    <span class="agenda-type-option__indicator" aria-hidden="true"></span>
+                    <div class="agenda-type-option__copy">
+                      <strong data-i18n="admin.agenda_internal">🏠 Agenda Interna</strong>
+                      <small data-i18n="admin.agenda_internal_desc">Tu propia app de reservas integrada</small>
+                    </div>
+                  </label>
+                  <label class="agenda-type-option" id="label-agenda-google">
+                    <input type="radio" name="agenda-type" value="google" id="agenda-type-google" />
+                    <span class="agenda-type-option__indicator" aria-hidden="true"></span>
+                    <div class="agenda-type-option__copy">
+                      <strong data-i18n="admin.agenda_google">📆 Google Calendar</strong>
+                      <small data-i18n="admin.agenda_google_desc">Agenda de citas de Google para reservar online.</small>
                     </div>
                   </label>
                 </div>
               </div>
 
               <!-- ES: Campo URL externa | EN: External URL field -->
-              <div class="form-group" id="agenda-external-fields" style="margin-bottom: 20px;">
-                <label for="agenda-external-url" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">URL de la Agenda Externa</label>
-                <input type="url" id="agenda-external-url" value="https://elenahairlover.gettimely.com/" placeholder="https://tuagenda.com/reservar" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff; border-radius: 4px;" />
-                <small style="color: var(--color-text-muted); font-size: 0.72rem;">Pega la URL completa de tu plataforma de reservas (se abrirá en nueva pestaña).</small>
+              <div class="agenda-field-group" id="agenda-external-fields">
+                <label for="agenda-external-url" data-i18n="admin.agenda_external_url">URL de la Agenda Externa</label>
+                <input type="url" id="agenda-external-url" value="https://elenahairlover.gettimely.com/" placeholder="https://tuagenda.com/reservar" />
+                <small data-i18n="admin.agenda_external_url_desc">Pega la URL completa de tu plataforma de reservas (se abrirá en nueva pestaña).</small>
               </div>
 
               <!-- ES: Campo URL interna | EN: Internal URL field -->
-              <div class="form-group" id="agenda-internal-fields" style="margin-bottom: 20px; display: none;">
-                <label for="agenda-internal-url" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">Ruta de la Agenda Interna</label>
-                <input type="text" id="agenda-internal-url" value="./reserva/index.html" placeholder="./reserva/index.html" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff; border-radius: 4px;" />
-                <small style="color: var(--color-text-muted); font-size: 0.72rem;">Ruta relativa a tu app de citas integrada dentro de tu proyecto web.</small>
+              <div class="agenda-field-group" id="agenda-internal-fields" hidden>
+                <label for="agenda-internal-url" data-i18n="admin.agenda_internal_url">Ruta de la Agenda Interna</label>
+                <input type="text" id="agenda-internal-url" value="./reserva/index.html" placeholder="./reserva/index.html" />
+                <small data-i18n="admin.agenda_internal_url_desc">Ruta relativa a tu app de citas integrada dentro de tu proyecto web.</small>
+              </div>
+
+              <!-- ES: Campo Google Calendar | EN: Google Calendar field -->
+              <div class="agenda-field-group" id="agenda-google-fields" hidden>
+                <label for="agenda-google-url" data-i18n="admin.agenda_google_url">URL de Google Calendar</label>
+                <input type="url" id="agenda-google-url" value="" placeholder="https://calendar.google.com/calendar/appointments/..." />
+                <small data-i18n="admin.agenda_google_url_desc">Pega aquí el enlace público de tu agenda de citas de Google Calendar.</small>
               </div>
 
               <!-- ES: Vista previa del enlace activo | EN: Active link preview -->
-              <div style="background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;">
-                <small style="color: var(--color-gold-warm); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Enlace activo en la web:</small>
-                <div id="agenda-preview-url" style="color: #fff; font-family: monospace; font-size: 0.85rem; margin-top: 6px; word-break: break-all;">https://elenahairlover.gettimely.com/</div>
+              <div class="agenda-preview">
+                <small data-i18n="admin.agenda_active_preview">Enlace activo en la web:</small>
+                <div id="agenda-preview-url">https://elenahairlover.gettimely.com/</div>
               </div>
 
-              <div style="display: flex; gap: 12px; align-items: center;">
-                <button type="button" class="btn btn--primary" id="btn-save-agenda">💾 Guardar Configuración de Agenda</button>
-                <a href="https://elenahairlover.gettimely.com/" target="_blank" id="btn-test-agenda" class="btn btn--gold-outline" style="text-decoration: none;">🔗 Probar Enlace</a>
+              <div class="agenda-actions">
+                <button type="button" class="btn btn--primary" id="btn-save-agenda" data-i18n="admin.agenda_btn_save">💾 Guardar Configuración de Agenda</button>
+                <a href="https://elenahairlover.gettimely.com/" target="_blank" id="btn-test-agenda" class="btn btn--gold-outline agenda-actions__link" data-i18n="admin.agenda_btn_test">🔗 Probar Enlace</a>
               </div>
             </div>
 
@@ -701,6 +718,7 @@
   <script src="js/admin.js"></script>
   <script type="module">
     import { loadReviewsState, initReviewsEvents, renderReviewsTable } from './js/admin/admin-reviews.js';
+    window.renderReviewsTableGlobal = renderReviewsTable;
     document.addEventListener("DOMContentLoaded", () => {
       loadReviewsState();
       initReviewsEvents();

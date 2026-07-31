@@ -177,10 +177,32 @@ function updateStorageUsage() {
   }
 }
 
+function updateI18nLabels() {
+  if (!dbModeBadge || !adminUserEmail) return;
+  const isOnline = window.useFirebase;
+
+  if (window.I18nLoader) {
+    if (isOnline) {
+      const dbOnlineText = window.I18nLoader.getText("admin.database_online") || "Firebase Activo";
+      dbModeBadge.textContent = dbOnlineText;
+
+      const userEmail = (auth && auth.currentUser) ? auth.currentUser.email : "admin@salon.com";
+      const modeOnlineText = window.I18nLoader.getText("admin.mode_online") || "en línea";
+      adminUserEmail.innerHTML = `${userEmail} <span style="color: #2ecc71; font-weight: 600; margin-left: 5px;">(${modeOnlineText})</span>`;
+    } else {
+      const dbLocalText = window.I18nLoader.getText("admin.database_local") || "Modo Local (localStorage)";
+      dbModeBadge.textContent = dbLocalText;
+
+      const roleLocalText = window.I18nLoader.getText("admin.user_role_local") || "Administrador Local";
+      const modeLocalText = window.I18nLoader.getText("admin.mode_local") || "modo local";
+      adminUserEmail.innerHTML = `${roleLocalText} <span style="color: #e74c3c; font-weight: 600; margin-left: 5px;">(${modeLocalText})</span>`;
+    }
+  }
+}
+
 function initDatabase() {
   updateStorageUsage(); // Cargar estado inicial del espacio de almacenamiento
   if (window.useFirebase) {
-    dbModeBadge.textContent = "Firebase Activo";
     dbModeBadge.className = "badge mode-firebase";
 
     const { initializeApp, getAuth, getFirestore, onAuthStateChanged } = window.FirebaseLib;
@@ -188,18 +210,19 @@ function initDatabase() {
     auth = getAuth(firebaseApp);
     db = getFirestore(firebaseApp);
 
+    updateI18nLabels();
+
     // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        adminUserEmail.innerHTML = `${user.email} <span style="color: #2ecc71; font-weight: 600; margin-left: 5px;">(online)</span>`;
+        updateI18nLabels();
         loadData();
       }
     });
   } else {
     // Modo Local: acceso directo sin credenciales
-    dbModeBadge.textContent = "Modo Local (localStorage)";
     dbModeBadge.className = "badge mode-local";
-    adminUserEmail.innerHTML = `Administrador <span style="color: #e74c3c; font-weight: 600; margin-left: 5px;">(modo local)</span>`;
+    updateI18nLabels();
     loadData();
   }
 }
@@ -450,7 +473,6 @@ function renderServicesTable() {
 
   if (filtered.length === 0) {
     servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "Vacío"}</td></tr>`;
-    if (window.I18nLoader) window.I18nLoader.translateDOM();
     return;
   }
 
@@ -1632,17 +1654,21 @@ function initBackupRestore() {
 function initAgendaConfig() {
   const radioExternal = document.getElementById("agenda-type-external");
   const radioInternal = document.getElementById("agenda-type-internal");
+  const radioGoogle = document.getElementById("agenda-type-google");
   const externalFields = document.getElementById("agenda-external-fields");
   const internalFields = document.getElementById("agenda-internal-fields");
+  const googleFields = document.getElementById("agenda-google-fields");
   const externalUrlInput = document.getElementById("agenda-external-url");
   const internalUrlInput = document.getElementById("agenda-internal-url");
+  const googleUrlInput = document.getElementById("agenda-google-url");
   const previewUrl = document.getElementById("agenda-preview-url");
   const btnSave = document.getElementById("btn-save-agenda");
   const btnTest = document.getElementById("btn-test-agenda");
   const labelExternal = document.getElementById("label-agenda-external");
   const labelInternal = document.getElementById("label-agenda-internal");
+  const labelGoogle = document.getElementById("label-agenda-google");
 
-  if (!radioExternal || !radioInternal || !btnSave) return;
+  if (!radioExternal || !radioInternal || !radioGoogle || !btnSave) return;
 
   // ES: Cargar configuración guardada | EN: Load saved configuration
   const saved = JSON.parse(localStorage.getItem("elegance_agenda_config") || "null");
@@ -1650,49 +1676,65 @@ function initAgendaConfig() {
     if (saved.type === "internal") {
       radioInternal.checked = true;
       radioExternal.checked = false;
+      radioGoogle.checked = false;
+    } else if (saved.type === "google") {
+      radioGoogle.checked = true;
+      radioExternal.checked = false;
+      radioInternal.checked = false;
     } else {
       radioExternal.checked = true;
       radioInternal.checked = false;
+      radioGoogle.checked = false;
     }
     if (saved.externalUrl && externalUrlInput) externalUrlInput.value = saved.externalUrl;
     if (saved.internalUrl && internalUrlInput) internalUrlInput.value = saved.internalUrl;
+    if (saved.googleUrl && googleUrlInput) googleUrlInput.value = saved.googleUrl;
   }
 
   // ES: Función para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
   function updateFieldsVisibility() {
     const isExternal = radioExternal.checked;
-    externalFields.style.display = isExternal ? "block" : "none";
-    internalFields.style.display = isExternal ? "none" : "block";
+    const isInternal = radioInternal.checked;
+    const isGoogle = radioGoogle.checked;
+    externalFields.hidden = !isExternal;
+    internalFields.hidden = !isInternal;
+    googleFields.hidden = !isGoogle;
 
     // ES: Resaltar la opción seleccionada | EN: Highlight selected option
-    if (labelExternal && labelInternal) {
-      labelExternal.style.borderColor = isExternal ? "var(--color-gold-warm)" : "var(--color-border)";
-      labelExternal.style.background = isExternal ? "rgba(201,168,76,0.08)" : "transparent";
-      labelInternal.style.borderColor = !isExternal ? "var(--color-gold-warm)" : "var(--color-border)";
-      labelInternal.style.background = !isExternal ? "rgba(201,168,76,0.08)" : "transparent";
+    if (labelExternal && labelInternal && labelGoogle) {
+      labelExternal.classList.toggle("is-selected", isExternal);
+      labelInternal.classList.toggle("is-selected", isInternal);
+      labelGoogle.classList.toggle("is-selected", isGoogle);
     }
 
     // ES: Actualizar vista previa | EN: Update preview
-    const activeUrl = isExternal ? externalUrlInput.value : internalUrlInput.value;
+    const activeUrl = isExternal
+      ? externalUrlInput.value
+      : isGoogle
+        ? googleUrlInput.value
+        : internalUrlInput.value;
     if (previewUrl) previewUrl.textContent = activeUrl || "(sin configurar)";
     if (btnTest) {
       btnTest.href = activeUrl || "#";
-      btnTest.target = isExternal ? "_blank" : "_self";
+      btnTest.target = isInternal ? "_self" : "_blank";
     }
   }
 
   // ES: Eventos de cambio de tipo | EN: Type change events
   radioExternal.addEventListener("change", updateFieldsVisibility);
   radioInternal.addEventListener("change", updateFieldsVisibility);
+  radioGoogle.addEventListener("change", updateFieldsVisibility);
   if (externalUrlInput) externalUrlInput.addEventListener("input", updateFieldsVisibility);
   if (internalUrlInput) internalUrlInput.addEventListener("input", updateFieldsVisibility);
+  if (googleUrlInput) googleUrlInput.addEventListener("input", updateFieldsVisibility);
 
   // ES: Guardar configuración | EN: Save configuration
   btnSave.addEventListener("click", () => {
     const config = {
-      type: radioExternal.checked ? "external" : "internal",
+      type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : "internal",
       externalUrl: externalUrlInput ? externalUrlInput.value : "",
-      internalUrl: internalUrlInput ? internalUrlInput.value : ""
+      internalUrl: internalUrlInput ? internalUrlInput.value : "",
+      googleUrl: googleUrlInput ? googleUrlInput.value : ""
     };
     localStorage.setItem("elegance_agenda_config", JSON.stringify(config));
     showToast("Configuración de agenda guardada correctamente", "success");
@@ -1705,4 +1747,32 @@ function initAgendaConfig() {
 // ES: Inicializar al cargar la página | EN: Initialize on page load
 document.addEventListener("DOMContentLoaded", () => {
   initAgendaConfig();
+});
+
+// ES: Listener para cambios de idioma en tiempo real | EN: Listener for real-time language changes
+window.addEventListener("i18nLanguageChanged", () => {
+  // ES: Actualizar textos dependientes de traducción | EN: Update translation-dependent texts
+  if (typeof updateI18nLabels === "function") {
+    updateI18nLabels();
+  }
+
+  // ES: Volver a renderizar elementos dinámicos para aplicar los nuevos textos | EN: Re-render dynamic elements to apply new texts
+  if (typeof renderCategoryTabs === "function") renderCategoryTabs();
+  if (typeof renderCategorySelect === "function") renderCategorySelect();
+  if (typeof renderCategoryManagerList === "function") renderCategoryManagerList();
+  if (typeof renderServicesTable === "function") renderServicesTable();
+  if (typeof renderGallery === "function") renderGallery();
+  if (typeof renderHero === "function") renderHero();
+
+  // ES: Buscar si el módulo de reseñas está cargado y refrescarlo | EN: Check if reviews module is loaded and refresh it
+  const reviewsContainer = document.getElementById("reviews-table-body");
+  if (reviewsContainer) {
+    // ES: El script de reviews expone funciones globalmente o se importan. Si está importado, podemos intentar llamarlo si está registrado globalmente.
+    // ES: Dado que reviews se carga dinámicamente en admin.html:
+    // window.renderReviewsTable = renderReviewsTable; // Deberíamos asegurarnos de tener acceso a ello.
+    if (window.renderReviewsTableGlobal) {
+      window.renderReviewsTableGlobal();
+    }
+  }
+
 });

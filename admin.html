@@ -414,6 +414,63 @@
               </div>
             </form>
 
+            <!-- ES: Configuración de Agenda de Citas | EN: Booking Agenda Configuration -->
+            <div class="admin-section__header" style="margin-top: 50px; border-top: 1px solid var(--color-border); padding-top: 30px;">
+              <div>
+                <h3>📅 Agenda de Citas — Enlace de Reservas</h3>
+                <p>Elige qué sistema de reservas usan los botones "Reserva Cita" de tu web pública. Puedes usar una agenda externa (Timely, Calendly, etc.) o la agenda interna integrada.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--color-dark-card); padding: 30px; border: 1px solid var(--color-border); border-radius: 4px; margin-top: 20px;">
+              
+              <!-- ES: Selector de tipo de agenda | EN: Agenda type selector -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label style="color: var(--color-gold-warm); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 10px;">Tipo de Agenda</label>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 6px; transition: all 0.2s;" id="label-agenda-external">
+                    <input type="radio" name="agenda-type" value="external" id="agenda-type-external" checked style="accent-color: var(--color-gold-warm);" />
+                    <div>
+                      <strong style="color: #fff; font-size: 0.85rem;">🌐 Agenda Externa</strong>
+                      <small style="display: block; color: var(--color-text-muted); font-size: 0.72rem;">Timely, Calendly, Fresha, etc.</small>
+                    </div>
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 6px; transition: all 0.2s;" id="label-agenda-internal">
+                    <input type="radio" name="agenda-type" value="internal" id="agenda-type-internal" style="accent-color: var(--color-gold-warm);" />
+                    <div>
+                      <strong style="color: #fff; font-size: 0.85rem;">🏠 Agenda Interna</strong>
+                      <small style="display: block; color: var(--color-text-muted); font-size: 0.72rem;">Tu propia app de reservas integrada</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ES: Campo URL externa | EN: External URL field -->
+              <div class="form-group" id="agenda-external-fields" style="margin-bottom: 20px;">
+                <label for="agenda-external-url" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">URL de la Agenda Externa</label>
+                <input type="url" id="agenda-external-url" value="https://elenahairlover.gettimely.com/" placeholder="https://tuagenda.com/reservar" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff; border-radius: 4px;" />
+                <small style="color: var(--color-text-muted); font-size: 0.72rem;">Pega la URL completa de tu plataforma de reservas (se abrirá en nueva pestaña).</small>
+              </div>
+
+              <!-- ES: Campo URL interna | EN: Internal URL field -->
+              <div class="form-group" id="agenda-internal-fields" style="margin-bottom: 20px; display: none;">
+                <label for="agenda-internal-url" style="color: var(--color-gold-warm); font-size: 0.8rem; font-weight: 600;">Ruta de la Agenda Interna</label>
+                <input type="text" id="agenda-internal-url" value="./reserva/index.html" placeholder="./reserva/index.html" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--color-border-dark); padding: 10px; color: #fff; border-radius: 4px;" />
+                <small style="color: var(--color-text-muted); font-size: 0.72rem;">Ruta relativa a tu app de citas integrada dentro de tu proyecto web.</small>
+              </div>
+
+              <!-- ES: Vista previa del enlace activo | EN: Active link preview -->
+              <div style="background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;">
+                <small style="color: var(--color-gold-warm); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Enlace activo en la web:</small>
+                <div id="agenda-preview-url" style="color: #fff; font-family: monospace; font-size: 0.85rem; margin-top: 6px; word-break: break-all;">https://elenahairlover.gettimely.com/</div>
+              </div>
+
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <button type="button" class="btn btn--primary" id="btn-save-agenda">💾 Guardar Configuración de Agenda</button>
+                <a href="https://elenahairlover.gettimely.com/" target="_blank" id="btn-test-agenda" class="btn btn--gold-outline" style="text-decoration: none;">🔗 Probar Enlace</a>
+              </div>
+            </div>
+
             <!-- ES: Respaldo y Restauración de Datos | EN: Data Backup & Restore -->
             <div class="admin-section__header" style="margin-top: 50px; border-top: 1px solid var(--color-border); padding-top: 30px;">
               <div>

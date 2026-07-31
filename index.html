@@ -841,6 +841,29 @@
   <!-- ES: ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) | EN: ELEGANCE UX v1 — i18n (se carga antes de main.js; se auto-inicializa) -->
   <script src="js/i18n-loader.js" defer></script>
   <script src="js/main.js" defer></script>
+
+  <!-- ES: Aplicar configuración de agenda de citas desde el panel admin | EN: Apply booking agenda config from admin panel -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      try {
+        var config = JSON.parse(localStorage.getItem("elegance_agenda_config"));
+        if (!config) return;
+        var url = config.type === "internal" ? (config.internalUrl || "./reserva/index.html") : (config.externalUrl || "https://elenahairlover.gettimely.com/");
+        var isExternal = config.type === "external";
+        // ES: Buscar todos los enlaces de reserva y actualizarlos | EN: Find all booking links and update them
+        document.querySelectorAll('a[href*="reserva"], a[href*="gettimely"], a[data-booking-link]').forEach(function(link) {
+          link.href = url;
+          if (isExternal) {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener");
+          } else {
+            link.removeAttribute("target");
+            link.removeAttribute("rel");
+          }
+        });
+      } catch(e) { /* silencioso */ }
+    });
+  </script>
 </body>
 
 </html>

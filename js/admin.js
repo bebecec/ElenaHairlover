@@ -1623,3 +1623,86 @@ function initBackupRestore() {
     });
   }
 }
+
+
+// ============================================================================
+// BOOKING AGENDA CONFIGURATION (CONFIGURACIÓN DE AGENDA DE CITAS)
+// ============================================================================
+
+function initAgendaConfig() {
+  const radioExternal = document.getElementById("agenda-type-external");
+  const radioInternal = document.getElementById("agenda-type-internal");
+  const externalFields = document.getElementById("agenda-external-fields");
+  const internalFields = document.getElementById("agenda-internal-fields");
+  const externalUrlInput = document.getElementById("agenda-external-url");
+  const internalUrlInput = document.getElementById("agenda-internal-url");
+  const previewUrl = document.getElementById("agenda-preview-url");
+  const btnSave = document.getElementById("btn-save-agenda");
+  const btnTest = document.getElementById("btn-test-agenda");
+  const labelExternal = document.getElementById("label-agenda-external");
+  const labelInternal = document.getElementById("label-agenda-internal");
+
+  if (!radioExternal || !radioInternal || !btnSave) return;
+
+  // ES: Cargar configuración guardada | EN: Load saved configuration
+  const saved = JSON.parse(localStorage.getItem("elegance_agenda_config") || "null");
+  if (saved) {
+    if (saved.type === "internal") {
+      radioInternal.checked = true;
+      radioExternal.checked = false;
+    } else {
+      radioExternal.checked = true;
+      radioInternal.checked = false;
+    }
+    if (saved.externalUrl && externalUrlInput) externalUrlInput.value = saved.externalUrl;
+    if (saved.internalUrl && internalUrlInput) internalUrlInput.value = saved.internalUrl;
+  }
+
+  // ES: Función para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
+  function updateFieldsVisibility() {
+    const isExternal = radioExternal.checked;
+    externalFields.style.display = isExternal ? "block" : "none";
+    internalFields.style.display = isExternal ? "none" : "block";
+
+    // ES: Resaltar la opción seleccionada | EN: Highlight selected option
+    if (labelExternal && labelInternal) {
+      labelExternal.style.borderColor = isExternal ? "var(--color-gold-warm)" : "var(--color-border)";
+      labelExternal.style.background = isExternal ? "rgba(201,168,76,0.08)" : "transparent";
+      labelInternal.style.borderColor = !isExternal ? "var(--color-gold-warm)" : "var(--color-border)";
+      labelInternal.style.background = !isExternal ? "rgba(201,168,76,0.08)" : "transparent";
+    }
+
+    // ES: Actualizar vista previa | EN: Update preview
+    const activeUrl = isExternal ? externalUrlInput.value : internalUrlInput.value;
+    if (previewUrl) previewUrl.textContent = activeUrl || "(sin configurar)";
+    if (btnTest) {
+      btnTest.href = activeUrl || "#";
+      btnTest.target = isExternal ? "_blank" : "_self";
+    }
+  }
+
+  // ES: Eventos de cambio de tipo | EN: Type change events
+  radioExternal.addEventListener("change", updateFieldsVisibility);
+  radioInternal.addEventListener("change", updateFieldsVisibility);
+  if (externalUrlInput) externalUrlInput.addEventListener("input", updateFieldsVisibility);
+  if (internalUrlInput) internalUrlInput.addEventListener("input", updateFieldsVisibility);
+
+  // ES: Guardar configuración | EN: Save configuration
+  btnSave.addEventListener("click", () => {
+    const config = {
+      type: radioExternal.checked ? "external" : "internal",
+      externalUrl: externalUrlInput ? externalUrlInput.value : "",
+      internalUrl: internalUrlInput ? internalUrlInput.value : ""
+    };
+    localStorage.setItem("elegance_agenda_config", JSON.stringify(config));
+    showToast("Configuración de agenda guardada correctamente", "success");
+  });
+
+  // ES: Inicializar la vista | EN: Initialize the view
+  updateFieldsVisibility();
+}
+
+// ES: Inicializar al cargar la página | EN: Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+  initAgendaConfig();
+});

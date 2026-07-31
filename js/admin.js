@@ -379,13 +379,17 @@ async function loadData() {
       if (savedServices) {
         services = JSON.parse(savedServices);
         
+        // Filtrar servicios de categorías antiguas de otros proyectos (facial, corporal, depilacion, unas-mirada)
+        const oldProjectCategories = ["facial", "corporal", "depilacion", "unas-mirada"];
+        services = services.filter(s => !oldProjectCategories.includes(s.category));
+        
         // Migración temporal para asegurarse de que todos los 37 servicios están cargados en peluquería
         if (!services.some(s => s.name === "Add a Hair Cut to Any Colour Service")) {
           // Eliminar los antiguos de peluquería y recargar los 37
           services = services.filter(s => s.category !== "peluqueria");
           services = [...initialServicesSeed, ...services];
-          localStorage.setItem("elegance_services", JSON.stringify(services));
         }
+        localStorage.setItem("elegance_services", JSON.stringify(services));
       } else {
         services = [...initialServicesSeed];
         localStorage.setItem("elegance_services", JSON.stringify(services));

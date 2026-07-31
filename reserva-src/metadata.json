@@ -1,0 +1,6 @@
+{
+  "name": "Elena Hairlover - Citas Previa & Reserva Online",
+  "description": "Sistema exclusivo de reserva de citas previa online para el salón de peluquería Elena Hairlover. Gestión completa de agenda, servicios personalizados, asesor de belleza con IA y panel de administración.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

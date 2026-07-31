@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C9A84C;
+  --color-primary-hover: #b08d35;
+  --color-gold: #C9A84C;
+  --color-gold-light: #DFCA8D;
+  --color-gold-dark: #8F722A;
+  
+  --color-dark-bg: #111111;
+  --color-dark-card: #171717;
+  --color-dark-border: #1f1f1f;
+  
+  /* ES: Mapear colores Slate a escala oscura para mantener contraste | EN: Map Slate colors to dark scale to keep contrast */
+  --color-slate-50: #111111;
+  --color-slate-100: #171717;
+  --color-slate-200: #1f1f1f;
+  --color-slate-300: #292929;
+  --color-slate-400: #777777;
+  --color-slate-500: #999999;
+  --color-slate-600: #bbbbbb;
+  --color-slate-700: #dddddd;
+  --color-slate-800: #eeeeee;
+  --color-slate-900: #ffffff;
+  
+  /* ES: Mapear acentos rosa de la plantilla al dorado de marca | EN: Map template rose accents to brand gold */
+  --color-rose-50: rgba(201, 168, 76, 0.1);
+  --color-rose-100: rgba(201, 168, 76, 0.2);
+  --color-rose-200: rgba(201, 168, 76, 0.3);
+  --color-rose-300: rgba(201, 168, 76, 0.4);
+  --color-rose-400: #DFCA8D;
+  --color-rose-500: #C9A84C;
+  --color-rose-600: #8F722A;
+  --color-rose-700: #6f541a;
+  
+  /* ES: Alinear acentos azulados a tonos dorados/oscuros | EN: Map blue accents to gold/dark tones */
+  --color-blue-50: rgba(201, 168, 76, 0.1);
+  --color-blue-100: rgba(201, 168, 76, 0.2);
+  --color-blue-500: #C9A84C;
+  --color-blue-600: #8F722A;
+  --color-blue-700: #6f541a;
+  
+  /* ES: Alinear acentos violeta a tonos dorados/oscuros | EN: Map violet accents to gold/dark tones */
+  --color-indigo-50: rgba(201, 168, 76, 0.1);
+  --color-indigo-100: rgba(201, 168, 76, 0.2);
+  --color-indigo-500: #C9A84C;
+  --color-indigo-600: #8F722A;
+  --color-indigo-700: #6f541a;
+}
+
+body {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* ES: Sobreescribir bordes y sombras para fondo oscuro | EN: Override borders and shadows for dark mode */
+.border-slate-100, .border-slate-200 {
+  border-color: #292929 !important;
+}
+
+.bg-white {
+  background-color: #171717 !important;
+}
+
+.text-slate-900, .text-slate-800 {
+  color: #ffffff !important;
+}
+
+.text-slate-500, .text-slate-600 {
+  color: #aaaaaa !important;
+}

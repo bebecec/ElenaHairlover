@@ -228,9 +228,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!listContainer) return;
     
     const savedServices = localStorage.getItem("elegance_services");
-    if (!savedServices) return;
+    let services = [];
     
-    const services = JSON.parse(savedServices);
+    if (savedServices) {
+      services = JSON.parse(savedServices);
+    } else {
+      // Fallback a los servicios por defecto si la base de datos local está limpia
+      services = [
+        { name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €" },
+        { name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €" },
+        { name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 €" },
+        { name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €" },
+        { name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €" },
+        { name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €" },
+        { name: "Balayage - Medium", duration: "3 hours", price: "155 €" },
+        { name: "Olaplex Treatment", duration: "15 mins", price: "25 €" }
+      ];
+    }
     
     function renderList() {
       listContainer.innerHTML = "";

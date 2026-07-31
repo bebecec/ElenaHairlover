@@ -491,42 +491,43 @@
 
   <!-- ES: MODAL DE SERVICIOS | EN: SERVICES MODAL -->
   <div class="modal-overlay" id="service-modal" style="display: none;">
+    <!-- ES: Modal para crear o editar un servicio | EN: Modal to create or edit a service -->
     <div class="modal-box">
-      <h3 id="modal-service-title">Nuevo Servicio</h3>
+      <h3 id="modal-service-title" data-i18n="admin.modal_service_title_new">Nuevo Servicio</h3>
       <form id="service-form">
         <input type="hidden" id="service-id" />
 
         <div class="form-group">
-          <label for="service-name">Nombre del Tratamiento</label>
-          <input type="text" id="service-name" placeholder="Ej. Higiene Hidro Detox T3" />
+          <label for="service-name" data-i18n="admin.service_name">Nombre del Tratamiento</label>
+          <input type="text" id="service-name" placeholder="Ej. Higiene Hidro Detox T3" data-i18n-attr="placeholder:admin.service_name_placeholder" />
         </div>
 
         <div class="form-group">
-          <label for="service-duration">Detalle / Duración</label>
+          <label for="service-duration" data-i18n="admin.service_duration">Detalle / Duración</label>
           <input type="text" id="service-duration" required
-            placeholder="Ej. 1h 30min — Desintoxicación profunda de la piel" />
+            placeholder="Ej. 1h 30min — Desintoxicación profunda de la piel" data-i18n-attr="placeholder:admin.service_duration_placeholder" />
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="service-price">Precio (€ o 'Gratuito')</label>
-            <input type="text" id="service-price" placeholder="Ej. 55,00 €" />
+            <label for="service-price" data-i18n="admin.service_price">Precio (€ o 'Gratuito')</label>
+            <input type="text" id="service-price" placeholder="Ej. 55,00 €" data-i18n-attr="placeholder:admin.service_price_placeholder" />
           </div>
           <div class="form-group">
-            <label for="service-category">Categoría</label>
+            <label for="service-category" data-i18n="admin.service_category">Categoría</label>
             <select id="service-category" required>
-              <option value="facial">Estética Facial</option>
-              <option value="corporal">Estética Corporal</option>
-              <option value="peluqueria">Peluquería</option>
-              <option value="depilacion">Depilación</option>
-              <option value="unas-mirada">Cejas &amp; Pestañas</option>
+              <option value="facial" data-i18n="admin.category_facial">Estética Facial</option>
+              <option value="corporal" data-i18n="admin.category_corporal">Estética Corporal</option>
+              <option value="peluqueria" data-i18n="services.tab_peluqueria">Peluquería</option>
+              <option value="depilacion" data-i18n="admin.category_depilacion">Depilación</option>
+              <option value="unas-mirada" data-i18n="admin.category_unas_mirada">Cejas &amp; Pestañas</option>
             </select>
           </div>
         </div>
 
         <div class="modal-box__actions">
-          <button type="button" class="btn btn--secondary" id="modal-cancel-btn">Cancelar</button>
-          <button type="submit" class="btn btn--primary" id="modal-save-btn">Guardar</button>
+          <button type="button" class="btn btn--secondary" id="modal-cancel-btn" data-i18n="admin.btn_cancel">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="modal-save-btn" data-i18n="admin.btn_save">Guardar</button>
         </div>
       </form>
     </div>

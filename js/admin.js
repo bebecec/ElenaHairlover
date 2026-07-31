@@ -502,7 +502,8 @@ async function deleteServiceItem(id) {
 }
 
 newServiceBtn.addEventListener("click", () => {
-  modalServiceTitle.textContent = "Nuevo Servicio";
+  modalServiceTitle.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.modal_service_title_new") : "Nuevo Servicio";
+  modalServiceTitle.setAttribute("data-i18n", "admin.modal_service_title_new");
   serviceIdInput.value = "";
   serviceForm.reset();
   serviceCategorySelect.value = currentCategory;
@@ -563,7 +564,8 @@ function openEditModal(id) {
   const service = services.find(s => s.id === id);
   if (!service) return;
 
-  modalServiceTitle.textContent = "Editar Servicio";
+  modalServiceTitle.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.modal_service_title_edit") : "Editar Servicio";
+  modalServiceTitle.setAttribute("data-i18n", "admin.modal_service_title_edit");
   serviceIdInput.value = service.id;
   serviceNameInput.value = service.name;
   serviceDurationInput.value = service.duration;

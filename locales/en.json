@@ -95,7 +95,18 @@
     "table_name": "Name",
     "table_detail": "Detail / Duration",
     "table_price": "Price",
-    "table_actions": "Actions"
+    "table_actions": "Actions",
+    "modal_service_title_new": "New Service",
+    "modal_service_title_edit": "Edit Service",
+    "service_name": "Treatment Name",
+    "service_name_placeholder": "E.g. Hydro Detox Skin Care T3",
+    "service_duration": "Detail / Duration",
+    "service_duration_placeholder": "E.g. 1h 30min — Deep skin detoxification",
+    "service_price": "Price (€ or 'Free')",
+    "service_price_placeholder": "E.g. 55.00 €",
+    "service_category": "Category",
+    "btn_cancel": "Cancel",
+    "btn_save": "Save"
   },
   "states": {
     "loading": "Loading data...",

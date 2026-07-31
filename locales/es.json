@@ -95,7 +95,18 @@
     "table_name": "Nombre",
     "table_detail": "Detalle / Duración",
     "table_price": "Precio",
-    "table_actions": "Acciones"
+    "table_actions": "Acciones",
+    "modal_service_title_new": "Nuevo Servicio",
+    "modal_service_title_edit": "Editar Servicio",
+    "service_name": "Nombre del Tratamiento",
+    "service_name_placeholder": "Ej. Higiene Hidro Detox T3",
+    "service_duration": "Detalle / Duración",
+    "service_duration_placeholder": "Ej. 1h 30min — Desintoxicación profunda de la piel",
+    "service_price": "Precio (€ o 'Gratuito')",
+    "service_price_placeholder": "Ej. 55,00 €",
+    "service_category": "Categoría",
+    "btn_cancel": "Cancelar",
+    "btn_save": "Guardar"
   },
   "states": {
     "loading": "Cargando datos...",

@@ -222,6 +222,29 @@ function initDatabase() {
     }
   }
 
+  function getCategoryTranslatedName(cat) {
+    if (!cat) return "";
+    let displayName = cat.name;
+    if (window.I18nLoader) {
+      const key1 = `admin.category_${cat.id}`;
+      const key2 = `services.tab_${cat.id}`;
+      if (window.I18nLoader.getText(key1) !== key1) {
+        displayName = window.I18nLoader.getText(key1);
+      } else if (window.I18nLoader.getText(key2) !== key2) {
+        displayName = window.I18nLoader.getText(key2);
+      }
+    }
+    return displayName;
+  }
+
+  function setI18nForCategory(element, catId, defaultText) {
+    const knownKeys = ["peluqueria", "facial", "corporal", "depilacion", "unas-mirada"];
+    if (knownKeys.includes(catId)) {
+      element.setAttribute("data-i18n", `services.tab_${catId}`);
+    }
+    element.textContent = getCategoryTranslatedName({ id: catId, name: defaultText });
+  }
+
   function renderCategoryTabs() {
     const tabsContainer = document.querySelector(".category-tabs");
     if (!tabsContainer) return;
@@ -231,7 +254,7 @@ function initDatabase() {
       const btn = document.createElement("button");
       btn.className = `category-tab-btn ${index === 0 && !currentCategory ? "active" : (cat.id === currentCategory ? "active" : "")}`;
       btn.dataset.cat = cat.id;
-      btn.textContent = cat.name;
+      setI18nForCategory(btn, cat.id, cat.name);
       
       btn.addEventListener("click", () => {
         document.querySelectorAll(".category-tab-btn").forEach(b => b.classList.remove("active"));
@@ -256,7 +279,7 @@ function initDatabase() {
     categories.forEach(cat => {
       const option = document.createElement("option");
       option.value = cat.id;
-      option.textContent = cat.name;
+      setI18nForCategory(option, cat.id, cat.name);
       select.appendChild(option);
     });
   }
@@ -275,7 +298,7 @@ function initDatabase() {
       div.style.borderBottom = "1px solid var(--color-border)";
       
       const nameSpan = document.createElement("span");
-      nameSpan.textContent = cat.name;
+      setI18nForCategory(nameSpan, cat.id, cat.name);
       
       const actionsDiv = document.createElement("div");
       actionsDiv.style.display = "flex";

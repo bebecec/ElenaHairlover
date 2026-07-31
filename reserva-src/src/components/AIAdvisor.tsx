@@ -76,14 +76,14 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
       
       {/* Advisor Header Card */}
       <div className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-purple-900/50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 translate-x-8 -translate-y-8 w-40 h-40 bg-rose-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 translate-x-8 -translate-y-8 w-40 h-40 bg-[#C9A84C]/20 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 space-y-4">
           <div className="flex items-center space-x-2">
-            <span className="p-2 rounded-xl bg-purple-500/20 text-amber-300 border border-purple-400/30">
+            <span className="p-2 rounded-xl bg-[#C9A84C]/100/20 text-[#DFCA8D] border border-purple-400/30">
               <Bot className="w-5 h-5 animate-pulse" />
             </span>
-            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-300">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#DFCA8D]">
               Asesor Virtual de Belleza IA
             </span>
           </div>
@@ -109,7 +109,7 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
                     setPromptInput(preset);
                     handleAnalyze(preset);
                   }}
-                  className="text-xs bg-purple-900/40 hover:bg-rose-500/30 text-purple-100 hover:text-white border border-purple-700/50 rounded-xl px-3 py-1.5 transition-all text-left"
+                  className="text-xs bg-purple-900/40 hover:bg-[#C9A84C]/30 text-purple-100 hover:text-white border border-purple-700/50 rounded-xl px-3 py-1.5 transition-all text-left"
                 >
                   ✨ "{preset}"
                 </button>
@@ -126,12 +126,12 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
                 onChange={(e) => setPromptInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleAnalyze(promptInput)}
                 placeholder="Escribe aquí tu consulta (ej. mi pelo es muy fino y seco)..."
-                className="w-full pl-4 pr-12 py-3.5 bg-slate-900/80 border border-purple-500/40 rounded-2xl text-xs sm:text-sm text-white placeholder:text-purple-300/60 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                className="w-full pl-4 pr-12 py-3.5 bg-[#0a0a0a]/80 border border-purple-500/40 rounded-2xl text-xs sm:text-sm text-white placeholder:text-purple-300/60 focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
               <button
                 onClick={() => handleAnalyze(promptInput)}
                 disabled={isAnalyzing || !promptInput.trim()}
-                className="absolute right-2 p-2.5 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-xl transition-all"
+                className="absolute right-2 p-2.5 bg-[#C9A84C] hover:bg-[#8F722A] disabled:opacity-50 text-white rounded-xl transition-all"
               >
                 {isAnalyzing ? (
                   <Sparkles className="w-4 h-4 animate-spin" />
@@ -147,29 +147,29 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
 
       {/* Recommendations Results Box */}
       {isAnalyzing && (
-        <div className="bg-white rounded-3xl p-8 text-center border border-slate-100 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-600 mx-auto flex items-center justify-center animate-spin">
+        <div className="bg-[#171717] rounded-3xl p-8 text-center border border-[#292929] shadow-sm space-y-3">
+          <div className="w-12 h-12 rounded-full bg-[#C9A84C]/15 text-purple-600 mx-auto flex items-center justify-center animate-spin">
             <Sparkles className="w-6 h-6" />
           </div>
-          <p className="text-sm font-bold text-slate-800">Analizando catálogo de servicios para ti...</p>
+          <p className="text-sm font-bold text-gray-100">Analizando catálogo de servicios para ti...</p>
         </div>
       )}
 
       {recommendations && (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-rose-100 space-y-6 animate-in fade-in">
+        <div className="bg-[#171717] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#292929] space-y-6 animate-in fade-in">
           
-          <div className="flex items-start space-x-3 bg-purple-50 p-4 rounded-2xl border border-purple-100">
+          <div className="flex items-start space-x-3 bg-[#C9A84C]/10 p-4 rounded-2xl border border-purple-100">
             <Sparkles className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-slate-900 text-sm">Recomendación del Asesor Virtual:</h4>
-              <p className="text-xs text-slate-700 mt-1 leading-relaxed">
+              <h4 className="font-bold text-white text-sm">Recomendación del Asesor Virtual:</h4>
+              <p className="text-xs text-gray-200 mt-1 leading-relaxed">
                 {recommendations.advice}
               </p>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 text-sm mb-3">
+            <h4 className="font-bold text-white text-sm mb-3">
               Servicios Sugeridos para Tu Caso:
             </h4>
 
@@ -179,14 +179,14 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
                 return (
                   <div
                     key={srv.id}
-                    className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between"
+                    className="p-4 rounded-2xl bg-[#111111] border border-[#292929] flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex justify-between items-start">
-                        <h5 className="font-bold text-slate-900 text-sm">{srv.name}</h5>
-                        <span className="text-rose-600 font-extrabold text-sm">{srv.basePrice} €</span>
+                        <h5 className="font-bold text-white text-sm">{srv.name}</h5>
+                        <span className="text-[#C9A84C] font-extrabold text-sm">{srv.basePrice} €</span>
                       </div>
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">{srv.description}</p>
+                      <p className="text-xs text-gray-400 mt-1 line-clamp-2">{srv.description}</p>
                     </div>
 
                     <button
@@ -194,7 +194,7 @@ export const AIAdvisor: React.FC<AIAdvisorProps> = ({
                       className={`mt-4 py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-1.5 transition-all ${
                         isAlreadySelected
                           ? 'bg-emerald-600 text-white'
-                          : 'bg-rose-500 hover:bg-rose-600 text-white shadow-xs'
+                          : 'bg-[#C9A84C] hover:bg-[#8F722A] text-white shadow-xs'
                       }`}
                     >
                       {isAlreadySelected ? (

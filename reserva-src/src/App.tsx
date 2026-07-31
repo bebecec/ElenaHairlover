@@ -156,7 +156,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col justify-between selection:bg-rose-500 selection:text-white">
+    <div className="min-h-screen bg-[#111111] font-sans text-white flex flex-col justify-between selection:bg-[#C9A84C] selection:text-white">
       <div>
         {/* Sticky App Header */}
         <Header
@@ -254,19 +254,19 @@ export default function App() {
 
       {/* Floating Bottom Booking Bar if Cart is not empty */}
       {selectedServices.length > 0 && !isBookingModalOpen && (
-        <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 z-40 bg-slate-900 text-white rounded-2xl p-4 shadow-2xl border border-slate-800 flex items-center justify-between space-x-4 max-w-lg mx-auto sm:mx-0 animate-in slide-in-from-bottom-5">
+        <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 z-40 bg-[#0a0a0a] text-white rounded-2xl p-4 shadow-2xl border border-[#292929] flex items-center justify-between space-x-4 max-w-lg mx-auto sm:mx-0 animate-in slide-in-from-bottom-5">
           <div>
-            <div className="text-xs text-rose-400 font-bold">
+            <div className="text-xs text-[#DFCA8D] font-bold">
               {selectedServices.length} {selectedServices.length === 1 ? 'Servicio Seleccionado' : 'Servicios Seleccionados'}
             </div>
-            <div className="text-xs text-slate-300 truncate max-w-[200px] sm:max-w-xs">
+            <div className="text-xs text-gray-300 truncate max-w-[200px] sm:max-w-xs">
               {selectedServices.map((s) => s.name).join(', ')}
             </div>
           </div>
 
           <button
             onClick={() => setIsBookingModalOpen(true)}
-            className="bg-rose-500 hover:bg-rose-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm whitespace-nowrap shadow-md transition-all flex items-center space-x-1.5"
+            className="bg-[#C9A84C] hover:bg-[#8F722A] text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm whitespace-nowrap shadow-md transition-all flex items-center space-x-1.5"
           >
             <span>Continuar Reserva</span>
             <span>→</span>
@@ -287,7 +287,7 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800">
+      <footer className="bg-[#0a0a0a] text-gray-500 text-xs py-8 border-t border-[#292929]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
             <span className="font-bold text-white text-sm">{currentSalon.name}</span>
@@ -298,10 +298,10 @@ export default function App() {
             <button onClick={() => setActiveTab('services')} className="hover:text-white">Servicios</button>
             <button onClick={() => setActiveTab('team')} className="hover:text-white">Equipo</button>
             <button onClick={() => setActiveTab('location')} className="hover:text-white">Ubicación</button>
-            <button onClick={() => setActiveTab('admin')} className="text-amber-400 hover:underline">Panel Administración</button>
+            <button onClick={() => setActiveTab('admin')} className="text-[#C9A84C] hover:underline">Panel Administración</button>
           </div>
 
-          <p className="text-[11px] text-slate-500">
+          <p className="text-[11px] text-gray-400">
             © {new Date().getFullYear()} Citas Belleza. Todos los derechos reservados.
           </p>
         </div>

@@ -79,30 +79,30 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
       
       {/* Admin Title Bar */}
-      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-slate-800">
+      <div className="bg-[#0a0a0a] text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[#292929]">
         <div>
           <div className="flex items-center space-x-2">
-            <ShieldCheck className="w-5 h-5 text-amber-400" />
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
+            <ShieldCheck className="w-5 h-5 text-[#C9A84C]" />
+            <span className="text-xs font-bold text-[#C9A84C] uppercase tracking-widest">
               Panel de Administración del Salón
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black mt-1 tracking-tight">
             Gestión de Citas, Tarifas & Negocio
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-gray-500 mt-1">
             Personaliza el nombre de tu establecimiento, gestiona precios y controla la agenda en tiempo real.
           </p>
         </div>
 
         {/* Admin Navigation Pills */}
-        <div className="flex items-center space-x-2 bg-slate-800 p-1.5 rounded-2xl border border-slate-700">
+        <div className="flex items-center space-x-2 bg-[#171717] p-1.5 rounded-2xl border border-[#333]">
           <button
             onClick={() => setAdminTab('appointments')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
               adminTab === 'appointments'
-                ? 'bg-rose-500 text-white shadow-xs'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-[#C9A84C] text-white shadow-xs'
+                : 'text-gray-300 hover:text-white'
             }`}
           >
             <Calendar className="w-4 h-4" />
@@ -113,8 +113,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             onClick={() => setAdminTab('services')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
               adminTab === 'services'
-                ? 'bg-rose-500 text-white shadow-xs'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-[#C9A84C] text-white shadow-xs'
+                : 'text-gray-300 hover:text-white'
             }`}
           >
             <Scissors className="w-4 h-4" />
@@ -125,8 +125,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             onClick={() => setAdminTab('salon-settings')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
               adminTab === 'salon-settings'
-                ? 'bg-rose-500 text-white shadow-xs'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-[#C9A84C] text-white shadow-xs'
+                : 'text-gray-300 hover:text-white'
             }`}
           >
             <Settings className="w-4 h-4" />
@@ -137,25 +137,25 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
       {/* TAB 1: Appointments List Management */}
       {adminTab === 'appointments' && (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100 space-y-6">
-          <div className="flex justify-between items-center border-b border-slate-100 pb-4">
+        <div className="bg-[#171717] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#292929] space-y-6">
+          <div className="flex justify-between items-center border-b border-[#292929] pb-4">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">Agenda de Citas Previs</h3>
-              <p className="text-xs text-slate-500">Listado de reservas recibidas a través de la web.</p>
+              <h3 className="text-lg font-bold text-white">Agenda de Citas Previs</h3>
+              <p className="text-xs text-gray-400">Listado de reservas recibidas a través de la web.</p>
             </div>
-            <span className="text-xs font-bold text-rose-600 bg-rose-50 px-3 py-1 rounded-full">
+            <span className="text-xs font-bold text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1 rounded-full">
               {appointments.filter((a) => a.status === 'confirmada').length} pendientes
             </span>
           </div>
 
           {appointments.length === 0 ? (
-            <div className="py-12 text-center text-slate-400 text-xs">
+            <div className="py-12 text-center text-gray-500 text-xs">
               No hay citas registradas todavía.
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-slate-700">
-                <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+              <table className="w-full text-left text-xs text-gray-200">
+                <thead className="bg-[#111111] text-gray-400 font-bold uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="p-3">Código</th>
                     <th className="p-3">Cliente</th>
@@ -169,22 +169,22 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                   {appointments.map((apt) => (
-                    <tr key={apt.id} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="p-3 font-bold text-rose-600">{apt.code}</td>
-                      <td className="p-3 font-semibold text-slate-900">{apt.clientName}</td>
+                    <tr key={apt.id} className="hover:bg-[#111111]/80 transition-colors">
+                      <td className="p-3 font-bold text-[#C9A84C]">{apt.code}</td>
+                      <td className="p-3 font-semibold text-white">{apt.clientName}</td>
                       <td className="p-3">{apt.clientPhone}</td>
                       <td className="p-3 whitespace-nowrap">
                         <strong>{apt.date}</strong> a las {apt.timeSlot} hs
                       </td>
                       <td className="p-3">{apt.stylistName}</td>
-                      <td className="p-3 font-extrabold text-slate-900">{apt.totalPrice} €</td>
+                      <td className="p-3 font-extrabold text-white">{apt.totalPrice} €</td>
                       <td className="p-3">
                         <span className={`px-2 py-0.5 rounded-full font-bold text-[10px] ${
                           apt.status === 'confirmada'
                             ? 'bg-emerald-100 text-emerald-800'
                             : apt.status === 'completada'
-                            ? 'bg-slate-100 text-slate-700'
-                            : 'bg-rose-100 text-rose-800'
+                            ? 'bg-[#1f1f1f] text-gray-200'
+                            : 'bg-[#C9A84C]/15 text-[#C9A84C]'
                         }`}>
                           {apt.status.toUpperCase()}
                         </span>
@@ -194,14 +194,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                           <>
                             <button
                               onClick={() => onUpdateAppointmentStatus(apt.id, 'completada')}
-                              className="px-2 py-1 bg-emerald-600 text-white rounded-md text-[10px] font-bold hover:bg-emerald-700"
+                              className="px-2 py-1 bg-emerald-600 text-white rounded-md text-[10px] font-bold hover:bg-emerald-800"
                               title="Marcar como Completada"
                             >
                               Completar
                             </button>
                             <button
                               onClick={() => onUpdateAppointmentStatus(apt.id, 'cancelada')}
-                              className="px-2 py-1 bg-rose-100 text-rose-800 hover:bg-rose-200 rounded-md text-[10px] font-bold"
+                              className="px-2 py-1 bg-[#C9A84C]/15 text-[#C9A84C] hover:bg-rose-200 rounded-md text-[10px] font-bold"
                               title="Cancelar Cita"
                             >
                               Cancelar
@@ -220,15 +220,15 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
       {/* TAB 2: Services & Pricing Management */}
       {adminTab === 'services' && (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100 space-y-6">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-100 pb-4">
+        <div className="bg-[#171717] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#292929] space-y-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-[#292929] pb-4">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">Catálogo de Servicios y Precios</h3>
-              <p className="text-xs text-slate-500">Añade o elimina servicios y modifica los precios a tu gusto.</p>
+              <h3 className="text-lg font-bold text-white">Catálogo de Servicios y Precios</h3>
+              <p className="text-xs text-gray-400">Añade o elimina servicios y modifica los precios a tu gusto.</p>
             </div>
             <button
               onClick={() => setShowAddServiceModal(true)}
-              className="bg-rose-500 hover:bg-rose-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center space-x-1.5 shadow-sm"
+              className="bg-[#C9A84C] hover:bg-[#8F722A] text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center space-x-1.5 shadow-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Añadir Nuevo Servicio</span>
@@ -239,11 +239,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             {services.map((srv) => (
               <div
                 key={srv.id}
-                className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between"
+                className="p-4 rounded-2xl bg-[#111111] border border-[#292929] flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#C9A84C] bg-[#C9A84C]/10 px-2 py-0.5 rounded-md">
                       {srv.categoryName}
                     </span>
                     <button
@@ -252,19 +252,19 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                           onDeleteService(srv.id);
                         }
                       }}
-                      className="text-slate-400 hover:text-rose-600 p-1"
+                      className="text-gray-500 hover:text-[#C9A84C] p-1"
                       title="Eliminar Servicio"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
-                  <h4 className="font-bold text-slate-900 text-sm mt-2">{srv.name}</h4>
-                  <p className="text-xs text-slate-500 mt-1 line-clamp-2">{srv.description}</p>
+                  <h4 className="font-bold text-white text-sm mt-2">{srv.name}</h4>
+                  <p className="text-xs text-gray-400 mt-1 line-clamp-2">{srv.description}</p>
                 </div>
 
-                <div className="mt-4 pt-2 border-t border-slate-200 flex justify-between items-center text-xs font-bold">
-                  <span className="text-slate-500">{srv.baseDurationMinutes} min</span>
-                  <span className="text-rose-600 text-base">{srv.basePrice} €</span>
+                <div className="mt-4 pt-2 border-t border-[#292929] flex justify-between items-center text-xs font-bold">
+                  <span className="text-gray-400">{srv.baseDurationMinutes} min</span>
+                  <span className="text-[#C9A84C] text-base">{srv.basePrice} €</span>
                 </div>
               </div>
             ))}
@@ -274,73 +274,73 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
       {/* TAB 3: Salon Settings (Branding Adaptation) */}
       {adminTab === 'salon-settings' && (
-        <form onSubmit={handleSaveSalonSettings} className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100 space-y-5">
-          <div className="border-b border-slate-100 pb-4">
-            <h3 className="text-lg font-bold text-slate-900">Adaptar Datos de Tu Salón</h3>
-            <p className="text-xs text-slate-500">
+        <form onSubmit={handleSaveSalonSettings} className="bg-[#171717] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#292929] space-y-5">
+          <div className="border-b border-[#292929] pb-4">
+            <h3 className="text-lg font-bold text-white">Adaptar Datos de Tu Salón</h3>
+            <p className="text-xs text-gray-400">
               Modifica la marca para que coincida exactamente con tu peluquería o centro de estética.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Nombre Comercial del Salón</label>
+              <label className="block text-xs font-bold text-gray-200 mb-1">Nombre Comercial del Salón</label>
               <input
                 type="text"
                 required
                 value={salonName}
                 onChange={(e) => setSalonName(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-400"
+                className="w-full px-3.5 py-2.5 bg-[#111111] border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Eslogan / Eslogan Secundario</label>
+              <label className="block text-xs font-bold text-gray-200 mb-1">Eslogan / Eslogan Secundario</label>
               <input
                 type="text"
                 value={salonTagline}
                 onChange={(e) => setSalonTagline(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-400"
+                className="w-full px-3.5 py-2.5 bg-[#111111] border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Teléfono / WhatsApp</label>
+              <label className="block text-xs font-bold text-gray-200 mb-1">Teléfono / WhatsApp</label>
               <input
                 type="text"
                 value={salonPhone}
                 onChange={(e) => setSalonPhone(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-400"
+                className="w-full px-3.5 py-2.5 bg-[#111111] border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Ciudad</label>
+              <label className="block text-xs font-bold text-gray-200 mb-1">Ciudad</label>
               <input
                 type="text"
                 value={salonCity}
                 onChange={(e) => setSalonCity(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-400"
+                className="w-full px-3.5 py-2.5 bg-[#111111] border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Dirección Completa</label>
+            <label className="block text-xs font-bold text-gray-200 mb-1">Dirección Completa</label>
             <input
               type="text"
               value={salonAddress}
               onChange={(e) => setSalonAddress(e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-400"
+              className="w-full px-3.5 py-2.5 bg-[#111111] border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
             />
           </div>
 
           <div className="pt-4 flex justify-end">
             <button
               type="submit"
-              className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center space-x-2 transition-all shadow-md"
+              className="bg-[#0a0a0a] hover:bg-[#171717] text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center space-x-2 transition-all shadow-md"
             >
-              <Save className="w-4 h-4 text-amber-300" />
+              <Save className="w-4 h-4 text-[#DFCA8D]" />
               <span>Guardar Cambios del Salón</span>
             </button>
           </div>
@@ -349,32 +349,32 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
       {/* Add New Service Modal */}
       {showAddServiceModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 max-w-md w-full space-y-4 shadow-2xl">
-            <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-              <h3 className="font-bold text-slate-900 text-base">Añadir Servicio al Catálogo</h3>
-              <button onClick={() => setShowAddServiceModal(false)} className="text-slate-400 font-bold">×</button>
+        <div className="fixed inset-0 z-50 bg-[#0a0a0a]/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#171717] rounded-3xl p-6 max-w-md w-full space-y-4 shadow-2xl">
+            <div className="flex justify-between items-center border-b border-[#292929] pb-3">
+              <h3 className="font-bold text-white text-base">Añadir Servicio al Catálogo</h3>
+              <button onClick={() => setShowAddServiceModal(false)} className="text-gray-500 font-bold">×</button>
             </div>
 
             <form onSubmit={handleCreateService} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Nombre del Servicio</label>
+                <label className="block font-bold text-gray-200 mb-1">Nombre del Servicio</label>
                 <input
                   type="text"
                   required
                   value={newSrvName}
                   onChange={(e) => setNewSrvName(e.target.value)}
                   placeholder="Ej. Peinado Ondas de Agua con Keratina"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400"
+                  className="w-full p-2.5 bg-[#111111] border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Categoría</label>
+                <label className="block font-bold text-gray-200 mb-1">Categoría</label>
                 <select
                   value={newSrvCategory}
                   onChange={(e) => setNewSrvCategory(e.target.value as ServiceCategoryName)}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400"
+                  className="w-full p-2.5 bg-[#111111] border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
                 >
                   <option value="Peluquería & Corte">Peluquería & Corte</option>
                   <option value="Color & Mechas">Color & Mechas</option>
@@ -390,18 +390,18 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Precio (€)</label>
+                  <label className="block font-bold text-gray-200 mb-1">Precio (€)</label>
                   <input
                     type="number"
                     min="0"
                     required
                     value={newSrvPrice}
                     onChange={(e) => setNewSrvPrice(Number(e.target.value))}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400"
+                    className="w-full p-2.5 bg-[#111111] border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Duración (min)</label>
+                  <label className="block font-bold text-gray-200 mb-1">Duración (min)</label>
                   <input
                     type="number"
                     min="5"
@@ -409,19 +409,19 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                     required
                     value={newSrvDuration}
                     onChange={(e) => setNewSrvDuration(Number(e.target.value))}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400"
+                    className="w-full p-2.5 bg-[#111111] border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Descripción Breve</label>
+                <label className="block font-bold text-gray-200 mb-1">Descripción Breve</label>
                 <textarea
                   rows={2}
                   value={newSrvDesc}
                   onChange={(e) => setNewSrvDesc(e.target.value)}
                   placeholder="Detalles sobre el producto, técnica o masajes incluidos..."
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400"
+                  className="w-full p-2.5 bg-[#111111] border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
                 ></textarea>
               </div>
 
@@ -429,13 +429,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddServiceModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl font-bold"
+                  className="px-4 py-2 bg-[#1f1f1f] text-gray-200 rounded-xl font-bold"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-rose-500 text-white rounded-xl font-bold hover:bg-rose-600 shadow-sm"
+                  className="px-5 py-2 bg-[#C9A84C] text-white rounded-xl font-bold hover:bg-[#8F722A] shadow-sm"
                 >
                   Publicar Servicio
                 </button>

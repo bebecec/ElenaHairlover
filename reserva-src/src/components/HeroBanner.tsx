@@ -10,7 +10,7 @@ interface HeroBannerProps {
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({ salon, onBookNow, onExploreServices }) => {
   return (
-    <div className="relative bg-slate-950 text-white overflow-hidden rounded-3xl mx-4 sm:mx-6 lg:mx-8 my-4 shadow-xl border border-slate-800">
+    <div className="relative bg-[#0a0a0a] text-white overflow-hidden rounded-3xl mx-4 sm:mx-6 lg:mx-8 my-4 shadow-xl border border-[#292929]">
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -19,8 +19,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ salon, onBookNow, onExpl
           className="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/85 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
       </div>
 
       {/* Hero Content */}
@@ -33,12 +33,12 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ salon, onBookNow, onExpl
               <span className="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
               Abierto Hoy • Citas disponibles
             </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold backdrop-blur-sm">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 mr-1" />
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#C9A84C]/20 text-[#DFCA8D] border border-amber-500/30 font-semibold backdrop-blur-sm">
+              <Star className="w-3.5 h-3.5 fill-[#C9A84C] text-[#C9A84C] mr-1" />
               {salon.rating} / 5.0 ({salon.reviewsCount} opiniones verificadas)
             </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-rose-400 mr-1" />
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#1f1f1f]/80 text-gray-300 border border-[#333] font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#DFCA8D] mr-1" />
               Reserva 100% Confirmada
             </span>
           </div>
@@ -48,24 +48,24 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ salon, onBookNow, onExpl
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
               {salon.name}
             </h1>
-            <p className="text-lg sm:text-xl font-medium text-rose-300">
+            <p className="text-lg sm:text-xl font-medium text-[#DFCA8D]">
               {salon.tagline}
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl">
             {salon.description}
           </p>
 
           {/* Info Pill List */}
-          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
-            <div className="flex items-center space-x-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80 backdrop-blur-sm">
-              <MapPin className="w-4 h-4 text-rose-400 flex-shrink-0" />
+          <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+            <div className="flex items-center space-x-2 bg-[#0a0a0a]/60 p-2.5 rounded-xl border border-[#292929] backdrop-blur-sm">
+              <MapPin className="w-4 h-4 text-[#DFCA8D] flex-shrink-0" />
               <span className="truncate">{salon.address}, {salon.city}</span>
             </div>
-            <div className="flex items-center space-x-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80 backdrop-blur-sm">
-              <Clock className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            <div className="flex items-center space-x-2 bg-[#0a0a0a]/60 p-2.5 rounded-xl border border-[#292929] backdrop-blur-sm">
+              <Clock className="w-4 h-4 text-[#C9A84C] flex-shrink-0" />
               <span>Sábados de 08:00 a 15:00 | Mar-Vie 09:00 - 19:00</span>
             </div>
           </div>
@@ -74,15 +74,15 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ salon, onBookNow, onExpl
           <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button
               onClick={onBookNow}
-              className="bg-rose-500 hover:bg-rose-600 text-white font-bold px-7 py-3.5 rounded-2xl shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 transition-all text-sm sm:text-base flex items-center justify-center space-x-2 group"
+              className="bg-[#C9A84C] hover:bg-[#8F722A] text-white font-bold px-7 py-3.5 rounded-2xl shadow-lg shadow-[#C9A84C]/25 hover:shadow-[#C9A84C]/40 transition-all text-sm sm:text-base flex items-center justify-center space-x-2 group"
             >
-              <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
+              <Sparkles className="w-5 h-5 text-[#DFCA8D] group-hover:rotate-12 transition-transform" />
               <span>Reservar Cita en Línea</span>
             </button>
 
             <button
               onClick={onExploreServices}
-              className="bg-slate-800/90 hover:bg-slate-700/90 text-white font-semibold px-6 py-3.5 rounded-2xl border border-slate-700 transition-all text-sm sm:text-base flex items-center justify-center space-x-2"
+              className="bg-[#1f1f1f]/90 hover:bg-[#292929]/90 text-white font-semibold px-6 py-3.5 rounded-2xl border border-[#333] transition-all text-sm sm:text-base flex items-center justify-center space-x-2"
             >
               <span>Ver Precios & Servicios</span>
             </button>

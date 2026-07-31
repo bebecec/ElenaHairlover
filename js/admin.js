@@ -182,7 +182,7 @@ function initDatabase() {
     // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        adminUserEmail.textContent = user.email;
+        adminUserEmail.innerHTML = `${user.email} <span style="color: #2ecc71; font-weight: 600; margin-left: 5px;">(online)</span>`;
         loadData();
       }
     });
@@ -190,7 +190,7 @@ function initDatabase() {
     // Modo Local: acceso directo sin credenciales
     dbModeBadge.textContent = "Modo Local (localStorage)";
     dbModeBadge.className = "badge mode-local";
-    adminUserEmail.textContent = "Administrador Local";
+    adminUserEmail.innerHTML = `Administrador <span style="color: #e74c3c; font-weight: 600; margin-left: 5px;">(modo local)</span>`;
     loadData();
   }
 }

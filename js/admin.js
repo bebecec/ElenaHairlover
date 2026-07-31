@@ -57,11 +57,7 @@ const initialSalonInfoSeed = {
 };
 
 const initialCategoriesSeed = [
-  { id: "facial", name: "Estética Facial" },
-  { id: "corporal", name: "Estética Corporal" },
-  { id: "peluqueria", name: "Peluquería" },
-  { id: "depilacion", name: "Depilación" },
-  { id: "unas-mirada", name: "Cejas & Pestañas" }
+  { id: "peluqueria", name: "Peluquería" }
 ];
 
 // Variables de estado
@@ -206,6 +202,11 @@ function initDatabase() {
     const savedCats = localStorage.getItem("elegance_categories");
     if (savedCats) {
       categories = JSON.parse(savedCats);
+      const defaultOldIds = ["facial", "corporal", "depilacion", "unas-mirada"];
+      const usedCategoryIds = new Set(services.map(s => s.category));
+      categories = categories.filter(c => !defaultOldIds.includes(c.id) || usedCategoryIds.has(c.id));
+      if (categories.length === 0) categories = [...initialCategoriesSeed];
+      localStorage.setItem("elegance_categories", JSON.stringify(categories));
     } else {
       categories = [...initialCategoriesSeed];
       localStorage.setItem("elegance_categories", JSON.stringify(categories));

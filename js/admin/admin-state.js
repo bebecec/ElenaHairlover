@@ -72,9 +72,5 @@ export const initialSalonInfoSeed = {
 };
 
 export const initialCategoriesSeed = [
-  { id: "facial", name: "Estética Facial" },
-  { id: "corporal", name: "Estética Corporal" },
-  { id: "peluqueria", name: "Peluquería" },
-  { id: "depilacion", name: "Depilación" },
-  { id: "unas-mirada", name: "Cejas & Pestañas" }
+  { id: "peluqueria", name: "Peluquería" }
 ];

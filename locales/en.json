@@ -106,7 +106,12 @@
     "service_price_placeholder": "E.g. 55.00 €",
     "service_category": "Category",
     "btn_cancel": "Cancel",
-    "btn_save": "Save"
+    "btn_save": "Save",
+    "backup_title": "Backup & Restore",
+    "backup_desc": "Export a backup copy of all your data into a JSON file or restore a previous copy.",
+    "btn_export_backup": "Export Backup Copy",
+    "import_backup_label": "Restore from File (.json)",
+    "btn_import_backup": "Restore Data"
   },
   "states": {
     "loading": "Loading data...",

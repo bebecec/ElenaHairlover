@@ -413,6 +413,27 @@
                 <button type="button" class="btn btn--gold-outline" id="publish-data-btn">Publicar Datos</button>
               </div>
             </form>
+
+            <!-- ES: Respaldo y Restauración de Datos | EN: Data Backup & Restore -->
+            <div class="admin-section__header" style="margin-top: 50px; border-top: 1px solid var(--color-border); padding-top: 30px;">
+              <div>
+                <h3 data-i18n="admin.backup_title">Respaldo y Restauración</h3>
+                <p data-i18n="admin.backup_desc">Exporta una copia de seguridad de todos tus datos en un archivo JSON o restaura una copia anterior.</p>
+              </div>
+            </div>
+            
+            <div class="form-row" style="margin-top: 20px; align-items: flex-end; gap: 20px;">
+              <div class="form-group">
+                <button type="button" class="btn btn--primary" id="btn-export-backup" data-i18n="admin.btn_export_backup">Exportar Copia de Seguridad</button>
+              </div>
+              <div class="form-group" style="border-left: 1px solid var(--color-border); padding-left: 30px;">
+                <label for="import-backup-file" data-i18n="admin.import_backup_label" style="display: block; margin-bottom: 8px;">Restaurar desde Archivo (.json)</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <input type="file" id="import-backup-file" accept=".json" style="padding: 4px;" />
+                  <button type="button" class="btn btn--gold-outline" id="btn-import-backup" data-i18n="admin.btn_import_backup">Restaurar Datos</button>
+                </div>
+              </div>
+            </div>
           </section>
 
           <!-- ES: SECCIÓN 5: RESEÑAS DE GOOGLE | EN: SECTION 5: GOOGLE REVIEWS -->

@@ -1530,6 +1530,7 @@ function initAuth() {
 document.addEventListener("DOMContentLoaded", () => {
   initAuth();
   checkAuthStatus();
+  initBackupRestore();
 
   const publishBtn = document.getElementById("publish-data-btn");
   if (publishBtn) {
@@ -1542,3 +1543,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+// ============================================================================
+// DATA BACKUP & RESTORE (RESPALDO Y RESTAURACIÓN)
+// ============================================================================
+
+function initBackupRestore() {
+  const btnExport = document.getElementById("btn-export-backup");
+  const btnImport = document.getElementById("btn-import-backup");
+  const importFile = document.getElementById("import-backup-file");
+
+  if (btnExport) {
+    btnExport.addEventListener("click", () => {
+      try {
+        const backupData = {
+          elegance_services: JSON.parse(localStorage.getItem("elegance_services")) || [],
+          elegance_categories: JSON.parse(localStorage.getItem("elegance_categories")) || [],
+          elegance_salon_info: JSON.parse(localStorage.getItem("elegance_salon_info")) || {},
+          elegance_gallery: JSON.parse(localStorage.getItem("elegance_gallery")) || [],
+          elegance_hero: JSON.parse(localStorage.getItem("elegance_hero")) || [],
+          elegance_google_reviews: JSON.parse(localStorage.getItem("elegance_google_reviews")) || []
+        };
+
+        const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const dateStr = new Date().toISOString().split("T")[0];
+        a.href = url;
+        a.download = `elena_hairlover_backup_${dateStr}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast("Copia de seguridad exportada con éxito", "success");
+      } catch (err) {
+        console.error(err);
+        showToast("Error al exportar la copia de seguridad", "error");
+      }
+    });
+  }
+
+  if (btnImport && importFile) {
+    btnImport.addEventListener("click", () => {
+      const file = importFile.files[0];
+      if (!file) {
+        showToast("Por favor, selecciona un archivo de respaldo (.json)", "error");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = JSON.parse(e.target.result);
+          
+          // Validación básica de estructura de respaldo
+          if (!data.elegance_services && !data.elegance_categories && !data.elegance_salon_info) {
+            throw new Error("El archivo no parece ser una copia de seguridad válida.");
+          }
+
+          // Restaurar cada clave si existe en el JSON
+          if (data.elegance_services) localStorage.setItem("elegance_services", JSON.stringify(data.elegance_services));
+          if (data.elegance_categories) localStorage.setItem("elegance_categories", JSON.stringify(data.elegance_categories));
+          if (data.elegance_salon_info) localStorage.setItem("elegance_salon_info", JSON.stringify(data.elegance_salon_info));
+          if (data.elegance_gallery) localStorage.setItem("elegance_gallery", JSON.stringify(data.elegance_gallery));
+          if (data.elegance_hero) localStorage.setItem("elegance_hero", JSON.stringify(data.elegance_hero));
+          if (data.elegance_google_reviews) localStorage.setItem("elegance_google_reviews", JSON.stringify(data.elegance_google_reviews));
+
+          showToast("Datos restaurados correctamente. Recargando panel...", "success");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        } catch (err) {
+          console.error(err);
+          showToast("Error al importar el archivo: " + err.message, "error");
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+}

@@ -1,26 +1,22 @@
 # Documentación: Respaldo de Base de Datos (Backup)
 
-> [!WARNING]
-> **Estado Actual: Desarrollo Local (Base de datos pendiente)**
-> Actualmente el proyecto se encuentra en fase de desarrollo local sin una base de datos Firebase conectada. Por ahora, el "respaldo" genera un archivo con los datos que existan temporalmente en el `localStorage` o arrays en memoria.
+> [!NOTE]
+> **Estado Actual: Implementado (Soporte local completo)**
+> Esta funcionalidad permite a la administradora del salón crear descargas de seguridad y restaurar de forma íntegra todo el contenido cargado localmente (servicios, categorías, configuraciones del salón, fotos del carrusel, galería de imágenes y opiniones de Google).
 
-## 📦 Dependencias (Fase Final / Pendiente)
-Cuando se integre Firestore, se requerirá:
-- `getFirestore`, `collection`, `getDocs` de `firebase-firestore.js`
+## 📦 Dependencias
+**Nativas del Navegador:**
+- `Blob`: Para encapsular el JSON en un objeto descargable.
+- `URL.createObjectURL()`: Para generar el enlace dinámico de descarga local.
+- `FileReader`: Para leer localmente el archivo JSON subido por la administradora al restaurar.
 
-**Nativas del Navegador (Activas actualmente):**
-- `Blob`: Para generar el objeto de tipo `application/json`.
-- `URL.createObjectURL()`: Para crear el enlace de descarga.
+## 🛠 Lógica y Flujo de Respaldo & Restauración
+1. **Exportación:**
+   - La administradora hace clic en "Exportar Copia de Seguridad".
+   - El sistema empaqueta las claves de `localStorage` (`elegance_services`, `elegance_categories`, `elegance_salon_info`, `elegance_gallery`, `elegance_hero` y `elegance_google_reviews`).
+   - Se crea un archivo descargable con formato: `elena_hairlover_backup_YYYY-MM-DD.json`.
 
-## 🛠 Lógica y Flujo en Desarrollo Local (Mock)
-1. Administrador hace clic en "Exportar / Respaldo".
-2. El script recolecta los datos temporales del `localStorage` (ej. `localStorage.getItem('reservas')`).
-3. Agrupa los datos en un objeto local:
-   ```javascript
-   const backupData = {
-     reservas: JSON.parse(localStorage.getItem('reservas')) || [],
-     galeria: JSON.parse(localStorage.getItem('galeria')) || []
-   };
-   ```
-4. Convierte el objeto a string: `JSON.stringify(backupData, null, 2)`.
-5. Genera el archivo `Blob` y desencadena la descarga local simulando un clic en la etiqueta `<a>`.
+2. **Restauración:**
+   - La administradora selecciona un archivo de respaldo en formato `.json`.
+   - Hace clic en "Restaurar Datos".
+   - El sistema lee el archivo, valida su estructura básica y, si es correcto, sobreescribe las claves en el navegador y reinicia la pestaña de inmediato para reflejar los cambios.

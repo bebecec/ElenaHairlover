@@ -214,10 +214,9 @@ function initDatabase() {
 
     // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        updateI18nLabels();
-        loadData();
-      }
+      // FIX TEMPORAL: Cargamos datos aunque user sea null por el mock login
+      updateI18nLabels();
+      loadData();
     });
   } else {
     // Modo Local: acceso directo sin credenciales

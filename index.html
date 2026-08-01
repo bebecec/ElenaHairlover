@@ -622,7 +622,7 @@
           personalizados para ti.
         </p>
         <div class="flex justify-center gap-5 hero__actions">
-          <a href="./reserva/index.html"
+          <a href="reservar.html"
             class="bg-gold-warm text-[#1A1A1A] border-none px-8 py-3.5 text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 hover:bg-gold-dark hover:-translate-y-0.5 btn btn--primary" data-i18n="hero.cta_primary">Reservar Cita Online</a>
           <a href="#servicios" class="bg-gold-warm/15 text-gold-light border border-gold-warm/15 px-8 py-3.5 text-[13px] font-medium tracking-[0.12em] uppercase backdrop-blur-[4px] transition-all duration-300 hover:bg-gold-warm/28 hover:-translate-y-0.5 btn btn--secondary" data-i18n="hero.cta_secondary">Explorar Servicios</a>
         </div>
@@ -850,19 +850,30 @@
       try {
         var config = JSON.parse(localStorage.getItem("elegance_agenda_config"));
         if (!config) return;
-        var url = config.type === "internal" ? (config.internalUrl || "./reserva/index.html") : (config.externalUrl || "https://elenahairlover.gettimely.com/");
-        var isExternal = config.type === "external";
-        // ES: Buscar todos los enlaces de reserva y actualizarlos | EN: Find all booking links and update them
-        document.querySelectorAll('a[href*="reserva"], a[href*="gettimely"], a[data-booking-link]').forEach(function(link) {
-          link.href = url;
-          if (isExternal) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener");
-          } else {
-            link.removeAttribute("target");
-            link.removeAttribute("rel");
+        var url = "reservar.html"; // default to firebase
+          var isExternal = false;
+          
+          if (config.type === "external" && config.externalUrl) {
+            url = config.externalUrl;
+            isExternal = true;
+          } else if (config.type === "internal" && config.internalUrl) {
+            url = config.internalUrl;
+          } else if (config.type === "google" && config.googleUrl) {
+            url = config.googleUrl;
+            isExternal = true;
           }
-        });
+          
+          // ES: Buscar todos los enlaces de reserva y actualizarlos | EN: Find all booking links and update them
+          document.querySelectorAll('a[href*="reserva"], a[href*="gettimely"], a[data-booking-link]').forEach(function(link) {
+            link.href = url;
+            if (isExternal) {
+              link.setAttribute("target", "_blank");
+              link.setAttribute("rel", "noopener");
+            } else {
+              link.removeAttribute("target");
+              link.removeAttribute("rel");
+            }
+          });
       } catch(e) { /* silencioso */ }
     });
   </script>

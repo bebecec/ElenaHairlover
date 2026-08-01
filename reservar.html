@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script>
+      // Redirección automática si la agenda configurada NO es Firebase
+      try {
+        var config = JSON.parse(localStorage.getItem("elegance_agenda_config"));
+        if (config && config.type !== "firebase") {
+          var redirectUrl = "";
+          if (config.type === "external" && config.externalUrl) redirectUrl = config.externalUrl;
+          else if (config.type === "internal" && config.internalUrl) redirectUrl = config.internalUrl;
+          else if (config.type === "google" && config.googleUrl) redirectUrl = config.googleUrl;
+          
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+          }
+        }
+      } catch(e) {}
+    </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservar Cita | Elena Hairlover</title>

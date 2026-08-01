@@ -1,52 +1,6 @@
 
 /* RESERVAR PAGE REDESIGN */
-.service-category-btn {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-.service-category-btn:hover {
-  border-color: #C9A84C;
-}
-.service-category-content {
-  display: none;
-  background: #111;
-  border: 1px solid #333;
-  border-top: none;
-  border-radius: 0 0 0.5rem 0.5rem;
-  padding: 1rem;
-}
-.service-category-content.open {
-  display: block;
-}
-.service-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #222;
-}
-.service-item:last-child {
-  border-bottom: none;
-}
-.btn-reservar {
-  background: #C9A84C;
-  color: #111;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn-reservar:hover {
-  background: #d4b55c;
-}
+/* RESERVAR PAGE REDESIGN */
 .calendar-day {
   aspect-ratio: 1;
   display: flex;

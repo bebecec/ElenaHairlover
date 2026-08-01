@@ -105,6 +105,7 @@ function renderClientsTable() {
         </label>
       </td>
       <td>
+        <button class="btn btn--secondary-outline" style="margin-right: 5px;" onclick="resetClientPassword('${c.email}')">Restablecer Clave</button>
         <button class="btn btn--danger-outline" onclick="deleteCliente('${c.id}')">Eliminar</button>
       </td>
     </tr>
@@ -169,3 +170,29 @@ loadData = function() {
   fetchCitas();
   fetchClientes();
 };
+
+async function resetClientPassword(email) {
+  if (!email) {
+    showToast('El cliente no tiene un correo electrónico válido.', 'error');
+    return;
+  }
+  
+  if (!window.useFirebase || !window.FirebaseLib) {
+    showToast('Firebase no está activado.', 'error');
+    return;
+  }
+  
+  if (!confirm('¿Estás seguro de enviar un correo a ' + email + ' para restablecer su contraseña?')) return;
+  
+  try {
+    const { getAuth, sendPasswordResetEmail } = window.FirebaseLib;
+    const auth = getAuth(window.firebaseApp);
+    await sendPasswordResetEmail(auth, email);
+    showToast('Correo de restablecimiento enviado a ' + email, 'success');
+  } catch (err) {
+    console.error('Error al enviar correo de reset:', err);
+    showToast('Error al enviar el correo: ' + err.message, 'error');
+  }
+}
+window.resetClientPassword = resetClientPassword;
+

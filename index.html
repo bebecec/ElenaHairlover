@@ -553,7 +553,8 @@
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="bg-transparent border-none cursor-pointer font-body text-[0.66rem] font-semibold tracking-[0.12em] uppercase text-white/60 hover:text-gold-warm active:text-gold-warm is-active:text-gold-warm px-[5px] py-[4px] transition-colors duration-200 lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a href="./reserva/index.html" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200"
+        <button type="button" id="auth-nav-btn" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-transparent text-white border border-white/40 hover:bg-white hover:text-dark-main transition-colors duration-200" onclick="openAuthModal()">Acceso Clientes</button>
+        <a href="reservar.html" class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.15em] px-6 py-2.5 bg-gold-warm text-dark-main border border-gold-warm hover:bg-transparent hover:text-gold-warm transition-colors duration-200"
           data-i18n="nav.book">Reservar Cita</a>
       </nav>
 
@@ -578,7 +579,8 @@
       <a href="#experiencia" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.experience">Experiencia</a>
       <a href="#galeria" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.gallery">Galería</a>
       <a href="#contacto" class="font-body text-[1.1rem] font-normal uppercase tracking-[0.2em] text-white/70 hover:text-gold-warm transition-colors duration-200" data-i18n="nav.contact">Contacto</a>
-      <a href="./reserva/index.html"
+      <button type="button" id="auth-mobile-btn" class="font-body text-[1rem] font-medium uppercase tracking-[0.15em] px-10 py-3.5 bg-transparent text-white mt-4 hover:bg-white hover:text-dark-main border border-white/40 transition-colors duration-200" onclick="openAuthModal()">Acceso Clientes</button>
+      <a href="reservar.html"
         class="font-body text-[1rem] font-medium uppercase tracking-[0.15em] px-10 py-3.5 bg-gold-warm text-dark-main mt-4 hover:bg-transparent hover:text-gold-warm border border-gold-warm transition-colors duration-200" data-i18n="nav.book">Reservar Cita</a>
     </nav>
   </header>
@@ -864,6 +866,38 @@
       } catch(e) { /* silencioso */ }
     });
   </script>
+
+  <!-- MODAL DE AUTENTICACION -->
+  <div id="auth-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#111; border:1px solid #C9A84C; padding:30px; width:90%; max-width:400px; position:relative;">
+      <button onclick="closeAuthModal()" style="position:absolute; top:10px; right:15px; background:none; border:none; color:#C9A84C; font-size:1.5rem; cursor:pointer;">&times;</button>
+      
+      <div style="display:flex; justify-content:space-around; margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">
+        <button onclick="document.getElementById('form-login').style.display='block'; document.getElementById('form-register').style.display='none';" style="background:none; border:none; color:#C9A84C; font-size:1rem; cursor:pointer; font-weight:bold;">Iniciar Sesión</button>
+        <button onclick="document.getElementById('form-login').style.display='none'; document.getElementById('form-register').style.display='block';" style="background:none; border:none; color:#C9A84C; font-size:1rem; cursor:pointer; font-weight:bold;">Registro Nuevo</button>
+      </div>
+
+      <div id="form-login">
+        <form id="login-form" style="display:flex; flex-direction:column; gap:15px;">
+          <input type="email" id="log-email" placeholder="Correo Electrónico" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <input type="password" id="log-password" placeholder="Contraseña" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <button type="submit" class="bg-gold-warm text-dark-main font-semibold uppercase tracking-[0.1em] py-2">Entrar</button>
+        </form>
+      </div>
+
+      <div id="form-register" style="display:none;">
+        <form id="register-form" style="display:flex; flex-direction:column; gap:15px;">
+          <input type="text" id="reg-name" placeholder="Nombre" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <input type="text" id="reg-lastname" placeholder="Apellidos" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <input type="tel" id="reg-phone" placeholder="Teléfono" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <input type="email" id="reg-email" placeholder="Correo Electrónico" required style="padding:10px; background:#222; border:1px solid #444; color:white; width:100%;" />
+          <button type="submit" class="bg-gold-warm text-dark-main font-semibold uppercase tracking-[0.1em] py-2">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
 </body>
 
 </html>

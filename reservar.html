@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar Cita | Elena Hairlover</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .time-slot {
+      padding: 10px;
+      border: 1px solid #C9A84C;
+      text-align: center;
+      cursor: pointer;
+      color: #fff;
+      transition: all 0.3s;
+    }
+    .time-slot:hover:not(.disabled) {
+      background: #C9A84C;
+      color: #111;
+    }
+    .time-slot.selected {
+      background: #C9A84C;
+      color: #111;
+    }
+    .time-slot.disabled {
+      border-color: #444;
+      color: #666;
+      background: #222;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body class="bg-[#111111] text-white font-sans">
+  <header class="p-6 border-b border-white/10 flex justify-between items-center">
+    <a href="index.html" class="text-gold-warm uppercase tracking-widest font-bold">Elena Hairlover</a>
+    <a href="index.html" class="text-white/60 hover:text-white">Volver</a>
+  </header>
+
+  <main class="max-w-3xl mx-auto p-6 mt-10">
+    <h1 class="text-3xl font-serif text-gold-warm mb-8 text-center">Reserva tu Cita</h1>
+
+    <div id="booking-container">
+      <form id="booking-form" class="space-y-6">
+        
+        <!-- PASO 1: Servicio -->
+        <div>
+          <label class="block text-gold-warm mb-2">1. Selecciona el Servicio</label>
+          <select id="book-service" required class="w-full p-3 bg-[#222] border border-[#444] text-white">
+            <option value="">Cargando servicios...</option>
+          </select>
+        </div>
+
+        <!-- PASO 2: Fecha -->
+        <div>
+          <label class="block text-gold-warm mb-2">2. Selecciona la Fecha</label>
+          <input type="date" id="book-date" required class="w-full p-3 bg-[#222] border border-[#444] text-white" />
+        </div>
+
+        <!-- PASO 3: Hora -->
+        <div>
+          <label class="block text-gold-warm mb-2">3. Horas Disponibles</label>
+          <div id="time-slots" class="grid grid-cols-4 gap-3">
+            <div class="col-span-4 text-white/50 text-center py-4">Selecciona una fecha primero</div>
+          </div>
+          <input type="hidden" id="book-time" required />
+        </div>
+
+        <!-- Botón Enviar -->
+        <div class="pt-6 border-t border-[#333]">
+          <button type="submit" id="submit-booking" class="w-full bg-gold-warm text-[#111] font-bold py-3 uppercase tracking-widest disabled:opacity-50">Confirmar Reserva</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="success-msg" style="display:none;" class="text-center py-20">
+      <h2 class="text-2xl text-green-400 mb-4">¡Reserva Confirmada!</h2>
+      <p>Te esperamos el <span id="conf-date"></span> a las <span id="conf-time"></span>.</p>
+      <a href="index.html" class="inline-block mt-6 border border-gold-warm text-gold-warm px-6 py-2">Volver al Inicio</a>
+    </div>
+
+  </main>
+
+  <!-- FIREBASE SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  
+  <script src="js/firebase-config.js"></script>
+  <script src="js/reservar.js"></script>
+</body>
+</html>

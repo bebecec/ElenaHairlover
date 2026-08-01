@@ -1172,6 +1172,8 @@ document.querySelectorAll(".admin-tab-btn").forEach(btn => {
     else if (section === "galeria") secGaleria.classList.add("active");
     else if (section === "videos") secVideos.classList.add("active");
     else if (section === "reviews") document.getElementById("sec-reviews").classList.add("active");
+    else if (section === "agenda") document.getElementById("sec-agenda").classList.add("active");
+    else if (section === "clientes") document.getElementById("sec-clientes").classList.add("active");
     else secInformacion.classList.add("active");
   });
 });

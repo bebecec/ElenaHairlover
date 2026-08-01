@@ -65,7 +65,9 @@
 
         <!-- ES: Pestañas de Secciones | EN: Section Tabs -->
         <div class="admin-nav-tabs">
+          <button class="admin-tab-btn" data-section="agenda" data-i18n="admin.tab_agenda">Agenda</button>
           <button class="admin-tab-btn active" data-section="servicios" data-i18n="admin.tab_items">Gestión de Ítems</button>
+          <button class="admin-tab-btn" data-section="clientes" data-i18n="admin.tab_clients">Clientes</button>
           <button class="admin-tab-btn" data-section="hero" data-i18n="admin.tab_hero">Carrusel del Hero</button>
           <button class="admin-tab-btn" data-section="galeria" data-i18n="admin.tab_gallery">Galería de Imágenes</button>
           <button class="admin-tab-btn" data-section="reviews" data-i18n="admin.tab_reviews">Reseñas (Google)</button>
@@ -554,6 +556,68 @@
             </div>
           </section>
 
+          <!-- SECCIÓN: AGENDA -->
+          <section class="admin-section" id="sec-agenda">
+            <div class="admin-section__header">
+              <div>
+                <h3 data-i18n="admin.agenda_title">📅 Agenda de Citas</h3>
+                <p data-i18n="admin.agenda_desc">Visualiza y gestiona las reservas de tus clientes.</p>
+              </div>
+              <div>
+                <input type="date" id="agenda-date-picker" class="form-control" style="display:inline-block; width:auto; margin-right:10px;" />
+                <button class="btn btn--gold" id="btn-add-manual-appointment">+ Añadir Cita</button>
+              </div>
+            </div>
+            
+            <div class="services-table-wrapper" style="margin-top:20px;">
+              <table class="services-table" id="agenda-table">
+                <thead>
+                  <tr>
+                    <th>Hora</th>
+                    <th>Cliente</th>
+                    <th>Servicio</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="agenda-tbody">
+                  <tr><td colspan="6" style="text-align:center; padding:20px;">Cargando citas...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SECCIÓN: CLIENTES -->
+          <section class="admin-section" id="sec-clientes">
+            <div class="admin-section__header">
+              <div>
+                <h3 data-i18n="admin.clients_title">👥 Gestión de Clientes</h3>
+                <p data-i18n="admin.clients_desc">Lista de clientes registrados y lista negra.</p>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <input type="text" id="client-search" class="form-control" placeholder="Buscar por email o teléfono..." />
+              </div>
+            </div>
+
+            <div class="services-table-wrapper" style="margin-top:20px;">
+              <table class="services-table" id="clients-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Lista Negra</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="clients-tbody">
+                  <tr><td colspan="5" style="text-align:center; padding:20px;">Cargando clientes...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
         </div>
       </main>
     </div>
@@ -716,6 +780,7 @@
   <script src="js/config.js"></script>
   <script src="js/i18n-loader.js"></script>
   <script src="js/admin.js"></script>
+  <script src="js/admin-agenda.js"></script>
   <script type="module">
     import { loadReviewsState, initReviewsEvents, renderReviewsTable } from './js/admin/admin-reviews.js';
     window.renderReviewsTableGlobal = renderReviewsTable;

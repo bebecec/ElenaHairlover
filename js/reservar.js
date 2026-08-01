@@ -280,8 +280,55 @@ async function loadDisponibilidad(date) {
   slotsContainer.innerHTML = '<div class="text-gray-400 text-sm py-4 w-full text-center">Cargando horas...</div>';
   selectedTime = null;
   document.getElementById('btn-confirmar').disabled = true;
-  
+
   try {
+    let salonInfo = null;
+    if (window.useFirebase) {
+      const salonSnapshot = await firebase.firestore().collection('salon_info').limit(1).get();
+      if (!salonSnapshot.empty) {
+        salonInfo = salonSnapshot.docs[0].data();
+      }
+    } else {
+      const saved = localStorage.getItem("elegance_salon_info");
+      if (saved) salonInfo = JSON.parse(saved);
+    }
+    
+    if (!salonInfo) {
+      salonInfo = {
+        hoursWeek: "09:00 - 19:00",
+        hoursSat: "09:00 - 15:00",
+        hoursSun: "",
+        hoursMon: ""
+      };
+    }
+
+    const d = new Date(date);
+    const dayOfWeek = d.getDay();
+    let dayHoursStr = "";
+    if (dayOfWeek === 0) dayHoursStr = salonInfo.hoursSun;
+    else if (dayOfWeek === 1) dayHoursStr = salonInfo.hoursMon;
+    else if (dayOfWeek === 6) dayHoursStr = salonInfo.hoursSat;
+    else dayHoursStr = salonInfo.hoursWeek;
+
+    if (!dayHoursStr || dayHoursStr.toLowerCase().includes('cerrado')) {
+      renderTimeSlots([]);
+      return;
+    }
+    
+    const hoursMatch = dayHoursStr.match(/(\d{1,2}:\d{2}).*?(\d{1,2}:\d{2})/);
+    if (!hoursMatch) {
+       renderTimeSlots([]);
+       return;
+    }
+
+    const openMins = timeToMinutes(hoursMatch[1]);
+    const closingTime = timeToMinutes(hoursMatch[2]);
+    
+    const dynamicTimeSlots = [];
+    for (let m = openMins; m < closingTime; m += 30) {
+      dynamicTimeSlots.push(minutesToTime(m));
+    }
+
     const snapshot = await firebase.firestore().collection('citas').where('date', '==', date).get();
     citasReservadas = snapshot.docs.map(doc => doc.data());
     
@@ -297,13 +344,9 @@ async function loadDisponibilidad(date) {
     // Servicio actual que queremos reservar
     const currentServiceDuration = parseDurationToMinutes(selectedService.duration);
     
-    // Asumimos hora de cierre a las 20:00 (1200 mins) para que quepan servicios largos, o 18:00 (1080 mins).
-    // Usaremos 19:00 (1140 mins) como cierre estándar.
-    const closingTime = 1140; 
-    
     const availableSlots = [];
     
-    allTimeSlots.forEach(time => {
+    dynamicTimeSlots.forEach(time => {
       const startMins = timeToMinutes(time);
       const endMins = startMins + currentServiceDuration;
       
@@ -313,8 +356,6 @@ async function loadDisponibilidad(date) {
       // Comprobar si se solapa con algún bloque ocupado
       let overlaps = false;
       for (const block of blockedIntervals) {
-        // Solapamiento si: [start, end] intersecta [block.start, block.end]
-        // Se intersectan si startMins < block.end && endMins > block.start
         if (startMins < block.end && endMins > block.start) {
           overlaps = true;
           break;

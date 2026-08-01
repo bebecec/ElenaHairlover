@@ -175,6 +175,10 @@ function openBookingModal(serviceId) {
   document.getElementById('modal-service-name').textContent = selectedService.name;
   document.getElementById('modal-price').textContent = selectedService.price;
   
+  const dur = selectedService.duration || '60 min';
+  document.getElementById('modal-duration').textContent = dur;
+  document.getElementById('modal-total').textContent = selectedService.price;
+  
   // Mostrar modal
   const modal = document.getElementById('booking-modal');
   modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -247,9 +251,36 @@ function renderCalendar() {
   }
 }
 
+// Helpers para cálculo de tiempo
+function parseDurationToMinutes(durationStr) {
+  if (!durationStr) return 60;
+  let mins = 0;
+  const hMatch = durationStr.match(/(\d+)\s*h/i);
+  if (hMatch) mins += parseInt(hMatch[1]) * 60;
+  const mMatch = durationStr.match(/(\d+)\s*min/i);
+  if (mMatch) mins += parseInt(mMatch[1]);
+  if (mins === 0) {
+    const raw = parseInt(durationStr);
+    if (!isNaN(raw)) mins = raw;
+    else mins = 60; // fallback
+  }
+  return mins;
+}
+
+function timeToMinutes(timeStr) {
+  const [h, m] = timeStr.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function minutesToTime(mins) {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
 async function loadDisponibilidad(date) {
   const slotsContainer = document.getElementById('time-slots');
-  slotsContainer.innerHTML = '<div class="col-span-3 text-white/40 text-center text-sm py-4">Cargando horas...</div>';
+  slotsContainer.innerHTML = '<div class="text-gray-400 text-sm py-4 w-full text-center">Cargando horas...</div>';
   selectedTime = null;
   document.getElementById('btn-confirmar').disabled = true;
   
@@ -257,45 +288,81 @@ async function loadDisponibilidad(date) {
     const snapshot = await firebase.firestore().collection('citas').where('date', '==', date).get();
     citasReservadas = snapshot.docs.map(doc => doc.data());
     
-    const occupiedTimes = citasReservadas.filter(c => c.status !== 'cancelled').map(c => c.time);
-    renderTimeSlots(occupiedTimes);
+    // Obtener bloques ocupados
+    const blockedIntervals = citasReservadas
+      .filter(c => c.status !== 'cancelled')
+      .map(c => {
+        const startMins = timeToMinutes(c.time);
+        const durationMins = parseDurationToMinutes(c.serviceDuration);
+        return { start: startMins, end: startMins + durationMins };
+      });
+      
+    // Servicio actual que queremos reservar
+    const currentServiceDuration = parseDurationToMinutes(selectedService.duration);
+    
+    // Asumimos hora de cierre a las 20:00 (1200 mins) para que quepan servicios largos, o 18:00 (1080 mins).
+    // Usaremos 19:00 (1140 mins) como cierre estándar.
+    const closingTime = 1140; 
+    
+    const availableSlots = [];
+    
+    allTimeSlots.forEach(time => {
+      const startMins = timeToMinutes(time);
+      const endMins = startMins + currentServiceDuration;
+      
+      // Comprobar si termina después del cierre
+      if (endMins > closingTime) return;
+      
+      // Comprobar si se solapa con algún bloque ocupado
+      let overlaps = false;
+      for (const block of blockedIntervals) {
+        // Solapamiento si: [start, end] intersecta [block.start, block.end]
+        // Se intersectan si startMins < block.end && endMins > block.start
+        if (startMins < block.end && endMins > block.start) {
+          overlaps = true;
+          break;
+        }
+      }
+      
+      if (!overlaps) {
+        availableSlots.push(time);
+      }
+    });
+
+    renderTimeSlots(availableSlots);
   } catch(e) {
     console.error(e);
-    slotsContainer.innerHTML = '<div class="col-span-3 text-red-500 text-center text-sm py-4">Error al cargar</div>';
+    slotsContainer.innerHTML = '<div class="text-red-500 text-center text-sm py-4 w-full">Error al cargar disponibilidad</div>';
   }
 }
 
-function renderTimeSlots(occupiedTimes) {
+function renderTimeSlots(availableSlots) {
   const container = document.getElementById('time-slots');
   container.innerHTML = '';
   
-  let validSlots = 0;
+  if (availableSlots.length === 0) {
+    container.innerHTML = '<div class="text-gray-500 text-center text-sm py-4 w-full">No hay huecos disponibles para la duración de este servicio. Prueba otro día.</div>';
+    return;
+  }
   
-  allTimeSlots.forEach(time => {
-    const isOccupied = occupiedTimes.includes(time);
-    
+  availableSlots.forEach(time => {
     const div = document.createElement('div');
-    div.className = `time-slot p-2 border border-gold-warm/30 text-center text-sm cursor-pointer transition-colors ${isOccupied ? 'disabled opacity-30 pointer-events-none' : 'hover:bg-gold-warm hover:text-black'}`;
+    div.className = 'time-slot text-gray-700 text-sm cursor-pointer transition-colors hover:border-[#C9A84C] hover:text-[#C9A84C]';
     div.textContent = time;
     
-    if (!isOccupied) {
-      validSlots++;
-      div.onclick = () => {
-        document.querySelectorAll('.time-slot').forEach(el => {
-          el.classList.remove('bg-gold-warm', 'text-black', 'selected');
-        });
-        div.classList.add('bg-gold-warm', 'text-black', 'selected');
-        selectedTime = time;
-        document.getElementById('btn-confirmar').disabled = false;
-      };
-    }
+    div.onclick = () => {
+      document.querySelectorAll('.time-slot').forEach(el => {
+        el.classList.remove('selected', 'bg-[#C9A84C]', 'text-white', 'border-[#C9A84C]');
+        el.classList.add('text-gray-700');
+      });
+      div.classList.remove('text-gray-700', 'hover:text-[#C9A84C]');
+      div.classList.add('selected');
+      selectedTime = time;
+      document.getElementById('btn-confirmar').disabled = false;
+    };
     
     container.appendChild(div);
   });
-  
-  if (validSlots === 0) {
-    container.innerHTML = '<div class="col-span-3 text-white/50 text-center text-sm py-4">No hay horas disponibles este día</div>';
-  }
 }
 
 async function handleBookingSubmit() {

@@ -55,56 +55,68 @@
   </main>
 
   <!-- ES: Modal del Calendario | EN: Calendar Modal -->
-  <div id="booking-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="bg-[#1a1a1a] border border-gold-warm/30 rounded-xl w-full max-w-md mx-4 max-h-[90vh] flex flex-col overflow-hidden relative">
+  <div id="booking-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+    <div class="bg-[#FAF8F5] rounded-xl w-full max-w-lg mx-auto max-h-[90vh] flex flex-col overflow-hidden relative shadow-2xl">
       
       <!-- Close button -->
-      <button id="close-modal" class="absolute top-4 right-4 text-white/50 hover:text-white text-xl leading-none">&times;</button>
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl leading-none z-10">&times;</button>
       
       <!-- Header -->
-      <div class="p-6 border-b border-white/10 text-center">
-        <h3 class="text-gold-warm font-serif text-xl tracking-wide">Elige día y hora</h3>
+      <div class="p-4 border-b border-gray-200 text-center relative">
+        <h3 class="text-gray-800 font-medium text-lg">Elige día y hora</h3>
+        <span class="text-[#C9A84C] text-xs font-bold uppercase tracking-widest block mt-1">CUANDO</span>
       </div>
       
       <!-- Scrollable content -->
       <div class="p-6 overflow-y-auto flex-1 custom-scrollbar">
         <!-- Calendar Section -->
-        <div class="mb-6">
-          <div class="flex justify-between items-center mb-4">
-            <button id="prev-month" class="text-gold-warm hover:text-white px-2 py-1">&lt;</button>
-            <div id="current-month" class="font-bold uppercase tracking-wider text-sm"></div>
-            <button id="next-month" class="text-gold-warm hover:text-white px-2 py-1">&gt;</button>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+          <div class="flex justify-between items-center bg-[#C9A84C] text-white rounded-t-lg -mx-4 -mt-4 p-3 mb-4">
+            <button id="prev-month" class="hover:bg-white/20 px-2 py-1 rounded transition-colors">&lt;</button>
+            <div id="current-month" class="font-bold tracking-wide"></div>
+            <button id="next-month" class="hover:bg-white/20 px-2 py-1 rounded transition-colors">&gt;</button>
           </div>
           
-          <div class="grid grid-cols-7 gap-1 text-center text-xs text-white/50 mb-2 font-bold">
+          <div class="grid grid-cols-7 gap-1 text-center text-xs text-gray-500 mb-2 font-bold">
             <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div><div>Dom</div>
           </div>
-          <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-sm">
+          <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-sm font-medium text-gray-700">
             <!-- Calendar days will be injected here -->
           </div>
         </div>
 
-        <hr class="border-white/10 my-6">
-
         <!-- Time Slots Section -->
         <div>
-          <h4 class="text-white/80 font-bold mb-4 text-sm uppercase tracking-wider text-center">Horas recomendadas por el centro</h4>
-          <div id="time-slots" class="grid grid-cols-3 gap-3">
-            <div class="col-span-3 text-white/40 text-center text-sm py-4">Selecciona un día en el calendario</div>
+          <h4 class="text-gray-800 font-bold mb-4 text-sm text-center">Horas recomendadas por el centro</h4>
+          <div id="time-slots" class="flex flex-wrap justify-center gap-3">
+            <div class="text-gray-400 text-sm py-2 w-full text-center">Selecciona un día en el calendario</div>
           </div>
+        </div>
+        
+        <div class="text-center mt-6">
+          <button class="bg-[#C9A84C]/20 text-[#C9A84C] px-4 py-2 rounded font-medium text-sm hover:bg-[#C9A84C]/30 transition-colors">Ver más disponibilidad</button>
         </div>
       </div>
 
       <!-- Footer / Confirmation -->
-      <div class="p-6 bg-[#222] border-t border-white/10">
-        <div class="flex justify-between items-center mb-4">
-          <span class="text-white/60">Total:</span>
-          <span id="modal-price" class="text-xl font-bold text-gold-warm">0.00 €</span>
+      <div class="p-6 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <div id="modal-service-name" class="font-bold text-gray-800 text-sm"></div>
+          </div>
+          <div class="text-right">
+            <span id="modal-price" class="text-[#C9A84C] text-lg font-bold block"></span>
+            <span id="modal-duration" class="text-gray-500 text-sm"></span>
+          </div>
         </div>
-        <button id="btn-confirmar" class="w-full bg-gold-warm hover:bg-yellow-600 text-black font-bold py-3 rounded uppercase tracking-widest transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+        
+        <div class="text-center mb-4 font-bold text-gray-800">
+          Total: <span id="modal-total" class="text-black"></span>
+        </div>
+        
+        <button id="btn-confirmar" class="w-full bg-[#111] hover:bg-[#222] text-white font-bold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
           Confirmar
         </button>
-        <div id="modal-service-name" class="mt-4 text-center text-sm font-bold text-white/80 uppercase tracking-wide"></div>
       </div>
     </div>
   </div>

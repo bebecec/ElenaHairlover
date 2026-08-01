@@ -867,6 +867,24 @@
     });
   </script>
 
+  <!-- MODAL DE PERFIL CLIENTE -->
+  <div id="profile-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#111; border:1px solid #C9A84C; padding:30px; width:90%; max-width:500px; position:relative; max-height:80vh; overflow-y:auto;">
+      <button onclick="document.getElementById('profile-modal').style.display='none'" style="position:absolute; top:10px; right:15px; background:none; border:none; color:#C9A84C; font-size:1.5rem; cursor:pointer;">&times;</button>
+      
+      <h3 style="color:#C9A84C; font-size:1.5rem; margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">Mi Perfil</h3>
+      
+      <div style="margin-bottom:20px;">
+        <h4 style="color:#FFF; font-size:1.1rem; margin-bottom:10px;">Mis Próximas Citas</h4>
+        <div id="client-appointments-list" style="color:#AAA; font-size:0.9rem;">
+          Cargando citas...
+        </div>
+      </div>
+      
+      <button id="btn-client-logout" style="width:100%; background:transparent; border:1px solid #C9A84C; color:#C9A84C; padding:10px; font-weight:bold; cursor:pointer;">Cerrar Sesión</button>
+    </div>
+  </div>
+
   <!-- MODAL DE AUTENTICACION -->
   <div id="auth-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
     <div style="background:#111; border:1px solid #C9A84C; padding:30px; width:90%; max-width:400px; position:relative;">

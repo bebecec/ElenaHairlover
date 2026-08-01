@@ -31,6 +31,7 @@ async function handleRegister(e) {
     const user = userCredential.user;
     
     // Guardar en colección clientes
+    // Guardar en coleccin clientes
     await setDoc(doc(db, 'clientes', user.uid), {
       name,
       lastName,
@@ -38,6 +39,11 @@ async function handleRegister(e) {
       phone,
       blacklisted: false,
       createdAt: new Date().toISOString()
+    });
+    
+    // Asignar rol de cliente en la coleccin users_roles
+    await setDoc(doc(db, 'users_roles', user.uid), {
+      role: "client"
     });
     
     alert(`Registro exitoso. Tu contraseña temporal es: ${generatedPassword}`);
@@ -96,7 +102,7 @@ function checkAuthState() {
           const name = clientDoc.data().name;
           if(btn) {
             btn.textContent = 'Hola, ' + name;
-            btn.onclick = () => auth.signOut();
+            btn.onclick = () => openProfileModal(user.uid);
           }
           if(mobileBtn) {
             mobileBtn.textContent = 'Hola, ' + name;
@@ -133,4 +139,64 @@ document.addEventListener('DOMContentLoaded', () => {
       checkAuthState();
     }
   }, 100); // 100ms delay para asegurar que el type="module" ha asignado FirebaseLib
+});
+
+async function openProfileModal(uid) {
+  const modal = document.getElementById('profile-modal');
+  if (modal) modal.style.display = 'flex';
+  
+  const list = document.getElementById('client-appointments-list');
+  if (list) {
+    list.innerHTML = 'Cargando citas...';
+    try {
+      const { getFirestore, collection, getDocs } = window.FirebaseLib;
+      const db = getFirestore(window.firebaseApp);
+      // It's better to use a query, but for simplicity we fetch all and filter client side
+      // Or we can use query/where if we import them, but we didn't export 'where' in index.html module script.
+      // So we will just fetch all 'citas' and filter (Not ideal for large scale, but works for now)
+      
+      const snap = await getDocs(collection(db, "citas"));
+      let myCitas = [];
+      snap.forEach(doc => {
+        const data = doc.data();
+        if (data.clientId === uid) {
+          myCitas.push({ id: doc.id, ...data });
+        }
+      });
+      
+      // Sort by date (descending or ascending)
+      myCitas.sort((a,b) => new Date(a.date) - new Date(b.date));
+      
+      // Filter out past appointments? Let's just show them all.
+      
+      if (myCitas.length === 0) {
+        list.innerHTML = 'No tienes ninguna cita reservada.';
+      } else {
+        list.innerHTML = myCitas.map(c => 
+          '<div style="background:#222; border-left:3px solid #C9A84C; padding:10px; margin-bottom:10px;">' +
+            '<div style="color:#FFF; font-weight:bold;">' + c.serviceName + '</div>' +
+            '<div style="color:#C9A84C; font-size:0.85rem;">' + c.date + ' a las ' + c.time + '</div>' +
+            '<div style="color:#888; font-size:0.8rem;">Estado: ' + (c.status || 'pending') + '</div>' +
+          '</div>'
+        ).join('');
+      }
+    } catch (e) {
+      console.error(e);
+      list.innerHTML = 'Error al cargar citas.';
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const logoutBtn = document.getElementById('btn-client-logout');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      const { getAuth } = window.FirebaseLib;
+      const auth = getAuth(window.firebaseApp);
+      auth.signOut().then(() => {
+        document.getElementById('profile-modal').style.display = 'none';
+        window.location.reload();
+      });
+    });
+  }
 });

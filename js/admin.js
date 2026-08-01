@@ -1549,14 +1549,55 @@ function formatPrice(price) {
 // AUTHENTICATION LOGIC (LOCAL MOCK)
 // ============================================================================
 
+
+function applyRoleRestrictions(role) {
+  const restrictedTabs = ["servicios", "informacion", "hero", "galeria", "videos"];
+  
+  if (role === "employee") {
+    // Ocultar sección de roles
+    const rolesSec = document.getElementById("roles-management-section");
+    const rolesForm = document.getElementById("roles-management-form");
+    if(rolesSec) rolesSec.style.display = "none";
+    if(rolesForm) rolesForm.style.display = "none";
+
+    // Hide restricted tabs
+    restrictedTabs.forEach(tabId => {
+      const btn = document.querySelector(`.admin-tab-btn[data-section="${tabId}"]`);
+      if (btn) btn.style.display = "none";
+    });
+    
+    // Check if the currently active section is restricted
+    const activeBtn = document.querySelector('.admin-tab-btn.active');
+    if (activeBtn && restrictedTabs.includes(activeBtn.getAttribute("data-section"))) {
+      // Force switch to agenda
+      document.querySelectorAll(".admin-tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".admin-section").forEach(s => s.classList.remove("active"));
+      
+      const agendaBtn = document.querySelector('.admin-tab-btn[data-section="agenda"]');
+      const agendaSec = document.getElementById('sec-agenda');
+      if(agendaBtn) agendaBtn.classList.add('active');
+      if(agendaSec) agendaSec.classList.add('active');
+    }
+  } else {
+    // vipadmin: show all
+    restrictedTabs.forEach(tabId => {
+      const btn = document.querySelector(`.admin-tab-btn[data-section="${tabId}"]`);
+      if (btn) btn.style.display = "";
+    });
+  }
+}
+
 function checkAuthStatus() {
   const isLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
   const loginOverlay = document.getElementById("login-overlay");
   const adminDashboard = document.getElementById("admin-dashboard");
   
   if (isLoggedIn) {
-    if(loginOverlay) loginOverlay.style.display = "none";
-    if(adminDashboard) adminDashboard.style.display = "block";
+      if(loginOverlay) loginOverlay.style.display = "none";
+      if(adminDashboard) adminDashboard.style.display = "block";
+      
+      const role = localStorage.setItem("adminRole", localStorage.getItem("adminRole") || "vipadmin");
+      applyRoleRestrictions(localStorage.getItem("adminRole"));
     initDatabase();
     initVideoManagement();
   } else {
@@ -1591,10 +1632,31 @@ function initAuth() {
             auth = window.FirebaseLib.getAuth(firebaseApp);
           }
           window.FirebaseLib.signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-              localStorage.setItem("isAdminLoggedIn", "true");
-              loginError.style.display = "none";
-              checkAuthStatus();
+            .then((userCredential) => {
+              const uid = userCredential.user.uid;
+              window.FirebaseLib.getDoc(window.FirebaseLib.doc(db, "users_roles", uid)).then(docSnap => {
+                let role = "employee"; // default for users in auth but not in users_roles
+                  if (docSnap.exists()) {
+                    role = docSnap.data().role || "employee";
+                  }
+                  
+                  if (role === "client") {
+                    window.FirebaseLib.signOut(auth);
+                    loginError.textContent = "Acceso denegado: Los clientes no pueden acceder al panel de administración.";
+                    loginError.style.display = "block";
+                    return;
+                  }
+                localStorage.setItem("adminRole", role);
+                localStorage.setItem("isAdminLoggedIn", "true");
+                loginError.style.display = "none";
+                checkAuthStatus();
+              }).catch(err => {
+                console.error("Error al obtener rol:", err);
+                localStorage.setItem("adminRole", "employee");
+                localStorage.setItem("isAdminLoggedIn", "true");
+                loginError.style.display = "none";
+                checkAuthStatus();
+              });
             })
             .catch(err => {
               loginError.textContent = "Error de Firebase: " + err.message;
@@ -1872,3 +1934,33 @@ window.addEventListener("i18nLanguageChanged", () => {
 
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // Logic for assigning roles
+  const btnAssignRole = document.getElementById("btn-assign-role");
+  if (btnAssignRole) {
+    btnAssignRole.addEventListener("click", async () => {
+      const uid = document.getElementById("role-uid").value.trim();
+      const role = document.getElementById("role-select").value;
+      
+      if (!uid) {
+        alert("Por favor, introduce el UID del usuario.");
+        return;
+      }
+      
+      try {
+        btnAssignRole.textContent = "Guardando...";
+        await window.FirebaseLib.setDoc(window.FirebaseLib.doc(db, "users_roles", uid), { role: role });
+        alert("Rol asignado correctamente. El usuario tendrá los permisos en su próximo inicio de sesión.");
+        document.getElementById("role-uid").value = "";
+      } catch (err) {
+        console.error("Error al asignar rol:", err);
+        alert("Error al asignar rol: " + err.message);
+      } finally {
+        btnAssignRole.textContent = "Guardar Rol";
+      }
+    });
+  }
+
+});

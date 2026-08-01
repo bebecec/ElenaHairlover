@@ -7,6 +7,7 @@ let currentClientData = null;
 let servicios = [];
 let categorias = {};
 let citasReservadas = [];
+let globalSalonInfo = null;
 
 let selectedService = null;
 let selectedDateStr = null;
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadServicios();
+    loadGlobalSalonInfo();
   }
   
   // Modal Event Listeners
@@ -52,6 +54,30 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Search logic removed as requested by user
 });
+
+
+async function loadGlobalSalonInfo() {
+  if (window.firebase) {
+    try {
+      const salonSnapshot = await firebase.firestore().collection('salon_info').limit(1).get();
+      if (!salonSnapshot.empty) {
+        globalSalonInfo = salonSnapshot.docs[0].data();
+      }
+    } catch(e) { console.error(e); }
+  }
+  if (!globalSalonInfo) {
+    const saved = localStorage.getItem("elegance_salon_info");
+    if (saved) globalSalonInfo = JSON.parse(saved);
+  }
+  if (!globalSalonInfo) {
+    globalSalonInfo = {
+      hoursWeek: "09:00 - 19:00",
+      hoursSat: "09:00 - 15:00",
+      hoursSun: "-",
+      hoursMon: "-"
+    };
+  }
+}
 
 async function loadServicios() {
   const container = document.getElementById('services-container');
@@ -230,8 +256,26 @@ function renderCalendar() {
     div.className = 'calendar-day';
     div.textContent = i;
     
-    if (dateObj < today) {
+    
+    let dayHoursStr = "";
+    if (globalSalonInfo) {
+      const dayOfWeek = dateObj.getDay();
+      if (dayOfWeek === 0) dayHoursStr = globalSalonInfo.hoursSun;
+      else if (dayOfWeek === 1) dayHoursStr = globalSalonInfo.hoursMon;
+      else if (dayOfWeek === 6) dayHoursStr = globalSalonInfo.hoursSat;
+      else dayHoursStr = globalSalonInfo.hoursWeek;
+    }
+
+    const isClosed = !dayHoursStr || dayHoursStr === "-" || dayHoursStr.toLowerCase().includes('cerrado');
+
+    if (dateObj < today || isClosed) {
       div.classList.add('disabled');
+      if (isClosed && dateObj >= today) {
+        // Opción: añadir un estilo específico para cerrado
+        div.style.opacity = '0.3';
+        div.style.textDecoration = 'line-through';
+        div.title = 'Cerrado';
+      }
     } else {
       if (selectedDateStr === dateStr) {
         div.classList.add('selected');

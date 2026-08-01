@@ -178,10 +178,13 @@ function renderCategorias() {
 
 function openBookingModal(serviceId) {
   if (!currentUser) {
-    const irLogin = confirm("Para reservar una cita, necesitas iniciar sesión o registrarte gratis. ¿Deseas ir a la página de inicio para hacerlo?");
-    if (irLogin) {
-      window.location.href = "index.html";
-    }
+    const modal = document.getElementById('auth-prompt-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+      } else {
+        const irLogin = confirm("Para reservar una cita, necesitas iniciar sesión o registrarte gratis. ¿Deseas ir a la página de inicio para hacerlo?");
+        if (irLogin) window.location.href = "index.html";
+      }
     return;
   }
   

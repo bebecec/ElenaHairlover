@@ -42,8 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('book-date').setAttribute('min', today);
   
   document.getElementById('book-date').addEventListener('change', loadDisponibilidad);
+  document.getElementById('book-service').addEventListener('change', updateServiceDuration);
   document.getElementById('booking-form').addEventListener('submit', handleBookingSubmit);
 });
+
+function updateServiceDuration() {
+  const serviceId = document.getElementById('book-service').value;
+  const container = document.getElementById('service-duration-container');
+  const textEl = document.getElementById('service-duration-text');
+  
+  if (!serviceId) {
+    container.style.display = 'none';
+    return;
+  }
+  
+  const service = servicios.find(s => s.id === serviceId);
+  // Default to 60 min if duration not set
+  const duration = service && service.duration ? service.duration : '60 min';
+  
+  textEl.textContent = duration;
+  container.style.display = 'flex';
+}
 
 async function loadServicios() {
   const select = document.getElementById('book-service');
@@ -127,6 +146,7 @@ async function handleBookingSubmit(e) {
   btn.textContent = 'Procesando...';
   
   try {
+    const duration = service.duration ? service.duration : '60 min';
     await firebase.firestore().collection('citas').add({
       clientId: currentUser.uid,
       clientName: currentClientData.name + ' ' + (currentClientData.lastName || ''),
@@ -134,6 +154,7 @@ async function handleBookingSubmit(e) {
       clientPhone: currentClientData.phone,
       serviceId: service.id,
       serviceName: service.name,
+      serviceDuration: duration,
       date: date,
       time: time,
       status: 'pending',

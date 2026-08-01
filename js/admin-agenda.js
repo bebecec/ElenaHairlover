@@ -1,4 +1,4 @@
-// ==============================================================
+﻿// ==============================================================
 // GESTION DE AGENDA Y CLIENTES (NUEVO)
 // ==============================================================
 let citas = [];
@@ -58,6 +58,7 @@ function renderAgendaTable() {
       <td>${c.time}</td>
       <td>${c.clientName || 'Sin Nombre'}</td>
       <td>${c.serviceName || 'Servicio General'}</td>
+      <td>${c.serviceDuration || '60 min'}</td>
       <td>${c.clientPhone || '-'}</td>
       <td>
         <select class="form-control" style="width:auto;" onchange="updateCitaStatus('${c.id}', this.value)">
@@ -101,7 +102,7 @@ function renderClientsTable() {
       <td>
         <label style="display:flex; align-items:center; gap:8px;">
           <input type="checkbox" ${c.blacklisted ? 'checked' : ''} onchange="toggleBlacklist('${c.id}', this.checked)" />
-          Sí
+          SÃ­
         </label>
       </td>
       <td>
@@ -124,7 +125,7 @@ window.updateCitaStatus = async function(id, status) {
 };
 
 window.deleteCita = async function(id) {
-  if(confirm('¿Eliminar esta cita?')) {
+  if(confirm('Â¿Eliminar esta cita?')) {
     if (window.useFirebase) {
       const { doc, deleteDoc } = window.FirebaseLib;
       await deleteDoc(doc(db, 'citas', id));
@@ -148,7 +149,7 @@ window.toggleBlacklist = async function(id, isBlacklisted) {
 };
 
 window.deleteCliente = async function(id) {
-  if(confirm('¿Eliminar este cliente?')) {
+  if(confirm('Â¿Eliminar este cliente?')) {
     if (window.useFirebase) {
       const { doc, deleteDoc } = window.FirebaseLib;
       await deleteDoc(doc(db, 'clientes', id));
@@ -173,16 +174,16 @@ loadData = function() {
 
 async function resetClientPassword(email) {
   if (!email) {
-    showToast('El cliente no tiene un correo electr�nico v�lido.', 'error');
+    showToast('El cliente no tiene un correo electrónico válido.', 'error');
     return;
   }
   
   if (!window.useFirebase || !window.FirebaseLib) {
-    showToast('Firebase no est� activado.', 'error');
+    showToast('Firebase no está activado.', 'error');
     return;
   }
   
-  if (!confirm('�Est�s seguro de enviar un correo a ' + email + ' para restablecer su contrase�a?')) return;
+  if (!confirm('¿Estás seguro de enviar un correo a ' + email + ' para restablecer su contraseña?')) return;
   
   try {
     const { getAuth, sendPasswordResetEmail } = window.FirebaseLib;

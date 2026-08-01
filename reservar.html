@@ -43,27 +43,33 @@
     <div id="booking-container">
       <form id="booking-form" class="space-y-6">
         
-        <!-- PASO 1: Servicio -->
+        <!-- PASO 1: Fecha (Día) -->
         <div>
-          <label class="block text-gold-warm mb-2">1. Selecciona el Servicio</label>
+          <label class="block text-gold-warm mb-2">1. Selecciona la Fecha</label>
+          <input type="date" id="book-date" required class="w-full p-3 bg-[#222] border border-[#444] text-white" />
+        </div>
+
+        <!-- PASO 2: Hora -->
+        <div>
+          <label class="block text-gold-warm mb-2">2. Horas Disponibles</label>
+          <div id="time-slots" class="grid grid-cols-4 gap-3">
+            <div class="col-span-4 text-white/50 text-center py-4">Selecciona una fecha primero</div>
+          </div>
+          <input type="hidden" id="book-time" required />
+        </div>
+
+        <!-- PASO 3: Servicio -->
+        <div>
+          <label class="block text-gold-warm mb-2">3. Selecciona el Servicio</label>
           <select id="book-service" required class="w-full p-3 bg-[#222] border border-[#444] text-white">
             <option value="">Cargando servicios...</option>
           </select>
         </div>
 
-        <!-- PASO 2: Fecha -->
-        <div>
-          <label class="block text-gold-warm mb-2">2. Selecciona la Fecha</label>
-          <input type="date" id="book-date" required class="w-full p-3 bg-[#222] border border-[#444] text-white" />
-        </div>
-
-        <!-- PASO 3: Hora -->
-        <div>
-          <label class="block text-gold-warm mb-2">3. Horas Disponibles</label>
-          <div id="time-slots" class="grid grid-cols-4 gap-3">
-            <div class="col-span-4 text-white/50 text-center py-4">Selecciona una fecha primero</div>
-          </div>
-          <input type="hidden" id="book-time" required />
+        <!-- PASO 4: Tiempo de servicio -->
+        <div id="service-duration-container" style="display:none;" class="p-4 bg-[#222] border border-gold-warm/50 rounded flex items-center justify-between">
+          <span class="text-white/80">Tiempo de servicio estimado:</span>
+          <span id="service-duration-text" class="text-gold-warm font-bold text-lg">--</span>
         </div>
 
         <!-- Botón Enviar -->

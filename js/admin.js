@@ -1388,7 +1388,7 @@ async function saveVideoMetadata(slotId, label, desc) {
     const { setDoc, doc } = window.FirebaseLib;
     try {
       await setDoc(doc(db, "videos_metadata", slotId), { label, desc });
-      showToast("InformaciÃ³n del vÃ­deo guardada en Firebase", "success");
+      showToast("Información del vídeo guardada en Firebase", "success");
     } catch (err) {
       showToast("Error al guardar en Firebase: " + err.message, "error");
     }
@@ -1576,14 +1576,38 @@ function initAuth() {
       const email = document.getElementById("login-email").value;
       const password = document.getElementById("login-password").value;
 
+      // Local emergency bypass
       if (email === "admin@salon.com" && password === "123456") {
         localStorage.setItem("isAdminLoggedIn", "true");
         loginError.style.display = "none";
         checkAuthStatus();
-      } else {
-        loginError.textContent = "Credenciales incorrectas (Usa: admin@salon.com / 123456)";
-        loginError.style.display = "block";
+        return;
       }
+
+      if (window.useFirebase && window.FirebaseLib) {
+        try {
+          if (!firebaseApp) {
+            firebaseApp = window.FirebaseLib.initializeApp(window.firebaseConfig);
+            auth = window.FirebaseLib.getAuth(firebaseApp);
+          }
+          window.FirebaseLib.signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+              localStorage.setItem("isAdminLoggedIn", "true");
+              loginError.style.display = "none";
+              checkAuthStatus();
+            })
+            .catch(err => {
+              loginError.textContent = "Error de Firebase: " + err.message;
+              loginError.style.display = "block";
+            });
+          return;
+        } catch (e) {
+          console.error("Error al usar Firebase Auth", e);
+        }
+      }
+
+      loginError.textContent = "Credenciales incorrectas (Usa: admin@salon.com / 123456)";
+      loginError.style.display = "block";
     });
   }
 

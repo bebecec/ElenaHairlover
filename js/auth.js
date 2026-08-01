@@ -124,8 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('register-form')?.addEventListener('submit', handleRegister);
   document.getElementById('login-form')?.addEventListener('submit', handleLogin);
   
-  // Solo iniciar checkAuthState si existe window.FirebaseLib
-  if (window.FirebaseLib) {
-    checkAuthState();
-  }
+  // Esperar a que el módulo cargue FirebaseLib y luego inicializar si es necesario
+  setTimeout(() => {
+    if (window.FirebaseLib && window.useFirebase) {
+      if (!window.firebaseApp) {
+        window.firebaseApp = window.FirebaseLib.initializeApp(window.firebaseConfig);
+      }
+      checkAuthState();
+    }
+  }, 100); // 100ms delay para asegurar que el type="module" ha asignado FirebaseLib
 });

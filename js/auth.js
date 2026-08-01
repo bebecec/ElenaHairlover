@@ -125,10 +125,65 @@ function checkAuthState() {
   });
 }
 
+
+async function handleGoogleLogin() {
+  try {
+    const { getAuth, GoogleAuthProvider, signInWithPopup, getFirestore, doc, getDoc, setDoc } = window.FirebaseLib;
+    const auth = getAuth(window.firebaseApp);
+    const db = getFirestore(window.firebaseApp);
+    const provider = new GoogleAuthProvider();
+    
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    
+    // Check if user exists in clientes
+    const clientRef = doc(db, 'clientes', user.uid);
+    const clientDoc = await getDoc(clientRef);
+    
+    if (!clientDoc.exists()) {
+      // First time Google login, create client record
+      const nameParts = (user.displayName || '').split(' ');
+      const name = nameParts[0] || 'Usuario';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      
+      await setDoc(clientRef, {
+        name,
+        lastName,
+        email: user.email || '',
+        phone: user.phoneNumber || '',
+        blacklisted: false,
+        createdAt: new Date().toISOString()
+      });
+      
+      // Assign role
+      await setDoc(doc(db, 'users_roles', user.uid), {
+        role: "client"
+      });
+    } else {
+      if (clientDoc.data().blacklisted) {
+        alert('Tu cuenta ha sido restringida. Contacta con el administrador.');
+        auth.signOut();
+        return;
+      }
+    }
+    
+    alert('Inicio de sesión exitoso con Google.');
+    closeAuthModal();
+    window.location.reload();
+  } catch (error) {
+    console.error(error);
+    alert('Error al iniciar sesión con Google: ' + error.message);
+  }
+}
+
 // Add event listeners on load
 document.addEventListener('DOMContentLoaded', () => {
+
+  
   document.getElementById('register-form')?.addEventListener('submit', handleRegister);
   document.getElementById('login-form')?.addEventListener('submit', handleLogin);
+  document.getElementById('btn-google-login')?.addEventListener('click', handleGoogleLogin);
+
   
   // Esperar a que el módulo cargue FirebaseLib y luego inicializar si es necesario
   setTimeout(() => {

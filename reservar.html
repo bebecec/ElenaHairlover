@@ -40,52 +40,80 @@
   <main class="max-w-3xl mx-auto p-6 mt-10">
     <h1 class="text-3xl font-serif text-gold-warm mb-8 text-center">Reserva tu Cita</h1>
 
-    <div id="booking-container">
-      <form id="booking-form" class="space-y-6">
-        
-        <!-- PASO 1: Fecha (Día) -->
-        <div>
-          <label class="block text-gold-warm mb-2">1. Selecciona la Fecha</label>
-          <input type="date" id="book-date" required class="w-full p-3 bg-[#222] border border-[#444] text-white" />
-        </div>
-
-        <!-- PASO 2: Hora -->
-        <div>
-          <label class="block text-gold-warm mb-2">2. Horas Disponibles</label>
-          <div id="time-slots" class="grid grid-cols-4 gap-3">
-            <div class="col-span-4 text-white/50 text-center py-4">Selecciona una fecha primero</div>
-          </div>
-          <input type="hidden" id="book-time" required />
-        </div>
-
-        <!-- PASO 3: Servicio -->
-        <div>
-          <label class="block text-gold-warm mb-2">3. Selecciona el Servicio</label>
-          <select id="book-service" required class="w-full p-3 bg-[#222] border border-[#444] text-white">
-            <option value="">Cargando servicios...</option>
-          </select>
-        </div>
-
-        <!-- PASO 4: Tiempo de servicio -->
-        <div id="service-duration-container" style="display:none;" class="p-4 bg-[#222] border border-gold-warm/50 rounded flex items-center justify-between">
-          <span class="text-white/80">Tiempo de servicio estimado:</span>
-          <span id="service-duration-text" class="text-gold-warm font-bold text-lg">--</span>
-        </div>
-
-        <!-- Botón Enviar -->
-        <div class="pt-6 border-t border-[#333]">
-          <button type="submit" id="submit-booking" class="w-full bg-gold-warm text-[#111] font-bold py-3 uppercase tracking-widest disabled:opacity-50">Confirmar Reserva</button>
-        </div>
-      </form>
+    <!-- ES: Search bar | EN: Search bar -->
+    <div class="mb-6 relative">
+      <input type="text" id="search-service" placeholder="Encuentra tu servicio" class="w-full p-4 bg-[#222] border border-[#444] rounded-lg text-white focus:outline-none focus:border-gold-warm transition-colors" />
+      <span class="absolute right-4 top-4 text-white/50">🔍</span>
     </div>
 
+    <!-- ES: Contenedor de la lista de servicios | EN: Services list container -->
+    <div id="services-container" class="space-y-4">
+      <div class="text-center py-10 text-white/50">Cargando servicios...</div>
+    </div>
+
+    <!-- ES: Mensaje de Éxito | EN: Success Message -->
     <div id="success-msg" style="display:none;" class="text-center py-20">
       <h2 class="text-2xl text-green-400 mb-4">¡Reserva Confirmada!</h2>
-      <p>Te esperamos el <span id="conf-date"></span> a las <span id="conf-time"></span>.</p>
-      <a href="index.html" class="inline-block mt-6 border border-gold-warm text-gold-warm px-6 py-2">Volver al Inicio</a>
+      <p>Te esperamos el <span id="conf-date"></span> a las <span id="conf-time"></span> para tu <span id="conf-service"></span>.</p>
+      <a href="index.html" class="inline-block mt-6 border border-gold-warm text-gold-warm px-6 py-2 rounded">Volver al Inicio</a>
     </div>
 
   </main>
+
+  <!-- ES: Modal del Calendario | EN: Calendar Modal -->
+  <div id="booking-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-[#1a1a1a] border border-gold-warm/30 rounded-xl w-full max-w-md mx-4 max-h-[90vh] flex flex-col overflow-hidden relative">
+      
+      <!-- Close button -->
+      <button id="close-modal" class="absolute top-4 right-4 text-white/50 hover:text-white text-xl leading-none">&times;</button>
+      
+      <!-- Header -->
+      <div class="p-6 border-b border-white/10 text-center">
+        <h3 class="text-gold-warm font-serif text-xl tracking-wide">Elige día y hora</h3>
+      </div>
+      
+      <!-- Scrollable content -->
+      <div class="p-6 overflow-y-auto flex-1 custom-scrollbar">
+        <!-- Calendar Section -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-4">
+            <button id="prev-month" class="text-gold-warm hover:text-white px-2 py-1">&lt;</button>
+            <div id="current-month" class="font-bold uppercase tracking-wider text-sm"></div>
+            <button id="next-month" class="text-gold-warm hover:text-white px-2 py-1">&gt;</button>
+          </div>
+          
+          <div class="grid grid-cols-7 gap-1 text-center text-xs text-white/50 mb-2 font-bold">
+            <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div><div>Dom</div>
+          </div>
+          <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-sm">
+            <!-- Calendar days will be injected here -->
+          </div>
+        </div>
+
+        <hr class="border-white/10 my-6">
+
+        <!-- Time Slots Section -->
+        <div>
+          <h4 class="text-white/80 font-bold mb-4 text-sm uppercase tracking-wider text-center">Horas recomendadas por el centro</h4>
+          <div id="time-slots" class="grid grid-cols-3 gap-3">
+            <div class="col-span-3 text-white/40 text-center text-sm py-4">Selecciona un día en el calendario</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer / Confirmation -->
+      <div class="p-6 bg-[#222] border-t border-white/10">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-white/60">Total:</span>
+          <span id="modal-price" class="text-xl font-bold text-gold-warm">0.00 €</span>
+        </div>
+        <button id="btn-confirmar" class="w-full bg-gold-warm hover:bg-yellow-600 text-black font-bold py-3 rounded uppercase tracking-widest transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          Confirmar
+        </button>
+        <div id="modal-service-name" class="mt-4 text-center text-sm font-bold text-white/80 uppercase tracking-wide"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- FIREBASE SCRIPTS -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>

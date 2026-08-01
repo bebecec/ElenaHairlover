@@ -83,22 +83,37 @@ function renderCategorias() {
     
     // Contenedor principal de la categoría
     const catDiv = document.createElement('div');
-    catDiv.className = 'service-category-card mb-3 bg-white rounded-lg border border-gray-300 overflow-hidden transition-colors duration-300';
+    catDiv.className = 'service-category-card mb-3 bg-white rounded-lg border border-[#C9A84C] overflow-hidden transition-colors duration-300';
     
-    // Botón de acordeón
+    // El botón de la cabecera
     const btn = document.createElement('button');
-    btn.className = 'w-full text-left p-4 flex justify-between items-center bg-white outline-none';
+    btn.className = 'w-full px-4 py-3 flex items-center justify-between text-gray-800 bg-white hover:bg-gray-50 focus:outline-none';
     btn.innerHTML = `
-      <span class="text-gray-800 font-medium text-lg">${catName}</span>
-      <div class="flex items-center space-x-3">
-        <span class="bg-[#C9A84C]/20 text-[#C9A84C] font-bold text-sm px-3 py-1 rounded-md">${catServices.length} servicios</span>
-        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300 icon-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      <span class="font-medium">${catName}</span>
+      <div class="flex items-center space-x-2">
+        <span class="text-xs font-semibold text-[#C9A84C] bg-[#fcf9f2] border border-[#C9A84C] px-3 py-1 rounded-full">${categorias[catName].length} servicios</span>
+        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300 icon-arrow rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </div>
     `;
     
     // Contenido del acordeón
     const content = document.createElement('div');
-    content.className = 'service-category-content hidden bg-white px-4 pb-2 border-t border-gray-100';
+    content.className = 'service-category-content bg-white px-4 pb-2 border-t border-gray-100';
+    
+    // Event listener para el acordeón
+    btn.addEventListener('click', () => {
+      const isOpen = !content.classList.contains('hidden');
+      
+      if (isOpen) {
+        content.classList.add('hidden');
+        catDiv.classList.remove('border-[#C9A84C]');
+        btn.querySelector('.icon-arrow').classList.remove('rotate-90');
+      } else {
+        content.classList.remove('hidden');
+        catDiv.classList.add('border-[#C9A84C]');
+        btn.querySelector('.icon-arrow').classList.add('rotate-90');
+      }
+    });
     
     catServices.forEach(s => {
       const duration = s.duration || '60 min';
@@ -115,28 +130,10 @@ function renderCategorias() {
             <span class="block text-gray-800 font-medium">${s.price}</span>
             <span class="block text-gray-500 text-sm">${duration}</span>
           </div>
-          <button class="bg-[#C9A84C] hover:bg-[#b09341] text-black font-medium py-2 px-4 rounded shadow-sm transition-colors uppercase tracking-wide text-sm" data-id="${s.id}">Reservar</button>
+          <button class="btn-reservar bg-[#C9A84C] hover:bg-[#b09341] text-black font-medium py-2 px-4 rounded shadow-sm transition-colors uppercase tracking-wide text-sm" data-id="${s.id}">Reservar</button>
         </div>
       `;
       content.appendChild(item);
-    });
-    
-    // Event listener para el acordeón
-    btn.addEventListener('click', () => {
-      const isOpen = !content.classList.contains('hidden');
-      
-      // Cerrar todos los demás
-      document.querySelectorAll('.service-category-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.service-category-card').forEach(el => el.classList.remove('border-[#C9A84C]'));
-      document.querySelectorAll('.icon-arrow').forEach(el => {
-        el.classList.remove('rotate-90');
-      });
-
-      if (!isOpen) {
-        content.classList.remove('hidden');
-        catDiv.classList.add('border-[#C9A84C]');
-        btn.querySelector('.icon-arrow').classList.add('rotate-90');
-      }
     });
     
     catDiv.appendChild(btn);

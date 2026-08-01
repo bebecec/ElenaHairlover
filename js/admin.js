@@ -546,7 +546,7 @@ async function deleteServiceItem(id) {
   }
 }
 
-newServiceBtn.addEventListener("click", () => {
+if (newServiceBtn) newServiceBtn.addEventListener("click", () => {
   modalServiceTitle.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.modal_service_title_new") : "Nuevo Servicio";
   modalServiceTitle.setAttribute("data-i18n", "admin.modal_service_title_new");
   serviceIdInput.value = "";
@@ -555,18 +555,18 @@ newServiceBtn.addEventListener("click", () => {
   serviceModal.style.display = "flex";
 });
 
-manageCategoriesBtn.addEventListener("click", () => {
+if (manageCategoriesBtn) manageCategoriesBtn.addEventListener("click", () => {
   categoryModal.style.display = "flex";
 });
 
-categoryModalCloseBtn.addEventListener("click", () => {
+if (categoryModalCloseBtn) categoryModalCloseBtn.addEventListener("click", () => {
   categoryModal.style.display = "none";
   editingCategoryId = null;
   categoryForm.reset();
   modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "AÃ±adir CategorÃ­a") : "AÃ±adir CategorÃ­a";
 });
 
-categoryForm.addEventListener("submit", (e) => {
+if (categoryForm) categoryForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = newCategoryNameInput.value.trim();
   if (!name) return;
@@ -620,11 +620,11 @@ function openEditModal(id) {
   serviceModal.style.display = "flex";
 }
 
-modalCancelBtn.addEventListener("click", () => {
+if (modalCancelBtn) modalCancelBtn.addEventListener("click", () => {
   serviceModal.style.display = "none";
 });
 
-serviceForm.addEventListener("submit", async (e) => {
+if (serviceForm) serviceForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const id = serviceIdInput.value;
@@ -669,7 +669,7 @@ serviceForm.addEventListener("submit", async (e) => {
   }
 });
 
-salonInfoForm.addEventListener("submit", async (e) => {
+if (salonInfoForm) salonInfoForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const phone = document.getElementById("info-phone").value.trim();
@@ -861,7 +861,7 @@ if (galleryUploadInput) galleryUploadInput.addEventListener("change", (e) => {
 
 // Input de reemplazo de archivo de imagen individual
 if (imageEditFileInput) {
-  imageEditFileInput.addEventListener("change", async (e) => {
+  if (imageEditFileInput) imageEditFileInput.addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
@@ -962,17 +962,17 @@ if (galleryGrid) galleryGrid.addEventListener("drop", (e) => {
 });
 
 // Cerrar modal de preview
-imageModalClose.addEventListener("click", () => {
+if (imageModalClose) imageModalClose.addEventListener("click", () => {
   imagePreviewModal.style.display = "none";
   previewingImageId = null;
   tempImageSrc = null;
 });
-imageModalCancel.addEventListener("click", () => {
+if (imageModalCancel) imageModalCancel.addEventListener("click", () => {
   imagePreviewModal.style.display = "none";
   previewingImageId = null;
   tempImageSrc = null;
 });
-imageModalDelete.addEventListener("click", () => {
+if (imageModalDelete) imageModalDelete.addEventListener("click", () => {
   if (previewingImageId) {
     imagePreviewModal.style.display = "none";
     deleteGalleryImage(previewingImageId);
@@ -981,7 +981,7 @@ imageModalDelete.addEventListener("click", () => {
   }
 });
 if (imageModalSave) {
-  imageModalSave.addEventListener("click", () => {
+  if (imageModalSave) imageModalSave.addEventListener("click", () => {
     if (previewingImageId) {
       const idx = galleryImages.findIndex(i => i.id === previewingImageId);
       if (idx !== -1) {
@@ -1439,13 +1439,13 @@ function openVideoEditModal(slotId) {
 }
 
 if (videoEditCancelBtn) {
-  videoEditCancelBtn.addEventListener("click", () => {
+  if (videoEditCancelBtn) videoEditCancelBtn.addEventListener("click", () => {
     videoEditModal.style.display = "none";
   });
 }
 
 if (videoEditForm) {
-  videoEditForm.addEventListener("submit", async (e) => {
+  if (videoEditForm) videoEditForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const slotId = videoEditSlotIdInput.value;
     const label = videoEditLabelInput.value.trim();
@@ -1689,7 +1689,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const publishBtn = document.getElementById("publish-data-btn");
   if (publishBtn) {
-    publishBtn.addEventListener("click", () => {
+    if (publishBtn) publishBtn.addEventListener("click", () => {
       showToast("Datos publicados en la web exitosamente (simulado en modo local)", "success");
       // AquÃ­ se conectarÃ­a con la API o backend para actualizar la web pÃºblica
     });
@@ -1710,7 +1710,7 @@ function initBackupRestore() {
   const importFile = document.getElementById("import-backup-file");
 
   if (btnExport) {
-    btnExport.addEventListener("click", () => {
+    if (btnExport) btnExport.addEventListener("click", () => {
       try {
         const backupData = {
           elegance_services: JSON.parse(localStorage.getItem("elegance_services")) || [],
@@ -1740,7 +1740,7 @@ function initBackupRestore() {
   }
 
   if (btnImport && importFile) {
-    btnImport.addEventListener("click", () => {
+    if (btnImport) btnImport.addEventListener("click", () => {
       const file = importFile.files[0];
       if (!file) {
         showToast("Por favor, selecciona un archivo de respaldo (.json)", "error");
@@ -1872,17 +1872,17 @@ function initAgendaConfig() {
   }
 
   // ES: Eventos de cambio de tipo | EN: Type change events
-  radioExternal.addEventListener("change", updateFieldsVisibility);
-  radioInternal.addEventListener("change", updateFieldsVisibility);
-  radioGoogle.addEventListener("change", updateFieldsVisibility);
-  radioFirebase.addEventListener("change", updateFieldsVisibility);
+  if (radioExternal) radioExternal.addEventListener("change", updateFieldsVisibility);
+  if (radioInternal) radioInternal.addEventListener("change", updateFieldsVisibility);
+  if (radioGoogle) radioGoogle.addEventListener("change", updateFieldsVisibility);
+  if (radioFirebase) radioFirebase.addEventListener("change", updateFieldsVisibility);
   if (externalUrlInput) externalUrlInput.addEventListener("input", updateFieldsVisibility);
   if (internalUrlInput) internalUrlInput.addEventListener("input", updateFieldsVisibility);
   if (googleUrlInput) googleUrlInput.addEventListener("input", updateFieldsVisibility);
   if (firebaseUrlInput) firebaseUrlInput.addEventListener("input", updateFieldsVisibility);
 
   // ES: Guardar configuraciÃ³n | EN: Save configuration
-  btnSave.addEventListener("click", () => {
+  if (btnSave) btnSave.addEventListener("click", () => {
     const config = {
       type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : radioFirebase.checked ? "firebase" : "internal",
       externalUrl: externalUrlInput ? externalUrlInput.value : "",

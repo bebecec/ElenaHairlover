@@ -1656,20 +1656,24 @@ function initAgendaConfig() {
   const radioExternal = document.getElementById("agenda-type-external");
   const radioInternal = document.getElementById("agenda-type-internal");
   const radioGoogle = document.getElementById("agenda-type-google");
+  const radioFirebase = document.getElementById("agenda-type-firebase");
   const externalFields = document.getElementById("agenda-external-fields");
   const internalFields = document.getElementById("agenda-internal-fields");
   const googleFields = document.getElementById("agenda-google-fields");
+  const firebaseFields = document.getElementById("agenda-firebase-fields");
   const externalUrlInput = document.getElementById("agenda-external-url");
   const internalUrlInput = document.getElementById("agenda-internal-url");
   const googleUrlInput = document.getElementById("agenda-google-url");
+  const firebaseUrlInput = document.getElementById("agenda-firebase-url");
   const previewUrl = document.getElementById("agenda-preview-url");
   const btnSave = document.getElementById("btn-save-agenda");
   const btnTest = document.getElementById("btn-test-agenda");
   const labelExternal = document.getElementById("label-agenda-external");
   const labelInternal = document.getElementById("label-agenda-internal");
   const labelGoogle = document.getElementById("label-agenda-google");
+  const labelFirebase = document.getElementById("label-agenda-firebase");
 
-  if (!radioExternal || !radioInternal || !radioGoogle || !btnSave) return;
+  if (!radioExternal || !radioInternal || !radioGoogle || !radioFirebase || !btnSave) return;
 
   // ES: Cargar configuración guardada | EN: Load saved configuration
   const saved = JSON.parse(localStorage.getItem("elegance_agenda_config") || "null");
@@ -1678,18 +1682,27 @@ function initAgendaConfig() {
       radioInternal.checked = true;
       radioExternal.checked = false;
       radioGoogle.checked = false;
+      radioFirebase.checked = false;
     } else if (saved.type === "google") {
       radioGoogle.checked = true;
       radioExternal.checked = false;
       radioInternal.checked = false;
+      radioFirebase.checked = false;
+    } else if (saved.type === "firebase") {
+      radioFirebase.checked = true;
+      radioExternal.checked = false;
+      radioInternal.checked = false;
+      radioGoogle.checked = false;
     } else {
       radioExternal.checked = true;
       radioInternal.checked = false;
       radioGoogle.checked = false;
+      radioFirebase.checked = false;
     }
     if (saved.externalUrl && externalUrlInput) externalUrlInput.value = saved.externalUrl;
     if (saved.internalUrl && internalUrlInput) internalUrlInput.value = saved.internalUrl;
     if (saved.googleUrl && googleUrlInput) googleUrlInput.value = saved.googleUrl;
+    if (saved.firebaseUrl && firebaseUrlInput) firebaseUrlInput.value = saved.firebaseUrl;
   }
 
   // ES: Función para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
@@ -1697,15 +1710,18 @@ function initAgendaConfig() {
     const isExternal = radioExternal.checked;
     const isInternal = radioInternal.checked;
     const isGoogle = radioGoogle.checked;
+    const isFirebase = radioFirebase.checked;
     externalFields.hidden = !isExternal;
     internalFields.hidden = !isInternal;
     googleFields.hidden = !isGoogle;
+    if(firebaseFields) firebaseFields.hidden = !isFirebase;
 
     // ES: Resaltar la opción seleccionada | EN: Highlight selected option
-    if (labelExternal && labelInternal && labelGoogle) {
+    if (labelExternal && labelInternal && labelGoogle && labelFirebase) {
       labelExternal.classList.toggle("is-selected", isExternal);
       labelInternal.classList.toggle("is-selected", isInternal);
       labelGoogle.classList.toggle("is-selected", isGoogle);
+      labelFirebase.classList.toggle("is-selected", isFirebase);
     }
 
     // ES: Actualizar vista previa | EN: Update preview
@@ -1713,11 +1729,13 @@ function initAgendaConfig() {
       ? externalUrlInput.value
       : isGoogle
         ? googleUrlInput.value
-        : internalUrlInput.value;
+        : isFirebase
+          ? firebaseUrlInput.value
+          : internalUrlInput.value;
     if (previewUrl) previewUrl.textContent = activeUrl || "(sin configurar)";
     if (btnTest) {
       btnTest.href = activeUrl || "#";
-      btnTest.target = isInternal ? "_self" : "_blank";
+      btnTest.target = (isInternal || isFirebase) ? "_self" : "_blank";
     }
   }
 
@@ -1725,17 +1743,20 @@ function initAgendaConfig() {
   radioExternal.addEventListener("change", updateFieldsVisibility);
   radioInternal.addEventListener("change", updateFieldsVisibility);
   radioGoogle.addEventListener("change", updateFieldsVisibility);
+  radioFirebase.addEventListener("change", updateFieldsVisibility);
   if (externalUrlInput) externalUrlInput.addEventListener("input", updateFieldsVisibility);
   if (internalUrlInput) internalUrlInput.addEventListener("input", updateFieldsVisibility);
   if (googleUrlInput) googleUrlInput.addEventListener("input", updateFieldsVisibility);
+  if (firebaseUrlInput) firebaseUrlInput.addEventListener("input", updateFieldsVisibility);
 
   // ES: Guardar configuración | EN: Save configuration
   btnSave.addEventListener("click", () => {
     const config = {
-      type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : "internal",
+      type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : radioFirebase.checked ? "firebase" : "internal",
       externalUrl: externalUrlInput ? externalUrlInput.value : "",
       internalUrl: internalUrlInput ? internalUrlInput.value : "",
-      googleUrl: googleUrlInput ? googleUrlInput.value : ""
+      googleUrl: googleUrlInput ? googleUrlInput.value : "",
+      firebaseUrl: firebaseUrlInput ? firebaseUrlInput.value : ""
     };
     localStorage.setItem("elegance_agenda_config", JSON.stringify(config));
     showToast("Configuración de agenda guardada correctamente", "success");

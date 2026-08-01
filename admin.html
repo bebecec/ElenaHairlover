@@ -454,6 +454,14 @@
                       <small data-i18n="admin.agenda_google_desc">Agenda de citas de Google para reservar online.</small>
                     </div>
                   </label>
+                  <label class="agenda-type-option" id="label-agenda-firebase">
+                    <input type="radio" name="agenda-type" value="firebase" id="agenda-type-firebase" />
+                    <span class="agenda-type-option__indicator" aria-hidden="true"></span>
+                    <div class="agenda-type-option__copy">
+                      <strong data-i18n="admin.agenda_firebase">🔥 Agenda Firebase</strong>
+                      <small data-i18n="admin.agenda_firebase_desc">Sistema de reservas en la nube integrado</small>
+                    </div>
+                  </label>
                 </div>
               </div>
 
@@ -469,6 +477,13 @@
                 <label for="agenda-internal-url" data-i18n="admin.agenda_internal_url">Ruta de la Agenda Interna</label>
                 <input type="text" id="agenda-internal-url" value="./reserva/index.html" placeholder="./reserva/index.html" />
                 <small data-i18n="admin.agenda_internal_url_desc">Ruta relativa a tu app de citas integrada dentro de tu proyecto web.</small>
+              </div>
+
+              <!-- ES: Campo URL Firebase | EN: Firebase URL field -->
+              <div class="agenda-field-group" id="agenda-firebase-fields" hidden>
+                <label for="agenda-firebase-url" data-i18n="admin.agenda_firebase_url">Ruta de la Agenda Firebase</label>
+                <input type="text" id="agenda-firebase-url" value="reservar.html" placeholder="reservar.html" readonly />
+                <small data-i18n="admin.agenda_firebase_url_desc">Ruta de la app de citas con Firebase.</small>
               </div>
 
               <!-- ES: Campo Google Calendar | EN: Google Calendar field -->

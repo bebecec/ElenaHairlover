@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkScroll();
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ MenÃº mÃ³vil Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // Ã¢â€€Ã¢â€€Ã¢â€€ MenÃº mÃ³vil Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€
   const menuBtn = document.getElementById('menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ PestaÃ±as de Servicios (Carta interactiva) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // Ã¢â€€Ã¢â€€Ã¢â€€ PestaÃ±as de Servicios (Carta interactiva) Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Carrusel del Hero (autoplay + flechas + puntos + swipe) Ã¢â€â‚¬Ã¢â€â‚¬
+  // Ã¢â€€Ã¢â€€Ã¢â€€ Carrusel del Hero (autoplay + flechas + puntos + swipe) Ã¢â€€Ã¢â€€
   function initHeroCarousel() {
     const carousel = document.querySelector('.hero__carousel');
     if (!carousel) return;
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initHeroCarousel();
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Lightbox de galerÃ­a (ELEGANCE UX v1) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // Ã¢â€€Ã¢â€€Ã¢â€€ Lightbox de galerÃ­a (ELEGANCE UX v1) Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€Ã¢â€€
   // Visor a pantalla completa. Usa delegaciÃ³n en .galeria__grid para que
   // funcione tambiÃ©n con las imÃ¡genes inyectadas dinÃ¡micamente.
   function initGalleryLightbox() {
@@ -235,14 +235,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Fallback a los servicios por defecto si la base de datos local estÃ¡ limpia
       services = [
-        { name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 â‚¬" },
-        { name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 â‚¬" },
-        { name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 â‚¬" },
-        { name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 â‚¬" },
-        { name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 â‚¬" },
-        { name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 â‚¬" },
-        { name: "Balayage - Medium", duration: "3 hours", price: "155 â‚¬" },
-        { name: "Olaplex Treatment", duration: "15 mins", price: "25 â‚¬" }
+        { name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €" },
+        { name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €" },
+        { name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 €" },
+        { name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €" },
+        { name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €" },
+        { name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €" },
+        { name: "Balayage - Medium", duration: "3 hours", price: "155 €" },
+        { name: "Olaplex Treatment", duration: "15 mins", price: "25 €" }
       ];
     }
     

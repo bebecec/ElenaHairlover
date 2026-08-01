@@ -4,43 +4,43 @@
 
 // Semilla inicial de datos para poblar el sistema la primera vez
 const initialServicesSeed = [
-  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 â‚¬", category: "peluqueria" },
-  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "60 â‚¬", category: "peluqueria" },
-  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "65 â‚¬", category: "peluqueria" },
-  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 â‚¬", category: "peluqueria" },
-  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 â‚¬", category: "peluqueria" },
-  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 â‚¬", category: "peluqueria" },
-  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 â‚¬", category: "peluqueria" },
-  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 â‚¬", category: "peluqueria" },
-  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 â‚¬", category: "peluqueria" },
-  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 â‚¬", category: "peluqueria" },
-  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 â‚¬", category: "peluqueria" },
-  { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 â‚¬", category: "peluqueria" },
-  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 â‚¬", category: "peluqueria" },
-  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 â‚¬", category: "peluqueria" },
-  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 â‚¬", category: "peluqueria" },
-  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 â‚¬", category: "peluqueria" },
-  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 â‚¬", category: "peluqueria" },
-  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 â‚¬", category: "peluqueria" },
-  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 â‚¬", category: "peluqueria" },
-  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 â‚¬", category: "peluqueria" },
-  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 â‚¬", category: "peluqueria" },
-  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 â‚¬", category: "peluqueria" },
-  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "130 â‚¬", category: "peluqueria" },
-  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "135 â‚¬", category: "peluqueria" },
-  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "145 â‚¬", category: "peluqueria" },
-  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "155 â‚¬", category: "peluqueria" },
-  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "165 â‚¬", category: "peluqueria" },
-  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "125 â‚¬", category: "peluqueria" },
-  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "130 â‚¬", category: "peluqueria" },
-  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "135 â‚¬", category: "peluqueria" },
-  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 â‚¬", category: "peluqueria" },
-  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 â‚¬", category: "peluqueria" },
-  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 â‚¬", category: "peluqueria" },
-  { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 â‚¬", category: "peluqueria" },
-  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 â‚¬", category: "peluqueria" },
-  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 â‚¬", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 â‚¬", category: "peluqueria" },
+  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €", category: "peluqueria" },
+  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €", category: "peluqueria" },
+  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "65 €", category: "peluqueria" },
+  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €", category: "peluqueria" },
+  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €", category: "peluqueria" },
+  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €", category: "peluqueria" },
+  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 €", category: "peluqueria" },
+  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 €", category: "peluqueria" },
+  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 €", category: "peluqueria" },
+  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 €", category: "peluqueria" },
+  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 €", category: "peluqueria" },
+  { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 €", category: "peluqueria" },
+  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
+  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
+  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 €", category: "peluqueria" },
+  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 €", category: "peluqueria" },
+  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 €", category: "peluqueria" },
+  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 €", category: "peluqueria" },
+  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 €", category: "peluqueria" },
+  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 €", category: "peluqueria" },
+  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 €", category: "peluqueria" },
+  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
+  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
+  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
+  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
+  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "155 €", category: "peluqueria" },
+  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
+  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "125 €", category: "peluqueria" },
+  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "130 €", category: "peluqueria" },
+  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
+  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
+  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 €", category: "peluqueria" },
+  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
+  { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
+  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
+  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
   { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
@@ -446,7 +446,7 @@ async function loadData() {
     if (savedInfo) {
       salonInfo = JSON.parse(savedInfo);
       // Limpiar caracteres corruptos guardados en localStorage
-      const cleanText = (txt) => (txt || "").replace(/Ã¢â‚¬â€œ/g, '-').replace(/â€“/g, '-').replace(/\?"/g, '-').replace(/\?"/g, '-');
+      const cleanText = (txt) => (txt || "").replace(/Ã¢€â€œ/g, '-').replace(/-/g, '-').replace(/\?"/g, '-').replace(/\?"/g, '-');
       if (salonInfo.hoursWeek) salonInfo.hoursWeek = cleanText(salonInfo.hoursWeek);
       if (salonInfo.hoursSat) salonInfo.hoursSat = cleanText(salonInfo.hoursSat);
       if (salonInfo.hoursSun) salonInfo.hoursSun = cleanText(salonInfo.hoursSun);
@@ -1066,8 +1066,8 @@ function renderHero() {
       <div class="gallery-card__img-wrap">
         <img src="${img.src}" alt="${escapeHtml(img.name)}" loading="lazy" />
         <div class="gallery-card__overlay">
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>Ã¢â€”â‚¬</button>
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover despuÃ©s" ${index === heroImages.length - 1 ? "disabled" : ""}>Ã¢â€“Â¶</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>Ã¢â€”€</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover despuÃ©s" ${index === heroImages.length - 1 ? "disabled" : ""}>Ã¢-Â¶</button>
           <button class="gallery-btn gallery-btn--delete" data-id="${img.id}" title="Eliminar foto">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
           </button>
@@ -1540,8 +1540,8 @@ function formatPrice(price) {
   if (p.toLowerCase().includes("gratis") || p.toLowerCase().includes("free")) {
     return p;
   }
-  p = p.replace(/â‚¬/g, "").trim();
-  return `${p} â‚¬`;
+  p = p.replace(/[^\d\.,]/g, "").trim();
+    return `${p} €`;
 }
 
 // Inicializar al cargar

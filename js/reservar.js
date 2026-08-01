@@ -50,21 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
   document.getElementById('btn-confirmar').addEventListener('click', handleBookingSubmit);
   
-  // Search logic
-  const searchInput = document.getElementById('search-service');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      document.querySelectorAll('.service-item').forEach(item => {
-        const name = item.querySelector('span').textContent.toLowerCase();
-        if (name.includes(q)) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  }
+  // Search logic removed as requested by user
 });
 
 async function loadServicios() {
@@ -97,32 +83,39 @@ function renderCategorias() {
     
     // Contenedor principal de la categoría
     const catDiv = document.createElement('div');
-    catDiv.className = 'mb-4';
+    catDiv.className = 'service-category-card mb-3 bg-white rounded-lg border border-gray-300 overflow-hidden transition-colors duration-300';
     
     // Botón de acordeón
     const btn = document.createElement('button');
-    btn.className = 'service-category-btn w-full text-left';
+    btn.className = 'w-full text-left p-4 flex justify-between items-center bg-white outline-none';
     btn.innerHTML = `
-      <span class="text-gold-warm font-bold text-lg">${catName}</span>
-      <span class="bg-gold-warm/20 text-gold-warm text-xs px-2 py-1 rounded">${catServices.length} servicios <span class="ml-1 opacity-60">▼</span></span>
+      <span class="text-gray-800 font-medium text-lg">${catName}</span>
+      <div class="flex items-center space-x-3">
+        <span class="bg-[#C9A84C]/20 text-[#C9A84C] font-bold text-sm px-3 py-1 rounded-md">${catServices.length} servicios</span>
+        <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300 icon-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </div>
     `;
     
     // Contenido del acordeón
     const content = document.createElement('div');
-    content.className = 'service-category-content';
+    content.className = 'service-category-content hidden bg-white px-4 pb-2 border-t border-gray-100';
     
     catServices.forEach(s => {
       const duration = s.duration || '60 min';
+      const descHTML = s.description ? `<span class="block text-gray-500 text-sm mt-1">${s.description}</span>` : '';
       const item = document.createElement('div');
-      item.className = 'service-item flex justify-between items-center py-4 border-b border-[#333] last:border-0';
+      item.className = 'service-item flex justify-between items-center py-4 border-b border-gray-200 last:border-0';
       item.innerHTML = `
         <div class="flex-1 pr-4">
-          <span class="block text-white font-medium">${s.name}</span>
-          <span class="block text-white/50 text-sm">${duration}</span>
+          <span class="block text-gray-800 font-medium">${s.name}</span>
+          ${descHTML}
         </div>
-        <div class="flex items-center space-x-4">
-          <span class="text-gold-warm font-bold whitespace-nowrap">${s.price}</span>
-          <button class="btn-reservar whitespace-nowrap text-sm uppercase tracking-wider" data-id="${s.id}">Reservar</button>
+        <div class="flex items-center space-x-4 text-right">
+          <div>
+            <span class="block text-gray-800 font-medium">${s.price}</span>
+            <span class="block text-gray-500 text-sm">${duration}</span>
+          </div>
+          <button class="bg-[#C9A84C] hover:bg-[#b09341] text-black font-medium py-2 px-4 rounded shadow-sm transition-colors uppercase tracking-wide text-sm" data-id="${s.id}">Reservar</button>
         </div>
       `;
       content.appendChild(item);
@@ -130,20 +123,21 @@ function renderCategorias() {
     
     // Event listener para el acordeón
     btn.addEventListener('click', () => {
-      content.classList.toggle('open');
-      const arrow = btn.querySelector('.ml-1');
-      if (content.classList.contains('open')) {
-        arrow.textContent = '▲';
-      } else {
-        arrow.textContent = '▼';
+      const isOpen = !content.classList.contains('hidden');
+      
+      // Cerrar todos los demás
+      document.querySelectorAll('.service-category-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.service-category-card').forEach(el => el.classList.remove('border-[#C9A84C]'));
+      document.querySelectorAll('.icon-arrow').forEach(el => {
+        el.classList.remove('rotate-90');
+      });
+
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        catDiv.classList.add('border-[#C9A84C]');
+        btn.querySelector('.icon-arrow').classList.add('rotate-90');
       }
     });
-    
-    // Abrir la primera categoría por defecto
-    if (Object.keys(categorias).indexOf(catName) === 0) {
-      content.classList.add('open');
-      btn.querySelector('.ml-1').textContent = '▲';
-    }
     
     catDiv.appendChild(btn);
     catDiv.appendChild(content);

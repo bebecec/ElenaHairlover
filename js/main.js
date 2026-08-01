@@ -1,10 +1,10 @@
-/* â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
-   ELENA HAIRLOVER — Controladores JavaScript Dinámicos
-   â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â•  */
+﻿/* Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ 
+   ELENA HAIRLOVER â€” Controladores JavaScript DinÃ¡micos
+   Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢  */
 
-// Nota: el catálogo de servicios y los datos de contacto viven en el HTML
-// estático de index.html (fuente de verdad, mejor para SEO). El panel de
-// administración (admin.js) mantiene su propia semilla y escribe en
+// Nota: el catÃ¡logo de servicios y los datos de contacto viven en el HTML
+// estÃ¡tico de index.html (fuente de verdad, mejor para SEO). El panel de
+// administraciÃ³n (admin.js) mantiene su propia semilla y escribe en
 // localStorage / Firebase; esta web solo lee esos datos si existen.
 
 function escapeHtml(str) {
@@ -16,7 +16,7 @@ function escapeHtml(str) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ─── Header con scroll (Efecto Glassmorphism translúcido) ───
+  // â”€â”€â”€ Header con scroll (Efecto Glassmorphism translÃºcido) â”€â”€â”€
   const header = document.getElementById('header');
   if (header) {
     const checkScroll = () => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkScroll();
   }
 
-  // â”€â”€â”€ Menú móvil â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ MenÃº mÃ³vil Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
   const menuBtn = document.getElementById('menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Pestañas de Servicios (Carta interactiva) â”€â”€â”€â”€â”€â”€â”€
+  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ PestaÃ±as de Servicios (Carta interactiva) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Carrusel del Hero (autoplay + flechas + puntos + swipe) â”€â”€
+  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Carrusel del Hero (autoplay + flechas + puntos + swipe) Ã¢â€â‚¬Ã¢â€â‚¬
   function initHeroCarousel() {
     const carousel = document.querySelector('.hero__carousel');
     if (!carousel) return;
 
-    // Si el panel de administración guardó fotos del hero, reconstruimos los
-    // slides desde localStorage. Si no, se conservan los slides estáticos.
+    // Si el panel de administraciÃ³n guardÃ³ fotos del hero, reconstruimos los
+    // slides desde localStorage. Si no, se conservan los slides estÃ¡ticos.
     try {
       const savedHero = localStorage.getItem('elegance_hero');
       if (savedHero) {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = carousel.querySelector('.hero__arrow--next');
     if (slides.length === 0) return;
 
-    // Con una sola foto no hace falta navegación ni autoplay
+    // Con una sola foto no hace falta navegaciÃ³n ni autoplay
     if (slides.length < 2) {
       [dotsWrap, prevBtn, nextBtn].forEach(el => el && (el.style.display = 'none'));
       return;
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
 
-    // Swipe táctil
+    // Swipe tÃ¡ctil
     let touchStartX = 0;
     carousel.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initHeroCarousel();
 
-  // â”€â”€â”€ Lightbox de galería (ELEGANCE UX v1) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // Visor a pantalla completa. Usa delegación en .galeria__grid para que
-  // funcione también con las imágenes inyectadas dinámicamente.
+  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Lightbox de galerÃ­a (ELEGANCE UX v1) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // Visor a pantalla completa. Usa delegaciÃ³n en .galeria__grid para que
+  // funcione tambiÃ©n con las imÃ¡genes inyectadas dinÃ¡micamente.
   function initGalleryLightbox() {
     const grid = document.querySelector('.galeria__grid');
     if (!grid) return;
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   initGalleryLightbox();
   
-  // Renderizar servicios dinámicamente desde localStorage (si existe)
+  // Renderizar servicios dinÃ¡micamente desde localStorage (si existe)
   function renderPublicServices() {
     const listContainer = document.getElementById("public-services-list");
     if (!listContainer) return;
@@ -233,16 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedServices) {
       services = JSON.parse(savedServices);
     } else {
-      // Fallback a los servicios por defecto si la base de datos local está limpia
+      // Fallback a los servicios por defecto si la base de datos local estÃ¡ limpia
       services = [
-        { name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €" },
-        { name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €" },
-        { name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 €" },
-        { name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €" },
-        { name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €" },
-        { name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €" },
-        { name: "Balayage - Medium", duration: "3 hours", price: "155 €" },
-        { name: "Olaplex Treatment", duration: "15 mins", price: "25 €" }
+        { name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 â‚¬" },
+        { name: "Wash, Cut & Blow Dry - Medium", duration: "1 hour", price: "60 â‚¬" },
+        { name: "Wash, Cut & Blow Dry - Long", duration: "1 hour", price: "65 â‚¬" },
+        { name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 â‚¬" },
+        { name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 â‚¬" },
+        { name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 â‚¬" },
+        { name: "Balayage - Medium", duration: "3 hours", price: "155 â‚¬" },
+        { name: "Olaplex Treatment", duration: "15 mins", price: "25 â‚¬" }
       ];
     }
     
@@ -273,36 +273,54 @@ document.addEventListener('DOMContentLoaded', () => {
   
   renderPublicServices();
 
-  // ── RENDER PUBLIC GALLERY ──
-  function renderPublicGallery() {
+  // â”€â”€ RENDER PUBLIC GALLERY â”€â”€
+  async function renderPublicGallery() {
     const grid = document.getElementById("public-gallery-grid");
     if (!grid) return;
 
     let savedGallery = localStorage.getItem("elegance_gallery");
     let galleryImages = [];
 
-    if (savedGallery) {
-      galleryImages = JSON.parse(savedGallery);
+    if (window.useFirebase && window.FirebaseLibPublic) {
+      try {
+        const { getDocs, collection, query } = window.FirebaseLibPublic;
+        const db = window.FirebaseLibPublic.getFirestore();
+        const docSnap = await getDocs(query(collection(db, "settings")));
+        docSnap.forEach(d => {
+          if (d.id === "gallery") {
+            galleryImages = d.data().images || [];
+          }
+        });
+      } catch (e) {
+        console.error("Error loading gallery from Firestore:", e);
+      }
     }
 
-    if (!savedGallery || galleryImages.length <= 2) {
-      // Seed if missing or only has the old 2 default images
-      const images = [
-        "insta_9.png", "insta_solo_1.1.png", "insta_solo_1.2.png", "insta_solo_1.3.png", 
-        "insta_solo_2.1.png", "insta_solo_2.2.png", "insta_solo_2.3.png", "insta_solo_3.1.png", 
-        "insta_solo_3.2.png", "insta_solo_3.3.png", "insta_solo_4.1.png", "insta_solo_4.2.png", 
-        "insta_solo_4.3.png", "insta_solo_5.1.png", "insta_solo_5.2.png", "insta_solo_5.3.png", 
-        "insta_solo_6.1.png", "insta_solo_6.2.png", "insta_solo_6.3.png", "insta_solo_7.1.png", 
-        "insta_solo_7.2.png", "insta_solo_7.3.png", "insta_solo_8.1.png", "insta_solo_8.2.png"
-      ];
-      galleryImages = images.map((img, i) => ({
-        id: "g_seed_" + i,
-        name: "Elena Hairlover",
-        desc: "Galería de resultados",
-        src: "img/Galeria_de_imagines/" + img,
-        addedAt: Date.now() - (i * 1000)
-      }));
-      localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
+    if (galleryImages.length === 0) {
+      let savedGallery = localStorage.getItem("elegance_gallery");
+      if (savedGallery) {
+        galleryImages = JSON.parse(savedGallery);
+      }
+      
+      if (!savedGallery || galleryImages.length <= 2) {
+        // Seed if missing or only has the old 2 default images
+        const images = [
+          "insta_9.png", "insta_solo_1.1.png", "insta_solo_1.2.png", "insta_solo_1.3.png", 
+          "insta_solo_2.1.png", "insta_solo_2.2.png", "insta_solo_2.3.png", "insta_solo_3.1.png", 
+          "insta_solo_3.2.png", "insta_solo_3.3.png", "insta_solo_4.1.png", "insta_solo_4.2.png", 
+          "insta_solo_4.3.png", "insta_solo_5.1.png", "insta_solo_5.2.png", "insta_solo_5.3.png", 
+          "insta_solo_6.1.png", "insta_solo_6.2.png", "insta_solo_6.3.png", "insta_solo_7.1.png", 
+          "insta_solo_7.2.png", "insta_solo_7.3.png", "insta_solo_8.1.png", "insta_solo_8.2.png"
+        ];
+        galleryImages = images.map((img, i) => ({
+          id: "g_seed_" + i,
+          name: "Elena Hairlover",
+          desc: "Galera de resultados",
+          src: "img/Galeria_de_imagines/" + img,
+          addedAt: Date.now() - (i * 1000)
+        }));
+        localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
+      }
     }
 
     grid.innerHTML = "";
@@ -326,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   renderPublicGallery();
 
-  // ─── CARGA DE INFO DE CONTACTO ───
+  // â”€â”€â”€ CARGA DE INFO DE CONTACTO â”€â”€â”€
   function loadSalonInfo() {
     try {
       const saved = localStorage.getItem("elegance_salon_info");
@@ -340,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (phoneEl && info.phone) {
           phoneEl.textContent = info.phone;
           phoneEl.href = `tel:${info.phone.replace(/\s+/g, '')}`;
-          // También actualizar el botón flotante si existe
+          // TambiÃ©n actualizar el botÃ³n flotante si existe
           const floatBtn = document.querySelector(".floating-actions__btn");
           if (floatBtn) floatBtn.href = `tel:${info.phone.replace(/\s+/g, '')}`;
         }
@@ -353,9 +371,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const hoursEl = document.getElementById("public-info-hours");
         if (hoursEl && info.hoursWeek && info.hoursSat) {
-          // Remover el data-i18n porque estamos usando datos dinámicos customizados
+          // Remover el data-i18n porque estamos usando datos dinÃ¡micos customizados
           hoursEl.removeAttribute("data-i18n");
-          hoursEl.textContent = `Horario: Mar-Vie: ${info.hoursWeek} / Sáb: ${info.hoursSat}`;
+          hoursEl.textContent = `Horario: Mar-Vie: ${info.hoursWeek} / SÃ¡b: ${info.hoursSat}`;
         }
       }
     } catch(err) {
@@ -397,7 +415,7 @@ function renderPublicReviews() {
       ? `<img src="${rev.photo}" style="width: 100%; height: 100%; object-fit: cover;">`
       : initial;
       
-    const stars = "★".repeat(rev.rating) + "☆".repeat(5 - rev.rating);
+    const stars = "â˜…".repeat(rev.rating) + "â˜†".repeat(5 - rev.rating);
     
     // We create the card
     const card = document.createElement("div");
@@ -420,3 +438,5 @@ function renderPublicReviews() {
     grid.appendChild(card);
   });
 }
+
+

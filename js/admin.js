@@ -1,46 +1,46 @@
-// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
-// ELENA HAIRLOVER — Lógica del Panel de Administración Híbrido
-// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+﻿// Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ 
+// ELENA HAIRLOVER â€” LÃ³gica del Panel de AdministraciÃ³n HÃ­brido
+// Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ 
 
 // Semilla inicial de datos para poblar el sistema la primera vez
 const initialServicesSeed = [
-  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 €", category: "peluqueria" },
-  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "60 €", category: "peluqueria" },
-  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "65 €", category: "peluqueria" },
-  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 €", category: "peluqueria" },
-  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 €", category: "peluqueria" },
-  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 €", category: "peluqueria" },
-  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 €", category: "peluqueria" },
-  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 €", category: "peluqueria" },
-  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 €", category: "peluqueria" },
-  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 €", category: "peluqueria" },
-  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 €", category: "peluqueria" },
-  { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 €", category: "peluqueria" },
-  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
-  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
-  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 €", category: "peluqueria" },
-  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 €", category: "peluqueria" },
-  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 €", category: "peluqueria" },
-  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 €", category: "peluqueria" },
-  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 €", category: "peluqueria" },
-  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 €", category: "peluqueria" },
-  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 €", category: "peluqueria" },
-  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 €", category: "peluqueria" },
-  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "130 €", category: "peluqueria" },
-  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
-  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
-  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "155 €", category: "peluqueria" },
-  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
-  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "125 €", category: "peluqueria" },
-  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "130 €", category: "peluqueria" },
-  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "135 €", category: "peluqueria" },
-  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 €", category: "peluqueria" },
-  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 €", category: "peluqueria" },
-  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 €", category: "peluqueria" },
-  { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 €", category: "peluqueria" },
-  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 €", category: "peluqueria" },
-  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 €", category: "peluqueria" },
-  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 €", category: "peluqueria" },
+  { id: "p1", name: "Wash, Cut & Blow Dry - Short", duration: "45 mins", price: "55 â‚¬", category: "peluqueria" },
+  { id: "p2", name: "Wash , Cut & Blow Dry - Medium", duration: "1 hour", price: "60 â‚¬", category: "peluqueria" },
+  { id: "p3", name: "Wash , Cut & Blow Dry - Long", duration: "1 hour", price: "65 â‚¬", category: "peluqueria" },
+  { id: "p4", name: "Straight Blow Dry - Short", duration: "30 mins", price: "25 â‚¬", category: "peluqueria" },
+  { id: "p5", name: "Straight Blow Dry - Medium", duration: "30 mins", price: "28 â‚¬", category: "peluqueria" },
+  { id: "p6", name: "Straight Blow Dry - Long", duration: "30 mins", price: "30 â‚¬", category: "peluqueria" },
+  { id: "p7", name: "Curly/Wavy/Boho Blow Dry - Short", duration: "45 mins", price: "35 â‚¬", category: "peluqueria" },
+  { id: "p8", name: "Curly/Wavy/Boho Blow Dry - Medium", duration: "45 mins", price: "38 â‚¬", category: "peluqueria" },
+  { id: "p9", name: "Curly/Wavy/Boho Blow Dry - Long", duration: "45 mins", price: "40 â‚¬", category: "peluqueria" },
+  { id: "p10", name: "Extensions Blow Dry - Straight", duration: "1 hour", price: "40 â‚¬", category: "peluqueria" },
+  { id: "p11", name: "Extensions Blow Dry - Curly/Wavy/Ghd", duration: "1 hour", price: "45 â‚¬", category: "peluqueria" },
+  { id: "p12", name: "Dry cut", duration: "30 mins", price: "30 â‚¬", category: "peluqueria" },
+  { id: "p13", name: "12 Week Blow Dry - Short", duration: "2 hours", price: "120 â‚¬", category: "peluqueria" },
+  { id: "p14", name: "12 Week Blow Dry - Medium", duration: "2 hours, 30 mins", price: "130 â‚¬", category: "peluqueria" },
+  { id: "p15", name: "12 Week Blow Dry - Long", duration: "3 hours", price: "140 â‚¬", category: "peluqueria" },
+  { id: "p16", name: "Root Tint - Short", duration: "1 hour, 30 mins", price: "70 â‚¬", category: "peluqueria" },
+  { id: "p17", name: "Root Tint - Medium", duration: "1 hour, 45 mins", price: "75 â‚¬", category: "peluqueria" },
+  { id: "p18", name: "Root Tint - Long", duration: "2 hours", price: "80 â‚¬", category: "peluqueria" },
+  { id: "p19", name: "Full Tint ( Roots to Ends ) - Short", duration: "2 hours", price: "80 â‚¬", category: "peluqueria" },
+  { id: "p20", name: "Full Tint ( Roots to Ends ) - Medium", duration: "2 hours", price: "85 â‚¬", category: "peluqueria" },
+  { id: "p21", name: "Full Tint ( Roots to Ends ) - Long", duration: "2 hours, 30 mins", price: "95 â‚¬", category: "peluqueria" },
+  { id: "p22", name: "Colour and Partial Highlights - Short", duration: "2 hours", price: "120 â‚¬", category: "peluqueria" },
+  { id: "p23", name: "Colour and Partial Highlights- Medium", duration: "2 hours, 30 mins", price: "130 â‚¬", category: "peluqueria" },
+  { id: "p24", name: "Colour and Partial Highlights- Long", duration: "3 hours", price: "135 â‚¬", category: "peluqueria" },
+  { id: "p25", name: "Full Head Highlights- Short", duration: "3 hours", price: "145 â‚¬", category: "peluqueria" },
+  { id: "p26", name: "Full Head Highlights- Medium", duration: "3 hours, 30 mins", price: "155 â‚¬", category: "peluqueria" },
+  { id: "p27", name: "Full Head Highlights- Long", duration: "3 hours, 30 mins", price: "165 â‚¬", category: "peluqueria" },
+  { id: "p28", name: "Half Head Highlights- Short", duration: "2 hours, 30 mins", price: "125 â‚¬", category: "peluqueria" },
+  { id: "p29", name: "Half Head Highlights- Medium", duration: "2 hours, 45 mins", price: "130 â‚¬", category: "peluqueria" },
+  { id: "p30", name: "Half Head Highlights- Long", duration: "3 hours", price: "135 â‚¬", category: "peluqueria" },
+  { id: "p31", name: "Balayage - Short", duration: "3 hours", price: "145 â‚¬", category: "peluqueria" },
+  { id: "p32", name: "Balayage - Medium", duration: "3 hours", price: "155 â‚¬", category: "peluqueria" },
+  { id: "p33", name: "Balayage - Long", duration: "3 hours, 30 mins", price: "165 â‚¬", category: "peluqueria" },
+  { id: "p34", name: "Upstyle", duration: "1 hour", price: "60 â‚¬", category: "peluqueria" },
+  { id: "p35", name: "Olaplex Treatment", duration: "15 mins", price: "25 â‚¬", category: "peluqueria" },
+  { id: "p36", name: "K18 Treatment", duration: "15 mins", price: "20 â‚¬", category: "peluqueria" },
+  { id: "p37", name: "Add a Hair Cut to Any Colour Service", duration: "30 mins", price: "20 â‚¬", category: "peluqueria" },
   { id: "p38", name: "Consultation", duration: "10 mins", price: "Gratis", category: "peluqueria" }
 ];
 
@@ -58,7 +58,7 @@ const initialSalonInfoSeed = {
 };
 
 const initialCategoriesSeed = [
-  { id: "peluqueria", name: "Peluquería" }
+  { id: "peluqueria", name: "PeluquerÃ­a" }
 ];
 
 // Variables de estado
@@ -69,7 +69,7 @@ let galleryImages = [];
 let heroImages = [];
 let currentCategory = "peluqueria";
 let activeSection = "servicios";
-let firebaseApp, auth, db;
+let firebaseApp, auth, db, storage;
 let previewingImageId = null;
 
 // DOM Elements
@@ -187,7 +187,7 @@ function updateI18nLabels() {
       dbModeBadge.textContent = dbOnlineText;
 
       const userEmail = (auth && auth.currentUser) ? auth.currentUser.email : "admin@salon.com";
-      const modeOnlineText = window.I18nLoader.getText("admin.mode_online") || "en línea";
+      const modeOnlineText = window.I18nLoader.getText("admin.mode_online") || "en lÃ­nea";
       adminUserEmail.innerHTML = `${userEmail} <span style="color: #2ecc71; font-weight: 600; margin-left: 5px;">(${modeOnlineText})</span>`;
     } else {
       const dbLocalText = window.I18nLoader.getText("admin.database_local") || "Modo Local (localStorage)";
@@ -205,14 +205,15 @@ function initDatabase() {
   if (window.useFirebase) {
     dbModeBadge.className = "badge mode-firebase";
 
-    const { initializeApp, getAuth, getFirestore, onAuthStateChanged } = window.FirebaseLib;
+    const { initializeApp, getAuth, getFirestore, getStorage, onAuthStateChanged } = window.FirebaseLib;
     firebaseApp = initializeApp(window.firebaseConfig);
     auth = getAuth(firebaseApp);
     db = getFirestore(firebaseApp);
+    storage = getStorage(firebaseApp);
 
     updateI18nLabels();
 
-    // En Firebase, sí se requiere autenticación (ver implementación Firebase separada)
+    // En Firebase, sÃ­ se requiere autenticaciÃ³n (ver implementaciÃ³n Firebase separada)
     onAuthStateChanged(auth, (user) => {
       // FIX TEMPORAL: Cargamos datos aunque user sea null por el mock login
       updateI18nLabels();
@@ -226,9 +227,9 @@ function initDatabase() {
   }
 }
 
-// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+// Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ 
 // CARGA DE DATOS
-// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+// Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ Ã¢â€¢ 
   function loadCategories() {
     const savedCats = localStorage.getItem("elegance_categories");
     if (savedCats) {
@@ -328,7 +329,7 @@ function initDatabase() {
       
       const editBtn = document.createElement("button");
       editBtn.className = "action-btn action-btn--edit";
-      editBtn.title = "Editar Categoría";
+      editBtn.title = "Editar CategorÃ­a";
       editBtn.innerHTML = `<svg style="width: 16px; height: 16px; fill: currentColor; pointer-events: none;" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`;
       
       editBtn.addEventListener("click", () => {
@@ -339,13 +340,13 @@ function initDatabase() {
       
       const delBtn = document.createElement("button");
       delBtn.className = "action-btn action-btn--delete";
-      delBtn.title = "Eliminar Categoría";
+      delBtn.title = "Eliminar CategorÃ­a";
       delBtn.innerHTML = `<svg style="width: 16px; height: 16px; fill: currentColor; pointer-events: none;" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>`;
       
       delBtn.addEventListener("click", () => {
         const hasServices = services.some(s => s.category === cat.id);
         if (hasServices) {
-          showToast("No puedes eliminar esta categoría porque tiene servicios asociados.", "error");
+          showToast("No puedes eliminar esta categorÃ­a porque tiene servicios asociados.", "error");
           return;
         }
         
@@ -361,7 +362,7 @@ function initDatabase() {
           if(firstTab) firstTab.classList.add("active");
           renderServicesTable();
         }
-        showToast("Categoría eliminada", "success");
+        showToast("CategorÃ­a eliminada", "success");
       });
       
       actionsDiv.appendChild(editBtn);
@@ -425,13 +426,13 @@ async function loadData() {
       if (savedServices) {
         services = JSON.parse(savedServices);
         
-        // Filtrar servicios de categorías antiguas de otros proyectos (facial, corporal, depilacion, unas-mirada)
+        // Filtrar servicios de categorÃ­as antiguas de otros proyectos (facial, corporal, depilacion, unas-mirada)
         const oldProjectCategories = ["facial", "corporal", "depilacion", "unas-mirada"];
         services = services.filter(s => !oldProjectCategories.includes(s.category));
         
-        // Migración temporal para asegurarse de que todos los 38 servicios están cargados en peluquería
+        // MigraciÃ³n temporal para asegurarse de que todos los 38 servicios estÃ¡n cargados en peluquerÃ­a
         if (!services.some(s => s.name === "Consultation")) {
-          // Eliminar los antiguos de peluquería y recargar los 38
+          // Eliminar los antiguos de peluquerÃ­a y recargar los 38
           services = services.filter(s => s.category !== "peluqueria");
           services = [...initialServicesSeed, ...services];
         }
@@ -445,7 +446,7 @@ async function loadData() {
     if (savedInfo) {
       salonInfo = JSON.parse(savedInfo);
       // Limpiar caracteres corruptos guardados en localStorage
-      const cleanText = (txt) => (txt || "").replace(/â€“/g, '-').replace(/–/g, '-').replace(/\?"/g, '-').replace(/\?"/g, '-');
+      const cleanText = (txt) => (txt || "").replace(/Ã¢â‚¬â€œ/g, '-').replace(/â€“/g, '-').replace(/\?"/g, '-').replace(/\?"/g, '-');
       if (salonInfo.hoursWeek) salonInfo.hoursWeek = cleanText(salonInfo.hoursWeek);
       if (salonInfo.hoursSat) salonInfo.hoursSat = cleanText(salonInfo.hoursSat);
       if (salonInfo.hoursSun) salonInfo.hoursSun = cleanText(salonInfo.hoursSun);
@@ -455,7 +456,7 @@ async function loadData() {
       localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     }
 
-    // Galería
+    // GalerÃ­a
     loadGallery();
     loadHero();
     populateSalonInfoForm();
@@ -471,7 +472,7 @@ function renderServicesTable() {
   const filtered = services.filter(s => s.category === currentCategory);
 
   if (filtered.length === 0) {
-    servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "Vacío"}</td></tr>`;
+    servicesTbody.innerHTML = `<tr><td colspan="4" class="ui-state-empty" style="text-align: center; color: var(--color-text-muted); padding: 32px;" data-i18n="states.empty">${window.I18nLoader ? window.I18nLoader.getText("states.empty") : "VacÃ­o"}</td></tr>`;
     return;
   }
 
@@ -523,7 +524,7 @@ async function deleteServiceItem(id) {
   const service = services.find(s => s.id === id);
   if (!service) return;
 
-  const ok = await showConfirm(`Â¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acción no se puede deshacer.`, { title: "Eliminar servicio" });
+  const ok = await showConfirm(`Ã‚Â¿Seguro que deseas eliminar el servicio "${service.name}"? Esta acciÃ³n no se puede deshacer.`, { title: "Eliminar servicio" });
   if (!ok) return;
 
   if (window.useFirebase) {
@@ -562,7 +563,7 @@ categoryModalCloseBtn.addEventListener("click", () => {
   categoryModal.style.display = "none";
   editingCategoryId = null;
   categoryForm.reset();
-  modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "Añadir Categoría") : "Añadir Categoría";
+  modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "AÃ±adir CategorÃ­a") : "AÃ±adir CategorÃ­a";
 });
 
 categoryForm.addEventListener("submit", (e) => {
@@ -579,16 +580,16 @@ categoryForm.addEventListener("submit", (e) => {
       renderCategoryTabs();
       renderCategorySelect();
       renderCategoryManagerList();
-      showToast("Categoría actualizada", "success");
+      showToast("CategorÃ­a actualizada", "success");
     }
     editingCategoryId = null;
-    modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "Añadir Categoría") : "Añadir Categoría";
+    modalAddCategoryBtn.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.add_category", "AÃ±adir CategorÃ­a") : "AÃ±adir CategorÃ­a";
   } else {
     // Add mode
     const id = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-");
     
     if (categories.find(c => c.id === id)) {
-      showToast("Esta categoría ya existe.", "error");
+      showToast("Esta categorÃ­a ya existe.", "error");
       return;
     }
     
@@ -598,7 +599,7 @@ categoryForm.addEventListener("submit", (e) => {
     renderCategoryTabs();
     renderCategorySelect();
     renderCategoryManagerList();
-    showToast("Categoría añadida", "success");
+    showToast("CategorÃ­a aÃ±adida", "success");
   }
   
   categoryForm.reset();
@@ -644,7 +645,7 @@ serviceForm.addEventListener("submit", async (e) => {
       } else {
         const docRef = await addDoc(collection(db, "servicios"), { name, duration, price, category });
         services.push({ id: docRef.id, name, duration, price, category });
-        showToast("Servicio añadido a Firebase", "success");
+        showToast("Servicio aÃ±adido a Firebase", "success");
       }
       serviceModal.style.display = "none";
       renderServicesTable();
@@ -659,7 +660,7 @@ serviceForm.addEventListener("submit", async (e) => {
     } else {
       const newId = "local_" + Date.now();
       services.push({ id: newId, name, duration, price, category });
-      showToast("Servicio añadido", "success");
+      showToast("Servicio aÃ±adido", "success");
     }
     localStorage.setItem("elegance_services", JSON.stringify(services));
     updateStorageUsage();
@@ -690,29 +691,49 @@ salonInfoForm.addEventListener("submit", async (e) => {
       const docId = salonInfo.docId;
       await setDoc(doc(db, "salon_info", docId), data);
       salonInfo = { ...data, docId };
-      showToast("Información del salón guardada en Firebase", "success");
+      showToast("InformaciÃ³n del salÃ³n guardada en Firebase", "success");
     } catch (error) {
-      showToast("Error al guardar información: " + error.message, "error");
+      showToast("Error al guardar informaciÃ³n: " + error.message, "error");
     }
   } else {
     salonInfo = { ...data };
     localStorage.setItem("elegance_salon_info", JSON.stringify(salonInfo));
     updateStorageUsage();
-    showToast("Información del salón guardada", "success");
+    showToast("InformaciÃ³n del salÃ³n guardada", "success");
   }
 });
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// GESTIÃ“N DE GALERÍA
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// GESTIÃƒâ€œN DE GALERÃA
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 
-function loadGallery() {
+async function loadGallery() {
+  if (window.useFirebase && db) {
+    try {
+      const docRef = window.FirebaseLib.doc(db, "settings", "gallery");
+      const docSnap = await window.FirebaseLib.getDocs(window.FirebaseLib.query(window.FirebaseLib.collection(db, "settings")));
+      let found = false;
+      docSnap.forEach(d => {
+        if (d.id === "gallery") {
+          galleryImages = d.data().images || [];
+          found = true;
+        }
+      });
+      if (!found) {
+        galleryImages = [];
+      }
+      renderGallery();
+      return;
+    } catch (e) {
+      console.error("Error loading gallery from Firestore:", e);
+    }
+  }
+
   const saved = localStorage.getItem("elegance_gallery");
   let needsSeed = true;
   
   if (saved) {
     galleryImages = JSON.parse(saved);
-    // If we find the old broken images, re-seed
     if (galleryImages.some(img => img.src === "img/entrada.png" || img.src === "img/galeria1.png")) {
       needsSeed = true;
     } else {
@@ -721,7 +742,6 @@ function loadGallery() {
   } 
   
   if (needsSeed) {
-    // Pre-cargar imágenes existentes del proyecto con descripciones por defecto
     galleryImages = [
       { id: "g_insta1", name: "Estilo", desc: "Trabajos de color y estilo", src: "img/Galeria_de_imagines/insta_solo_1.1.png", addedAt: Date.now() - 3000 },
       { id: "g_insta2", name: "Color", desc: "Resultados espectaculares", src: "img/Galeria_de_imagines/insta_solo_1.2.png", addedAt: Date.now() - 2000 }
@@ -730,18 +750,28 @@ function loadGallery() {
   }
   renderGallery();
 }
+async function saveGallery() {
+  if (window.useFirebase && db) {
+    try {
+      const docRef = window.FirebaseLib.doc(db, "settings", "gallery");
+      await window.FirebaseLib.setDoc(docRef, { images: galleryImages });
+      return true;
+    } catch (e) {
+      console.error("Error saving gallery to Firestore:", e);
+      showToast("Error guardando en la nube.", "error");
+      return false;
+    }
+  }
 
-function saveGallery() {
   try {
     localStorage.setItem("elegance_gallery", JSON.stringify(galleryImages));
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar en la galería. Sube fotos más ligeras.", "error");
+    showToast("No hay espacio para guardar en la galera. Sube fotos ms ligeras.", "error");
     return false;
   }
 }
-
 function renderGallery() {
   galleryGrid.innerHTML = "";
 
@@ -779,13 +809,13 @@ function renderGallery() {
     galleryGrid.appendChild(card);
   });
 
-  // Añadir botón "+" al final del grid
+  // AÃ±adir botÃ³n "+" al final del grid
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "gallery-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>Añadir imagen</span>
+    <span>AÃ±adir imagen</span>
   `;
   galleryGrid.appendChild(addCard);
 }
@@ -810,12 +840,36 @@ function openImagePreview(id) {
 async function deleteGalleryImage(id) {
   const img = galleryImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`Â¿Eliminar la imagen "${img.name}" de la galería?`, { title: "Eliminar imagen" });
+  const ok = await showConfirm(`Eliminar la imagen "${img.name}" de la galeria?`, { title: "Eliminar imagen" });
+  if (!ok) return;
+
+  if (window.useFirebase && storage && img.src.includes("firebasestorage.googleapis.com")) {
+    try {
+      const { ref, deleteObject } = window.FirebaseLib;
+      // Extract path from URL
+      const decodedUrl = decodeURIComponent(img.src);
+      const urlPath = decodedUrl.split("?")[0];
+      const parts = urlPath.split("/o/");
+      if (parts.length > 1) {
+        const filePath = parts[1];
+        const storageRef = ref(storage, filePath);
+        await deleteObject(storageRef);
+      }
+    } catch(e) {
+      console.error("Error deleting from storage:", e);
+    }
+  }
+
+  galleryImages = galleryImages.filter(i => i.id !== id);
+  await saveGallery();
+  renderGallery();
+  showToast("Imagen eliminada de la galeria", "success");
+}" de la galerÃ­a?`, { title: "Eliminar imagen" });
   if (!ok) return;
   galleryImages = galleryImages.filter(i => i.id !== id);
   saveGallery();
   renderGallery();
-  showToast("Imagen eliminada de la galería", "success");
+  showToast("Imagen eliminada de la galerÃ­a", "success");
 }
 
 // Input de subida de archivos
@@ -830,7 +884,7 @@ if (imageEditFileInput) {
     const file = e.target.files[0];
     if (file) {
       if (!file.type.startsWith("image/")) {
-        showToast("Por favor, selecciona una imagen válida", "error");
+        showToast("Por favor, selecciona una imagen vÃ¡lida", "error");
         return;
       }
       try {
@@ -854,11 +908,20 @@ async function handleFileUpload(files) {
 
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen válida`, "error");
+      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
       continue;
     }
     try {
-      const src = await resizeImageFile(file, 1200, 0.78);
+      showToast(`Subiendo "${file.name}"...`, "success");
+      let src = await resizeImageFile(file, 1200, 0.78);
+      
+      if (window.useFirebase && storage) {
+        const { ref, uploadString, getDownloadURL } = window.FirebaseLib;
+        const storageRef = ref(storage, `gallery/${Date.now()}_${file.name}`);
+        await uploadString(storageRef, src, 'data_url');
+        src = await getDownloadURL(storageRef);
+      }
+
       const newImg = {
         id: "gal_" + Date.now() + "_" + Math.random().toString(36).substr(2, 6),
         name: file.name.replace(/\.[^/.]+$/, ""),
@@ -868,16 +931,17 @@ async function handleFileUpload(files) {
       galleryImages.push(newImg);
       count++;
     } catch (err) {
+      console.error(err);
       showToast(`No se pudo procesar "${file.name}"`, "error");
     }
   }
 
   if (count > 0) {
-    if (saveGallery()) {
+    if (await saveGallery()) {
       renderGallery();
-      showToast(`${count} imagen${count > 1 ? "es" : ""} añadida${count > 1 ? "s" : ""} a la galería`, "success");
+      showToast(`${count} imagen${count > 1 ? "es" : ""} aÃ±adida${count > 1 ? "s" : ""} a la galerÃ­a`, "success");
     } else {
-      // Revertir agregados si excedió cuota
+      // Revertir agregados si excediÃ³ cuota
       galleryImages.splice(galleryImages.length - count, count);
       renderGallery();
     }
@@ -900,7 +964,7 @@ galleryDropzone.addEventListener("drop", (e) => {
   handleFileUpload(e.dataTransfer.files);
 });
 
-// También drag & drop sobre el grid completo (cuando hay imágenes)
+// TambiÃ©n drag & drop sobre el grid completo (cuando hay imÃ¡genes)
 galleryGrid.addEventListener("dragover", (e) => {
   e.preventDefault();
   galleryGrid.classList.add("dragover-active");
@@ -962,9 +1026,9 @@ if (imageModalSave) {
   });
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// GESTIÃ“N DEL CARRUSEL DEL HERO
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// GESTIÃƒâ€œN DEL CARRUSEL DEL HERO
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 
 function loadHero() {
   const saved = localStorage.getItem("elegance_hero");
@@ -980,7 +1044,7 @@ function loadHero() {
   } 
   
   if (needsSeed) {
-    // Semilla con las 2 fotos que ya están en el carrusel estático
+    // Semilla con las 2 fotos que ya estÃ¡n en el carrusel estÃ¡tico
     heroImages = [
       { id: "h_insta1", name: "Estilo", src: "img/Carusel_del_hero/insta_1.png", addedAt: Date.now() - 2000 },
       { id: "h_insta2", name: "Color", src: "img/Carusel_del_hero/insta_2.png", addedAt: Date.now() - 1000 }
@@ -997,7 +1061,7 @@ function saveHero() {
     updateStorageUsage();
     return true;
   } catch (err) {
-    showToast("No hay espacio para guardar tantas fotos. Sube menos o más ligeras.", "error");
+    showToast("No hay espacio para guardar tantas fotos. Sube menos o mÃ¡s ligeras.", "error");
     return false;
   }
 }
@@ -1016,13 +1080,13 @@ function renderHero() {
     const card = document.createElement("div");
     card.className = "gallery-card";
     card.dataset.id = img.id;
-    const orderBadge = index === 0 ? '<span class="gallery-card__order">1Âª · Portada</span>' : `<span class="gallery-card__order">${index + 1}Âª</span>`;
+    const orderBadge = index === 0 ? '<span class="gallery-card__order">1Ã‚Âª Â· Portada</span>' : `<span class="gallery-card__order">${index + 1}Ã‚Âª</span>`;
     card.innerHTML = `
       <div class="gallery-card__img-wrap">
         <img src="${img.src}" alt="${escapeHtml(img.name)}" loading="lazy" />
         <div class="gallery-card__overlay">
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>â—€</button>
-          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover después" ${index === heroImages.length - 1 ? "disabled" : ""}>â–¶</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="-1" title="Mover antes" ${index === 0 ? "disabled" : ""}>Ã¢â€”â‚¬</button>
+          <button class="gallery-btn gallery-btn--move" data-id="${img.id}" data-dir="1" title="Mover despuÃ©s" ${index === heroImages.length - 1 ? "disabled" : ""}>Ã¢â€“Â¶</button>
           <button class="gallery-btn gallery-btn--delete" data-id="${img.id}" title="Eliminar foto">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
           </button>
@@ -1042,13 +1106,13 @@ function renderHero() {
     heroGrid.appendChild(card);
   });
 
-  // Tarjeta "+" para añadir
+  // Tarjeta "+" para aÃ±adir
   const addCard = document.createElement("label");
   addCard.className = "gallery-card gallery-card--add";
   addCard.htmlFor = "hero-upload-input";
   addCard.innerHTML = `
     <div class="gallery-card__add-icon">+</div>
-    <span>Añadir foto</span>
+    <span>AÃ±adir foto</span>
   `;
   heroGrid.appendChild(addCard);
 }
@@ -1065,7 +1129,7 @@ function moveHero(id, dir) {
 async function deleteHeroImage(id) {
   const img = heroImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`Â¿Quitar la foto "${img.name}" del carrusel del hero?`, { title: "Quitar foto", acceptText: "Quitar" });
+  const ok = await showConfirm(`Ã‚Â¿Quitar la foto "${img.name}" del carrusel del hero?`, { title: "Quitar foto", acceptText: "Quitar" });
   if (!ok) return;
   heroImages = heroImages.filter(i => i.id !== id);
   saveHero();
@@ -1073,7 +1137,7 @@ async function deleteHeroImage(id) {
   showToast("Foto quitada del carrusel", "success");
 }
 
-// Redimensiona una imagen a un ancho máximo y la devuelve como dataURL (JPEG)
+// Redimensiona una imagen a un ancho mÃ¡ximo y la devuelve como dataURL (JPEG)
 function resizeImageFile(file, maxWidth, quality) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -1101,7 +1165,7 @@ async function handleHeroUpload(files) {
   let added = 0;
   for (const file of Array.from(files)) {
     if (!file.type.startsWith("image/")) {
-      showToast(`"${file.name}" no es una imagen válida`, "error");
+      showToast(`"${file.name}" no es una imagen vÃ¡lida`, "error");
       continue;
     }
     try {
@@ -1120,9 +1184,9 @@ async function handleHeroUpload(files) {
   if (added > 0) {
     if (saveHero()) {
       renderHero();
-      showToast(`${added} foto${added > 1 ? "s" : ""} añadida${added > 1 ? "s" : ""} al carrusel`, "success");
+      showToast(`${added} foto${added > 1 ? "s" : ""} aÃ±adida${added > 1 ? "s" : ""} al carrusel`, "success");
     } else {
-      // Revertir las añadidas si no se pudo guardar (cuota)
+      // Revertir las aÃ±adidas si no se pudo guardar (cuota)
       heroImages.splice(heroImages.length - added, added);
       renderHero();
     }
@@ -1156,9 +1220,9 @@ if (heroGrid) {
   });
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// NAVEGACIÃ“N DE PESTAÃ‘AS
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// NAVEGACIÃƒâ€œN DE PESTAÃƒâ€˜AS
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 document.querySelectorAll(".admin-tab-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     document.querySelectorAll(".admin-tab-btn").forEach(b => b.classList.remove("active"));
@@ -1202,9 +1266,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 // UTILIDADES
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 function escapeHtml(text) {
   if (!text) return "";
   return text
@@ -1215,9 +1279,9 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-// Diálogo de confirmación on-brand (sustituye a window.confirm).
+// DiÃ¡logo de confirmaciÃ³n on-brand (sustituye a window.confirm).
 // Devuelve una promesa que resuelve true si se acepta, false si se cancela.
-function showConfirm(message, { title = "Confirmar acción", acceptText = "Eliminar" } = {}) {
+function showConfirm(message, { title = "Confirmar acciÃ³n", acceptText = "Eliminar" } = {}) {
   return new Promise((resolve) => {
     const overlay = document.getElementById("confirm-modal");
     const titleEl = document.getElementById("confirm-modal-title");
@@ -1260,7 +1324,7 @@ function showToast(message, type = "success") {
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
   toast.innerHTML = `
-    <span>${type === "success" ? "âœ“" : "âœ—"}</span>
+    <span>${type === "success" ? "Ã¢Å“â€œ" : "Ã¢Å“â€”"}</span>
     <span>${message}</span>
   `;
   toastContainer.appendChild(toast);
@@ -1274,19 +1338,19 @@ function showToast(message, type = "success") {
   }, 4000);
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// GESTIÃ“N DE VÍDEOS Y METADATOS
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// GESTIÃƒâ€œN DE VÃDEOS Y METADATOS
+// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 
 const videoSlotIds = ['hero', 'clip-facial', 'clip-peluqueria', 'clip-corporal', 'clip-unas'];
 const videoObjectURLs = {};
 
 const defaultVideosMetadata = {
-  'hero': { label: 'Hero Principal', desc: 'Vídeo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
-  'clip-facial': { label: 'Estética Facial', desc: 'Clip de tratamientos faciales' },
-  'clip-peluqueria': { label: 'Peluquería', desc: 'Clip de servicios de peluquería' },
-  'clip-corporal': { label: 'Estética Corporal', desc: 'Clip de tratamientos corporales' },
-  'clip-unas': { label: 'Cejas & Pestañas', desc: 'Clip de cejas y pestañas' }
+  'hero': { label: 'Hero Principal', desc: 'VÃ­deo de fondo de la portada. Se reproduce en bucle silencioso. Reemplaza la foto de entrada.' },
+  'clip-facial': { label: 'EstÃ©tica Facial', desc: 'Clip de tratamientos faciales' },
+  'clip-peluqueria': { label: 'PeluquerÃ­a', desc: 'Clip de servicios de peluquerÃ­a' },
+  'clip-corporal': { label: 'EstÃ©tica Corporal', desc: 'Clip de tratamientos corporales' },
+  'clip-unas': { label: 'Cejas & PestaÃ±as', desc: 'Clip de cejas y pestaÃ±as' }
 };
 
 let videosMetadata = {};
@@ -1307,7 +1371,7 @@ async function loadVideosMetadata() {
         }
       });
     } catch (err) {
-      console.error("Error al cargar metadatos de vídeo de Firebase:", err);
+      console.error("Error al cargar metadatos de vÃ­deo de Firebase:", err);
       videosMetadata = { ...defaultVideosMetadata };
     }
   } else {
@@ -1343,14 +1407,14 @@ async function saveVideoMetadata(slotId, label, desc) {
     const { setDoc, doc } = window.FirebaseLib;
     try {
       await setDoc(doc(db, "videos_metadata", slotId), { label, desc });
-      showToast("Información del vídeo guardada en Firebase", "success");
+      showToast("InformaciÃ³n del vÃ­deo guardada en Firebase", "success");
     } catch (err) {
       showToast("Error al guardar en Firebase: " + err.message, "error");
     }
   } else {
     localStorage.setItem("elegance_videos_metadata", JSON.stringify(videosMetadata));
     updateStorageUsage();
-    showToast("Información del vídeo guardada", "success");
+    showToast("InformaciÃ³n del vÃ­deo guardada", "success");
   }
   applyVideosMetadata();
 }
@@ -1376,7 +1440,7 @@ function initVideoManagement() {
     }
   });
 
-  // Listener para botones de edición
+  // Listener para botones de ediciÃ³n
   document.querySelectorAll(".video-edit-info-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const slotId = e.target.getAttribute("data-slot");
@@ -1447,11 +1511,11 @@ function loadVideoSlot(slotId, file) {
   const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
   const sizeOk = file.size < 5 * 1024 * 1024;
   if (metatext) {
-    metatext.textContent = `${file.name} · ${sizeMB} MB${!sizeOk ? ' âš ï¸ Comprime con HandBrake' : ' âœ“ Tamaño correcto'}`;
+    metatext.textContent = `${file.name} Â· ${sizeMB} MB${!sizeOk ? ' Ã¢Å¡Â Ã¯Â¸Â Comprime con HandBrake' : ' Ã¢Å“â€œ TamaÃ±o correcto'}`;
     metatext.style.color = sizeOk ? '#2ecc71' : '#e74c3c';
   }
 
-  showToast(`Vídeo "${file.name}" cargado en preview`, 'success');
+  showToast(`VÃ­deo "${file.name}" cargado en preview`, 'success');
 }
 
 function clearVideoSlot(slotId) {
@@ -1495,8 +1559,8 @@ function formatPrice(price) {
   if (p.toLowerCase().includes("gratis") || p.toLowerCase().includes("free")) {
     return p;
   }
-  p = p.replace(/€/g, "").trim();
-  return `${p} €`;
+  p = p.replace(/â‚¬/g, "").trim();
+  return `${p} â‚¬`;
 }
 
 // Inicializar al cargar
@@ -1559,7 +1623,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (publishBtn) {
     publishBtn.addEventListener("click", () => {
       showToast("Datos publicados en la web exitosamente (simulado en modo local)", "success");
-      // Aquí se conectaría con la API o backend para actualizar la web pública
+      // AquÃ­ se conectarÃ­a con la API o backend para actualizar la web pÃºblica
     });
   }
 });
@@ -1569,7 +1633,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ============================================================================
-// DATA BACKUP & RESTORE (RESPALDO Y RESTAURACIÓN)
+// DATA BACKUP & RESTORE (RESPALDO Y RESTAURACIÃ“N)
 // ============================================================================
 
 function initBackupRestore() {
@@ -1599,7 +1663,7 @@ function initBackupRestore() {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        showToast("Copia de seguridad exportada con éxito", "success");
+        showToast("Copia de seguridad exportada con Ã©xito", "success");
       } catch (err) {
         console.error(err);
         showToast("Error al exportar la copia de seguridad", "error");
@@ -1620,9 +1684,9 @@ function initBackupRestore() {
         try {
           const data = JSON.parse(e.target.result);
           
-          // Validación básica de estructura de respaldo
+          // ValidaciÃ³n bÃ¡sica de estructura de respaldo
           if (!data.elegance_services && !data.elegance_categories && !data.elegance_salon_info) {
-            throw new Error("El archivo no parece ser una copia de seguridad válida.");
+            throw new Error("El archivo no parece ser una copia de seguridad vÃ¡lida.");
           }
 
           // Restaurar cada clave si existe en el JSON
@@ -1649,7 +1713,7 @@ function initBackupRestore() {
 
 
 // ============================================================================
-// BOOKING AGENDA CONFIGURATION (CONFIGURACIÓN DE AGENDA DE CITAS)
+// BOOKING AGENDA CONFIGURATION (CONFIGURACIÃ“N DE AGENDA DE CITAS)
 // ============================================================================
 
 function initAgendaConfig() {
@@ -1675,7 +1739,7 @@ function initAgendaConfig() {
 
   if (!radioExternal || !radioInternal || !radioGoogle || !radioFirebase || !btnSave) return;
 
-  // ES: Cargar configuración guardada | EN: Load saved configuration
+  // ES: Cargar configuraciÃ³n guardada | EN: Load saved configuration
   const saved = JSON.parse(localStorage.getItem("elegance_agenda_config") || "null");
   if (saved) {
     if (saved.type === "internal") {
@@ -1705,7 +1769,7 @@ function initAgendaConfig() {
     if (saved.firebaseUrl && firebaseUrlInput) firebaseUrlInput.value = saved.firebaseUrl;
   }
 
-  // ES: Función para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
+  // ES: FunciÃ³n para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
   function updateFieldsVisibility() {
     const isExternal = radioExternal.checked;
     const isInternal = radioInternal.checked;
@@ -1716,7 +1780,7 @@ function initAgendaConfig() {
     googleFields.hidden = !isGoogle;
     if(firebaseFields) firebaseFields.hidden = !isFirebase;
 
-    // ES: Resaltar la opción seleccionada | EN: Highlight selected option
+    // ES: Resaltar la opciÃ³n seleccionada | EN: Highlight selected option
     if (labelExternal && labelInternal && labelGoogle && labelFirebase) {
       labelExternal.classList.toggle("is-selected", isExternal);
       labelInternal.classList.toggle("is-selected", isInternal);
@@ -1749,7 +1813,7 @@ function initAgendaConfig() {
   if (googleUrlInput) googleUrlInput.addEventListener("input", updateFieldsVisibility);
   if (firebaseUrlInput) firebaseUrlInput.addEventListener("input", updateFieldsVisibility);
 
-  // ES: Guardar configuración | EN: Save configuration
+  // ES: Guardar configuraciÃ³n | EN: Save configuration
   btnSave.addEventListener("click", () => {
     const config = {
       type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : radioFirebase.checked ? "firebase" : "internal",
@@ -1759,26 +1823,26 @@ function initAgendaConfig() {
       firebaseUrl: firebaseUrlInput ? firebaseUrlInput.value : ""
     };
     localStorage.setItem("elegance_agenda_config", JSON.stringify(config));
-    showToast("Configuración de agenda guardada correctamente", "success");
+    showToast("ConfiguraciÃ³n de agenda guardada correctamente", "success");
   });
 
   // ES: Inicializar la vista | EN: Initialize the view
   updateFieldsVisibility();
 }
 
-// ES: Inicializar al cargar la página | EN: Initialize on page load
+// ES: Inicializar al cargar la pÃ¡gina | EN: Initialize on page load
 document.addEventListener("DOMContentLoaded", () => {
   initAgendaConfig();
 });
 
 // ES: Listener para cambios de idioma en tiempo real | EN: Listener for real-time language changes
 window.addEventListener("i18nLanguageChanged", () => {
-  // ES: Actualizar textos dependientes de traducción | EN: Update translation-dependent texts
+  // ES: Actualizar textos dependientes de traducciÃ³n | EN: Update translation-dependent texts
   if (typeof updateI18nLabels === "function") {
     updateI18nLabels();
   }
 
-  // ES: Volver a renderizar elementos dinámicos para aplicar los nuevos textos | EN: Re-render dynamic elements to apply new texts
+  // ES: Volver a renderizar elementos dinÃ¡micos para aplicar los nuevos textos | EN: Re-render dynamic elements to apply new texts
   if (typeof renderCategoryTabs === "function") renderCategoryTabs();
   if (typeof renderCategorySelect === "function") renderCategorySelect();
   if (typeof renderCategoryManagerList === "function") renderCategoryManagerList();
@@ -1786,15 +1850,18 @@ window.addEventListener("i18nLanguageChanged", () => {
   if (typeof renderGallery === "function") renderGallery();
   if (typeof renderHero === "function") renderHero();
 
-  // ES: Buscar si el módulo de reseñas está cargado y refrescarlo | EN: Check if reviews module is loaded and refresh it
+  // ES: Buscar si el mÃ³dulo de reseÃ±as estÃ¡ cargado y refrescarlo | EN: Check if reviews module is loaded and refresh it
   const reviewsContainer = document.getElementById("reviews-table-body");
   if (reviewsContainer) {
-    // ES: El script de reviews expone funciones globalmente o se importan. Si está importado, podemos intentar llamarlo si está registrado globalmente.
-    // ES: Dado que reviews se carga dinámicamente en admin.html:
-    // window.renderReviewsTable = renderReviewsTable; // Deberíamos asegurarnos de tener acceso a ello.
+    // ES: El script de reviews expone funciones globalmente o se importan. Si estÃ¡ importado, podemos intentar llamarlo si estÃ¡ registrado globalmente.
+    // ES: Dado que reviews se carga dinÃ¡micamente en admin.html:
+    // window.renderReviewsTable = renderReviewsTable; // DeberÃ­amos asegurarnos de tener acceso a ello.
     if (window.renderReviewsTableGlobal) {
       window.renderReviewsTableGlobal();
     }
   }
 
 });
+
+
+

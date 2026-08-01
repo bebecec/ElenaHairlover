@@ -840,31 +840,7 @@ function openImagePreview(id) {
 async function deleteGalleryImage(id) {
   const img = galleryImages.find(i => i.id === id);
   if (!img) return;
-  const ok = await showConfirm(`Eliminar la imagen "${img.name}" de la galeria?`, { title: "Eliminar imagen" });
-  if (!ok) return;
-
-  if (window.useFirebase && storage && img.src.includes("firebasestorage.googleapis.com")) {
-    try {
-      const { ref, deleteObject } = window.FirebaseLib;
-      // Extract path from URL
-      const decodedUrl = decodeURIComponent(img.src);
-      const urlPath = decodedUrl.split("?")[0];
-      const parts = urlPath.split("/o/");
-      if (parts.length > 1) {
-        const filePath = parts[1];
-        const storageRef = ref(storage, filePath);
-        await deleteObject(storageRef);
-      }
-    } catch(e) {
-      console.error("Error deleting from storage:", e);
-    }
-  }
-
-  galleryImages = galleryImages.filter(i => i.id !== id);
-  await saveGallery();
-  renderGallery();
-  showToast("Imagen eliminada de la galeria", "success");
-}" de la galerÃ­a?`, { title: "Eliminar imagen" });
+  const ok = await showConfirm(`Eliminar la imagen "${img.name}" de la galerÃ­a?`, { title: "Eliminar imagen" });
   if (!ok) return;
   galleryImages = galleryImages.filter(i => i.id !== id);
   saveGallery();
@@ -1862,6 +1838,7 @@ window.addEventListener("i18nLanguageChanged", () => {
   }
 
 });
+
 
 
 

@@ -1596,7 +1596,7 @@ function checkAuthStatus() {
       if(loginOverlay) loginOverlay.style.display = "none";
       if(adminDashboard) adminDashboard.style.display = "block";
       
-      const role = localStorage.setItem("adminRole", localStorage.getItem("adminRole") || "vipadmin");
+      if (!localStorage.getItem("adminRole")) localStorage.setItem("adminRole", "vipadmin");
       applyRoleRestrictions(localStorage.getItem("adminRole"));
     initDatabase();
     initVideoManagement();
@@ -1619,7 +1619,8 @@ function initAuth() {
 
       // Local emergency bypass
       if (email === "admin@salon.com" && password === "123456") {
-        localStorage.setItem("isAdminLoggedIn", "true");
+          localStorage.setItem("adminRole", "vipadmin");
+          localStorage.setItem("isAdminLoggedIn", "true");
         loginError.style.display = "none";
         checkAuthStatus();
         return;

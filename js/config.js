@@ -2,12 +2,13 @@
 // Si no configuras tu proyecto de Firebase, el sistema utilizará localStorage de forma automática
 // para que puedas probar todo el panel de administración de inmediato.
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROJECT_ID.firebaseapp.com",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_PROJECT_ID.appspot.com",
-  messagingSenderId: "TU_MESSAGING_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyCSRMSJBphzjxhN6ZBhJzB_yJeg7iYTxcc",
+  authDomain: "elena-hairlover.firebaseapp.com",
+  projectId: "elena-hairlover",
+  storageBucket: "elena-hairlover.firebasestorage.app",
+  messagingSenderId: "241566307898",
+  appId: "1:241566307898:web:be86713ac4b09dbc874703",
+  measurementId: "G-PLWC70Y609"
 };
 
 // Activa Firebase automáticamente si las credenciales son configuradas por el usuario

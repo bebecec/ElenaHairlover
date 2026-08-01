@@ -854,7 +854,7 @@ async function deleteGalleryImage(id) {
 }
 
 // Input de subida de archivos
-galleryUploadInput.addEventListener("change", (e) => {
+if (galleryUploadInput) galleryUploadInput.addEventListener("change", (e) => {
   handleFileUpload(e.target.files);
   e.target.value = ""; // reset para permitir re-subir el mismo fichero
 });
@@ -930,32 +930,32 @@ async function handleFileUpload(files) {
 }
 
 // Drag & Drop en la dropzone
-galleryDropzone.addEventListener("dragover", (e) => {
+if (galleryDropzone) galleryDropzone.addEventListener("dragover", (e) => {
   e.preventDefault();
   galleryDropzone.classList.add("dragover");
 });
 
-galleryDropzone.addEventListener("dragleave", () => {
+if (galleryDropzone) galleryDropzone.addEventListener("dragleave", () => {
   galleryDropzone.classList.remove("dragover");
 });
 
-galleryDropzone.addEventListener("drop", (e) => {
+if (galleryDropzone) galleryDropzone.addEventListener("drop", (e) => {
   e.preventDefault();
   galleryDropzone.classList.remove("dragover");
   handleFileUpload(e.dataTransfer.files);
 });
 
 // TambiÃ©n drag & drop sobre el grid completo (cuando hay imÃ¡genes)
-galleryGrid.addEventListener("dragover", (e) => {
+if (galleryGrid) galleryGrid.addEventListener("dragover", (e) => {
   e.preventDefault();
   galleryGrid.classList.add("dragover-active");
 });
 
-galleryGrid.addEventListener("dragleave", () => {
+if (galleryGrid) galleryGrid.addEventListener("dragleave", () => {
   galleryGrid.classList.remove("dragover-active");
 });
 
-galleryGrid.addEventListener("drop", (e) => {
+if (galleryGrid) galleryGrid.addEventListener("drop", (e) => {
   e.preventDefault();
   galleryGrid.classList.remove("dragover-active");
   handleFileUpload(e.dataTransfer.files);
@@ -1175,16 +1175,16 @@ async function handleHeroUpload(files) {
 }
 
 if (heroUploadInput) {
-  heroUploadInput.addEventListener("change", (e) => {
+  if (heroUploadInput) heroUploadInput.addEventListener("change", (e) => {
     handleHeroUpload(e.target.files);
     e.target.value = "";
   });
 }
 
 if (heroDropzone) {
-  heroDropzone.addEventListener("dragover", (e) => { e.preventDefault(); heroDropzone.classList.add("dragover"); });
-  heroDropzone.addEventListener("dragleave", () => heroDropzone.classList.remove("dragover"));
-  heroDropzone.addEventListener("drop", (e) => {
+  if (heroDropzone) heroDropzone.addEventListener("dragover", (e) => { e.preventDefault(); heroDropzone.classList.add("dragover"); });
+  if (heroDropzone) heroDropzone.addEventListener("dragleave", () => heroDropzone.classList.remove("dragover"));
+  if (heroDropzone) heroDropzone.addEventListener("drop", (e) => {
     e.preventDefault();
     heroDropzone.classList.remove("dragover");
     handleHeroUpload(e.dataTransfer.files);
@@ -1192,9 +1192,9 @@ if (heroDropzone) {
 }
 
 if (heroGrid) {
-  heroGrid.addEventListener("dragover", (e) => { e.preventDefault(); heroGrid.classList.add("dragover-active"); });
-  heroGrid.addEventListener("dragleave", () => heroGrid.classList.remove("dragover-active"));
-  heroGrid.addEventListener("drop", (e) => {
+  if (heroGrid) heroGrid.addEventListener("dragover", (e) => { e.preventDefault(); heroGrid.classList.add("dragover-active"); });
+  if (heroGrid) heroGrid.addEventListener("dragleave", () => heroGrid.classList.remove("dragover-active"));
+  if (heroGrid) heroGrid.addEventListener("drop", (e) => {
     e.preventDefault();
     heroGrid.classList.remove("dragover-active");
     handleHeroUpload(e.dataTransfer.files);

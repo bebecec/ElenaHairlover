@@ -451,7 +451,7 @@ function renderTimeSlots(availableSlots) {
 }
 
 async function handleBookingSubmit() {
-  if (!currentUser || !currentClientData || !selectedService || !selectedDateStr || !selectedTime) return;
+  if (!currentUser || !selectedService || !selectedDateStr || !selectedTime) return;
   
   const btn = document.getElementById('btn-confirmar');
   btn.disabled = true;
@@ -459,13 +459,15 @@ async function handleBookingSubmit() {
   
   try {
     const duration = selectedService.duration ? selectedService.duration : '60 min';
+    const clientData = currentClientData || {};
+    
     await firebase.firestore().collection('citas').add({
       clientId: currentUser.uid,
-      clientName: currentClientData.name + ' ' + (currentClientData.lastName || ''),
-      clientEmail: currentClientData.email,
-      clientPhone: currentClientData.phone || '',
+      clientName: (clientData.name || 'Cliente') + ' ' + (clientData.lastName || ''),
+      clientEmail: clientData.email || currentUser.email || 'sin-email@salon.com',
+      clientPhone: clientData.phone || '',
       serviceId: selectedService.id,
-      serviceName: selectedService.name,
+      serviceName: selectedService.name || 'Servicio',
       serviceDuration: duration,
       date: selectedDateStr,
       time: selectedTime,
@@ -476,17 +478,24 @@ async function handleBookingSubmit() {
     closeModal();
     
     // Ocultar la lista y mostrar el mensaje de éxito
-    document.getElementById('services-container').style.display = 'none';
-    document.querySelector('.mb-6.relative').style.display = 'none'; // ocultar barra busqueda
-    document.getElementById('success-msg').style.display = 'block';
+    const sc = document.getElementById('services-container');
+    if (sc) sc.style.display = 'none';
+    const sb = document.querySelector('.mb-6.relative');
+    if (sb) sb.style.display = 'none'; // ocultar barra busqueda
     
-    document.getElementById('conf-date').textContent = selectedDateStr;
-    document.getElementById('conf-time').textContent = selectedTime;
-    document.getElementById('conf-service').textContent = selectedService.name;
+    const sm = document.getElementById('success-msg');
+    if (sm) sm.style.display = 'block';
+    
+    const cd = document.getElementById('conf-date');
+    if (cd) cd.textContent = selectedDateStr;
+    const ct = document.getElementById('conf-time');
+    if (ct) ct.textContent = selectedTime;
+    const cs = document.getElementById('conf-service');
+    if (cs) cs.textContent = selectedService.name || 'Servicio';
     
   } catch(e) {
-    console.error(e);
-    alert('Error al guardar la reserva. Por favor intenta nuevamente.');
+    console.error('Booking error:', e);
+    alert('Error al guardar la reserva. Por favor intenta nuevamente.\nDetalle: ' + e.message);
     btn.disabled = false;
     btn.textContent = 'CONFIRMAR';
   }

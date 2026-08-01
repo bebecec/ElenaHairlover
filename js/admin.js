@@ -1710,16 +1710,38 @@ function initBackupRestore() {
   const importFile = document.getElementById("import-backup-file");
 
   if (btnExport) {
-    if (btnExport) btnExport.addEventListener("click", () => {
+    btnExport.addEventListener("click", async () => {
       try {
-        const backupData = {
-          elegance_services: JSON.parse(localStorage.getItem("elegance_services")) || [],
-          elegance_categories: JSON.parse(localStorage.getItem("elegance_categories")) || [],
-          elegance_salon_info: JSON.parse(localStorage.getItem("elegance_salon_info")) || {},
-          elegance_gallery: JSON.parse(localStorage.getItem("elegance_gallery")) || [],
-          elegance_hero: JSON.parse(localStorage.getItem("elegance_hero")) || [],
-          elegance_google_reviews: JSON.parse(localStorage.getItem("elegance_google_reviews")) || []
-        };
+        btnExport.disabled = true;
+        btnExport.textContent = "Exportando...";
+        let backupData = {};
+        
+        if (window.useFirebase) {
+          const { getDocs, collection } = window.FirebaseLib;
+          const collections = ['servicios', 'categorias', 'citas', 'clientes', 'salon_info', 'users_roles'];
+          
+          for (const colName of collections) {
+            const snapshot = await getDocs(collection(db, colName));
+            backupData[colName] = {};
+            snapshot.forEach(doc => {
+              backupData[colName][doc.id] = doc.data();
+            });
+          }
+          // Also backup localStorage configs just in case
+          backupData.localStorage = {
+            elegance_agenda_config: localStorage.getItem("elegance_agenda_config"),
+            elegance_google_reviews: localStorage.getItem("elegance_google_reviews")
+          };
+        } else {
+          backupData = {
+            elegance_services: JSON.parse(localStorage.getItem("elegance_services")) || [],
+            elegance_categories: JSON.parse(localStorage.getItem("elegance_categories")) || [],
+            elegance_salon_info: JSON.parse(localStorage.getItem("elegance_salon_info")) || {},
+            elegance_gallery: JSON.parse(localStorage.getItem("elegance_gallery")) || [],
+            elegance_hero: JSON.parse(localStorage.getItem("elegance_hero")) || [],
+            elegance_google_reviews: JSON.parse(localStorage.getItem("elegance_google_reviews")) || []
+          };
+        }
 
         const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
         const url = URL.createObjectURL(blob);
@@ -1731,237 +1753,67 @@ function initBackupRestore() {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        showToast("Copia de seguridad exportada con Ã©xito", "success");
+        showToast("Copia de seguridad exportada con éxito", "success");
       } catch (err) {
         console.error(err);
-        showToast("Error al exportar la copia de seguridad", "error");
+        showToast("Error al exportar: " + err.message, "error");
+      } finally {
+        btnExport.disabled = false;
+        btnExport.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.btn_export_backup", "Exportar Copia de Seguridad") : "Exportar Copia de Seguridad";
       }
     });
   }
 
   if (btnImport && importFile) {
-    if (btnImport) btnImport.addEventListener("click", () => {
+    btnImport.addEventListener("click", () => {
       const file = importFile.files[0];
       if (!file) {
-        showToast("Por favor, selecciona un archivo de respaldo (.json)", "error");
+        showToast("Por favor, selecciona un archivo .json primero", "error");
         return;
       }
-
+      
       const reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = async (e) => {
         try {
+          btnImport.disabled = true;
+          btnImport.textContent = "Restaurando...";
           const data = JSON.parse(e.target.result);
           
-          // ValidaciÃ³n bÃ¡sica de estructura de respaldo
-          if (!data.elegance_services && !data.elegance_categories && !data.elegance_salon_info) {
-            throw new Error("El archivo no parece ser una copia de seguridad vÃ¡lida.");
+          if (window.useFirebase && data.servicios) { // Looks like a Firebase backup
+            const { setDoc, doc } = window.FirebaseLib;
+            const collections = ['servicios', 'categorias', 'citas', 'clientes', 'salon_info', 'users_roles'];
+            
+            for (const colName of collections) {
+              if (data[colName]) {
+                for (const docId in data[colName]) {
+                  await setDoc(doc(db, colName, docId), data[colName][docId]);
+                }
+              }
+            }
+            if (data.localStorage) {
+              if (data.localStorage.elegance_agenda_config) localStorage.setItem("elegance_agenda_config", data.localStorage.elegance_agenda_config);
+              if (data.localStorage.elegance_google_reviews) localStorage.setItem("elegance_google_reviews", data.localStorage.elegance_google_reviews);
+            }
+          } else {
+            // LocalStorage backup
+            if (data.elegance_services) localStorage.setItem("elegance_services", JSON.stringify(data.elegance_services));
+            if (data.elegance_categories) localStorage.setItem("elegance_categories", JSON.stringify(data.elegance_categories));
+            if (data.elegance_salon_info) localStorage.setItem("elegance_salon_info", JSON.stringify(data.elegance_salon_info));
+            if (data.elegance_gallery) localStorage.setItem("elegance_gallery", JSON.stringify(data.elegance_gallery));
+            if (data.elegance_hero) localStorage.setItem("elegance_hero", JSON.stringify(data.elegance_hero));
+            if (data.elegance_google_reviews) localStorage.setItem("elegance_google_reviews", JSON.stringify(data.elegance_google_reviews));
           }
-
-          // Restaurar cada clave si existe en el JSON
-          if (data.elegance_services) localStorage.setItem("elegance_services", JSON.stringify(data.elegance_services));
-          if (data.elegance_categories) localStorage.setItem("elegance_categories", JSON.stringify(data.elegance_categories));
-          if (data.elegance_salon_info) localStorage.setItem("elegance_salon_info", JSON.stringify(data.elegance_salon_info));
-          if (data.elegance_gallery) localStorage.setItem("elegance_gallery", JSON.stringify(data.elegance_gallery));
-          if (data.elegance_hero) localStorage.setItem("elegance_hero", JSON.stringify(data.elegance_hero));
-          if (data.elegance_google_reviews) localStorage.setItem("elegance_google_reviews", JSON.stringify(data.elegance_google_reviews));
-
-          showToast("Datos restaurados correctamente. Recargando panel...", "success");
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
+          
+          showToast("Datos restaurados correctamente. Recargando...", "success");
+          setTimeout(() => window.location.reload(), 1500);
         } catch (err) {
           console.error(err);
-          showToast("Error al importar el archivo: " + err.message, "error");
+          showToast("Error al restaurar el archivo: " + err.message, "error");
+          btnImport.disabled = false;
+          btnImport.textContent = window.I18nLoader ? window.I18nLoader.getText("admin.btn_import_backup", "Restaurar Datos") : "Restaurar Datos";
         }
       };
       reader.readAsText(file);
     });
   }
 }
-
-
-// ============================================================================
-// BOOKING AGENDA CONFIGURATION (CONFIGURACIÃ“N DE AGENDA DE CITAS)
-// ============================================================================
-
-function initAgendaConfig() {
-  const radioExternal = document.getElementById("agenda-type-external");
-  const radioInternal = document.getElementById("agenda-type-internal");
-  const radioGoogle = document.getElementById("agenda-type-google");
-  const radioFirebase = document.getElementById("agenda-type-firebase");
-  const externalFields = document.getElementById("agenda-external-fields");
-  const internalFields = document.getElementById("agenda-internal-fields");
-  const googleFields = document.getElementById("agenda-google-fields");
-  const firebaseFields = document.getElementById("agenda-firebase-fields");
-  const externalUrlInput = document.getElementById("agenda-external-url");
-  const internalUrlInput = document.getElementById("agenda-internal-url");
-  const googleUrlInput = document.getElementById("agenda-google-url");
-  const firebaseUrlInput = document.getElementById("agenda-firebase-url");
-  const previewUrl = document.getElementById("agenda-preview-url");
-  const btnSave = document.getElementById("btn-save-agenda");
-  const btnTest = document.getElementById("btn-test-agenda");
-  const labelExternal = document.getElementById("label-agenda-external");
-  const labelInternal = document.getElementById("label-agenda-internal");
-  const labelGoogle = document.getElementById("label-agenda-google");
-  const labelFirebase = document.getElementById("label-agenda-firebase");
-
-  if (!radioExternal || !radioInternal || !radioGoogle || !radioFirebase || !btnSave) return;
-
-  // ES: Cargar configuraciÃ³n guardada | EN: Load saved configuration
-  const saved = JSON.parse(localStorage.getItem("elegance_agenda_config") || "null");
-  if (saved) {
-    if (saved.type === "internal") {
-      radioInternal.checked = true;
-      radioExternal.checked = false;
-      radioGoogle.checked = false;
-      radioFirebase.checked = false;
-    } else if (saved.type === "google") {
-      radioGoogle.checked = true;
-      radioExternal.checked = false;
-      radioInternal.checked = false;
-      radioFirebase.checked = false;
-    } else if (saved.type === "firebase") {
-      radioFirebase.checked = true;
-      radioExternal.checked = false;
-      radioInternal.checked = false;
-      radioGoogle.checked = false;
-    } else {
-      radioExternal.checked = true;
-      radioInternal.checked = false;
-      radioGoogle.checked = false;
-      radioFirebase.checked = false;
-    }
-    if (saved.externalUrl && externalUrlInput) externalUrlInput.value = saved.externalUrl;
-    if (saved.internalUrl && internalUrlInput) internalUrlInput.value = saved.internalUrl;
-    if (saved.googleUrl && googleUrlInput) googleUrlInput.value = saved.googleUrl;
-    if (saved.firebaseUrl && firebaseUrlInput) firebaseUrlInput.value = saved.firebaseUrl;
-  }
-
-  // ES: FunciÃ³n para actualizar la visibilidad de campos y vista previa | EN: Update field visibility and preview
-  function updateFieldsVisibility() {
-    const isExternal = radioExternal.checked;
-    const isInternal = radioInternal.checked;
-    const isGoogle = radioGoogle.checked;
-    const isFirebase = radioFirebase.checked;
-    externalFields.hidden = !isExternal;
-    internalFields.hidden = !isInternal;
-    googleFields.hidden = !isGoogle;
-    if(firebaseFields) firebaseFields.hidden = !isFirebase;
-
-    // ES: Resaltar la opciÃ³n seleccionada | EN: Highlight selected option
-    if (labelExternal && labelInternal && labelGoogle && labelFirebase) {
-      labelExternal.classList.toggle("is-selected", isExternal);
-      labelInternal.classList.toggle("is-selected", isInternal);
-      labelGoogle.classList.toggle("is-selected", isGoogle);
-      labelFirebase.classList.toggle("is-selected", isFirebase);
-    }
-
-    // ES: Actualizar vista previa | EN: Update preview
-    const activeUrl = isExternal
-      ? externalUrlInput.value
-      : isGoogle
-        ? googleUrlInput.value
-        : isFirebase
-          ? firebaseUrlInput.value
-          : internalUrlInput.value;
-    if (previewUrl) previewUrl.textContent = activeUrl || "(sin configurar)";
-    if (btnTest) {
-      btnTest.href = activeUrl || "#";
-      btnTest.target = (isInternal || isFirebase) ? "_self" : "_blank";
-    }
-  }
-
-  // ES: Eventos de cambio de tipo | EN: Type change events
-  if (radioExternal) radioExternal.addEventListener("change", updateFieldsVisibility);
-  if (radioInternal) radioInternal.addEventListener("change", updateFieldsVisibility);
-  if (radioGoogle) radioGoogle.addEventListener("change", updateFieldsVisibility);
-  if (radioFirebase) radioFirebase.addEventListener("change", updateFieldsVisibility);
-  if (externalUrlInput) externalUrlInput.addEventListener("input", updateFieldsVisibility);
-  if (internalUrlInput) internalUrlInput.addEventListener("input", updateFieldsVisibility);
-  if (googleUrlInput) googleUrlInput.addEventListener("input", updateFieldsVisibility);
-  if (firebaseUrlInput) firebaseUrlInput.addEventListener("input", updateFieldsVisibility);
-
-  // ES: Guardar configuraciÃ³n | EN: Save configuration
-  if (btnSave) btnSave.addEventListener("click", () => {
-    const config = {
-      type: radioExternal.checked ? "external" : radioGoogle.checked ? "google" : radioFirebase.checked ? "firebase" : "internal",
-      externalUrl: externalUrlInput ? externalUrlInput.value : "",
-      internalUrl: internalUrlInput ? internalUrlInput.value : "",
-      googleUrl: googleUrlInput ? googleUrlInput.value : "",
-      firebaseUrl: firebaseUrlInput ? firebaseUrlInput.value : ""
-    };
-    localStorage.setItem("elegance_agenda_config", JSON.stringify(config));
-    showToast("ConfiguraciÃ³n de agenda guardada correctamente", "success");
-  });
-
-  // ES: Inicializar la vista | EN: Initialize the view
-  updateFieldsVisibility();
-}
-
-// ES: Inicializar al cargar la pÃ¡gina | EN: Initialize on page load
-document.addEventListener("DOMContentLoaded", () => {
-  initAgendaConfig();
-});
-
-// ES: Listener para cambios de idioma en tiempo real | EN: Listener for real-time language changes
-window.addEventListener("i18nLanguageChanged", () => {
-  // ES: Actualizar textos dependientes de traducciÃ³n | EN: Update translation-dependent texts
-  if (typeof updateI18nLabels === "function") {
-    updateI18nLabels();
-  }
-
-  // ES: Volver a renderizar elementos dinÃ¡micos para aplicar los nuevos textos | EN: Re-render dynamic elements to apply new texts
-  if (typeof renderCategoryTabs === "function") renderCategoryTabs();
-  if (typeof renderCategorySelect === "function") renderCategorySelect();
-  if (typeof renderCategoryManagerList === "function") renderCategoryManagerList();
-  if (typeof renderServicesTable === "function") renderServicesTable();
-  if (typeof renderGallery === "function") renderGallery();
-  if (typeof renderHero === "function") renderHero();
-
-  // ES: Buscar si el mÃ³dulo de reseÃ±as estÃ¡ cargado y refrescarlo | EN: Check if reviews module is loaded and refresh it
-  const reviewsContainer = document.getElementById("reviews-table-body");
-  if (reviewsContainer) {
-    // ES: El script de reviews expone funciones globalmente o se importan. Si estÃ¡ importado, podemos intentar llamarlo si estÃ¡ registrado globalmente.
-    // ES: Dado que reviews se carga dinÃ¡micamente en admin.html:
-    // window.renderReviewsTable = renderReviewsTable; // DeberÃ­amos asegurarnos de tener acceso a ello.
-    if (window.renderReviewsTableGlobal) {
-      window.renderReviewsTableGlobal();
-    }
-  }
-
-});
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  
-  // Logic for assigning roles
-  const btnAssignRole = document.getElementById("btn-assign-role");
-  if (btnAssignRole) {
-    btnAssignRole.addEventListener("click", async () => {
-      const uid = document.getElementById("role-uid").value.trim();
-      const role = document.getElementById("role-select").value;
-      
-      if (!uid) {
-        alert("Por favor, introduce el UID del usuario.");
-        return;
-      }
-      
-      try {
-        btnAssignRole.textContent = "Guardando...";
-        await window.FirebaseLib.setDoc(window.FirebaseLib.doc(db, "users_roles", uid), { role: role });
-        alert("Rol asignado correctamente. El usuario tendrá los permisos en su próximo inicio de sesión.");
-        document.getElementById("role-uid").value = "";
-      } catch (err) {
-        console.error("Error al asignar rol:", err);
-        alert("Error al asignar rol: " + err.message);
-      } finally {
-        btnAssignRole.textContent = "Guardar Rol";
-      }
-    });
-  }
-
-});
